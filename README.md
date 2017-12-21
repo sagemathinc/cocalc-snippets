@@ -1,4 +1,4 @@
-# CoCalc Assistent
+# CoCalc Assistant
 
 A collection of code snippet examples to assist working on cocalc.
 
