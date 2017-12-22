@@ -9,16 +9,22 @@ category: ["statistics", "modeling"]
 title: Linear Model
 descr: Linear Model Example
 code: |
+    x <- seq(10)
+    y <- 2*x + rnorm(length(x))
     lm(y ~ x)
 ---
-title: Nonlinear Model
-descr: Nonlinear Model Example
+title: Generalized Linear Model
+descr: Generalized Linear Model Example
 code: |
-    lm(y ~ x)
+    x <- seq(10)
+    y <- 2*x^2 + rnorm(length(x))
+    glm(y ~ x)
 ---
 title: ANOVA
 descr: >
     ANOVA of a linear model
 code: |
+    x <- seq(10)
+    y <- 2*x + rnorm(length(x))
     lm1 <- lm(y ~ x)
     anova(lm1)
