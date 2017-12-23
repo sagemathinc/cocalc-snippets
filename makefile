@@ -1,7 +1,7 @@
 PYTHON ?= python3
 
 INDIR  := input
-OUTDIR := ../webapp-lib/examples
+OUTDIR := .
 
 INPUT  := $(shell find . ${INDIR}/ -type f -name '*.yaml')
 OUTPUT := ${OUTDIR}/examples.json
