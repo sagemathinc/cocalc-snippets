@@ -8,7 +8,7 @@ OUTPUT := ${OUTDIR}/examples.json
 
 .PHONY: clean
 
-${OUTPUT}: ${INPUT}
+${OUTPUT}: ${INPUT} build.py
 	${PYTHON} build.py ${INDIR} ${OUTPUT}
 
 clean:

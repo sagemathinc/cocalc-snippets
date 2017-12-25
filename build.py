@@ -56,7 +56,10 @@ def process_doc(doc, input_fn):
     #    raise AssertionError("keyword missing in %s in %s" % (doc, input_fn))
     title       = doc["title"].strip()
     code        = doc["code"].strip()
-    description = doc["descr"].strip() # hashtag_re.sub(process_hashtags, doc["descr"])
+    if 'descr' in doc:
+        description = doc["descr"].strip() # hashtag_re.sub(process_hashtags, doc["descr"])
+    else:
+        description = title
     body        = [code, description]
     # attribution
     if "attr" in doc:
@@ -109,12 +112,17 @@ def examples_data(input_dir, output_fn):
                     titles = set()
                     processed = True
 
-                if all(_ in doc.keys() for _ in ["title", "code", "descr"]):
+                if all(_ in doc.keys() for _ in ["title", "code"]):
                     # we have an actual document entry, append it in the original ordering as a tuple.
-                    title, body = process_doc(doc, input_fn)
+                    try:
+                        title, body = process_doc(doc, input_fn)
+                    except Exception as ex:
+                        print("Problem processing {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
+                        raise ex
                     if title in titles:
                         raise AssertionError("Duplicate title '{title}' in {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
-                    entries.append([title, body])
+                    entry = [title, body]
+                    entries.append(entry)
                     titles.add(title)
                     processed = True
 
