@@ -1,0 +1,95 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath, Inc. -- 2017
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+# Some of the content of in this particular file is derived from https://www.gnu.org/software/octave/doc/v4.0.3/Simple-Examples.html
+
+language: octave
+---
+category: ["Introduction", "First Steps"]
+---
+title: Elementary Calculations
+descr: |
+  Octave can easily be used for basic numerical calculations. Octave knows about arithmetic operations (+,-,*,/), exponentiation (^), natural logarithms/exponents (log, exp), and the trigonometric functions (sin, cos, …). Moreover, Octave calculations work on real or imaginary numbers (i,j). In addition, some mathematical constants such as the base of the natural logarithm (e) and the ratio of a circle’s circumference to its diameter (pi) are pre-defined.
+
+  For example, to verify Euler’s Identity,
+
+  $$e^{\mathbb{i} * \pi} = -1$$
+
+  type the following which will evaluate to -1 within the tolerance of the calculation.
+
+
+code: |
+  exp (i*pi)
+---
+title: Creating a Matrix
+descr: |
+  Vectors and matrices are the basic building blocks for numerical analysis. To create a new matrix and store it in a variable so that you can refer to it later.
+  Octave will respond by printing the matrix in neatly aligned columns. Octave uses a comma or space to separate entries in a row, and a semicolon or carriage return to separate one row from the next. Ending a command with a semicolon tells Octave not to print the result of the command. For example,
+code: |
+  A = [ 1, 1, 2; 3, 5, 8; 13, 21, 34 ]
+  B = rand (3, 2);
+  B
+---
+title: Matrix Arithmetic
+descr: |
+  Octave has a convenient operator notation for performing matrix arithmetic.
+  For example, to multiply the matrix A by a scalar value, type the command: `2 * A`.
+
+  To multiply the two matrices A and B, type the command `A * B`
+
+  and to form the matrix product `transpose(A) * A`, type the command `A' * A`
+code: |
+    2 * A
+    A * B
+    A' * A
+---
+title: Solving Systems of Linear Equations
+descr: |
+   To solve the set of linear equations Ax = b, use the left division operator, ‘\’
+code: |
+  A = [ 2, 0; 0, 2 ];
+  b = [ 2; 1 ];
+  x = A \ b
+---
+title: Integrating Differential Equations
+descr: |
+  Octave has built-in functions for solving nonlinear differential equations.
+  You must first provide a definition of the function f(x,t), the initial condition $t_0%,
+  and the set of output times as a column vector $t$ (note that the first output time corresponds to the initial condition given above).
+code: |
+  function xdot = f (x, t)
+    r = 0.25;
+    k = 1.4;
+    a = 1.5;
+    b = 0.16;
+    c = 0.9;
+    d = 0.8;
+    xdot(1) = r*x(1)*(1 - x(1)/k) - a*x(1)*x(2)/(1 + b*x(1));
+    xdot(2) = c*a*x(1)*x(2)/(1 + b*x(1)) - d*x(2);
+  endfunction
+
+  x0 = [1; 2];
+
+  t = linspace (0, 50, 200)';
+
+  x = lsode ("f", x0, t);
+
+  x
+---
+title: Producing Graphical Output
+descr: Plot function
+code: plot (t, x)
+---
+title: Help and Documentation
+descr: |
+  You can find this introcution guide online: https://www.gnu.org/software/octave/doc/v4.0.3/Simple-Examples.html
+
+  You can also use the help command
+code: help plot
+
+
+
+
+
+
+
