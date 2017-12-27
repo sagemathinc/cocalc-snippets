@@ -3,7 +3,7 @@
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 ---
 language: sage
-category: Mathematics  / Rings
+category: Mathematics / Rings
 ---
 title: Integers
 descr: Ring of integer numbers
@@ -22,79 +22,79 @@ descr: Ring of complex numbers
 code: CC
 ---
 title: |
-  Polynomial Ring $\QQ\[x,y,z\]$
+  Polynomial Ring $\QQ[x,\,y,\,z]$
 code: |
   R.<x,y,z> = QQ[]
 ---
 title: |
-  Polynomial Ring $\QQ[x, y]/(y^2-x^3-x)$
+  Polynomial Ring $\QQ[x,\, y]/(y^2-x^3-x)$
 code: |
   R.<x,y> = QQ[]
   R.<xx, yy> = R.quo([y^2 - x^3 - x])
 ---
 title: |
-  Polynomial Ring $\ZZ[x_2, x_3, \ldots, x_{97}]$
+  Polynomial Ring $\ZZ[x_2,\, x_3,\, \ldots,\, x_{97}]$
 code: |
   R = PolynomialRing(ZZ, ['x%s'%p for p in primes(100)])
   R.inject_variables()
 ---
 title: |
-  Algebraic reals $\\mathbb{A}$
+  Algebraic reals $\mathbb{A}$
 code: |
   AA
 ---
 title: |
-  Complex double $\\CDF$
+  Complex double $\CDF$
 code: |
   CDF
 ---
 title: |
-  Complex interval $\\CC$
+  Complex interval $\CC$
 code: |
   CIF
 ---
 title: |
-  Complex lazy $\\CLF$
+  Complex lazy $\CLF$
 code: |
   CLF
 ---
 title: |
-  Prime finite field $\\FF_p$
+  Prime finite field $\FF_p$
 code: |
   GF(7)
 ---
 title: |
-  Finite field $\\FF_{p^r}$
+  Finite field $\FF_{p^r}$
 code: |
   GF(7^3,'a')
 ---
 title: |
-  Algebraic closure $\\overline{\\QQ}$
+  Algebraic closure $\overline{\QQ}$
 code: |
   QQbar
 ---
 title: |
-  $p$-adic numbers $\\QQ_p$
+  $p$-adic numbers $\QQ_p$
 code: |
   Qp(7)
 ---
 title: |
-  Real double $\\RDF$
+  Real double $\RDF$
 code: |
   RDF
 ---
 title: |
-  Real interval $\\RR$
+  Real interval $\RR$
 code: |
   RIF
 ---
 title: |
-  Real lazy $\\RLF$
+  Real lazy $\RLF$
 code: |
   RLF
 ---
 title: |
-  $p$-adic integers $\\ZZ_p$
+  $p$-adic integers $\ZZ_p$
 code: |
   Zp(7)
 ---
