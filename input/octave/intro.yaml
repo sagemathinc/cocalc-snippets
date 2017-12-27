@@ -54,7 +54,7 @@ code: |
 title: Integrating Differential Equations
 descr: |
   Octave has built-in functions for solving nonlinear differential equations.
-  You must first provide a definition of the function f(x,t), the initial condition $t_0%,
+  You must first provide a definition of the function f(x,t), the initial condition $t_0$,
   and the set of output times as a column vector $t$ (note that the first output time corresponds to the initial condition given above).
 code: |
   function xdot = f (x, t)
