@@ -14,6 +14,13 @@ descr: |
   Experiment with that expression, what result gives `1 / (3-7)`?
 code: 2+3
 ---
+title: Strings
+descr: |
+  "Strings" are sequences of characters.
+  They're enclosed in `"..."` characters.
+code: |
+  print("abc")
+---
 title: Vectors
 descr: |
   A lot in R is done via functions.
@@ -35,25 +42,54 @@ code: |
   print(summary(x))
   print(length(x))
 ---
-title: Indexing Vectors
+title: Basic Data Types
+descr: |
+  R knows a few basic data types. Use `class(...)` to see the associated type information.
+
+  * Numeric: decimal values
+  * Integer: integer values
+  * Complex
+  * Logical
+  * Character
+code: |
+  print(class(1.1))     # numeric
+  print(class(42))      # integer
+  print(class(2 + 3i))  # complex
+  print(class(TRUE))    # logical
+  print(class("abc"))   # character
+---
+category: ["Introduction", "Data Structures"]
+---
+title: Vector
+descr: |
+  Vectors are created via the `c(...)` function.
+
+  You can also use `c` to combine more than one vector.
+code: |
+  print(c(TRUE, TRUE, FALSE))
+  a <- c(1,2,3)
+  b <- c(9, 4.4, 1.1)
+  print(c(a, b))
+---
+title: Vector Arithmetic
+descr: Numerical vectors can be used in calculations.
+code: |
+  a <- c(1,2,3)
+  b <- c(9, 4.4, 1.1)
+  print(2 * a)     # multiplication with a scalar
+  print(a + b)
+  print(a - b)
+  print(a %*% b)   # dot-product
+---
+title: Indexing a Vector
 descr: An element of a vector can be accessed via indexing. Indexing starts at `1`!
 code: |
   v <- c(7,2,3)
   v[1]
 ---
-title: Strings
-descr: |
-  "Strings" are sequences of characters, used for categories or to describe information.
-  They're enclosed in `"..."` characters.
-
-  The `table` function tabulates the data vectors and tells us, how many A's and B's there are.
-code: |
-  y <- c("A", "B", "B", "A", "B")
-  table(y)
----
 title: Named Vector Members
 descr: |
-  In the previous example, `table` created a named vector.
+  In an other example, `table` created a named vector.
   We can access the members via `[...]` notation.
 
   To set a value, you can do this: `<named vector>["<name>"] <- <value>`.
@@ -64,13 +100,66 @@ code: |
   t["C"] <- 99
   print(t)
 ---
+title: Matrix
+descr: |
+  A matrix is a two-dimensional grid of values.
+  It has a certain number of rows and columns.
+  In this example, we create a matrix
+
+  $$A = \begin{bmatrix}1 & 3 & 5\\2.2 & -9 & 0.1\end{bmatrix}$$
+
+  Elements are accessed via `A[1,2]`.
+code: |
+  A = matrix(c(1, 3, 5, 2.2, -9, 0.1),  nrow=2)
+  print(A)
+  print(A[1,2])
+---
+title: Lists
+descr: |
+  A list is more general than a vector. It can contain any type of object.
+  Elements are accessed via double-brackets.
+code: |
+  l <- list(c(1,2,3), "abc", TRUE)
+  print(l)
+  print(l[[2]])
+---
+title: Named List Entries
+descr: |
+  List elements can also have names.
+  This is convenient to enrich the data with semantic information.
+  The entries are accessed via the `$` operator.
+code: |
+  nl <- list(order = c(1,2,3), size = c(5, 6, 2.2))
+  print(nl)
+  print(nl$size)
+---
 title: Dataframes
 descr: |
   Dataframes are more complex datastructures, which made R famous for what it is.
-  They consist of aligned vectors (columns) with names.
+  They are similar to named list entries, but all vectors (columns) have the same length.
   For example, these can be measurement results of experiments, where each row stands for an individual outcome.
-code: |
 
+  Accessing columns is done via `$`, e.g. `table(people$sex)` tabulates the distribution of male vs. female people.
+code: |
+  name <- c('tim', 'luise', 'robert', 'frank')
+  sex <- c('M', 'F', 'M', 'M')
+  age <- c(19, 44, 18, 24)
+  people <- data.frame(name, sex, age)
+  people
+---
+category: ["Introduction", "Help"]
+---
+title: How to get help
+descr: |
+  Run `help(...)` for a function to pull out the associated documentation.
+code: |
+  help(summary)
+---
+title: Further Links
+descr: |
+  * http://www.r-tutor.com/
+code: |
+  "http://www.r-tutor.com/"
 ---
 category: ["Introduction", "Programming"]
 ---

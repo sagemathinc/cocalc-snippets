@@ -4,6 +4,24 @@
 
 language: r
 ---
+category: ["Statistics", "Functions"]
+---
+title: Summary
+descr: |
+  Depending on the datatype, you can use the `summary()` function to get some basic information about the data.
+  Here is an example for a numerical vector.
+code: |
+  summary(c(-4, -5, 8, 1, 5))
+---
+title: Tabulate
+descr: |
+  "Strings" can be used for categories or to describe information.
+
+  The `table` function tabulates the data vectors and tells us, how many A's and B's there are.
+code: |
+  y <- c("A", "B", "B", "A", "B")
+  table(y)
+---
 category: ["statistics", "modeling"]
 ---
 title: Linear Model
