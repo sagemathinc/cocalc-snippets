@@ -5,21 +5,48 @@
 language: sage
 category: Mathematics / Rings
 ---
-title: Integers
+title: Introduction
+descr: |
+  Read more about this topic here: http://doc.sagemath.org/html/en/reference/rings/index.html
+code: |
+  # http://doc.sagemath.org/html/en/reference/rings/index.html
+---
+title: |
+  Integers $\ZZ$
 descr: Ring of integer numbers
 code: ZZ
 ---
-title: Real numbers
+title: |
+  Real numbers $\RR$
 descr: Ring of real numbers
 code: RR
 ---
-title: Rational numbers
+title: |
+  Rational numbers $\QQ$
 descr: Ring or rational numbers
 code: QQ
 ---
-title: Complex numbers
+title: |
+  Complex numbers $\CC$
 descr: Ring of complex numbers
 code: CC
+---
+title: |
+  Univariate Polynomial Ring in x over Real Double Field
+code: |
+  R.<x> = RDF[]
+  2.2*x^2+1
+---
+title: |
+  Multivariate Polynomial Ring in x, y over $GF(13)$.
+decr: |
+  Multivariate Polynomial Ring in x, y over Finite Field of size 13.
+
+  Note, how $5 * x + 10 * x + y$ evaluates to $2*x + y$.
+code: |
+  GF_13.<x,y> = GF(13)[]
+  GF_13
+  5 * x + 10 * x + y
 ---
 title: |
   Polynomial Ring $\QQ[x,\,y,\,z]$
