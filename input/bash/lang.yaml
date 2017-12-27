@@ -1,0 +1,20 @@
+# CoCalc Examples Documentation File
+# Copyright: CoCalc Authors, 2017
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+language: bash
+---
+category: ["Language", "Basics"]
+---
+title: Function
+descr: |
+  A Bash-function takes an arbitrary number of arguments and processes them.
+
+  The example here defines a function `f1` and prints them via `echo`.
+  Notice, that missing arguments are more-or-less like an empty string.
+code: |
+  function f1() {
+    echo "$1 $2"
+  }
+  f1 a b
+  f1 foo

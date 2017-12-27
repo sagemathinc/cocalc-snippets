@@ -1,0 +1,15 @@
+# CoCalc Examples Documentation File
+# Copyright: CoCalc Authors, 2017
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+language: bash
+---
+category: ["Introduction", "Basic Commands"]
+---
+title: Directory Listing
+descr: "lists all files in the current directory"
+code: ls
+---
+title: Current Directory
+descr: "**p**rints the current **w**orking **d**irectory."
+code: pwd
