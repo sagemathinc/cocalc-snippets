@@ -1,30 +1,100 @@
 # CoCalc Examples Documentation File
-# Copyright: CoCalc Authors, 2015
+# Copyright: CoCalc Authors, 2017
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
 language: r
 ---
-category: ["statistics", "modeling"]
+category: ["Introduction", "Language 101"]
 ---
-title: Linear Model
-descr: Linear Model Example
-code: |
-    x <- seq(10)
-    y <- 2*x + rnorm(length(x))
-    lm(y ~ x)
+title: Expressions
+descr: |
+  Working with an R session allows you to interactively explore data and extract information from it.
+  Here, we start with a simple calculation:
+
+  Experiment with that expression, what result gives `1 / (3-7)`?
+code: 2+3
 ---
-title: Generalized Linear Model
-descr: Generalized Linear Model Example
-code: |
-    x <- seq(10)
-    y <- 2*x^2 + rnorm(length(x))
-    glm(y ~ x)
+title: Vectors
+descr: |
+  A lot in R is done via functions.
+  They are called by their name and arguments come in brackets.
+
+  Here for example, the function `c` creates a vector $[1,2,3,2,6,1]$:
+code: c(1,2,3,2,6,1)
 ---
-title: ANOVA
-descr: >
-    ANOVA of a linear model
+title: Variables
+descr: |
+  Variables are used to give any objects (input, output, results, ...) a name.
+  That way, they can be refered later.
+
+  For example, we first store a vector in the variable `x`, and then compute a statistical summary information about it and its length.
+
+  Note, that we use `<-` to assign a variable and use `print(...)` to write output.
 code: |
-    x <- seq(10)
-    y <- 2*x + rnorm(length(x))
-    lm1 <- lm(y ~ x)
-    anova(lm1)
+  x <- c(2,3,5,6,7.7,8,9,7,5,7,5,3)
+  print(summary(x))
+  print(length(x))
+---
+title: Indexing Vectors
+descr: An element of a vector can be accessed via indexing. Indexing starts at `1`!
+code: |
+  v <- c(7,2,3)
+  v[1]
+---
+title: Strings
+descr: |
+  "Strings" are sequences of characters, used for categories or to describe information.
+  They're enclosed in `"..."` characters.
+
+  The `table` function tabulates the data vectors and tells us, how many A's and B's there are.
+code: |
+  y <- c("A", "B", "B", "A", "B")
+  table(y)
+---
+title: Named Vector Members
+descr: |
+  In the previous example, `table` created a named vector.
+  We can access the members via `[...]` notation.
+
+  To set a value, you can do this: `<named vector>["<name>"] <- <value>`.
+code: |
+  t <- table(c("A", "B", "B", "A", "B"))
+  print(t["A"])
+  print("Now, we set 'C' to 99")
+  t["C"] <- 99
+  print(t)
+---
+title: Dataframes
+descr: |
+  Dataframes are more complex datastructures, which made R famous for what it is.
+  They consist of aligned vectors (columns) with names.
+  For example, these can be measurement results of experiments, where each row stands for an individual outcome.
+code: |
+
+---
+category: ["Introduction", "Programming"]
+---
+title: Functions
+descr: |
+  This is how functions are defined. Try different arguments for `f1(...)` to follow it's inner workings.
+code: |
+  f1 <- function(x, y) {
+      z = 1 + x;
+      return(x + y + z);
+  }
+  f1(2, 3)
+---
+title: Iterations
+descr: |
+  Here, we iterate over all values in a vector.
+  In each iteration, the value of the current element `i` is added to `r` and saved again in `r`.
+  Therefore, `r` is the sum.
+
+  Check the result via the much more efficient `sum(a)` function.
+code: |
+  a <- c(8, 9, 10.1, 11)
+  r <- 0
+  for (i in a) {
+      r <- r + i;
+  }
+  print(r)

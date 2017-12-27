@@ -241,6 +241,15 @@ descr:  >
     This plot indicates the contour of a function using
     50 shades of gray.
 ---
+title: Streamline plot in a vector field
+descr: |
+  Streamline plot in a vector field.
+
+  Ref:  http://doc.sagemath.org/html/en/reference/plotting/sage/plot/streamline_plot.html
+code: |
+  x, y = var('x y')
+  streamline_plot((sin(x), cos(y)), (x,-3,3), (y,-3,3))
+---
 category: plotting / Basic Elements
 ---
 title: Points as points (plain and fancy)

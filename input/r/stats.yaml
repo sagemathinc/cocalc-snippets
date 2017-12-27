@@ -1,0 +1,30 @@
+# CoCalc Examples Documentation File
+# Copyright: CoCalc Authors, 2015
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+language: r
+---
+category: ["statistics", "modeling"]
+---
+title: Linear Model
+descr: Linear Model Example
+code: |
+    x <- seq(10)
+    y <- 2*x + rnorm(length(x))
+    lm(y ~ x)
+---
+title: Generalized Linear Model
+descr: Generalized Linear Model Example
+code: |
+    x <- seq(10)
+    y <- 2*x^2 + rnorm(length(x))
+    glm(y ~ x)
+---
+title: ANOVA
+descr: >
+    ANOVA of a linear model
+code: |
+    x <- seq(10)
+    y <- 2*x + rnorm(length(x))
+    lm1 <- lm(y ~ x)
+    anova(lm1)
