@@ -5,6 +5,7 @@
 language: bash
 ---
 category: ["Introduction", "Basic Commands"]
+sortweight: -1
 ---
 title: Directory Listing
 descr: "lists all files in the current directory"

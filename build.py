@@ -27,6 +27,7 @@ import json
 import re
 from codecs import open
 from collections import defaultdict
+from pprint import pprint
 
 """ # TODO enable hashtags later
 hashtag_re = re.compile(r'#([a-zA-Z].+?\b)')
@@ -46,7 +47,9 @@ def process_category(doc):
         cats = cats.split("/", 1)
     else:
         raise AssertionError("Supposed category '{}' cannot be processed".format(cats))
-    return [c.strip().title() for c in cats]
+    sortweight = float(doc.get("sortweight", 0.0))
+    lvl1, lvl2 = [c.strip().title() for c in cats]
+    return lvl1, lvl2, sortweight
 
 def process_doc(doc, input_fn):
     """
@@ -90,7 +93,7 @@ def examples_data(input_dir, output_fn):
             input_fn = join(root, fn)
             data = yaml.load_all(open(input_fn, "r", "utf8").read())
 
-            language = entries = lvl1 = lvl2 = titles = None # will be set in the "category" case, which comes first!
+            language = entries = lvl1 = lvl2 = titles = sortweight = None # will be set in the "category" case, which comes first!
 
             for doc in data:
                 if doc is None:
@@ -105,10 +108,11 @@ def examples_data(input_dir, output_fn):
                     processed = True
 
                 if "category" in doc: # setting both levels of the category and re-setting entries and titles
-                    lvl1, lvl2 = process_category(doc)
+                    lvl1, lvl2, sortweight = process_category(doc)
                     if lvl2 in examples[language][lvl1]:
                         raise AssertionError("Duplicate category level2: '%s' already exists (error in %s)" % (lvl2, input_fn))
-                    entries = examples[language][lvl1][lvl2] = []
+                    entries = []
+                    examples[language][lvl1][lvl2] = [entries, sortweight]
                     titles = set()
                     processed = True
 

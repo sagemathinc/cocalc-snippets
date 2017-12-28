@@ -5,6 +5,7 @@
 language: bash
 ---
 category: ["Language", "Basics"]
+sortweigth: -1
 ---
 title: Function
 descr: |

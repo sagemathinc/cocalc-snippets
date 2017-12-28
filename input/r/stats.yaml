@@ -22,7 +22,7 @@ code: |
   y <- c("A", "B", "B", "A", "B")
   table(y)
 ---
-category: ["statistics", "modeling"]
+category: ["Statistics", "Modeling"]
 ---
 title: Linear Model
 descr: Linear Model Example

@@ -5,6 +5,7 @@
 language: r
 ---
 category: ["Introduction", "Language 101"]
+sortweight: -1
 ---
 title: Expressions
 descr: |
@@ -59,6 +60,7 @@ code: |
   print(class("abc"))   # character
 ---
 category: ["Introduction", "Data Structures"]
+sortweight: 1
 ---
 title: Vector
 descr: |
@@ -162,6 +164,7 @@ code: |
   "http://www.r-tutor.com/"
 ---
 category: ["Introduction", "Programming"]
+sortweight: 2
 ---
 title: Functions
 descr: |
