@@ -112,7 +112,7 @@ def examples_data(input_dir, output_fn):
                     if lvl2 in examples[language][lvl1]:
                         raise AssertionError("Duplicate category level2: '%s' already exists (error in %s)" % (lvl2, input_fn))
                     entries = []
-                    examples[language][lvl1][lvl2] = [entries, sortweight]
+                    examples[language][lvl1][lvl2] = {'entries': entries, 'sortweight': sortweight}
                     titles = set()
                     processed = True
 
