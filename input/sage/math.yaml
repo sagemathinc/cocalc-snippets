@@ -3,7 +3,8 @@
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 ---
 language: sage
-category: Mathematics / Intro
+category: Mathematics / Introduction
+sortweight: -1
 ---
 title: Introduction
 descr: |
