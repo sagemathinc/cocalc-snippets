@@ -1,5 +1,5 @@
 # CoCalc Examples Documentation File
-# Copyright: SageMath Inc., 2016
+# Copyright: SageMath Inc., 2018
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 ---
 language: sage
@@ -7,10 +7,143 @@ category: Mathematics  / Number Theory
 ---
 title: Introduction
 descr: |
-    This goes through some of the basic functionalities regarding number theory.
+    This guide presents some of the basic functionalities regarding number theory.
     Check out these resources for more in-depth information:
 
     * [Tutorial/Number Theory](http://doc.sagemath.org/html/en/thematic_tutorials/index.html#number-theory)
     * [Reference/Number Theory](http://doc.sagemath.org/html/en/reference/index.html#number-theory-algebraic-geometry)
 code: ""
 ---
+title: |
+  Calculate in $\ZZ/n\ZZ$
+code: |
+  R = IntegerModRing(97)
+  a = R(2) / R(3)
+  print(a)
+  print(a.rational_reconstruction())
+  b = R(47)
+  print(b^20052005)
+  print(b.modulus())
+  print("is b square? {}".format(b.is_square()))
+---
+title: Standard number theoretic functions
+code: |
+  print(gcd(2011946, 1450942))
+  print(factor(2018))
+  c = factorial(25)
+  print(c)
+  print([valuation(c,p) for p in prime_range(2,23)])
+  print(next_prime(2005))
+  print(previous_prime(2005))
+  print('%s %s %s' % (divisors(28), sum(divisors(28)), 2*28))
+---
+title: |
+  `sigma(n,k)` adds up the k-th powers of the divisors of n
+code: |
+  print(sigma(28,0))
+  print(sigma(28,1))
+  print(sigma(28,2))
+---
+title: Extended Euclidean algorithm
+code: |
+  d,u,v = xgcd(12,15)
+  print("d: {d}, u: {u}, v: {v}".format(**locals()))
+  print(d == u*12 + v*15)
+---
+title: Inverse of an element mod m
+descr: This iterates from $1$ to $9$ and for each of them computes the `inverse_mod(m, 997)`.
+code: |
+  for m in srange(1, 10):
+    print("m {}: {:>6d}".format(m, inverse_mod(m, 997)))
+---
+title: "Prime divisors of an Integer"
+code: "prime_divisors(20172018)"
+---
+title: |
+  Euler's $\phi$-function
+code: "euler_phi(20172018)"
+---
+title: Prime-to-m-part of n
+descr: |
+  Returns the prime-to-m part of n, i.e., the largest divisor of n
+  that is coprime to m.
+code: |
+  prime_to_m_part(20172018, 2019)
+---
+title: Chinese remainder theorem
+code: |
+  x = crt(2, 1, 3, 5); x
+  print(x % 3)    # x mod 3 = 2
+  print(x % 5)    # x mod 5 = 1
+  print([binomial(13,m) for m in range(14)])
+  print([binomial(13,m)%2 for m in range(14)])
+  print([kronecker(m,13) for m in range(1,13)])
+  n = 10000
+  print(sum([moebius(m) for m in range(1,n)]))
+  print(Partitions(4).list())
+---
+title: "Hint: Strings to Integers"
+descr: "You can define an integer in base 36. That way you can use the alphabet for encoding a message."
+code: |
+  x = Integer('secret', base=36)
+  print(x)                # gives 1717162949
+  print(x.str(base=36))   # gives 'secret'
+---
+category: ['Mathematics', '$p$-adic Numbers']
+sortweight: 10
+---
+title: Introduction
+descr: |
+  Much work has been done implementing rings of integers in p-adic fields and number fields.
+  The interested reader is invited to read [Introduction to the $p$-adics](http://doc.sagemath.org/html/en/reference/padics/sage/rings/padics/tutorial.html#sage-rings-padics-tutorial).
+code: |
+  # http://doc.sagemath.org/html/en/reference/padics/sage/rings/padics/tutorial.html#sage-rings-padics-tutorial
+---
+title: "11-adic field"
+descr: "11-adic field with capped relative precision 20"
+code: |
+   K = Qp(11)
+   print(K)
+   a = K(211/17)
+   print(a)
+   b = K(3211/11^2)
+   print(b)
+   print(a *  b)
+---
+title: "Integral Basis"
+code: |
+  R.<x> = PolynomialRing(QQ)
+  K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
+  print(K)
+  print(K.integral_basis())
+---
+title: "Galois Group"
+code: |
+  R.<x> = PolynomialRing(QQ)
+  K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
+  K.galois_group(type="pari")
+---
+title: "Quotient Polynomial Ring"
+code: |
+  R.<x> = PolynomialRing(QQ)
+  K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
+  K.polynomial_quotient_ring()
+---
+title: "Units"
+code: |
+  R.<x> = PolynomialRing(QQ)
+  K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
+  K.units()
+---
+title: "Discriminant"
+code: |
+  R.<x> = PolynomialRing(QQ)
+  K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
+  K.discriminant()
+---
+title: "Class Group"
+code: |
+  R.<x> = PolynomialRing(QQ)
+  K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
+  K.class_group()
+
