@@ -1,0 +1,46 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath Inc., 2016
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+---
+language: sage
+category: Mathematics / Linear Algebra
+---
+title: Vector
+descr: |
+  Sage is able to build vectors of elements in a ring.
+  When no ring is specified, it deduces it from the given elements.
+
+  Look at the different parents of $v_1$ and $v_2$.
+code: |
+  v1 = vector([1,2,3])
+  print(v1)
+  print(v1.parent())
+  v2 = vector([-1.1, 2.2, 3])
+  print(v2)
+  print(v2.parent())
+---
+title: Matrix
+descr: |
+  Sage is able to build matrices of elements in a ring.
+  Similar to vectors, the ring is deduced from the elements.
+
+  In this case here, we explicitly tell Sage that the ring is `RDF`, though.
+code: |
+  m1 = matrix([[1, 2], [4, -1]])
+  print(m1)
+  print(m1.parent())
+  m2 = matrix(RDF, [[1, 2], [4, -1]])
+  print(m2)
+  print(m2.parent())
+---
+title: Inverse of a Matrix
+descr: |
+  You can either all the method `.inverse()` or use the `~` operator.
+
+  Note, that the inverse depends on the ring!
+code: |
+  m1 = matrix([[1, 2], [4, -1]])
+  print(m1.inverse())
+  m2 = matrix(RDF, [[1, 2], [4, -1]])
+  print(~m2)
+---
