@@ -1,4 +1,5 @@
 PYTHON ?= python3
+SCRIPT = examples.py
 
 INDIR  ?= input
 OUTDIR ?= .
@@ -6,10 +7,13 @@ OUTDIR ?= .
 INPUT  := $(shell find . ${INDIR}/ -type f -name '*.yaml')
 OUTPUT := ${OUTDIR}/examples.json
 
-.PHONY: clean
+.PHONY: clean test
 
-${OUTPUT}: ${INPUT} build.py
-	${PYTHON} build.py ${INDIR} ${OUTPUT}
+${OUTPUT}: ${INPUT} ${SCRIPT}
+	${PYTHON} ${SCRIPT} ${INDIR} ${OUTPUT}
+
+test:
+	${PYTHON} ${SCRIPT} test ${INDIR}
 
 clean:
 	-${RM} ${OUTPUT}

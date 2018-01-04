@@ -69,6 +69,14 @@ def process_doc(doc, input_fn):
         body.append(doc["attr"])
     return title, body
 
+def input_files_iter(input_dir):
+    input_dir = abspath(normpath(input_dir))
+    for root, _, files in walk(input_dir):
+        for fn in filter(lambda _ : _.lower().endswith("yaml"), files):
+            input_fn = join(root, fn)
+            data = yaml.load_all(open(input_fn, "r", "utf8").read())
+            yield input_fn, data
+
 def examples_data(input_dir, output_fn):
     input_dir     = abspath(normpath(input_dir))
     examples_json = abspath(normpath(output_fn))
@@ -87,52 +95,49 @@ def examples_data(input_dir, output_fn):
         "octave": recursive_dict(),
     }
 
-    # This processes all yamk input files and fails when any assertion is violated.
-    for root, _, files in walk(input_dir):
-        for fn in filter(lambda _ : _.lower().endswith("yaml"), files):
-            input_fn = join(root, fn)
-            data = yaml.load_all(open(input_fn, "r", "utf8").read())
+    # This processes all yaml input files and fails when any assertion is violated.
+    for input_fn, data in input_files_iter(input_dir):
 
-            language = entries = lvl1 = lvl2 = titles = sortweight = None # will be set in the "category" case, which comes first!
+        language = entries = lvl1 = lvl2 = titles = sortweight = None # will be set in the "category" case, which comes first!
 
-            for doc in data:
-                if doc is None:
-                    continue
+        for doc in data:
+            if doc is None:
+                continue
 
-                processed = False
+            processed = False
 
-                if "language" in doc:
-                    language = doc["language"]
-                    if language not in examples.keys():
-                        raise AssertionError("Language %s not known. Fix first document in %s" % (language, input_fn))
-                    processed = True
+            if "language" in doc:
+                language = doc["language"]
+                if language not in examples.keys():
+                    raise AssertionError("Language %s not known. Fix first document in %s" % (language, input_fn))
+                processed = True
 
-                if "category" in doc: # setting both levels of the category and re-setting entries and titles
-                    lvl1, lvl2, sortweight = process_category(doc)
-                    if lvl2 in examples[language][lvl1]:
-                        raise AssertionError("Duplicate category level2: '%s' already exists (error in %s)" % (lvl2, input_fn))
-                    entries = []
-                    examples[language][lvl1][lvl2] = {'entries': entries, 'sortweight': sortweight}
-                    titles = set()
-                    processed = True
+            if "category" in doc: # setting both levels of the category and re-setting entries and titles
+                lvl1, lvl2, sortweight = process_category(doc)
+                if lvl2 in examples[language][lvl1]:
+                    raise AssertionError("Duplicate category level2: '%s' already exists (error in %s)" % (lvl2, input_fn))
+                entries = []
+                examples[language][lvl1][lvl2] = {'entries': entries, 'sortweight': sortweight}
+                titles = set()
+                processed = True
 
-                if all(_ in doc.keys() for _ in ["title", "code"]):
-                    # we have an actual document entry, append it in the original ordering as a tuple.
-                    try:
-                        title, body = process_doc(doc, input_fn)
-                    except Exception as ex:
-                        print("Problem processing {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
-                        raise ex
-                    if title in titles:
-                        raise AssertionError("Duplicate title '{title}' in {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
-                    entry = [title, body]
-                    entries.append(entry)
-                    titles.add(title)
-                    processed = True
+            if all(_ in doc.keys() for _ in ["title", "code"]):
+                # we have an actual document entry, append it in the original ordering as a tuple.
+                try:
+                    title, body = process_doc(doc, input_fn)
+                except Exception as ex:
+                    print("Problem processing {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
+                    raise ex
+                if title in titles:
+                    raise AssertionError("Duplicate title '{title}' in {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
+                entry = [title, body]
+                entries.append(entry)
+                titles.add(title)
+                processed = True
 
-                # if False, malformatted document
-                if not processed: # bad document
-                    raise RuntimeError("This document is not well formatted (wrong keys, etc.)\n%s" % doc)
+            # if False, malformatted document
+            if not processed: # bad document
+                raise RuntimeError("This document is not well formatted (wrong keys, etc.)\n%s" % doc)
 
     if not os.path.exists(output_dir):
         print("Creating output directory '%s'" % output_dir)
@@ -142,9 +147,16 @@ def examples_data(input_dir, output_fn):
         # sorted keys to de-randomize output (leads to a stable representation when kept it in Git)
         json.dump(examples, f_out, ensure_ascii=True, sort_keys=True, indent=1)
 
+def test_examples(input_dir):
+    for input_fn, data in input_files_iter(input_dir):
+        print('{}: {} documents'.format(input_fn, len(list(data))))
+
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: %s <input-directory of *.yaml files> <ouput-file (usually 'examples.json')>" % sys.argv[0])
         sys.exit(1)
-    examples_data(sys.argv[1], sys.argv[2])
+    if sys.argv[1] == 'test':
+        test_examples(sys.argv[2])
+    else:
+        examples_data(sys.argv[1], sys.argv[2])
 
