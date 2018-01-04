@@ -44,3 +44,41 @@ code: |
   m2 = matrix(RDF, [[1, 2], [4, -1]])
   print(~m2)
 ---
+title: Kernel
+code: |
+  A = matrix(RDF, [[1, -2, 2],
+                   [4, -1, 1],
+                   [1, -1, 1]])
+  kernel(A)
+---
+title: Solve a Linear System
+descr: You can solve a linear system either left or right. The backslash `\` is a shortcut.
+code: |
+  A = matrix(RDF, [[1, -2, 9],
+                   [4,  0, 2],
+                   [1, -2, 1]])
+  b = vector(RDF, [9, 5, -1])
+  x = A.solve_right(b)
+  print("x:         {}".format(x))
+  print("check A*x: {}".format(A * x))
+  print("bashslash: {}".format(A \ b))
+---
+title: Eigenvalues and Eigenvectors
+descr: |
+  This code iterates over the left eigenvalues/eigenvectors of a matrix B.
+  The method returns a triple of eigenvalues, vectors and multiplicity.
+code: |
+  B = matrix([[1, 3, 2],
+              [1, 3, 2],
+              [1, 3, 6]])
+  for ev, evec, mult in B.eigenvectors_left():
+      print("Eigenvalue: {} with eigenvector: {} of multiplicity {}".format(ev, evec[0], mult))
+---
+title: Reduced row Echelon Form
+test: '[ 1  0 -1]\n[ 0  1  2]\n[ 0  0  0]'
+code: |
+  C = matrix([[3, 4, 5],
+              [2, 3, 4],
+              [1, 2, 3]])
+  C.echelon_form()
+---
