@@ -11,7 +11,7 @@
 #                        http://www.gnu.org/licenses/                               #
 #####################################################################################
 
-import os, sys
+import os, sys, shutil
 
 # make it python 2 and 3 compatible (although, to be clear, it is supposed to be py3 only)
 if (sys.version_info > (3, 0)):
@@ -147,9 +147,53 @@ def examples_data(input_dir, output_fn):
         # sorted keys to de-randomize output (leads to a stable representation when kept it in Git)
         json.dump(examples, f_out, ensure_ascii=True, sort_keys=True, indent=1)
 
+# TESTING
+
+from subprocess import run, PIPE
+
+# for each language, prepare a stub to run the example
+execs = {
+    'sage': "{} -c 'CODE'".format(shutil.which('sage')),
+    'python': shutil.which('python3'),
+    'r': shutil.which('R'),
+    'bash': shutil.which('bash'),
+    'gap': shutil.which('gap'),
+    'octave': shutil.which('octave')
+}
+
 def test_examples(input_dir):
+    exe = None
+
+    def test(code, test):
+        if test is None:
+            return
+
+        config = {'stdout':PIPE, 'shell':True}
+        if 'CODE' in exe:
+            res = run(exe.replace('CODE', code), **config)
+        else:
+            res = run("echo '{}' | {}".format(code, exe), **config)
+        print(res.stdout)
+
     for input_fn, data in input_files_iter(input_dir):
-        print('{}: {} documents'.format(input_fn, len(list(data))))
+        print(' {} '.format(input_fn).center(100, '-'))
+        for doc in data:
+            if doc is None:
+                continue
+            if 'title' in doc:
+                print('   {}'.format(doc['title']))
+                test(doc['code'], doc.get('test', None))
+            elif 'language' in doc:
+                exe = execs[doc['language']]
+            elif 'category' in doc:
+                cat = doc['category']
+                if isinstance(cat, (list, tuple)):
+                    cat = ' / '.join(cat)
+                print(' {}'.format(cat))
+            else:
+                print("UNKNOWN DOCUMENT")
+                pprint(doc)
+                sys.exit(1)
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
