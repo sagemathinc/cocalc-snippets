@@ -1,0 +1,47 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath Inc., 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+---
+language: julia
+category: Tutorial / First Steps
+---
+title: Introduction
+descr: |
+  Some sources for introductions to Julia:
+
+  * https://julialang.org/learning/
+  * https://en.wikibooks.org/wiki/Introducing_Julia
+code: |
+  # this is a comment and the next line calculates the sum of two vectors
+  [2 3] + [-1 7]
+---
+title: Print
+descr: |
+  You can print to standard output almost anything.
+  This examples shows `println`, a way to interpolate a string via the `$(...)` syntax,
+  and also using `@printf` to call a macro for C-style formatting.
+code: |
+  println("Hello", 99)
+  x = 10
+  println("Interpolation $(5 + x)")
+  @printf("pi = %.7f\n", float(pi))
+---
+
+
+
+---
+title: Function
+descr: |
+  A function is a very important and fundamental building block in the Julia language.
+  It transforms a set of inputs to a result.
+  Most importantly, several functions can have the same name -- and they're selected based on the types of the input.
+code: |
+  function f1(a::Int)
+      return 2*a
+  end
+  function f1(a::Float64)
+      return -3*a
+  end
+
+  println(f1(10))
+  println(f1(2.0))

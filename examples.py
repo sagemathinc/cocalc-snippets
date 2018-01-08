@@ -93,6 +93,7 @@ def examples_data(input_dir, output_fn):
         "gap":    recursive_dict(),
         "bash":   recursive_dict(),
         "octave": recursive_dict(),
+        "julia":  recursive_dict(),
     }
 
     # This processes all yaml input files and fails when any assertion is violated.
@@ -158,7 +159,8 @@ execs = {
     'r': shutil.which('R'),
     'bash': shutil.which('bash'),
     'gap': shutil.which('gap'),
-    'octave': shutil.which('octave')
+    'octave': shutil.which('octave'),
+    'julia': shutil.which('julia'),
 }
 
 def test_examples(input_dir):
