@@ -33,6 +33,52 @@ code: |
   print(m2)
   print(m2.parent())
 ---
+title: Accessing Elements
+descr: |
+  One fundamental task to master with vectors and matrices is to extract parts of it.
+  Python, as the underlying programming language, and hence Sage start indexing at zero.
+  For a matrix, the first entry in square brackets is the row, the second the column.
+
+  Use the `:` sign to select a whole row or column.
+code: |
+  A = matrix([[ 1, 2, 3, 4],
+             [ 5, 6, 7, 8],
+             [ 9,10,11,12]])
+  print(A[1, 3])  # 2nd row, 4th element: 8
+  print(A[:, 1])  # 2nd column: [2, 6, 10] transposed
+---
+title: Basic Arithmetic
+descr: |
+  Here, we add, multiply and dot-product two rows or columns of the matrix $A$.
+code: |
+  A = matrix([[ 1, 2, 3, 4],
+             [ 5, 6, 7, 8],
+             [ 9,10,11,12]])
+  # sum of second and third column
+  print(A[:, 1] + A[:, 2])
+  # dot-product of first and second row (note, we have to transpose it!)
+  print(A[0, :] * A[1, :].transpose())
+---
+title: Elementwise Product
+descr: If you actually mean to multiply elements and not the dot-product, use the method `elementwise_product`.
+code: |
+  A = matrix([[ 1, 2, 3, 4],
+             [ 5, 6, 7, 8],
+             [ 9,10,11,12]])
+  A.elementwise_product(A)
+---
+title: Ranges of elements
+descr: |
+  You can use `start:end` to specify a range of elements to pick.
+  The `end` index is not inclusive!
+code: |
+  A = matrix([[ 1, 2, 3, 4],
+              [ 5, 6, 7, 8],
+              [ 9,10,11,12]])
+  # Look carefully at the output of the following to understand what part of the matrix got extracted.
+  # Don't be why to play with the indices!
+  A[0:2, 1:3]
+---
 title: Inverse of a Matrix
 descr: |
   You can either all the method `.inverse()` or use the `~` operator.
@@ -75,10 +121,29 @@ code: |
       print("Eigenvalue: {} with eigenvector: {} of multiplicity {}".format(ev, evec[0], mult))
 ---
 title: Reduced row Echelon Form
-test: '[ 1  0 -1]\n[ 0  1  2]\n[ 0  0  0]'
+descr: |
+  Here, we create a matrix $C$ and compute the row reduced echelon form.
+
+  Notice again, when we **change the ring** to $\mathbf{F}_2$ (all numbers are modulo 2) for matrix $C_2$,
+  not only the matrix itself but also the result of this method changes.
+test: |
+  [ 1  0 -1]
+  [ 0  1  2]
+  [ 0  0  0]
+  [1 0 1]
+  [0 1 0]
+  [1 0 1]
+  [1 0 1]
+  [0 1 0]
+  [0 0 0]
 code: |
   C = matrix([[3, 4, 5],
               [2, 3, 4],
               [1, 2, 3]])
-  C.echelon_form()
+  print(C.echelon_form())
+
+  C2 = C.change_ring(GF(2))
+  print(C2)
+  print(C2.echelon_form())
 ---
+

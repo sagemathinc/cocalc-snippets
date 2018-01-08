@@ -76,7 +76,7 @@ code: |
 title: Vector Arithmetic
 descr: Numerical vectors can be used in calculations.
 code: |
-  a <- c(1,2,3)
+  a <- c(1, 2.0, 3.0)
   b <- c(9, 4.4, 1.1)
   print(2 * a)     # multiplication with a scalar
   print(a + b)
@@ -86,7 +86,7 @@ code: |
 title: Indexing a Vector
 descr: An element of a vector can be accessed via indexing. Indexing starts at `1`!
 code: |
-  v <- c(7,2,3)
+  v <- c(7, 2, 3)
   v[1]
 ---
 title: Named Vector Members
