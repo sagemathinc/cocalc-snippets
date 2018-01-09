@@ -1,6 +1,6 @@
 # CoCalc Assistant
 
-A collection of code snippet examples to assist working on CoCalc → [read more](input/README.md).
+A collection of code snippet examples to assist working on CoCalc → [read more](src/README.md).
 
 ## Development
 

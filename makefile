@@ -1,7 +1,7 @@
 PYTHON ?= python3
 SCRIPT = examples.py
 
-INDIR  ?= input
+INDIR  ?= src
 OUTDIR ?= .
 
 INPUT  := $(shell find . ${INDIR}/ -type f -name '*.yaml')

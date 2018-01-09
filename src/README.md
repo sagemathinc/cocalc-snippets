@@ -23,6 +23,8 @@ The are composed of:
    Example:
 
        title: Getting Help
+       test: |
+           [expected stdout string]
        descr: >
             Sage has extensive built-in documentation,
             accessible by typing the name of a function or
