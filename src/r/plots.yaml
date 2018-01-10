@@ -1,0 +1,18 @@
+# CoCalc Examples Documentation File
+# Copyright: CoCalc Authors, 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+language: r
+---
+category: ["Visualization", "Introduction"]
+---
+title: Plotting in R
+descr: |
+  R offers a range of very powerful functions and extension packages for visualizing data.
+
+  Here, we start with one of the simplest plots available: a relationship between two vectors $x$ and $y$ of equal length.
+code: |
+  # x is a vector from 0 to 10 with 100 elements
+  x <- seq(from=0, to=10, length.out=100)
+  y <- x * sin(x)
+  plot(x, y)
