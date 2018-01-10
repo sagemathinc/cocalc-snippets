@@ -1,0 +1,29 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath, Inc. -- 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+language: octave
+---
+category: ["Applied Mathematics", "Optimization"]
+---
+title: Numerical Optimization
+descr: |
+  You can run numerical optimizations via the [optim](https://octave.sourceforge.io/optim/package_doc/index.html) package.
+
+  In this example we minimize the classical Rosenbrock function in 20 dimensions using BFGS.
+code: |
+  pkg load optim;
+
+  function [obj_value, gradient] = objective(theta, location)
+    x = theta - location + ones(rows(theta),1); # move minimizer to "location"
+    [obj_value, gradient] = rosenbrock(x);
+  endfunction
+
+  dim = 20;                 # dimension of Rosenbrock function
+  theta0 = zeros(dim+1,1);  # starting values
+  location = (0:dim)/dim;   # true values
+  location = location';
+  control = {Inf,1};        # maxiters, verbosity
+
+  bfgsmin("objective", {theta0, location}, control);
+
