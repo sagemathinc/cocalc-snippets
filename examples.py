@@ -150,7 +150,7 @@ def examples_data(input_dir, output_fn):
 
 # TESTING
 
-from subprocess import run, PIPE
+from subprocess import PIPE, check_output  #, run <- isn't 3.5 compatible, needs to be 3.4 :(
 
 # for each language, prepare a stub to run the example
 execs = {
@@ -170,11 +170,11 @@ def test_examples(input_dir):
         if test is None:
             return
 
-        config = {'stdout':PIPE, 'shell':True}
+        config = {'stdout':PIPE, 'shell':True, 'universal_newlines':True}
         if 'CODE' in exe:
-            res = run(exe.replace('CODE', code), **config)
+            res = check_output(exe.replace('CODE', code), **config)
         else:
-            res = run("echo '{}' | {}".format(code, exe), **config)
+            res = check_output("echo '{}' | {}".format(code, exe), **config)
         print(res.stdout)
 
     for input_fn, data in input_files_iter(input_dir):
