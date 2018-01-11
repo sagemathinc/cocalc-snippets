@@ -97,7 +97,7 @@ code: |
     f1.denominator
 ---
 title: Functions
-descr: >
+descr: |
     In Sage, there are (at least) two types of functions.
     A Python-function is defined via the `def` keyword and maps optional arguments to a returned value.
     For more information, [consult the Sage Tour](http://doc.sagemath.org/html/en/a_tour_of_sage/index.html).
@@ -113,20 +113,21 @@ code: |
     f1(11)
 
     # this defines x to be a symbolic variable
-    %var x
+    var('x')
     f2(x) = 2 * x + 1
     f2(21)
 ---
 title: Symbolic Expressions
-descr: >
+descr: |
     A great deal of mathematics concerns symbolic expressions.
     The fundamental building block is a single variable, `x`, `y`, etc.
-    It can be defined via `var('x')` or the magic command `%var y`.
+    It can be defined via `var('x')` or the magic command `%var y` (which only works in Sage Worksheets).
     Then, symbolic expressions are constructed by using them as building blocks.
+
     It is important to define the variables as being symblic.
     Otherwise, the constructed expression is something completely different!
 code: |
-    %var x, y
+    var('x y')
     type(y)
     ex1 = (x + y)^2 == 1
     ex1
@@ -145,7 +146,7 @@ code: |
 title: LaTeX Formulas
 descr: "To see a LaTeX rendering of such a symbolic expression, use Sage's `show(...)` function."
 code: |
-    %var x, y
+    var('x y')
     ex1 = (x + y)^2 == 1
     show(ex1)
 ---
@@ -154,7 +155,7 @@ descr: >
     Sage's `solve(...)` function allows you to solve symbolic equations exactly.
     Expressons are automatically assumed to be equal to zero.
 code: |
-    %var x, y
+    var('x y')
     solve(2*x^2 + 1, x)
     # second example, two equations:
     ex1 = (x + y)^2 - 1
@@ -166,7 +167,7 @@ descr: >
     Sage's `find_root(...)` solves equations numerically.
     The optional second and third argument constrain the variable to an interval.
 code: |
-    %var phi
+    var('phi')
     find_root(cos(phi)==sin(phi), 0, pi/2)
 ---
 title: Symbolic Differentiation
@@ -175,7 +176,7 @@ descr: >
     This works either with Sage's `diff(...)` function or the expression's `.diff(...)` method.
     You can also compute the n-th derivative directly.
 code: |
-    %var x, y
+    var('x y')
     f = sin(x^2) + 17*y^2
     diff(f, x)
     f.diff(y, 3)
@@ -184,5 +185,5 @@ title: Symbolic Integration
 descr: >
     If the algorithm is able to find it, the `integral(...)` function computes a symbolic integral.
 code: |
-    %var x
+    var('x')
     integral(x*sin(x^2), x)

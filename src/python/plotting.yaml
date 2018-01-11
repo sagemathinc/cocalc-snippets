@@ -1,0 +1,22 @@
+# CoCalc Examples Documentation File
+# Copyright: CoCalc Authors, 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+---
+language: python
+---
+category: ["Visualization", "Introduction"]
+---
+title: Matplotlib
+descr: |
+  The fundamental ingredient for almost all kinds of scientific visualizations in Python is [matplotlib](https://matplotlib.org/).
+
+  It offers a lot of features, advanced rendering algorithms, and many useful utilities.
+
+  Step one in mastering it is to learn the basics of it's high-level interface `pyplot` --
+  commonly imported as `plt`.
+code: |
+  import numpy as np
+  import matplotlib.pyplot as plt
+  x = np.linspace(0, 10, 100)
+  y = np.sin(x) * (1 + x)
+  plt.plot(x, y)

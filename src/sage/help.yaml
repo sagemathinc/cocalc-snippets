@@ -54,7 +54,7 @@ descr: |
     In the second and third example, you can either all implemented Graphs or tab-complete a specific function.
 code: |
     # press the tab key after placing the cursor right next to the "."
-    %var x
+    var('x')
     ex = 2*x/sin(x)
     ex.
     # for implemented graphs

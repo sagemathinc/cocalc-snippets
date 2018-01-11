@@ -4,10 +4,10 @@
 ---
 language: python
 ---
-category: ["Numpy/Scipy", "Introduction"]
+category: ["Numerical Mathematics", "Introduction"]
 ---
 title: Numpy Basics
-descr: >
+descr: |
     [Numpy](http://docs.scipy.org/) is a library for numerical mathematics.
 
     It is usually imported via `import numpy as np`.
@@ -16,7 +16,7 @@ code: |
     print np, np.__version__
 ---
 title: Vectors and Matrices
-descr: >
+descr: |
     NumPy's main purpose is to create n-dimensional tensors for numerical computations in linear algebra.
     A vector is 1-D, and constructed via `np.array([...])`.
     A 2-D array is a matrix: `np.arry([[1, 2][2, -1]])`.
@@ -27,7 +27,7 @@ code: |
 #---
 #title: Basic Arithmetic
 ---
-category: ["Numpy/Scipy", "Optimization"]
+category: ["Numerical Mathematics", "Optimization"]
 title: Optimization, 1D, unconstrained
 descr: Unconstrained one-dimensional optimization with Scipy.
 code: |

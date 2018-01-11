@@ -29,7 +29,7 @@ descr: |
     Function calls are always `function_name(...)` with round brackets, too.
 code: |
     # TODO: fix this expression
-    %var x
+    var('x')
     sqrt [ (4 + x) (2 - x) ]
 ---
 category: Mathematics / Calculus
@@ -45,7 +45,7 @@ descr: |
     * [Reference/Symbolic Calculus](http://doc.sagemath.org/html/en/reference/calculus/index.html)
     * or download the book [Gregory Bard: Sage for Undergraduates](http://www.gregorybard.com/Sage.html)
 code: |
-    %var x k w
+    var('x k w')
     f = x^3 * e^(k*x) * sin(w*x)
     show(f)
     print("Differentiate f w.r.t. x")
@@ -55,7 +55,7 @@ title: Functions
 descr: |
     SageMath's [preparser](http://doc.sagemath.org/html/en/reference/repl/sage/repl/preparse.html) makes it easy to define functions.
 code: |
-    %var x
+    var('x')
     f(x) = 3 * x -1
     f
     g(x) = (1 - x)^2
@@ -71,7 +71,7 @@ title: Substitutions
 descr: |
     Evaluate symbolic expressions by substution of a variable.
 code: |
-    %var x y
+    var('x y')
     ex1 = 2*x+1
     ex1
     ex1.subs(x = 3)
@@ -88,7 +88,7 @@ descr: |
 
     Tipp: Combine this technique with substitutions to build new expressions out of existing ones.
 code: |
-    %var x
+    var('x')
     ex = 2 * x^2 == (1 + x) / (1 - x)
     print("full expression:             %s " % ex)
     ex2 = ex.right_hand_side()
@@ -114,7 +114,7 @@ descr: |
 
     See [Reference/Limit](http://doc.sagemath.org/html/en/reference/calculus/sage/calculus/calculus.html#sage.calculus.calculus.limit) for more information.
 code: |
-    %var x
+    var('x')
     lim((x+1)^(1/x), x = 0)
     lim(sqrt(x^2+1) - x, x = oo)
 ---
@@ -123,7 +123,7 @@ descr: |
     The `sum` function is not Python's, but a special one by SageMath.
     It allows you to compute [symbolic sums](http://doc.sagemath.org/html/en/reference/calculus/sage/calculus/calculus.html#sage.calculus.calculus.symbolic_sum)!
 code: |
-    %var k u x
+    var('k u x')
     # known limits
     sum(x^k, k, 1, 10)
     # up to infinity
@@ -135,20 +135,20 @@ title: Taylor Series
 descr: >
     Use `expr.taylor(...)` to obtain a taylor polynomial.
 code: |
-    %var f0 k x
-    g = f0/sinh(k*x)^4
-    g
+    var('f0 k x')
+    g = f0 / sinh(k*x)^4
+    print(g)
     t = g.taylor(x, 0, 3)
-    t
+    print(t)
 ---
 title: Formal Power Series
 descr: |
     `expr.series(...)` gives formal power series expansions.
 code: |
-    %var x
+    var('x')
     ex = 1/ (2 - cos(x))
-    ex
-    ex.series(x,7)
+    print(ex)
+    print(ex.series(x,7))
 ---
 title: Fast Computations in Formal Power Series Ring
 descr: |
@@ -156,36 +156,36 @@ descr: |
 code: |
     R.<w> = QQ[[]]
     ps = w + 17/2*w^2 + 15/4*w^4 + O(w^6)
-    ps
+    print(ps)
     (1+ps).log()
     print(r"Coefficients of $ps^1000$")
-    (ps^1000).coefficients()
+    print((ps^1000).coefficients())
 ---
 title: Symbolic Integrals
 descr: |
     SageMath can do symbolic integrals.
 code: |
-    %var x
+    var('x')
     f = x^3
-    f.integral(x)
+    print(f.integral(x))
     # or as a function
-    integral(x^3,x)
+    print(integral(x^3,x))
 ---
 title: Definite Integrals
 descr: |
     It can also compute integrals involving limits.
 code: |
-    %var x k w
+    var('x k w')
     f = k * sin(w*x)
-    f.integrate(x, 0, 1)
+    print(f.integrate(x, 0, 1))
     # or as a function
-    integrate(1/x^2, x, 1, infinity)
+    print(integrate(1/x^2, x, 1, infinity))
 ---
 title: Laplace Transformations
 descr: |
     Compute laplace transformations
 code: |
-    %var k s t
+    var('k s t')
     f = 1/exp(k*t)
     f.laplace(t, s)
 ---
@@ -193,7 +193,7 @@ title: Inverse Laplace Transformations
 descr: |
     ... and the inverse laplace transformations.
 code: |
-    %var k s t
+    var('k s t')
     g = 1/(k + s)
     g.inverse_laplace(s, t)
 ---
@@ -215,7 +215,7 @@ descr: |
 
     That might look a bit strange first, but it is necessary to be very explicit about each variable's and expressions meaning!
 code: |
-    %var x
+    var('x')
     f = function("f")(x)
     type(f)
 ---
@@ -227,10 +227,10 @@ descr: |
     The second example is without them,
     and therefore free constants named $\texttt{_K}_i$ appear.
 code: |
-    %var x
+    var('x')
     y = function('y')(x)
-    desolve(diff(y,x,2) + 3*x == y, dvar = y, ics = [1,1,1])
-    desolve(diff(y,x,2) + 3*x == y, dvar = y)
+    print(desolve(diff(y,x,2) + 3*x == y, dvar = y, ics = [1,1,1]))
+    print(desolve(diff(y,x,2) + 3*x == y, dvar = y))
 ---
 title: Slope Field
 descr: |

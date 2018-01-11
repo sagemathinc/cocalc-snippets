@@ -31,6 +31,6 @@ descr: Plot of $f(x) = x \sin(x)$.
 ---
 title: Simple 3D Plot
 code:  |
-    %var x, y
+    var('x y')
     plot3d(sin(x) * cos(y), (x, -10, 10), (y, -10, 10))
 descr: 3D plot of the $\sin(x)\cos(y)$-function.
