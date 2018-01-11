@@ -27,7 +27,7 @@ descr: |
   Octave will respond by printing the matrix in neatly aligned columns. Octave uses a comma or space to separate entries in a row, and a semicolon or carriage return to separate one row from the next. Ending a command with a semicolon tells Octave not to print the result of the command. For example,
 code: |
   A = [ 1, 1, 2; 3, 5, 8; 13, 21, 34 ]
-  B = rand (3, 2);
+  B = rand(3, 2);
   B
 ---
 title: Matrix Arithmetic
@@ -38,10 +38,15 @@ descr: |
   To multiply the two matrices A and B, type the command `A * B`
 
   and to form the matrix product `transpose(A) * A`, type the command `A' * A`
+
+  Finally, elementwise operations are done via a dot, e.g. `A .* A`.
 code: |
-    2 * A
-    A * B
-    A' * A
+  A = [ 1, 1, 2; 3, 5, 8; 13, 21, 34 ];
+  B = rand(3, 2);
+  2 * A
+  A * B
+  A' * A
+  A .* A
 ---
 title: Solving Systems of Linear Equations
 descr: |
