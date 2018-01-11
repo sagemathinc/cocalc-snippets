@@ -4,9 +4,9 @@
 ---
 language: python
 ---
-category: ["Visualization", "Introduction"]
+category: ["Visualization", "Matplotlib"]
 ---
-title: Matplotlib
+title: First Step
 descr: |
   The fundamental ingredient for almost all kinds of scientific visualizations in Python is [matplotlib](https://matplotlib.org/).
 
@@ -20,3 +20,12 @@ code: |
   x = np.linspace(0, 10, 100)
   y = np.sin(x) * (1 + x)
   plt.plot(x, y)
+---
+title: Bar plot
+descr: |
+  A [bar plot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html#matplotlib.pyplot.bar) shows the values of an array as vertical rectangles.
+code: |
+  import matplotlib.pyplot as plt
+  values = [5, 9, 1.1, 9, 4]
+  indices = range(len(values))
+  plt.bar(indices, values)

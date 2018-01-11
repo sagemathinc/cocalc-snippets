@@ -4,7 +4,8 @@
 ---
 language: python
 ---
-category: ["Data Analysis", "Introduction"]
+category: ["Data Analysis", "Pandas"]
+sotweight: -1
 ---
 title: Pandas Basics
 descr: |
@@ -19,6 +20,40 @@ code: |
   weight = [4, 4, 3, 3, 4, 3,   2,  2, 2,  1,  2,  1,  1, .5, .1]
   data = pd.DataFrame({'age': age, 'weight': weight})
   data
+---
+title: Pandas DataFrame slicing
+descr: |
+  One of the most fundamental functions is to select only a part of the dataset.
+  This example shows some ways how data can be sliced.
+
+  To save us some typing, we use the [Scikit Learn](http://scikit-learn.org) library to load the famous [iris dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set).
+code: |
+  from sklearn.datasets import load_iris
+  import pandas as pd
+
+  data = load_iris()
+  df = pd.DataFrame(data.data, columns=data.feature_names)
+  df.head()
+---
+category: ["Data Analysis", "Scikit Learn"]
+---
+title: Introduction
+descr: |
+  [Scikit Learn](http://scikit-learn.org) is an advanced machine learning library.
+
+  It's main design idea is to fit a prediction model to a dataset by an API, which is consistenly used throughout all methods.
+
+  In the first example here, we give the classical [K-Means](http://scikit-learn.org/stable/modules/clustering.html#k-means) algorithm a hard time:
+  4 random blobs but only 3 clusters to look for.
+code: |
+  import numpy as np
+  import matplotlib.pyplot as plt
+  from sklearn.cluster import KMeans
+  from sklearn.datasets import make_blobs
+
+  X, y = make_blobs(n_samples=1000, centers = 4)
+  y_pred = KMeans(n_clusters=3).fit_predict(X)
+  plt.scatter(X[:, 0], X[:, 1], c=y_pred)
 ---
 category: ["Data Analysis", "Statistics"]
 ---
