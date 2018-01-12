@@ -193,3 +193,48 @@ code: |
   file_reader = open('my-python-file.txt', 'r')
   content = file_reader.read()
   print(content)
+---
+title: "Reading CSV data"
+descr: |
+  Let's write some data to a csv file. Then, we read it using the [`csv` module](https://docs.python.org/3/library/csv.html).
+
+  Note that each row is an array, but each entry is still a string. Use `float()` or `int()` to convert to numbers.
+code: |
+  open('example-data.csv', 'w').write('age,size\n1,1.1\n3,6.33\n7,10\n2,3\n8,9\n5,4')
+
+  import csv
+  with open('example-data.csv') as csvfile:
+      for row in csv.reader(csvfile):
+          print(row)
+---
+title: "Reading CSV data via DictReader"
+descr: |
+  Similar to above, we use the `DictReader` to read in a dictionary.
+  The first line (header) of the csv file will be used to name the entries in the dictionaries for each row.
+code: |
+  open('example-data.csv', 'w').write('age,size\n1,1.1\n3,6.33\n7,10\n2,3\n8,9\n5,4')
+
+  import csv
+  with open('example-data.csv') as csvfile:
+      for row in csv.DictReader(csvfile):
+          print(row)
+---
+title: "UTF-8 special characters support"
+descr: |
+  Most languages have special characters.
+  Python starting with version 3 has streamlined its use of [UTF-8](https://en.wikipedia.org/wiki/UTF-8) for all strings.
+  Below is an example how you can make sure to use this standard for encoding text data.
+code: |
+  # Python 3 only !
+  with open("utf8-encoding.txt", mode="w", encoding="utf8") as file_out:
+      file_out.write("Spä¢ial ©ħa¶aĸŦ€r$\n")
+---
+title: "UTF-8 in Python 2"
+descr: |
+  In case you still work with Python 2, import the `open` function from the `codecs` library.
+
+  Note the `u` in front of the string. That's used to signal a unicode string.
+code: |
+  from codecs import open
+  with open("utf8-encoding2.txt", mode="w", encoding="utf8") as file_out:
+      file_out.write(u"Spä¢ial ©ħa¶aĸŦ€r$\n")
