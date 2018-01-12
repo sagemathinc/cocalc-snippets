@@ -174,3 +174,22 @@ code: |
     print(s1.color)
     print(s2.double())
     print(type(s2))   # the type of the object referenced by s1 is "Shoe"
+---
+category: Introduction / Files
+---
+title: Reading and writing basics
+descr: |
+  Python has very good support to work with files.
+  Let's start with a simple example, where we write some text to a file and then read it back.
+
+  Once executed, look into the file explorer and look for a file named `made-by-python.txt`.
+code: |
+  # Opening a file by name and specifying 'w' for writing.
+  file_writer = open('my-python-file.txt', 'w')
+  # \n is used to insert a new line
+  file_writer.write('This is some text!\n')
+  file_writer.close()
+  # And we read it back. You can omit the second argument 'r', that's the default.
+  file_reader = open('my-python-file.txt', 'r')
+  content = file_reader.read()
+  print(content)
