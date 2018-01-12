@@ -3,14 +3,14 @@
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 ---
 language: python
-category: Language / Tutorial
+category: Introduction / Tutorial
 ---
 title: Hello World
 descr: The "Hello World" program
 code: print("Hello World")
 ---
 title: Objects/Instances
-descr: >
+descr: |
     One of the most fundamental building blocks of a Python program are "Objects".
     They are concrete "instances" of a certain type.
     As a real-world analogue, you can think of a pair of shoes as a type,
@@ -23,7 +23,7 @@ code: |
     5.5       # the floating point number 5.5
 ---
 title: Variables
-descr: >
+descr: |
     A variable is a name for an object.
     It is done via this syntax:
 
@@ -47,7 +47,7 @@ code: |
     print("x={x}, y={y:.3f}".format(**locals()))
 ---
 title: Expressions
-descr: >
+descr: |
     Expressions are constructued by combining several object.
     Usually, they can be evaluated, because operators and functions are used to build the expression.
 
@@ -92,7 +92,7 @@ code: |
     print(x)
 ---
 title: "List access"
-descr: >
+descr: |
     To access elements at a specific location, use `[]` brackets with the index number.
     Counting starts at zero and negative values index in the other direction from the end.
 
@@ -104,7 +104,7 @@ code: |
     print(l[0] + 2 * l[1])
 ---
 title: "Control Structure: if/else"
-descr: >
+descr: |
     Code is executed line by line, but it can be directed to flow in more complex ways.
     An `if` decides if a block of code is executed, or – together with `else` – decides between two blocks.
 
@@ -132,7 +132,7 @@ code: |
             print("j: {} + k: {} = {}".format(j, k, j+k))
 ---
 title: "Data Structure: Dict(ionary)"
-descr: >
+descr: |
     A dictionary is an mapping of (immutable) objects to arbitrary objects.
     The immutable objects are called "keys" and are most commonly numbers, strings or tuples.
 
@@ -152,7 +152,7 @@ code: |
     print(42 in d)
 ---
 title: "Classes"
-descr: >
+descr: |
     A `class` is the usual way how someone can define a custom `type`.
     We define a class `Shoe` with a specific color and size.
     Under the hood, a class is like a dictionary but with some extras and an enhanced syntax.
