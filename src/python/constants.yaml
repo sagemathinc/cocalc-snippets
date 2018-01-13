@@ -1,0 +1,2368 @@
+# CoCalc Examples Documentation File
+# Copyright: CoCalc Authors, 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+# This is partially derived content from the BSD licensed https://github.com/moble/jupyter_boilerplate/
+---
+language: python
+---
+category: ['Constants', 'Mathematical constants']
+---
+title: |
+  Geometric constant \(\pi\)
+code: |
+  constants.pi
+---
+title: |
+  Golden ratio \(\phi\)
+code: |
+  constants.golden
+---
+category: ['Constants', 'Common physical constants']
+---
+title: |
+  Speed of light in vacuum \(c\)
+code: |
+  constants.c
+---
+title: |
+  Magnetic constant \(\mu_0\)
+code: |
+  constants.mu_0
+---
+title: |
+  Electric constant (vacuum permittivity), \(\varepsilon_0\)
+code: |
+  constants.epsilon_0
+---
+title: |
+  Planck's constant \(h\)
+code: |
+  constants.h
+---
+title: |
+  Planck's reduced constant \(\hbar\)
+code: |
+  constants.hbar
+---
+title: |
+  Newton's constant of gravitation \(G_\mathrm{N}\)
+code: |
+  constants.G
+---
+title: |
+  Standard acceleration of gravity \(g\)
+code: |
+  constants.g
+---
+title: |
+  Elementary charge \(e\)
+code: |
+  constants.e
+---
+title: |
+  Molar gas constant \(R\)
+code: |
+  constants.R
+---
+title: |
+  Fine-structure constant \(\alpha\)
+code: |
+  constants.alpha
+---
+title: |
+  Avogadro constant \(N_\mathrm{A}\)
+code: |
+  constants.N_A
+---
+title: |
+  Boltzmann constant \(k_\mathrm{B}\)
+code: |
+  constants.k
+---
+title: |
+  Stefan-Boltzmann constant \(\sigma\)
+code: |
+  constants.sigma
+---
+title: |
+  Wien displacement law constant \(b\)
+code: |
+  constants.Wien
+---
+title: |
+  Rydberg constant \(R_\infty\)
+code: |
+  constants.Rydberg
+---
+title: |
+  Electron mass \(m_\mathrm{e}\)
+code: |
+  constants.m_e
+---
+title: |
+  Proton mass \(m_\mathrm{p}\)
+code: |
+  constants.m_p
+---
+title: |
+  Neutron mass \(m_\mathrm{n}\)
+code: |
+  constants.m_n
+---
+category: ['Constants', 'CODATA physical constants']
+---
+title: |
+  Example
+code: |
+  value,units,uncertainty = constants.physical_constants["alpha particle mass"]
+---
+category: ['Constants', 'A']
+---
+title: |
+  alpha particle mass
+code: |
+  constants.physical_constants["alpha particle mass"]
+---
+title: |
+  alpha particle mass energy equivalent
+code: |
+  constants.physical_constants["alpha particle mass energy equivalent"]
+---
+title: |
+  alpha particle mass energy equivalent in MeV
+code: |
+  constants.physical_constants["alpha particle mass energy equivalent in MeV"]
+---
+title: |
+  alpha particle mass in u
+code: |
+  constants.physical_constants["alpha particle mass in u"]
+---
+title: |
+  alpha particle molar mass
+code: |
+  constants.physical_constants["alpha particle molar mass"]
+---
+title: |
+  alpha particle-electron mass ratio
+code: |
+  constants.physical_constants["alpha particle-electron mass ratio"]
+---
+title: |
+  alpha particle-proton mass ratio
+code: |
+  constants.physical_constants["alpha particle-proton mass ratio"]
+---
+title: |
+  Angstrom star
+code: |
+  constants.physical_constants["Angstrom star"]
+---
+title: |
+  atomic mass constant
+code: |
+  constants.physical_constants["atomic mass constant"]
+---
+title: |
+  atomic mass constant energy equivalent
+code: |
+  constants.physical_constants["atomic mass constant energy equivalent"]
+---
+title: |
+  atomic mass constant energy equivalent in MeV
+code: |
+  constants.physical_constants["atomic mass constant energy equivalent in MeV"]
+---
+title: |
+  atomic mass unit-electron volt relationship
+code: |
+  constants.physical_constants["atomic mass unit-electron volt relationship"]
+---
+title: |
+  atomic mass unit-hartree relationship
+code: |
+  constants.physical_constants["atomic mass unit-hartree relationship"]
+---
+title: |
+  atomic mass unit-hertz relationship
+code: |
+  constants.physical_constants["atomic mass unit-hertz relationship"]
+---
+title: |
+  atomic mass unit-inverse meter relationship
+code: |
+  constants.physical_constants["atomic mass unit-inverse meter relationship"]
+---
+title: |
+  atomic mass unit-joule relationship
+code: |
+  constants.physical_constants["atomic mass unit-joule relationship"]
+---
+title: |
+  atomic mass unit-kelvin relationship
+code: |
+  constants.physical_constants["atomic mass unit-kelvin relationship"]
+---
+title: |
+  atomic mass unit-kilogram relationship
+code: |
+  constants.physical_constants["atomic mass unit-kilogram relationship"]
+---
+title: |
+  atomic unit of 1st hyperpolarizability
+code: |
+  constants.physical_constants["atomic unit of 1st hyperpolarizability"]
+---
+title: |
+  atomic unit of 2nd hyperpolarizability
+code: |
+  constants.physical_constants["atomic unit of 2nd hyperpolarizability"]
+---
+title: |
+  atomic unit of action
+code: |
+  constants.physical_constants["atomic unit of action"]
+---
+title: |
+  atomic unit of charge
+code: |
+  constants.physical_constants["atomic unit of charge"]
+---
+title: |
+  atomic unit of charge density
+code: |
+  constants.physical_constants["atomic unit of charge density"]
+---
+title: |
+  atomic unit of current
+code: |
+  constants.physical_constants["atomic unit of current"]
+---
+title: |
+  atomic unit of electric dipole mom.
+code: |
+  constants.physical_constants["atomic unit of electric dipole mom."]
+---
+title: |
+  atomic unit of electric field
+code: |
+  constants.physical_constants["atomic unit of electric field"]
+---
+title: |
+  atomic unit of electric field gradient
+code: |
+  constants.physical_constants["atomic unit of electric field gradient"]
+---
+title: |
+  atomic unit of electric polarizability
+code: |
+  constants.physical_constants["atomic unit of electric polarizability"]
+---
+title: |
+  atomic unit of electric potential
+code: |
+  constants.physical_constants["atomic unit of electric potential"]
+---
+title: |
+  atomic unit of electric quadrupole mom.
+code: |
+  constants.physical_constants["atomic unit of electric quadrupole mom."]
+---
+title: |
+  atomic unit of energy
+code: |
+  constants.physical_constants["atomic unit of energy"]
+---
+title: |
+  atomic unit of force
+code: |
+  constants.physical_constants["atomic unit of force"]
+---
+title: |
+  atomic unit of length
+code: |
+  constants.physical_constants["atomic unit of length"]
+---
+title: |
+  atomic unit of mag. dipole mom.
+code: |
+  constants.physical_constants["atomic unit of mag. dipole mom."]
+---
+title: |
+  atomic unit of mag. flux density
+code: |
+  constants.physical_constants["atomic unit of mag. flux density"]
+---
+title: |
+  atomic unit of magnetizability
+code: |
+  constants.physical_constants["atomic unit of magnetizability"]
+---
+title: |
+  atomic unit of mass
+code: |
+  constants.physical_constants["atomic unit of mass"]
+---
+title: |
+  atomic unit of mom.um
+code: |
+  constants.physical_constants["atomic unit of mom.um"]
+---
+title: |
+  atomic unit of permittivity
+code: |
+  constants.physical_constants["atomic unit of permittivity"]
+---
+title: |
+  atomic unit of time
+code: |
+  constants.physical_constants["atomic unit of time"]
+---
+title: |
+  atomic unit of velocity
+code: |
+  constants.physical_constants["atomic unit of velocity"]
+---
+title: |
+  Avogadro constant
+code: |
+  constants.physical_constants["Avogadro constant"]
+---
+category: ['Constants', 'B']
+---
+title: |
+  Bohr magneton
+code: |
+  constants.physical_constants["Bohr magneton"]
+---
+title: |
+  Bohr magneton in eV/T
+code: |
+  constants.physical_constants["Bohr magneton in eV/T"]
+---
+title: |
+  Bohr magneton in Hz/T
+code: |
+  constants.physical_constants["Bohr magneton in Hz/T"]
+---
+title: |
+  Bohr magneton in inverse meters per tesla
+code: |
+  constants.physical_constants["Bohr magneton in inverse meters per tesla"]
+---
+title: |
+  Bohr magneton in K/T
+code: |
+  constants.physical_constants["Bohr magneton in K/T"]
+---
+title: |
+  Bohr radius
+code: |
+  constants.physical_constants["Bohr radius"]
+---
+title: |
+  Boltzmann constant
+code: |
+  constants.physical_constants["Boltzmann constant"]
+---
+title: |
+  Boltzmann constant in eV/K
+code: |
+  constants.physical_constants["Boltzmann constant in eV/K"]
+---
+title: |
+  Boltzmann constant in Hz/K
+code: |
+  constants.physical_constants["Boltzmann constant in Hz/K"]
+---
+title: |
+  Boltzmann constant in inverse meters per kelvin
+code: |
+  constants.physical_constants["Boltzmann constant in inverse meters per kelvin"]
+---
+category: ['Constants', 'C']
+---
+title: |
+  characteristic impedance of vacuum
+code: |
+  constants.physical_constants["characteristic impedance of vacuum"]
+---
+title: |
+  classical electron radius
+code: |
+  constants.physical_constants["classical electron radius"]
+---
+title: |
+  Compton wavelength
+code: |
+  constants.physical_constants["Compton wavelength"]
+---
+title: |
+  Compton wavelength over \(2\pi\)
+code: |
+  constants.physical_constants["Compton wavelength over 2 pi"]
+---
+title: |
+  conductance quantum
+code: |
+  constants.physical_constants["conductance quantum"]
+---
+title: |
+  conventional value of Josephson constant
+code: |
+  constants.physical_constants["conventional value of Josephson constant"]
+---
+title: |
+  conventional value of von Klitzing constant
+code: |
+  constants.physical_constants["conventional value of von Klitzing constant"]
+---
+title: |
+  Cu x unit
+code: |
+  constants.physical_constants["Cu x unit"]
+---
+category: ['Constants', 'D']
+---
+title: |
+  deuteron g factor
+code: |
+  constants.physical_constants["deuteron g factor"]
+---
+title: |
+  deuteron mag. mom.
+code: |
+  constants.physical_constants["deuteron mag. mom."]
+---
+title: |
+  deuteron mag. mom. to Bohr magneton ratio
+code: |
+  constants.physical_constants["deuteron mag. mom. to Bohr magneton ratio"]
+---
+title: |
+  deuteron mag. mom. to nuclear magneton ratio
+code: |
+  constants.physical_constants["deuteron mag. mom. to nuclear magneton ratio"]
+---
+title: |
+  deuteron mass
+code: |
+  constants.physical_constants["deuteron mass"]
+---
+title: |
+  deuteron mass energy equivalent
+code: |
+  constants.physical_constants["deuteron mass energy equivalent"]
+---
+title: |
+  deuteron mass energy equivalent in MeV
+code: |
+  constants.physical_constants["deuteron mass energy equivalent in MeV"]
+---
+title: |
+  deuteron mass in u
+code: |
+  constants.physical_constants["deuteron mass in u"]
+---
+title: |
+  deuteron molar mass
+code: |
+  constants.physical_constants["deuteron molar mass"]
+---
+title: |
+  deuteron rms charge radius
+code: |
+  constants.physical_constants["deuteron rms charge radius"]
+---
+title: |
+  deuteron-electron mag. mom. ratio
+code: |
+  constants.physical_constants["deuteron-electron mag. mom. ratio"]
+---
+title: |
+  deuteron-electron mass ratio
+code: |
+  constants.physical_constants["deuteron-electron mass ratio"]
+---
+title: |
+  deuteron-neutron mag. mom. ratio
+code: |
+  constants.physical_constants["deuteron-neutron mag. mom. ratio"]
+---
+title: |
+  deuteron-proton mag. mom. ratio
+code: |
+  constants.physical_constants["deuteron-proton mag. mom. ratio"]
+---
+title: |
+  deuteron-proton mass ratio
+code: |
+  constants.physical_constants["deuteron-proton mass ratio"]
+---
+category: ['Constants', 'E']
+---
+title: |
+  electric constant
+code: |
+  constants.physical_constants["electric constant"]
+---
+title: |
+  electron charge to mass quotient
+code: |
+  constants.physical_constants["electron charge to mass quotient"]
+---
+title: |
+  electron g factor
+code: |
+  constants.physical_constants["electron g factor"]
+---
+title: |
+  electron gyromag. ratio
+code: |
+  constants.physical_constants["electron gyromag. ratio"]
+---
+title: |
+  electron gyromag. ratio over 2 pi
+code: |
+  constants.physical_constants["electron gyromag. ratio over 2 pi"]
+---
+title: |
+  electron mag. mom.
+code: |
+  constants.physical_constants["electron mag. mom."]
+---
+title: |
+  electron mag. mom. anomaly
+code: |
+  constants.physical_constants["electron mag. mom. anomaly"]
+---
+title: |
+  electron mag. mom. to Bohr magneton ratio
+code: |
+  constants.physical_constants["electron mag. mom. to Bohr magneton ratio"]
+---
+title: |
+  electron mag. mom. to nuclear magneton ratio
+code: |
+  constants.physical_constants["electron mag. mom. to nuclear magneton ratio"]
+---
+title: |
+  electron mass
+code: |
+  constants.physical_constants["electron mass"]
+---
+title: |
+  electron mass energy equivalent
+code: |
+  constants.physical_constants["electron mass energy equivalent"]
+---
+title: |
+  electron mass energy equivalent in MeV
+code: |
+  constants.physical_constants["electron mass energy equivalent in MeV"]
+---
+title: |
+  electron mass in u
+code: |
+  constants.physical_constants["electron mass in u"]
+---
+title: |
+  electron molar mass
+code: |
+  constants.physical_constants["electron molar mass"]
+---
+title: |
+  electron to alpha particle mass ratio
+code: |
+  constants.physical_constants["electron to alpha particle mass ratio"]
+---
+title: |
+  electron to shielded helion mag. mom. ratio
+code: |
+  constants.physical_constants["electron to shielded helion mag. mom. ratio"]
+---
+title: |
+  electron to shielded proton mag. mom. ratio
+code: |
+  constants.physical_constants["electron to shielded proton mag. mom. ratio"]
+---
+title: |
+  electron volt
+code: |
+  constants.physical_constants["electron volt"]
+---
+title: |
+  electron volt-atomic mass unit relationship
+code: |
+  constants.physical_constants["electron volt-atomic mass unit relationship"]
+---
+title: |
+  electron volt-hartree relationship
+code: |
+  constants.physical_constants["electron volt-hartree relationship"]
+---
+title: |
+  electron volt-hertz relationship
+code: |
+  constants.physical_constants["electron volt-hertz relationship"]
+---
+title: |
+  electron volt-inverse meter relationship
+code: |
+  constants.physical_constants["electron volt-inverse meter relationship"]
+---
+title: |
+  electron volt-joule relationship
+code: |
+  constants.physical_constants["electron volt-joule relationship"]
+---
+title: |
+  electron volt-kelvin relationship
+code: |
+  constants.physical_constants["electron volt-kelvin relationship"]
+---
+title: |
+  electron volt-kilogram relationship
+code: |
+  constants.physical_constants["electron volt-kilogram relationship"]
+---
+title: |
+  electron-deuteron mag. mom. ratio
+code: |
+  constants.physical_constants["electron-deuteron mag. mom. ratio"]
+---
+title: |
+  electron-deuteron mass ratio
+code: |
+  constants.physical_constants["electron-deuteron mass ratio"]
+---
+title: |
+  electron-helion mass ratio
+code: |
+  constants.physical_constants["electron-helion mass ratio"]
+---
+title: |
+  electron-muon mag. mom. ratio
+code: |
+  constants.physical_constants["electron-muon mag. mom. ratio"]
+---
+title: |
+  electron-muon mass ratio
+code: |
+  constants.physical_constants["electron-muon mass ratio"]
+---
+title: |
+  electron-neutron mag. mom. ratio
+code: |
+  constants.physical_constants["electron-neutron mag. mom. ratio"]
+---
+title: |
+  electron-neutron mass ratio
+code: |
+  constants.physical_constants["electron-neutron mass ratio"]
+---
+title: |
+  electron-proton mag. mom. ratio
+code: |
+  constants.physical_constants["electron-proton mag. mom. ratio"]
+---
+title: |
+  electron-proton mass ratio
+code: |
+  constants.physical_constants["electron-proton mass ratio"]
+---
+title: |
+  electron-tau mass ratio
+code: |
+  constants.physical_constants["electron-tau mass ratio"]
+---
+title: |
+  electron-triton mass ratio
+code: |
+  constants.physical_constants["electron-triton mass ratio"]
+---
+title: |
+  elementary charge
+code: |
+  constants.physical_constants["elementary charge"]
+---
+title: |
+  elementary charge over h
+code: |
+  constants.physical_constants["elementary charge over h"]
+---
+category: ['Constants', 'F']
+---
+title: |
+  Faraday constant
+code: |
+  constants.physical_constants["Faraday constant"]
+---
+title: |
+  Faraday constant for conventional electric current
+code: |
+  constants.physical_constants["Faraday constant for conventional electric current"]
+---
+title: |
+  Fermi coupling constant
+code: |
+  constants.physical_constants["Fermi coupling constant"]
+---
+title: |
+  fine-structure constant
+code: |
+  constants.physical_constants["fine-structure constant"]
+---
+title: |
+  first radiation constant
+code: |
+  constants.physical_constants["first radiation constant"]
+---
+title: |
+  first radiation constant for spectral radiance
+code: |
+  constants.physical_constants["first radiation constant for spectral radiance"]
+---
+category: ['Constants', 'H']
+---
+title: |
+  Hartree energy
+code: |
+  constants.physical_constants["Hartree energy"]
+---
+title: |
+  Hartree energy in eV
+code: |
+  constants.physical_constants["Hartree energy in eV"]
+---
+title: |
+  hartree-atomic mass unit relationship
+code: |
+  constants.physical_constants["hartree-atomic mass unit relationship"]
+---
+title: |
+  hartree-electron volt relationship
+code: |
+  constants.physical_constants["hartree-electron volt relationship"]
+---
+title: |
+  hartree-hertz relationship
+code: |
+  constants.physical_constants["hartree-hertz relationship"]
+---
+title: |
+  hartree-inverse meter relationship
+code: |
+  constants.physical_constants["hartree-inverse meter relationship"]
+---
+title: |
+  hartree-joule relationship
+code: |
+  constants.physical_constants["hartree-joule relationship"]
+---
+title: |
+  hartree-kelvin relationship
+code: |
+  constants.physical_constants["hartree-kelvin relationship"]
+---
+title: |
+  hartree-kilogram relationship
+code: |
+  constants.physical_constants["hartree-kilogram relationship"]
+---
+title: |
+  helion g factor
+code: |
+  constants.physical_constants["helion g factor"]
+---
+title: |
+  helion mag. mom.
+code: |
+  constants.physical_constants["helion mag. mom."]
+---
+title: |
+  helion mag. mom. to Bohr magneton ratio
+code: |
+  constants.physical_constants["helion mag. mom. to Bohr magneton ratio"]
+---
+title: |
+  helion mag. mom. to nuclear magneton ratio
+code: |
+  constants.physical_constants["helion mag. mom. to nuclear magneton ratio"]
+---
+title: |
+  helion mass
+code: |
+  constants.physical_constants["helion mass"]
+---
+title: |
+  helion mass energy equivalent
+code: |
+  constants.physical_constants["helion mass energy equivalent"]
+---
+title: |
+  helion mass energy equivalent in MeV
+code: |
+  constants.physical_constants["helion mass energy equivalent in MeV"]
+---
+title: |
+  helion mass in u
+code: |
+  constants.physical_constants["helion mass in u"]
+---
+title: |
+  helion molar mass
+code: |
+  constants.physical_constants["helion molar mass"]
+---
+title: |
+  helion-electron mass ratio
+code: |
+  constants.physical_constants["helion-electron mass ratio"]
+---
+title: |
+  helion-proton mass ratio
+code: |
+  constants.physical_constants["helion-proton mass ratio"]
+---
+title: |
+  hertz-atomic mass unit relationship
+code: |
+  constants.physical_constants["hertz-atomic mass unit relationship"]
+---
+title: |
+  hertz-electron volt relationship
+code: |
+  constants.physical_constants["hertz-electron volt relationship"]
+---
+title: |
+  hertz-hartree relationship
+code: |
+  constants.physical_constants["hertz-hartree relationship"]
+---
+title: |
+  hertz-inverse meter relationship
+code: |
+  constants.physical_constants["hertz-inverse meter relationship"]
+---
+title: |
+  hertz-joule relationship
+code: |
+  constants.physical_constants["hertz-joule relationship"]
+---
+title: |
+  hertz-kelvin relationship
+code: |
+  constants.physical_constants["hertz-kelvin relationship"]
+---
+title: |
+  hertz-kilogram relationship
+code: |
+  constants.physical_constants["hertz-kilogram relationship"]
+---
+category: ['Constants', 'I']
+---
+title: |
+  inverse fine-structure constant
+code: |
+  constants.physical_constants["inverse fine-structure constant"]
+---
+title: |
+  inverse meter-atomic mass unit relationship
+code: |
+  constants.physical_constants["inverse meter-atomic mass unit relationship"]
+---
+title: |
+  inverse meter-electron volt relationship
+code: |
+  constants.physical_constants["inverse meter-electron volt relationship"]
+---
+title: |
+  inverse meter-hartree relationship
+code: |
+  constants.physical_constants["inverse meter-hartree relationship"]
+---
+title: |
+  inverse meter-hertz relationship
+code: |
+  constants.physical_constants["inverse meter-hertz relationship"]
+---
+title: |
+  inverse meter-joule relationship
+code: |
+  constants.physical_constants["inverse meter-joule relationship"]
+---
+title: |
+  inverse meter-kelvin relationship
+code: |
+  constants.physical_constants["inverse meter-kelvin relationship"]
+---
+title: |
+  inverse meter-kilogram relationship
+code: |
+  constants.physical_constants["inverse meter-kilogram relationship"]
+---
+title: |
+  inverse of conductance quantum
+code: |
+  constants.physical_constants["inverse of conductance quantum"]
+---
+category: ['Constants', 'J']
+---
+title: |
+  Josephson constant
+code: |
+  constants.physical_constants["Josephson constant"]
+---
+title: |
+  joule-atomic mass unit relationship
+code: |
+  constants.physical_constants["joule-atomic mass unit relationship"]
+---
+title: |
+  joule-electron volt relationship
+code: |
+  constants.physical_constants["joule-electron volt relationship"]
+---
+title: |
+  joule-hartree relationship
+code: |
+  constants.physical_constants["joule-hartree relationship"]
+---
+title: |
+  joule-hertz relationship
+code: |
+  constants.physical_constants["joule-hertz relationship"]
+---
+title: |
+  joule-inverse meter relationship
+code: |
+  constants.physical_constants["joule-inverse meter relationship"]
+---
+title: |
+  joule-kelvin relationship
+code: |
+  constants.physical_constants["joule-kelvin relationship"]
+---
+title: |
+  joule-kilogram relationship
+code: |
+  constants.physical_constants["joule-kilogram relationship"]
+---
+category: ['Constants', 'K']
+---
+title: |
+  kelvin-atomic mass unit relationship
+code: |
+  constants.physical_constants["kelvin-atomic mass unit relationship"]
+---
+title: |
+  kelvin-electron volt relationship
+code: |
+  constants.physical_constants["kelvin-electron volt relationship"]
+---
+title: |
+  kelvin-hartree relationship
+code: |
+  constants.physical_constants["kelvin-hartree relationship"]
+---
+title: |
+  kelvin-hertz relationship
+code: |
+  constants.physical_constants["kelvin-hertz relationship"]
+---
+title: |
+  kelvin-inverse meter relationship
+code: |
+  constants.physical_constants["kelvin-inverse meter relationship"]
+---
+title: |
+  kelvin-joule relationship
+code: |
+  constants.physical_constants["kelvin-joule relationship"]
+---
+title: |
+  kelvin-kilogram relationship
+code: |
+  constants.physical_constants["kelvin-kilogram relationship"]
+---
+title: |
+  kilogram-atomic mass unit relationship
+code: |
+  constants.physical_constants["kilogram-atomic mass unit relationship"]
+---
+title: |
+  kilogram-electron volt relationship
+code: |
+  constants.physical_constants["kilogram-electron volt relationship"]
+---
+title: |
+  kilogram-hartree relationship
+code: |
+  constants.physical_constants["kilogram-hartree relationship"]
+---
+title: |
+  kilogram-hertz relationship
+code: |
+  constants.physical_constants["kilogram-hertz relationship"]
+---
+title: |
+  kilogram-inverse meter relationship
+code: |
+  constants.physical_constants["kilogram-inverse meter relationship"]
+---
+title: |
+  kilogram-joule relationship
+code: |
+  constants.physical_constants["kilogram-joule relationship"]
+---
+title: |
+  kilogram-kelvin relationship
+code: |
+  constants.physical_constants["kilogram-kelvin relationship"]
+---
+category: ['Constants', 'L']
+---
+title: |
+  lattice parameter of silicon
+code: |
+  constants.physical_constants["lattice parameter of silicon"]
+---
+title: |
+  Loschmidt constant (273.15 K, 100 kPa)
+code: |
+  constants.physical_constants["Loschmidt constant (273.15 K, 100 kPa)"]
+---
+title: |
+  Loschmidt constant (273.15 K, 101.325 kPa)
+code: |
+  constants.physical_constants["Loschmidt constant (273.15 K, 101.325 kPa)"]
+---
+category: ['Constants', 'M']
+---
+title: |
+  mag. constant
+code: |
+  constants.physical_constants["mag. constant"]
+---
+title: |
+  mag. flux quantum
+code: |
+  constants.physical_constants["mag. flux quantum"]
+---
+title: |
+  Mo x unit
+code: |
+  constants.physical_constants["Mo x unit"]
+---
+title: |
+  molar gas constant
+code: |
+  constants.physical_constants["molar gas constant"]
+---
+title: |
+  molar mass constant
+code: |
+  constants.physical_constants["molar mass constant"]
+---
+title: |
+  molar mass of carbon-12
+code: |
+  constants.physical_constants["molar mass of carbon-12"]
+---
+title: |
+  molar Planck constant
+code: |
+  constants.physical_constants["molar Planck constant"]
+---
+title: |
+  molar Planck constant times c
+code: |
+  constants.physical_constants["molar Planck constant times c"]
+---
+title: |
+  molar volume of ideal gas (273.15 K, 100 kPa)
+code: |
+  constants.physical_constants["molar volume of ideal gas (273.15 K, 100 kPa)"]
+---
+title: |
+  molar volume of ideal gas (273.15 K, 101.325 kPa)
+code: |
+  constants.physical_constants["molar volume of ideal gas (273.15 K, 101.325 kPa)"]
+---
+title: |
+  molar volume of silicon
+code: |
+  constants.physical_constants["molar volume of silicon"]
+---
+title: |
+  muon Compton wavelength
+code: |
+  constants.physical_constants["muon Compton wavelength"]
+---
+title: |
+  muon Compton wavelength over 2 pi
+code: |
+  constants.physical_constants["muon Compton wavelength over 2 pi"]
+---
+title: |
+  muon g factor
+code: |
+  constants.physical_constants["muon g factor"]
+---
+title: |
+  muon mag. mom.
+code: |
+  constants.physical_constants["muon mag. mom."]
+---
+title: |
+  muon mag. mom. anomaly
+code: |
+  constants.physical_constants["muon mag. mom. anomaly"]
+---
+title: |
+  muon mag. mom. to Bohr magneton ratio
+code: |
+  constants.physical_constants["muon mag. mom. to Bohr magneton ratio"]
+---
+title: |
+  muon mag. mom. to nuclear magneton ratio
+code: |
+  constants.physical_constants["muon mag. mom. to nuclear magneton ratio"]
+---
+title: |
+  muon mass
+code: |
+  constants.physical_constants["muon mass"]
+---
+title: |
+  muon mass energy equivalent
+code: |
+  constants.physical_constants["muon mass energy equivalent"]
+---
+title: |
+  muon mass energy equivalent in MeV
+code: |
+  constants.physical_constants["muon mass energy equivalent in MeV"]
+---
+title: |
+  muon mass in u
+code: |
+  constants.physical_constants["muon mass in u"]
+---
+title: |
+  muon molar mass
+code: |
+  constants.physical_constants["muon molar mass"]
+---
+title: |
+  muon-electron mass ratio
+code: |
+  constants.physical_constants["muon-electron mass ratio"]
+---
+title: |
+  muon-neutron mass ratio
+code: |
+  constants.physical_constants["muon-neutron mass ratio"]
+---
+title: |
+  muon-proton mag. mom. ratio
+code: |
+  constants.physical_constants["muon-proton mag. mom. ratio"]
+---
+title: |
+  muon-proton mass ratio
+code: |
+  constants.physical_constants["muon-proton mass ratio"]
+---
+title: |
+  muon-tau mass ratio
+code: |
+  constants.physical_constants["muon-tau mass ratio"]
+---
+category: ['Constants', 'N']
+---
+title: |
+  natural unit of action
+code: |
+  constants.physical_constants["natural unit of action"]
+---
+title: |
+  natural unit of action in eV s
+code: |
+  constants.physical_constants["natural unit of action in eV s"]
+---
+title: |
+  natural unit of energy
+code: |
+  constants.physical_constants["natural unit of energy"]
+---
+title: |
+  natural unit of energy in MeV
+code: |
+  constants.physical_constants["natural unit of energy in MeV"]
+---
+title: |
+  natural unit of length
+code: |
+  constants.physical_constants["natural unit of length"]
+---
+title: |
+  natural unit of mass
+code: |
+  constants.physical_constants["natural unit of mass"]
+---
+title: |
+  natural unit of mom.um
+code: |
+  constants.physical_constants["natural unit of mom.um"]
+---
+title: |
+  natural unit of mom.um in MeV/c
+code: |
+  constants.physical_constants["natural unit of mom.um in MeV/c"]
+---
+title: |
+  natural unit of time
+code: |
+  constants.physical_constants["natural unit of time"]
+---
+title: |
+  natural unit of velocity
+code: |
+  constants.physical_constants["natural unit of velocity"]
+---
+title: |
+  neutron Compton wavelength
+code: |
+  constants.physical_constants["neutron Compton wavelength"]
+---
+title: |
+  neutron Compton wavelength over 2 pi
+code: |
+  constants.physical_constants["neutron Compton wavelength over 2 pi"]
+---
+title: |
+  neutron g factor
+code: |
+  constants.physical_constants["neutron g factor"]
+---
+title: |
+  neutron gyromag. ratio
+code: |
+  constants.physical_constants["neutron gyromag. ratio"]
+---
+title: |
+  neutron gyromag. ratio over 2 pi
+code: |
+  constants.physical_constants["neutron gyromag. ratio over 2 pi"]
+---
+title: |
+  neutron mag. mom.
+code: |
+  constants.physical_constants["neutron mag. mom."]
+---
+title: |
+  neutron mag. mom. to Bohr magneton ratio
+code: |
+  constants.physical_constants["neutron mag. mom. to Bohr magneton ratio"]
+---
+title: |
+  neutron mag. mom. to nuclear magneton ratio
+code: |
+  constants.physical_constants["neutron mag. mom. to nuclear magneton ratio"]
+---
+title: |
+  neutron mass
+code: |
+  constants.physical_constants["neutron mass"]
+---
+title: |
+  neutron mass energy equivalent
+code: |
+  constants.physical_constants["neutron mass energy equivalent"]
+---
+title: |
+  neutron mass energy equivalent in MeV
+code: |
+  constants.physical_constants["neutron mass energy equivalent in MeV"]
+---
+title: |
+  neutron mass in u
+code: |
+  constants.physical_constants["neutron mass in u"]
+---
+title: |
+  neutron molar mass
+code: |
+  constants.physical_constants["neutron molar mass"]
+---
+title: |
+  neutron to shielded proton mag. mom. ratio
+code: |
+  constants.physical_constants["neutron to shielded proton mag. mom. ratio"]
+---
+title: |
+  neutron-electron mag. mom. ratio
+code: |
+  constants.physical_constants["neutron-electron mag. mom. ratio"]
+---
+title: |
+  neutron-electron mass ratio
+code: |
+  constants.physical_constants["neutron-electron mass ratio"]
+---
+title: |
+  neutron-muon mass ratio
+code: |
+  constants.physical_constants["neutron-muon mass ratio"]
+---
+title: |
+  neutron-proton mag. mom. ratio
+code: |
+  constants.physical_constants["neutron-proton mag. mom. ratio"]
+---
+title: |
+  neutron-proton mass difference
+code: |
+  constants.physical_constants["neutron-proton mass difference"]
+---
+title: |
+  neutron-proton mass difference energy equivalent
+code: |
+  constants.physical_constants["neutron-proton mass difference energy equivalent"]
+---
+title: |
+  neutron-proton mass difference energy equivalent in MeV
+code: |
+  constants.physical_constants["neutron-proton mass difference energy equivalent in MeV"]
+---
+title: |
+  neutron-proton mass difference in u
+code: |
+  constants.physical_constants["neutron-proton mass difference in u"]
+---
+title: |
+  neutron-proton mass ratio
+code: |
+  constants.physical_constants["neutron-proton mass ratio"]
+---
+title: |
+  neutron-tau mass ratio
+code: |
+  constants.physical_constants["neutron-tau mass ratio"]
+---
+title: |
+  Newtonian constant of gravitation
+code: |
+  constants.physical_constants["Newtonian constant of gravitation"]
+---
+title: |
+  Newtonian constant of gravitation over h-bar c
+code: |
+  constants.physical_constants["Newtonian constant of gravitation over h-bar c"]
+---
+title: |
+  nuclear magneton
+code: |
+  constants.physical_constants["nuclear magneton"]
+---
+title: |
+  nuclear magneton in eV/T
+code: |
+  constants.physical_constants["nuclear magneton in eV/T"]
+---
+title: |
+  nuclear magneton in inverse meters per tesla
+code: |
+  constants.physical_constants["nuclear magneton in inverse meters per tesla"]
+---
+title: |
+  nuclear magneton in K/T
+code: |
+  constants.physical_constants["nuclear magneton in K/T"]
+---
+title: |
+  nuclear magneton in MHz/T
+code: |
+  constants.physical_constants["nuclear magneton in MHz/T"]
+---
+category: ['Constants', 'P']
+---
+title: |
+  Planck constant
+code: |
+  constants.physical_constants["Planck constant"]
+---
+title: |
+  Planck constant in eV s
+code: |
+  constants.physical_constants["Planck constant in eV s"]
+---
+title: |
+  Planck constant over 2 pi
+code: |
+  constants.physical_constants["Planck constant over 2 pi"]
+---
+title: |
+  Planck constant over 2 pi in eV s
+code: |
+  constants.physical_constants["Planck constant over 2 pi in eV s"]
+---
+title: |
+  Planck constant over 2 pi times c in MeV fm
+code: |
+  constants.physical_constants["Planck constant over 2 pi times c in MeV fm"]
+---
+title: |
+  Planck length
+code: |
+  constants.physical_constants["Planck length"]
+---
+title: |
+  Planck mass
+code: |
+  constants.physical_constants["Planck mass"]
+---
+title: |
+  Planck mass energy equivalent in GeV
+code: |
+  constants.physical_constants["Planck mass energy equivalent in GeV"]
+---
+title: |
+  Planck temperature
+code: |
+  constants.physical_constants["Planck temperature"]
+---
+title: |
+  Planck time
+code: |
+  constants.physical_constants["Planck time"]
+---
+title: |
+  proton charge to mass quotient
+code: |
+  constants.physical_constants["proton charge to mass quotient"]
+---
+title: |
+  proton Compton wavelength
+code: |
+  constants.physical_constants["proton Compton wavelength"]
+---
+title: |
+  proton Compton wavelength over 2 pi
+code: |
+  constants.physical_constants["proton Compton wavelength over 2 pi"]
+---
+title: |
+  proton g factor
+code: |
+  constants.physical_constants["proton g factor"]
+---
+title: |
+  proton gyromag. ratio
+code: |
+  constants.physical_constants["proton gyromag. ratio"]
+---
+title: |
+  proton gyromag. ratio over 2 pi
+code: |
+  constants.physical_constants["proton gyromag. ratio over 2 pi"]
+---
+title: |
+  proton mag. mom.
+code: |
+  constants.physical_constants["proton mag. mom."]
+---
+title: |
+  proton mag. mom. to Bohr magneton ratio
+code: |
+  constants.physical_constants["proton mag. mom. to Bohr magneton ratio"]
+---
+title: |
+  proton mag. mom. to nuclear magneton ratio
+code: |
+  constants.physical_constants["proton mag. mom. to nuclear magneton ratio"]
+---
+title: |
+  proton mag. shielding correction
+code: |
+  constants.physical_constants["proton mag. shielding correction"]
+---
+title: |
+  proton mass
+code: |
+  constants.physical_constants["proton mass"]
+---
+title: |
+  proton mass energy equivalent
+code: |
+  constants.physical_constants["proton mass energy equivalent"]
+---
+title: |
+  proton mass energy equivalent in MeV
+code: |
+  constants.physical_constants["proton mass energy equivalent in MeV"]
+---
+title: |
+  proton mass in u
+code: |
+  constants.physical_constants["proton mass in u"]
+---
+title: |
+  proton molar mass
+code: |
+  constants.physical_constants["proton molar mass"]
+---
+title: |
+  proton rms charge radius
+code: |
+  constants.physical_constants["proton rms charge radius"]
+---
+title: |
+  proton-electron mass ratio
+code: |
+  constants.physical_constants["proton-electron mass ratio"]
+---
+title: |
+  proton-muon mass ratio
+code: |
+  constants.physical_constants["proton-muon mass ratio"]
+---
+title: |
+  proton-neutron mag. mom. ratio
+code: |
+  constants.physical_constants["proton-neutron mag. mom. ratio"]
+---
+title: |
+  proton-neutron mass ratio
+code: |
+  constants.physical_constants["proton-neutron mass ratio"]
+---
+title: |
+  proton-tau mass ratio
+code: |
+  constants.physical_constants["proton-tau mass ratio"]
+---
+category: ['Constants', 'Q']
+---
+title: |
+  quantum of circulation
+code: |
+  constants.physical_constants["quantum of circulation"]
+---
+title: |
+  quantum of circulation times 2
+code: |
+  constants.physical_constants["quantum of circulation times 2"]
+---
+category: ['Constants', 'R']
+---
+title: |
+  Rydberg constant
+code: |
+  constants.physical_constants["Rydberg constant"]
+---
+title: |
+  Rydberg constant times c in Hz
+code: |
+  constants.physical_constants["Rydberg constant times c in Hz"]
+---
+title: |
+  Rydberg constant times hc in eV
+code: |
+  constants.physical_constants["Rydberg constant times hc in eV"]
+---
+title: |
+  Rydberg constant times hc in J
+code: |
+  constants.physical_constants["Rydberg constant times hc in J"]
+---
+category: ['Constants', 'S']
+---
+title: |
+  Sackur-Tetrode constant (1 K, 100 kPa)
+code: |
+  constants.physical_constants["Sackur-Tetrode constant (1 K, 100 kPa)"]
+---
+title: |
+  Sackur-Tetrode constant (1 K, 101.325 kPa)
+code: |
+  constants.physical_constants["Sackur-Tetrode constant (1 K, 101.325 kPa)"]
+---
+title: |
+  second radiation constant
+code: |
+  constants.physical_constants["second radiation constant"]
+---
+title: |
+  shielded helion gyromag. ratio
+code: |
+  constants.physical_constants["shielded helion gyromag. ratio"]
+---
+title: |
+  shielded helion gyromag. ratio over 2 pi
+code: |
+  constants.physical_constants["shielded helion gyromag. ratio over 2 pi"]
+---
+title: |
+  shielded helion mag. mom.
+code: |
+  constants.physical_constants["shielded helion mag. mom."]
+---
+title: |
+  shielded helion mag. mom. to Bohr magneton ratio
+code: |
+  constants.physical_constants["shielded helion mag. mom. to Bohr magneton ratio"]
+---
+title: |
+  shielded helion mag. mom. to nuclear magneton ratio
+code: |
+  constants.physical_constants["shielded helion mag. mom. to nuclear magneton ratio"]
+---
+title: |
+  shielded helion to proton mag. mom. ratio
+code: |
+  constants.physical_constants["shielded helion to proton mag. mom. ratio"]
+---
+title: |
+  shielded helion to shielded proton mag. mom. ratio
+code: |
+  constants.physical_constants["shielded helion to shielded proton mag. mom. ratio"]
+---
+title: |
+  shielded proton gyromag. ratio
+code: |
+  constants.physical_constants["shielded proton gyromag. ratio"]
+---
+title: |
+  shielded proton gyromag. ratio over 2 pi
+code: |
+  constants.physical_constants["shielded proton gyromag. ratio over 2 pi"]
+---
+title: |
+  shielded proton mag. mom.
+code: |
+  constants.physical_constants["shielded proton mag. mom."]
+---
+title: |
+  shielded proton mag. mom. to Bohr magneton ratio
+code: |
+  constants.physical_constants["shielded proton mag. mom. to Bohr magneton ratio"]
+---
+title: |
+  shielded proton mag. mom. to nuclear magneton ratio
+code: |
+  constants.physical_constants["shielded proton mag. mom. to nuclear magneton ratio"]
+---
+title: |
+  speed of light in vacuum
+code: |
+  constants.physical_constants["speed of light in vacuum"]
+---
+title: |
+  standard acceleration of gravity
+code: |
+  constants.physical_constants["standard acceleration of gravity"]
+---
+title: |
+  standard atmosphere
+code: |
+  constants.physical_constants["standard atmosphere"]
+---
+title: |
+  standard-state pressure
+code: |
+  constants.physical_constants["standard-state pressure"]
+---
+title: |
+  Stefan-Boltzmann constant
+code: |
+  constants.physical_constants["Stefan-Boltzmann constant"]
+---
+category: ['Constants', 'T']
+---
+title: |
+  tau Compton wavelength
+code: |
+  constants.physical_constants["tau Compton wavelength"]
+---
+title: |
+  tau Compton wavelength over 2 pi
+code: |
+  constants.physical_constants["tau Compton wavelength over 2 pi"]
+---
+title: |
+  tau mass
+code: |
+  constants.physical_constants["tau mass"]
+---
+title: |
+  tau mass energy equivalent
+code: |
+  constants.physical_constants["tau mass energy equivalent"]
+---
+title: |
+  tau mass energy equivalent in MeV
+code: |
+  constants.physical_constants["tau mass energy equivalent in MeV"]
+---
+title: |
+  tau mass in u
+code: |
+  constants.physical_constants["tau mass in u"]
+---
+title: |
+  tau molar mass
+code: |
+  constants.physical_constants["tau molar mass"]
+---
+title: |
+  tau-electron mass ratio
+code: |
+  constants.physical_constants["tau-electron mass ratio"]
+---
+title: |
+  tau-muon mass ratio
+code: |
+  constants.physical_constants["tau-muon mass ratio"]
+---
+title: |
+  tau-neutron mass ratio
+code: |
+  constants.physical_constants["tau-neutron mass ratio"]
+---
+title: |
+  tau-proton mass ratio
+code: |
+  constants.physical_constants["tau-proton mass ratio"]
+---
+title: |
+  Thomson cross section
+code: |
+  constants.physical_constants["Thomson cross section"]
+---
+title: |
+  triton g factor
+code: |
+  constants.physical_constants["triton g factor"]
+---
+title: |
+  triton mag. mom.
+code: |
+  constants.physical_constants["triton mag. mom."]
+---
+title: |
+  triton mag. mom. to Bohr magneton ratio
+code: |
+  constants.physical_constants["triton mag. mom. to Bohr magneton ratio"]
+---
+title: |
+  triton mag. mom. to nuclear magneton ratio
+code: |
+  constants.physical_constants["triton mag. mom. to nuclear magneton ratio"]
+---
+title: |
+  triton mass
+code: |
+  constants.physical_constants["triton mass"]
+---
+title: |
+  triton mass energy equivalent
+code: |
+  constants.physical_constants["triton mass energy equivalent"]
+---
+title: |
+  triton mass energy equivalent in MeV
+code: |
+  constants.physical_constants["triton mass energy equivalent in MeV"]
+---
+title: |
+  triton mass in u
+code: |
+  constants.physical_constants["triton mass in u"]
+---
+title: |
+  triton molar mass
+code: |
+  constants.physical_constants["triton molar mass"]
+---
+title: |
+  triton-electron mass ratio
+code: |
+  constants.physical_constants["triton-electron mass ratio"]
+---
+title: |
+  triton-proton mass ratio
+code: |
+  constants.physical_constants["triton-proton mass ratio"]
+---
+category: ['Constants', 'U']
+---
+title: |
+  unified atomic mass unit
+code: |
+  constants.physical_constants["unified atomic mass unit"]
+---
+category: ['Constants', 'V']
+---
+title: |
+  von Klitzing constant
+code: |
+  constants.physical_constants["von Klitzing constant"]
+---
+category: ['Constants', 'W']
+---
+title: |
+  weak mixing angle
+code: |
+  constants.physical_constants["weak mixing angle"]
+---
+title: |
+  Wien frequency displacement law constant
+code: |
+  constants.physical_constants["Wien frequency displacement law constant"]
+---
+title: |
+  Wien wavelength displacement law constant
+code: |
+  constants.physical_constants["Wien wavelength displacement law constant"]
+---
+category: ['Constants', 'Other']
+---
+title: |
+  {220} lattice spacing of silicon
+code: |
+  constants.physical_constants["{220} lattice spacing of silicon"]
+---
+category: ['Constants', 'Units']
+---
+category: ['Constants', 'SI prefixes']
+---
+title: |
+  yotta \(10^{24}\)
+code: |
+  constants.yotta
+---
+title: |
+  zetta \(10^{21}\)
+code: |
+  constants.zetta
+---
+title: |
+  exa \(10^{18}\)
+code: |
+  constants.exa
+---
+title: |
+  peta \(10^{15}\)
+code: |
+  constants.peta
+---
+title: |
+  tera \(10^{12}\)
+code: |
+  constants.tera
+---
+title: |
+  giga \(10^{9}\)
+code: |
+  constants.giga
+---
+title: |
+  mega \(10^{6}\)
+code: |
+  constants.mega
+---
+title: |
+  kilo \(10^{3}\)
+code: |
+  constants.kilo
+---
+title: |
+  hecto \(10^{2}\)
+code: |
+  constants.hecto
+---
+title: |
+  deka \(10^{1}\)
+code: |
+  constants.deka
+---
+title: |
+  deci \(10^{−1}\)
+code: |
+  constants.deci
+---
+title: |
+  centi \(10^{−2}\)
+code: |
+  constants.centi
+---
+title: |
+  milli \(10^{−3}\)
+code: |
+  constants.milli
+---
+title: |
+  micro \(10^{−6}\)
+code: |
+  constants.micro
+---
+title: |
+  nano \(10^{−9}\)
+code: |
+  constants.nano
+---
+title: |
+  pico \(10^{−12}\)
+code: |
+  constants.pico
+---
+title: |
+  femto \(10^{−15}\)
+code: |
+  constants.femto
+---
+title: |
+  atto \(10^{−18}\)
+code: |
+  constants.atto
+---
+title: |
+  zepto \(10^{−21}\)
+code: |
+  constants.zepto
+---
+category: ['Constants', 'Binary prefixes']
+---
+title: |
+  kibi \(2^{10}\)
+code: |
+  constants.kibi
+---
+title: |
+  mebi \(2^{20}\)
+code: |
+  constants.mebi
+---
+title: |
+  gibi \(2^{30}\)
+code: |
+  constants.gibi
+---
+title: |
+  tebi \(2^{40}\)
+code: |
+  constants.tebi
+---
+title: |
+  pebi \(2^{50}\)
+code: |
+  constants.pebi
+---
+title: |
+  exbi \(2^{60}\)
+code: |
+  constants.exbi
+---
+title: |
+  zebi \(2^{70}\)
+code: |
+  constants.zebi
+---
+title: |
+  yobi \(2^{80}\)
+code: |
+  constants.yobi
+---
+category: ['Constants', 'Weight']
+---
+title: |
+  One gram in kg
+code: |
+  constants.gram
+---
+title: |
+  One metric ton in kg (\(10^{3}\))
+code: |
+  constants.metric_ton
+---
+title: |
+  One pound (avoirdupois) in kg
+code: |
+  constants.lb
+---
+title: |
+  One ounce in kg
+code: |
+  constants.oz
+---
+title: |
+  One stone in kg
+code: |
+  constants.stone
+---
+title: |
+  One grain in kg
+code: |
+  constants.grain
+---
+title: |
+  One long ton in kg
+code: |
+  constants.long_ton
+---
+title: |
+  One short ton in kg
+code: |
+  constants.short_ton
+---
+title: |
+  One Troy ounce in kg
+code: |
+  constants.troy_ounce
+---
+title: |
+  One Troy pound in kg
+code: |
+  constants.troy_pound
+---
+title: |
+  One carat in kg
+code: |
+  constants.carat
+---
+title: |
+  Atomic mass constant in kg
+code: |
+  constants.m_u
+---
+category: ['Constants', 'Angle']
+---
+title: |
+  Degree in radians
+code: |
+  constants.degree
+---
+title: |
+  Arc minute in radians
+code: |
+  constants.arcmin
+---
+title: |
+  Arc second in radians
+code: |
+  constants.arcsec
+---
+category: ['Constants', 'Time']
+---
+title: |
+  One minute in seconds
+code: |
+  constants.minute
+---
+title: |
+  One hour in seconds
+code: |
+  constants.hour
+---
+title: |
+  One day in seconds
+code: |
+  constants.day
+---
+title: |
+  One week in seconds
+code: |
+  constants.week
+---
+title: |
+  One year (365 days) in seconds
+code: |
+  constants.year
+---
+title: |
+  One Julian year (365.25 days) in seconds
+code: |
+  constants.Julian_year
+---
+category: ['Constants', 'Length']
+---
+title: |
+  One inch in meters
+code: |
+  constants.inch
+---
+title: |
+  One foot in meters
+code: |
+  constants.foot
+---
+title: |
+  One yard in meters
+code: |
+  constants.yard
+---
+title: |
+  One mile in meters
+code: |
+  constants.mile
+---
+title: |
+  One mil in meters
+code: |
+  constants.mil
+---
+title: |
+  One point in meters
+code: |
+  constants.pt
+---
+title: |
+  One survey foot in meters
+code: |
+  constants.survey_foot
+---
+title: |
+  One survey mile in meters
+code: |
+  constants.survey_mile
+---
+title: |
+  One nautical mile in meters
+code: |
+  constants.nautical_mile
+---
+title: |
+  One Fermi in meters
+code: |
+  constants.fermi
+---
+title: |
+  One Angstrom in meters
+code: |
+  constants.angstrom
+---
+title: |
+  One micron in meters
+code: |
+  constants.micron
+---
+title: |
+  One astronomical unit in meters
+code: |
+  constants.au
+---
+title: |
+  One light year in meters
+code: |
+  constants.light_year
+---
+title: |
+  One parsec in meters
+code: |
+  constants.parsec
+---
+category: ['Constants', 'Pressure']
+---
+title: |
+  Standard atmosphere in pascals
+code: |
+  constants.atm
+---
+title: |
+  One bar in pascals
+code: |
+  constants.bar
+---
+title: |
+  One torr (mmHg) in pascals
+code: |
+  constants.torr
+---
+title: |
+  One psi in pascals
+code: |
+  constants.psi
+---
+category: ['Constants', 'Area']
+---
+title: |
+  One hectare in square meters
+code: |
+  constants.hectare
+---
+title: |
+  One acre in square meters
+code: |
+  constants.acre
+---
+category: ['Constants', 'Volume']
+---
+title: |
+  One liter in cubic meters
+code: |
+  constants.liter
+---
+title: |
+  One gallon (US) in cubic meters
+code: |
+  constants.gallon
+---
+title: |
+  One gallon (UK) in cubic meters
+code: |
+  constants.gallon_imp
+---
+title: |
+  One fluid ounce (US) in cubic meters
+code: |
+  constants.fluid_ounce
+---
+title: |
+  One fluid ounce (UK) in cubic meters
+code: |
+  constants.fluid_ounce_imp
+---
+title: |
+  One barrel in cubic meters
+code: |
+  constants.bbl
+---
+category: ['Constants', 'Speed']
+---
+title: |
+  Kilometers per hour in meters per second
+code: |
+  constants.kmh
+---
+title: |
+  Miles per hour in meters per second
+code: |
+  constants.mph
+---
+title: |
+  One Mach (approx., at 15 C, 1 atm) in meters per second
+code: |
+  constants.mach
+---
+title: |
+  One knot in meters per second
+code: |
+  constants.knot
+---
+category: ['Constants', 'Temperature']
+---
+title: |
+  Zero of Celsius scale in Kelvin
+code: |
+  constants.zero_Celsius
+---
+title: |
+  One Fahrenheit (only differences) in Kelvins
+code: |
+  constants.degree_Fahrenheit
+---
+title: |
+  Convert Celsius to Kelvin
+code: |
+  constants.C2K(C)
+---
+title: |
+  Convert Kelvin to Celsius
+code: |
+  constants.K2C(K)
+---
+title: |
+  Convert Fahrenheit to Celsius
+code: |
+  constants.F2C(F)
+---
+title: |
+  Convert Celsius to Fahrenheit
+code: |
+  constants.C2F(C)
+---
+title: |
+  Convert Fahrenheit to Kelvin
+code: |
+  constants.F2K(F)
+---
+title: |
+  Convert Kelvin to Fahrenheit
+code: |
+  constants.K2F(K)
+---
+category: ['Constants', 'Energy']
+---
+title: |
+  One electron volt in Joules
+code: |
+  constants.eV
+---
+title: |
+  One calorie (thermochemical) in Joules
+code: |
+  constants.calorie
+---
+title: |
+  One calorie (International Steam Table calorie, 1956) in Joules
+code: |
+  constants.calorie_IT
+---
+title: |
+  One erg in Joules
+code: |
+  constants.erg
+---
+title: |
+  One British thermal unit (International Steam Table) in Joules
+code: |
+  constants.Btu
+---
+title: |
+  One British thermal unit (thermochemical) in Joules
+code: |
+  constants.Btu_th
+---
+title: |
+  One ton of TNT in Joules
+code: |
+  constants.ton_TNT
+---
+category: ['Constants', 'Power']
+---
+title: |
+  One horsepower in watts
+code: |
+  constants.hp
+---
+category: ['Constants', 'Force']
+---
+title: |
+  One dyne in newtons
+code: |
+  constants.dyn
+---
+title: |
+  One pound force in newtons
+code: |
+  constants.lbf
+---
+title: |
+  One kilogram force in newtons
+code: |
+  constants.kgf
+---
+category: ['Constants', 'Optics']
+---
+title: |
+  Convert wavelength \(\lambda\) to optical frequency \(\nu\)
+code: |
+  constants.lambda2nu(lambda_)
+---
+title: |
+  Convert optical frequency \(\nu\) to wavelength \(\lambda\)
+code: |
+  constants.nu2lambda(nu)
