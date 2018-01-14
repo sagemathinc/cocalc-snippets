@@ -238,3 +238,63 @@ code: |
   from codecs import open
   with open("utf8-encoding2.txt", mode="w", encoding="utf8") as file_out:
       file_out.write(u"Spä¢ial ©ħa¶aĸŦ€r$\n")
+---
+category: ["Introduction", "Lists and Iterators"]
+---
+title: "Introduction List"
+descr: |
+  Python does very well with operating on lists and iterating over them.
+  A "list" is a linearly ordered collection of objects, which can be processed in various ways.
+code: |
+  list = [1, 3, 2, 5, 1, 2]
+  for i in list:
+      print(i)
+---
+title: "Introduction Iterator"
+descr: |
+  Furthermore, an "iterator" is in some sense similar to a list, but it containing objects do not exist in memory.
+  An exciting consequence of this is that there can be iterators which are effectively unbounded.
+
+  Look careful at the following example: first a function is defined with an `yield` statement.
+  This is like a `return` statement but it does not return – instead it waits until a value is consumed and continues running from there.
+
+  As a consequence, the second part produces a sequence of values until a breaking condition is met.
+code: |
+  def simple_iterator():
+      i = 0
+      while True:
+          i += (2*i) + 1
+          yield i
+
+  for i in simple_iterator():
+      print(i)
+      if i > 200:
+          break
+---
+title: 'List comprehension'
+descr: |
+  Python has a special syntax to process lists.
+  It is an expresion like this: `[statement(variable) for variable in (list or iterator)]
+code: |
+  [2*x + 1 for x in range(0, 10)]
+---
+title: 'Conditional list comprehension'
+descr: "It is possible to append an if-conditional to select only some desired elements"
+code: |
+  [x**2 for x in range(100) if (x % 27) == 0]
+---
+title : 'Conditional alternative list comprehension'
+descr: |
+  You can use an alternative-if in the form of `A if [statement is true] else B` as a statement, too.
+code: |
+  [x**2 if (x%3)==0 else x**3 for x in range(-10, 11)]
+---
+title: 'Reversed list'
+code: 'reversed(l)'
+---
+title : 'Sorted list'
+code: 'sorted(l)'
+---
+title: 'Sort two lists at the same time'
+code: |
+  ['x, y = [list(tmp) for tmp in zip(*sorted(zip(x,y), key=lambda pair: pair[0]))]

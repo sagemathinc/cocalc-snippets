@@ -26,14 +26,7 @@ os.chdir(TMP)
 os.system('git clone --depth=1 --recurse-submodules {}'.format(REPO))
 os.chdir(BASE_DIR)
 
-# read files
-for fn in iglob(INPUT_FILES):
-    print(fn)
-    if fn.endswith('scipy_constants.js'):
-        data = open(fn).read().strip().splitlines()
-        pprint(data)
-        data[0] = '{'
-        data[-1] = '}'
-        data = json.loads('\n'.join(data))
-        pprint(data)
-        break
+# read files: this overwrites files in src/
+os.sytem('coffee read_boilerplate.coffee')
+
+# TODO cleanup tmp/ and jupyter_boilerplate/

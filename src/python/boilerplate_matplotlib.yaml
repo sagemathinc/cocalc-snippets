@@ -9,7 +9,7 @@
 ---
 language: python
 ---
-category: ['Visualization', 'Example plots']
+category: ['Visualization', 'Matplotlib / Example plots']
 prefixes: {"matplotlib":"import numpy as np\nimport matplotlib as mpl\nimport matplotlib.pyplot as plt"}
 ---
 prefix: "matplotlib"
@@ -133,7 +133,7 @@ code: |
   ax2.legend(loc="lower left")
   plt.show()
 ---
-category: ['Visualization', 'Save the current figure']
+category: ['Visualization', 'Matplotlib / Save the current figure']
 prefixes: {"matplotlib":"import numpy as np\nimport matplotlib as mpl\nimport matplotlib.pyplot as plt"}
 ---
 prefix: "matplotlib"

@@ -24,7 +24,7 @@ read_submenu = (entry, cat0, name_prefix, cat_prefix, entry_extra, cat_process) 
     entry_extra ?= ->
     cat_process ?= (x) -> x
     if name_prefix?
-        prefix = "#{name_prefix} / "
+        prefix = "#{name_prefix}"
     else
         prefix = ''
     submenu  = entry['sub-menu']
@@ -35,7 +35,8 @@ read_submenu = (entry, cat0, name_prefix, cat_prefix, entry_extra, cat_process) 
         return output
 
     output.push('---')
-    output.push("category: ['#{cat0}', '#{prefix}#{cat1}']")
+    subcat = (x for x in [prefix, cat1] when x?.length > 0).join(' / ')
+    output.push("category: ['#{cat0}', '#{subcat}']")
     if cat_prefix?
         output.push("prefixes: #{JSON.stringify(cat_prefix)}")
 
@@ -95,13 +96,12 @@ read_matplotlib = ->
 
     for entry in constants['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'Visualization', null, cat_prefix, entry_extra, null))
+            output = output.concat(read_submenu(entry, 'Visualization', 'Matplotlib', cat_prefix, entry_extra, null))
 
     content = header()
     content += output.join('\n')
 
     fs.writeFileSync('src/python/boilerplate_matplotlib.yaml', content, 'utf8')
-
 
 
 # This is specific to the constants file, prints out yaml to stdout
@@ -127,9 +127,36 @@ read_constants = ->
 
     fs.writeFileSync('src/python/constants.yaml', content, 'utf8')
 
+
+read_sympy_assumptions = ->
+    assumptions_js = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/sympy_assumptions.js', 'utf8')
+    assumptions    = eval(assumptions_js)
+    output         = []
+    cat_prefix     = {'Q': '''
+                           from sympy import ask, Q, pi
+                           from sympy.abc import x, y, z
+                           '''}
+
+    entry_extra = (entry) ->
+        if entry.snippet.join('\n').indexOf('Q') != -1
+            return 'prefix: "Q"'
+
+    cat_process = ->
+        return ''
+
+    output = output.concat(read_submenu(assumptions, 'Sympy', 'Assumptions', cat_prefix, entry_extra, cat_process))
+
+    content = header()
+    content += output.join('\n')
+
+    fs.writeFileSync('src/python/sympy_assumptions.yaml', content, 'utf8')
+
+
+
 main = ->
     read_constants()
     read_scipy_special()
     read_matplotlib()
+    read_sympy_assumptions()
 
 main()
