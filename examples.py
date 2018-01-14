@@ -4,7 +4,7 @@
 #####################################################################################
 #              CoCalc Examples - Documentation Files Compiler                       #
 #                                                                                   #
-#                Copyright (C) 2015 -- 2017, SageMath, Inc.                         #
+#                Copyright (C) 2015 -- 2018, SageMath, Inc.                         #
 #                                                                                   #
 #  Distributed under the terms of the GNU General Public License (GPL), version 2+  #
 #                                                                                   #
@@ -48,10 +48,11 @@ def process_category(doc):
     else:
         raise AssertionError("Supposed category '{}' cannot be processed".format(cats))
     sortweight = float(doc.get("sortweight", 0.0))
-    lvl1, lvl2 = [c.strip().title() for c in cats]
-    return lvl1, lvl2, sortweight
+    lvl1, lvl2 = [c.strip() for c in cats]
+    prefixes = doc.get('prefixes', {})
+    return lvl1, lvl2, sortweight, prefixes
 
-def process_doc(doc, input_fn):
+def process_doc(doc, input_fn, prefixes):
     """
     This processes one document entry and returns the suitable datastructure for later conversion to JSON.
     """
@@ -59,6 +60,9 @@ def process_doc(doc, input_fn):
     #    raise AssertionError("keyword missing in %s in %s" % (doc, input_fn))
     title       = doc["title"].strip()
     code        = doc["code"].strip()
+    if 'prefix' in doc:
+        prefix = prefixes[doc['prefix']]
+        code = '{}\n{}'.format(prefix, code)
     if 'descr' in doc:
         description = doc["descr"].strip() # hashtag_re.sub(process_hashtags, doc["descr"])
     else:
@@ -99,7 +103,7 @@ def examples_data(input_dir, output_fn):
     # This processes all yaml input files and fails when any assertion is violated.
     for input_fn, data in input_files_iter(input_dir):
 
-        language = entries = lvl1 = lvl2 = titles = sortweight = None # will be set in the "category" case, which comes first!
+        language = entries = lvl1 = lvl2 = titles = sortweight = prefixes = None # will be set in the "category" case, which comes first!
 
         for doc in data:
             if doc is None:
@@ -114,7 +118,7 @@ def examples_data(input_dir, output_fn):
                 processed = True
 
             if "category" in doc: # setting both levels of the category and re-setting entries and titles
-                lvl1, lvl2, sortweight = process_category(doc)
+                lvl1, lvl2, sortweight, prefixes = process_category(doc)
                 if lvl2 in examples[language][lvl1]:
                     raise AssertionError("Duplicate category level2: '%s' already exists (error in %s)" % (lvl2, input_fn))
                 entries = []
@@ -125,12 +129,13 @@ def examples_data(input_dir, output_fn):
             if all(_ in doc.keys() for _ in ["title", "code"]):
                 # we have an actual document entry, append it in the original ordering as a tuple.
                 try:
-                    title, body = process_doc(doc, input_fn)
+                    title, body = process_doc(doc, input_fn, prefixes)
                 except Exception as ex:
                     print("Problem processing {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
                     raise ex
                 if title in titles:
-                    raise AssertionError("Duplicate title '{title}' in {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
+                    print("WARNING: ignoring entry due to duplicate title '{title}' in {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
+                    continue
                 entry = [title, body]
                 entries.append(entry)
                 titles.add(title)
@@ -146,7 +151,7 @@ def examples_data(input_dir, output_fn):
 
     with open(examples_json, "w", "utf8") as f_out:
         # sorted keys to de-randomize output (leads to a stable representation when kept it in Git)
-        json.dump(examples, f_out, ensure_ascii=True, sort_keys=True, indent=1)
+        json.dump(examples, f_out, ensure_ascii=True, sort_keys=True, indent=0)
 
 # TESTING
 
