@@ -83,7 +83,7 @@ descr:  >
     Plot using Python functions.
     Python functions are defined using the keyword def.
 ---
-category: plotting / 2D Advanced
+category: Plotting / 2D Advanced
 ---
 title: Implicit Plot
 code:  |
@@ -250,7 +250,7 @@ code: |
   x, y = var('x y')
   streamline_plot((sin(x), cos(y)), (x,-3,3), (y,-3,3))
 ---
-category: plotting / Basic Elements
+category: Plotting / Basic Elements
 ---
 title: Points as points (plain and fancy)
 code:  |
