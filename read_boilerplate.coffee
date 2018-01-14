@@ -20,9 +20,9 @@ header = ->
     language: python
     ''' + '\n'
 
-read_submenu = (entry, name_prefix, cat_prefix, entry_extra, cat_process) ->
+read_submenu = (entry, cat0, name_prefix, cat_prefix, entry_extra, cat_process) ->
     entry_extra ?= ->
-    cat_process ?= ->
+    cat_process ?= (x) -> x
     if name_prefix?
         prefix = "#{name_prefix} / "
     else
@@ -35,7 +35,7 @@ read_submenu = (entry, name_prefix, cat_prefix, entry_extra, cat_process) ->
         return output
 
     output.push('---')
-    output.push("category: ['Constants', '#{prefix}#{cat1}']")
+    output.push("category: ['#{cat0}', '#{prefix}#{cat1}']")
     if cat_prefix?
         output.push("prefixes: #{JSON.stringify(cat_prefix)}")
 
@@ -45,7 +45,7 @@ read_submenu = (entry, name_prefix, cat_prefix, entry_extra, cat_process) ->
             continue
         # oh yes, sub entries can have subentries ... just skipping them via recursion.
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, cat1, cat_prefix, entry_extra, cat_process))
+            output = output.concat(read_submenu(entry, cat0, cat1, cat_prefix, entry_extra, cat_process))
         else
             output.push('---')
             extra = entry_extra(entry)
@@ -55,6 +55,54 @@ read_submenu = (entry, name_prefix, cat_prefix, entry_extra, cat_process) ->
             code = ("  #{x}" for x in entry.snippet).join('\n')
             output.push("code: |\n#{code}")
     return output
+
+# This is specific to scipy special functions file
+read_scipy_special = ->
+    special_js   = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/scipy_special.js', 'utf8')
+    constants    = eval(special_js)
+    output       = []
+    cat_prefix   = {'special': 'from scipy import special'}
+
+    entry_extra = (entry) ->
+        if entry.snippet.join('\n').indexOf('special') != -1
+            return 'prefix: "special"'
+
+    for entry in constants['sub-menu']
+        if entry['sub-menu']?
+            output = output.concat(read_submenu(entry, 'Scipy', 'Special', cat_prefix, entry_extra, null))
+
+    content = header()
+    content += output.join('\n')
+
+    fs.writeFileSync('src/python/scipy_special.yaml', content, 'utf8')
+
+# This is specific to matplotlib file
+read_matplotlib = ->
+    matplotlib_js  = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/matplotlib.js', 'utf8')
+    constants      = eval(matplotlib_js)
+    output         = []
+    cat_prefix     = {'matplotlib': '''
+                                    import numpy as np
+                                    import matplotlib as mpl
+                                    import matplotlib.pyplot as plt
+                                    '''
+    }
+
+    entry_extra = (entry) ->
+        s = entry.snippet.join('\n')
+        if s.indexOf('mpl.') != -1 or s.indexOf('plt.') != -1
+            return 'prefix: "matplotlib"'
+
+    for entry in constants['sub-menu']
+        if entry['sub-menu']?
+            output = output.concat(read_submenu(entry, 'Visualization', null, cat_prefix, entry_extra, null))
+
+    content = header()
+    content += output.join('\n')
+
+    fs.writeFileSync('src/python/boilerplate_matplotlib.yaml', content, 'utf8')
+
+
 
 # This is specific to the constants file, prints out yaml to stdout
 read_constants = ->
@@ -72,7 +120,7 @@ read_constants = ->
 
     for entry in constants['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, null, cat_prefix, entry_extra, cat_process))
+            output = output.concat(read_submenu(entry, 'Constants', null, cat_prefix, entry_extra, cat_process))
 
     content = header()
     content += output.join('\n')
@@ -81,5 +129,7 @@ read_constants = ->
 
 main = ->
     read_constants()
+    read_scipy_special()
+    read_matplotlib()
 
 main()
