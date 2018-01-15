@@ -87,6 +87,9 @@ def examples_data(input_dir, output_fn):
     output_dir    = dirname(examples_json)
     print("Target output directory: '{}'".format(output_dir))
 
+    from collections import Counter
+    num_examples = Counter()
+
     # this implicitly defines all known languages
     recursive_dict = lambda : defaultdict(recursive_dict)
     examples = {
@@ -139,6 +142,7 @@ def examples_data(input_dir, output_fn):
                 entry = [title, body]
                 entries.append(entry)
                 titles.add(title)
+                num_examples[language] += 1
                 processed = True
 
             # if False, malformatted document
@@ -152,6 +156,9 @@ def examples_data(input_dir, output_fn):
     with open(examples_json, "w", "utf8") as f_out:
         # sorted keys to de-randomize output (leads to a stable representation when kept it in Git)
         json.dump(examples, f_out, ensure_ascii=True, sort_keys=True, indent=0)
+
+    print("Statistics: {}".format(str(num_examples)))
+
 
 # TESTING
 

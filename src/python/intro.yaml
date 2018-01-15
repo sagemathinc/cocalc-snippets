@@ -294,7 +294,3 @@ code: 'reversed(l)'
 ---
 title : 'Sorted list'
 code: 'sorted(l)'
----
-title: 'Sort two lists at the same time'
-code: |
-  ['x, y = [list(tmp) for tmp in zip(*sorted(zip(x,y), key=lambda pair: pair[0]))]
