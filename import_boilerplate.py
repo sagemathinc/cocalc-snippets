@@ -27,6 +27,6 @@ os.system('git clone --depth=1 --recurse-submodules {}'.format(REPO))
 os.chdir(BASE_DIR)
 
 # read files: this overwrites files in src/
-os.sytem('coffee read_boilerplate.coffee')
+os.system('coffee read_boilerplate.coffee')
 
-# TODO cleanup tmp/ and jupyter_boilerplate/
+print("OK!\nTODO: cleanup tmp/ and jupyter_boilerplate/")

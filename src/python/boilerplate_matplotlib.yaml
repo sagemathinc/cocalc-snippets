@@ -10,9 +10,8 @@
 language: python
 ---
 category: ['Visualization', 'Matplotlib / Example plots']
-prefixes: {"matplotlib":"import numpy as np\nimport matplotlib as mpl\nimport matplotlib.pyplot as plt"}
+setup: "import numpy as np\nimport matplotlib as mpl\nimport matplotlib.pyplot as plt"
 ---
-prefix: "matplotlib"
 title: |
   Basic line plot
 code: |
@@ -31,7 +30,6 @@ code: |
   plt.legend(loc="lower left")
   plt.show()
 ---
-prefix: "matplotlib"
 title: |
   Histogram
 code: |
@@ -43,7 +41,6 @@ code: |
   plt.title(r"Histogram title here (remove for papers)")
   plt.show();
 ---
-prefix: "matplotlib"
 title: |
   Contour plot
 code: |
@@ -62,7 +59,6 @@ code: |
   plt.ylabel(r"Description of $y$ coordinate (units)")
   plt.show()
 ---
-prefix: "matplotlib"
 title: |
   3-d plot
 code: |
@@ -85,7 +81,6 @@ code: |
   fig.colorbar(surf, shrink=0.5, aspect=5)
   plt.show()
 ---
-prefix: "matplotlib"
 title: |
   Error bars
 code: |
@@ -103,7 +98,6 @@ code: |
   plt.ylabel(r"Description of $y$ coordinate (units)")
   plt.show()
 ---
-prefix: "matplotlib"
 title: |
   Grouped plots
 code: |
@@ -134,33 +128,28 @@ code: |
   plt.show()
 ---
 category: ['Visualization', 'Matplotlib / Save the current figure']
-prefixes: {"matplotlib":"import numpy as np\nimport matplotlib as mpl\nimport matplotlib.pyplot as plt"}
+setup: "import numpy as np\nimport matplotlib as mpl\nimport matplotlib.pyplot as plt"
 ---
-prefix: "matplotlib"
 title: |
   Save as PDF
 code: |
   plt.savefig("figure_file_name.pdf")
 ---
-prefix: "matplotlib"
 title: |
   Save as PNG
 code: |
   plt.savefig("figure_file_name.png", transparent=True, dpi=300)
 ---
-prefix: "matplotlib"
 title: |
   Save as SVG
 code: |
   plt.savefig("figure_file_name.svg")
 ---
-prefix: "matplotlib"
 title: |
   Save as EPS
 code: |
   plt.savefig("figure_file_name.eps")
 ---
-prefix: "matplotlib"
 title: |
   Save as PS
 code: |

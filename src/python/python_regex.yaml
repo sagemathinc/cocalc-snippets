@@ -10,7 +10,7 @@
 language: python
 ---
 category: ['Regular Expressions', 'Escaped special characters']
-prefixes: {"re":"import re"}
+setup: "import re"
 ---
 title: |
   .
@@ -83,10 +83,10 @@ code: |
   \)
 ---
 category: ['Regular Expressions', 'Character classes and alternatives']
-prefixes: {"re":"import re"}
+setup: "import re"
 ---
 category: ['Regular Expressions', 'Character classes and alternatives / Standard character-class abbreviations']
-prefixes: {"re":"import re"}
+setup: "import re"
 ---
 title: |
   Any decimal digit
@@ -134,7 +134,7 @@ code: |
   (?:abc|def)
 ---
 category: ['Regular Expressions', 'Repetition']
-prefixes: {"re":"import re"}
+setup: "import re"
 ---
 title: |
   Match 0 or more repetitions of the preceding, greedily
@@ -182,9 +182,8 @@ code: |
   {3,5}?
 ---
 category: ['Regular Expressions', 'Lookahead/behind']
-prefixes: {"re":"import re"}
+setup: "import re"
 ---
-prefix: "re"
 title: |
   Positive lookahead
 code: |
@@ -194,7 +193,6 @@ code: |
   if result is not None:
       print("Substring '{0}' was found in the range {1}".format(result.group(), result.span()))
 ---
-prefix: "re"
 title: |
   Negative lookahead
 code: |
@@ -204,7 +202,6 @@ code: |
   if result is not None:
       print("Substring '{0}' was found in the range {1}".format(result.group(), result.span()))
 ---
-prefix: "re"
 title: |
   Positive lookbehind
 code: |
@@ -214,7 +211,6 @@ code: |
   if result is not None:
       print("Substring '{0}' was found in the range {1}".format(result.group(), result.span()))
 ---
-prefix: "re"
 title: |
   Negative lookbehind
 code: |
@@ -225,45 +221,38 @@ code: |
       print("Substring '{0}' was found in the range {1}".format(result.group(), result.span()))
 ---
 category: ['Regular Expressions', 'Compilation flags']
-prefixes: {"re":"import re"}
+setup: "import re"
 ---
-prefix: "re"
 title: |
   Enable verbose REs, for cleaner and more organized code
 code: |
   re.VERBOSE
 ---
-prefix: "re"
 title: |
   Do case-insensitive matches
 code: |
   re.IGNORECASE
 ---
-prefix: "re"
 title: |
   Make "." match any character, including newlines
 code: |
   re.DOTALL
 ---
-prefix: "re"
 title: |
   Multi-line matching, affecting "^" and "$"
 code: |
   re.MULTILINE
 ---
-prefix: "re"
 title: |
   Make \w, \W, \b, \B, \s, and \S Unicode aware
 code: |
   re.UNICODE
 ---
-prefix: "re"
 title: |
   Make \w, \W, \b, \B, \s, and \S dependent on the current locale
 code: |
   re.LOCALE
 ---
-prefix: "re"
 title: |
   Display debug info about compiled regex
 code: |

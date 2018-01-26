@@ -10,7 +10,7 @@
 language: python
 ---
 category: ['Sympy', 'Constants']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   1
@@ -73,10 +73,10 @@ code: |
   nan
 ---
 category: ['Sympy', 'Functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 category: ['Sympy', 'Functions / Elementary functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   Abs
@@ -103,7 +103,6 @@ title: |
 code: |
   acoth(I)
 ---
-prefix: "xyz"
 title: |
   arg
 code: |
@@ -164,7 +163,6 @@ title: |
 code: |
   coth(pi*I/4)
 ---
-prefix: "xyz"
 title: |
   exp
 code: |
@@ -175,7 +173,6 @@ title: |
 code: |
   floor(S(3)/2)
 ---
-prefix: "xyz"
 title: |
   Identity function
 code: |
@@ -186,13 +183,11 @@ title: |
 code: |
   im(2+3*I)
 ---
-prefix: "xyz"
 title: |
   Lambert W (a.k.a. product logarithm)
 code: |
   LambertW(x, n)
 ---
-prefix: "xyz"
 title: |
   log
 code: |
@@ -205,7 +200,6 @@ code: |
   q = Symbol("q", positive=True)
   Min(p, q)
 ---
-prefix: "xyz"
 title: |
   Max
 code: |
@@ -213,13 +207,11 @@ code: |
   q = Symbol("q", positive=True)
   Max(p, q)
 ---
-prefix: "xyz"
 title: |
   Piecewise
 code: |
   Piecewise((0, x<1), (x**2, x>=5), (log(x), True))
 ---
-prefix: "xyz"
 title: |
   Product logarithm
 code: |
@@ -266,7 +258,7 @@ code: |
   tanh(pi*I/4)
 ---
 category: ['Sympy', 'Functions / Combinatorial functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   Bell number
@@ -278,7 +270,6 @@ title: |
 code: |
   bell(n, k)
 ---
-prefix: "xyz"
 title: |
   Bell polynomial of the second kind
 code: |
@@ -292,7 +283,6 @@ title: |
 code: |
   bernoulli(n)
 ---
-prefix: "xyz"
 title: |
   Bernoulli polynomial
 code: |
@@ -323,7 +313,6 @@ title: |
 code: |
   factorial2(n)
 ---
-prefix: "xyz"
 title: |
   Falling factorial
 code: |
@@ -334,7 +323,6 @@ title: |
 code: |
   fibonacci(n)
 ---
-prefix: "xyz"
 title: |
   Fibonacci polynomial
 code: |
@@ -355,7 +343,6 @@ title: |
 code: |
   lucas(n)
 ---
-prefix: "xyz"
 title: |
   Rising factorial
 code: |
@@ -392,15 +379,13 @@ code: |
   nT(n, k)
 ---
 category: ['Sympy', 'Functions / Special functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Dirac delta function
 code: |
   DiracDelta(x)
 ---
-prefix: "xyz"
 title: |
   Derivative of Dirac delta function
 code: |
@@ -412,21 +397,18 @@ code: |
   Heaviside(X)
 ---
 category: ['Sympy', 'Special functions / Gamma, Beta and related Functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Gamma function
 code: |
   gamma(x)
 ---
-prefix: "xyz"
 title: |
   Lower incomplete gamma function
 code: |
   lowergamma(s, x)
 ---
-prefix: "xyz"
 title: |
   Upper incomplete gamma function
 code: |
@@ -437,52 +419,44 @@ title: |
 code: |
   polygamma(n, z)
 ---
-prefix: "xyz"
 title: |
   Log Gamma function
 code: |
   loggamma(x)
 ---
-prefix: "xyz"
 title: |
   Digamma function
 code: |
   digamma(x)
 ---
-prefix: "xyz"
 title: |
   Trigamma function
 code: |
   trigamma(x)
 ---
-prefix: "xyz"
 title: |
   Euler Beta function
 code: |
   beta(x, y)
 ---
 category: ['Sympy', 'Special functions / Error Functions and Fresnel Integrals']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Gauss error function
 code: |
   erf(x)
 ---
-prefix: "xyz"
 title: |
   Complementary error function
 code: |
   erfc(x)
 ---
-prefix: "xyz"
 title: |
   Imaginary error function
 code: |
   erfi(x)
 ---
-prefix: "xyz"
 title: |
   Two-argument error function
 code: |
@@ -498,7 +472,6 @@ title: |
 code: |
   erfcinv(y)
 ---
-prefix: "xyz"
 title: |
   Inverse two-argument error function
 code: |
@@ -515,15 +488,13 @@ code: |
   fresnelc(z)
 ---
 category: ['Sympy', 'Special functions / Exponential, Logarithmic and Trigonometric Integrals']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Exponential integral
 code: |
   Ei(x)
 ---
-prefix: "xyz"
 title: |
   Generalised exponential integral
 code: |
@@ -534,13 +505,11 @@ title: |
 code: |
   E1(z)
 ---
-prefix: "xyz"
 title: |
   Classical logarithmic integral
 code: |
   li(x)
 ---
-prefix: "xyz"
 title: |
   Offset logarithmic integral
 code: |
@@ -567,7 +536,7 @@ code: |
   Chi(z)
 ---
 category: ['Sympy', 'Special functions / Bessel Type Functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   Bessel function of the first kind
@@ -615,7 +584,7 @@ code: |
   jn_zeros(n, k)
 ---
 category: ['Sympy', 'Special functions / Airy Functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   Airy function of the first kind
@@ -638,9 +607,8 @@ code: |
   airybiprime(z)
 ---
 category: ['Sympy', 'Special functions / B-Splines']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   The n-th B-spline at x of degree d with given knots
 code: |
@@ -649,14 +617,13 @@ code: |
   n = 0
   bspline_basis(d, knots, n, x, close=True)
 ---
-prefix: "xyz"
 title: |
   The B-splines at x of degree d with given knots
 code: |
   bspline_basis_set(d, knots, x)
 ---
 category: ['Sympy', 'Special functions / Riemann Zeta and Related Functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   Riemann zeta function
@@ -684,7 +651,7 @@ code: |
   lerchphi(z, s, a)
 ---
 category: ['Sympy', 'Special functions / Hypergeometric Functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   Generalized hypergeometric function
@@ -695,7 +662,6 @@ code: |
   b_k = symbols("b:{0}".format(q)) # denominator parameters
   hyper(a_j, b_k)
 ---
-prefix: "xyz"
 title: |
   Meijer G-function
 code: |
@@ -706,7 +672,7 @@ code: |
   meijerg(a_j[:n], a_j[n:p], b_k[:m], b_k[m:q], x)
 ---
 category: ['Sympy', 'Special functions / Elliptic integrals']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   Complete elliptic integral of the first kind
@@ -729,33 +695,28 @@ code: |
   elliptic_pi(n, z, m)
 ---
 category: ['Sympy', 'Special functions / Orthogonal Polynomials']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Jacobi polynomial
 code: |
   jacobi(n, a, b, x)
 ---
-prefix: "xyz"
 title: |
   Normalized Jacobi polynomial
 code: |
   jacobi_normalized(n, a, b, x)
 ---
-prefix: "xyz"
 title: |
   Gegenbauer polynomial
 code: |
   gegenbauer(n, a, x)
 ---
-prefix: "xyz"
 title: |
   Chebyshev polynomial of the first kind
 code: |
   chebyshevt(n, x)
 ---
-prefix: "xyz"
 title: |
   Chebyshev polynomial of the second kind
 code: |
@@ -771,38 +732,33 @@ title: |
 code: |
   chebyshevu_root(n, k)
 ---
-prefix: "xyz"
 title: |
   Legendre polynomial
 code: |
   legendre(n, x)
 ---
-prefix: "xyz"
 title: |
   Associated Legendre polynomial
 code: |
   assoc_legendre(n, m, x)
 ---
-prefix: "xyz"
 title: |
   Hermite polynomial
 code: |
   hermite(n, x)
 ---
-prefix: "xyz"
 title: |
   Laguerre polynomial
 code: |
   laguerre(n, x)
 ---
-prefix: "xyz"
 title: |
   Generalized (associated) Laguerre polynomial
 code: |
   assoc_laguerre(n, a, x)
 ---
 category: ['Sympy', 'Special functions / Spherical Harmonics']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   Spherical harmonics
@@ -823,7 +779,7 @@ code: |
   Znm(n, m, vartheta, varphi)
 ---
 category: ['Sympy', 'Special functions / Tensor Functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
 title: |
   Levi-Civita symbol
@@ -836,75 +792,64 @@ code: |
   KroneckerDelta(1,2)
 ---
 category: ['Sympy', 'Calculus']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Differentiate once
 code: |
   expr = exp(x**2)
   deriv = diff(expr, x)
 ---
-prefix: "xyz"
 title: |
   Differentiate multiple times
 code: |
   expr = x**4
   deriv = diff(expr, x, 3)
 ---
-prefix: "xyz"
 title: |
   Mixed partial derivatives
 code: |
   expr = exp(x*y*z)
   deriv = diff(expr, x, y, 2, z, 4)
 ---
-prefix: "xyz"
 title: |
   Finite differences
 code: |
   dx0, dx1 = symbols("dx0, dx1")
   formula = as_finite_diff(f(x).diff(x), [x-dx0, x, x+dx1])
 ---
-prefix: "xyz"
 title: |
   Indefinite integral
 code: |
   integral = integrate(cos(x), x)
 ---
-prefix: "xyz"
 title: |
   Definite integral
 code: |
   integral = integrate(exp(-x), (x, 0, oo))
 ---
-prefix: "xyz"
 title: |
   Double integral
 code: |
   integral = integrate(exp(-x**2-y**2), (x, -oo, oo), (y, -oo, oo))
 ---
-prefix: "xyz"
 title: |
   Limits
 code: |
   lim = limit(sin(x)/x, x, 0, "+")
 ---
-prefix: "xyz"
 title: |
   Series expansion
 code: |
   expr = exp(sin(x))
   ser = series(expr, x, 0, 6)
 ---
-prefix: "xyz"
 title: |
   Series expansion, removing order term
 code: |
   expr = exp(sin(x))
   ser = series(expr, x, 0, 6).removeO()
 ---
-prefix: "xyz"
 title: |
   Summations
 code: |
@@ -912,9 +857,8 @@ code: |
   summ = summation((2*ell + 1), (ell, ell_min, ell_max))
 ---
 category: ['Sympy', 'Solvers']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Solve for one variable
 code: |
@@ -922,14 +866,12 @@ code: |
   eqn = Eq(expr, 0)
   soln = solve(eqn, x)
 ---
-prefix: "xyz"
 title: |
   Solve for two variables
 code: |
   eqns = Eq(x + y, 4), Eq(x*y, 3)
   soln = solve(eqns, [x,y])
 ---
-prefix: "xyz"
 title: |
   Solve differential equation
 code: |
@@ -938,9 +880,8 @@ code: |
   soln = dsolve(eqn, f(x))
 ---
 category: ['Sympy', 'Manipulating expressions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Simplify
 code: |
@@ -948,9 +889,8 @@ code: |
   expr = simplify(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Refine, using assumptions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "Q"
 title: |
   Refine
 code: |
@@ -958,7 +898,6 @@ code: |
   assumption = Q.integer(x) & Q.integer(y)
   expr = refine(expr, assumption)
 ---
-prefix: "Q"
 title: |
   Refine in context manager
 code: |
@@ -967,216 +906,182 @@ code: |
       expr = refine(expr)
 ---
 category: ['Sympy', 'Refine, using assumptions / List of assumptions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "Q"
 title: |
   Bounded
 code: |
   Q.bounded(x)
 ---
-prefix: "Q"
 title: |
   Commutative
 code: |
   Q.commutative(x)
 ---
-prefix: "Q"
 title: |
   Complex
 code: |
   Q.complex(x)
 ---
-prefix: "Q"
 title: |
   Imaginary
 code: |
   Q.imaginary(x)
 ---
-prefix: "Q"
 title: |
   Real
 code: |
   Q.real(x)
 ---
-prefix: "Q"
 title: |
   Extended real
 code: |
   Q.extended_real(x)
 ---
-prefix: "Q"
 title: |
   Integer
 code: |
   Q.integer(x)
 ---
-prefix: "Q"
 title: |
   Odd
 code: |
   Q.odd(x)
 ---
-prefix: "Q"
 title: |
   Even
 code: |
   Q.even(x)
 ---
-prefix: "Q"
 title: |
   Prime
 code: |
   Q.prime(x)
 ---
-prefix: "Q"
 title: |
   Composite
 code: |
   Q.composite(x)
 ---
-prefix: "Q"
 title: |
   Zero
 code: |
   Q.zero(x)
 ---
-prefix: "Q"
 title: |
   Nonzero
 code: |
   Q.nonzero(x)
 ---
-prefix: "Q"
 title: |
   Rational
 code: |
   Q.rational(x)
 ---
-prefix: "Q"
 title: |
   Algebraic
 code: |
   Q.algebraic(x)
 ---
-prefix: "Q"
 title: |
   Transcendental
 code: |
   Q.transcendental(x)
 ---
-prefix: "Q"
 title: |
   Irrational
 code: |
   Q.irrational(x)
 ---
-prefix: "Q"
 title: |
   Finite
 code: |
   Q.finite(x)
 ---
-prefix: "Q"
 title: |
   Infinite
 code: |
   Q.infinite(x)
 ---
-prefix: "Q"
 title: |
   Infinitesimal
 code: |
   Q.infinitesimal(x)
 ---
-prefix: "Q"
 title: |
   Negative
 code: |
   Q.negative(x)
 ---
-prefix: "Q"
 title: |
   Nonnegative
 code: |
   Q.nonnegative(x)
 ---
-prefix: "Q"
 title: |
   Positive
 code: |
   Q.positive(x)
 ---
-prefix: "Q"
 title: |
   Nonpositive
 code: |
   Q.nonpositive(x)
 ---
-prefix: "Q"
 title: |
   Hermitian
 code: |
   Q.hermitian(x)
 ---
-prefix: "Q"
 title: |
   Antihermitian
 code: |
   Q.antihermitian(x)
 ---
 category: ['Sympy', 'Manipulating expressions / Expansion']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Expand basic expressions
 code: |
   expr = (x + 2)*(x - 3)
   expr = expand(expr)
 ---
-prefix: "xyz"
 title: |
   Expand, including complex parts
 code: |
   expr = cos(x)
   expr = expand(expr, complex=True)
 ---
-prefix: "xyz"
 title: |
   Expand, including functions
 code: |
   expr = gamma(x+3)
   expr = expand(expr, func=True)
 ---
-prefix: "xyz"
 title: |
   Expand, including trig
 code: |
   expr = sin(x+y)*(x+y)
   expr = expand(expr, trig=True)
 ---
-prefix: "xyz"
 title: |
   Expand only real and imaginary parts
 code: |
   expand_complex(x)
 ---
-prefix: "xyz"
 title: |
   Expand only functions
 code: |
   expr = gamma(x + 2)
   expr = expand_func(expr)
 ---
-prefix: "xyz"
 title: |
   Expand only hypergeometric functions
 code: |
   expr = hyper([1,1], [1,], z) + gamma(z)
   expr = hyperexpand(expr)
 ---
-prefix: "xyz"
 title: |
   Expand only logarithms
 code: |
@@ -1184,21 +1089,18 @@ code: |
   expr = log(a**2*b)
   expr = expand_log(expr)
 ---
-prefix: "xyz"
 title: |
   Expand only multiplication over addition
 code: |
   expr = y*(x + z)
   expr = expand_mul(expr)
 ---
-prefix: "xyz"
 title: |
   Expand only multinomials
 code: |
   expr = (x + y + z)**3
   expr = expand_multinomial(expr)
 ---
-prefix: "xyz"
 title: |
   Expand only powers of multiplied bases
 code: |
@@ -1206,14 +1108,12 @@ code: |
   expr = (a*b)**z
   expr = expand_power_base(expr)
 ---
-prefix: "xyz"
 title: |
   Expand only addition in exponents
 code: |
   expr = x**(y + 2)
   expr = expand_power_exp(expr)
 ---
-prefix: "xyz"
 title: |
   Expand only trig
 code: |
@@ -1221,23 +1121,20 @@ code: |
   expr = expand_trig(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Collect terms']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Collect as coefficients of one factor
 code: |
   expr = y*x**2 + z*x**2 + t*x - 2*x + 3
   expr = collect(expr, x)
 ---
-prefix: "xyz"
 title: |
   Collect as coefficients of multiple factors
 code: |
   expr = x**2 + y*x**2 + x*y + y + z*y
   expr = collect(expr, [x, y])
 ---
-prefix: "xyz"
 title: |
   Collect with respect to wild card
 code: |
@@ -1245,21 +1142,18 @@ code: |
   expr = z*x**y - t*z**y
   expr = collect(expr, w**y)
 ---
-prefix: "xyz"
 title: |
   Collect and apply function to each coefficient
 code: |
   expr = expand((x + y + 1)**3)
   expr = collect(expr, x, factor)
 ---
-prefix: "xyz"
 title: |
   Recursively collect
 code: |
   expr = (x**2*y + x*y + x + y)/(x*y + z*y)
   expr = rcollect(expr, y)
 ---
-prefix: "xyz"
 title: |
   Collect constants
 code: |
@@ -1267,16 +1161,14 @@ code: |
   expr = collect_const(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Substitutions and replacements']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Substitute one subexpression for another
 code: |
   expr = 1 + x*y
   expr = expr.subs(x, pi)
 ---
-prefix: "xyz"
 title: |
   Substitute multiple subexpressions successively
 code: |
@@ -1284,7 +1176,6 @@ code: |
   substitutions = [(x+y, y), (y, x+y)]
   expr = expr.subs(substitutions)
 ---
-prefix: "xyz"
 title: |
   Substitute multiple subexpressions simultaneously
 code: |
@@ -1292,21 +1183,18 @@ code: |
   substitutions = [(x+y, y), (y, x+y)]
   expr = expr.subs(substitutions, simultaneous=True)
 ---
-prefix: "xyz"
 title: |
   Replace one object with another
 code: |
   expr = 1 + x*y
   expr = expr.replace(x, pi)
 ---
-prefix: "xyz"
 title: |
   Replace one object with some function of its arguments
 code: |
   expr = log(sin(x)) + tan(sin(x**2))
   expr = expr.replace(sin, lambda arg: sin(2*arg))
 ---
-prefix: "xyz"
 title: |
   Replace a pattern with an object
 code: |
@@ -1318,7 +1206,6 @@ code: |
   # Note: `exact=True` demands that all Wilds have nonzero matches
   expr = expr.replace(wild, replacement, exact=True)
 ---
-prefix: "xyz"
 title: |
   Replace a pattern with some function of that object
 code: |
@@ -1326,14 +1213,12 @@ code: |
   expr = log(sin(x)) + tan(sin(x**2))
   expr.replace(sin(a), lambda a: sin(2*a))
 ---
-prefix: "xyz"
 title: |
   Replace anything with some function of that thing
 code: |
   g = 2*sin(x**3)
   g.replace(lambda expr: expr.is_Function, lambda expr: expr**2)
 ---
-prefix: "xyz"
 title: |
   Replace exact subexpressions
 code: |
@@ -1342,9 +1227,8 @@ code: |
   expr = expr.xreplace(replacements)
 ---
 category: ['Sympy', 'Manipulating expressions / Evaluation']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Evaluate numerically to arbitrary precision
 code: |
@@ -1352,14 +1236,12 @@ code: |
   precision = 50
   val = N(expr, precision, subs={x:2.4})
 ---
-prefix: "xyz"
 title: |
   Evaluate numerically to python float
 code: |
   expr = x * sqrt(8)
   val = float(expr.subs([(x, 2.4)]))
 ---
-prefix: "xyz"
 title: |
   Create numpy function for efficient evaluation
 code: |
@@ -1370,23 +1252,20 @@ code: |
   vals = f(a)
 ---
 category: ['Sympy', 'Manipulating expressions / Polynomials']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Factor polynomial over rationals
 code: |
   expr = x**3 - x**2 + x - 1
   expr = factor(expr)
 ---
-prefix: "xyz"
 title: |
   Collect common powers of a term
 code: |
   expr = x*y + x - 3 + 2*x**2 - z*x**2 + x**3
   expr = collect(expr, x)
 ---
-prefix: "xyz"
 title: |
   Extract coefficient of a term
 code: |
@@ -1394,30 +1273,26 @@ code: |
   expr = expr.coeff(x**2)
 ---
 category: ['Sympy', 'Manipulating expressions / Rational functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Cancel
 code: |
   expr = (x**2 + 2*x + 1)/(x**2 + x)
   expr = cancel(expr)
 ---
-prefix: "xyz"
 title: |
   Decompose into partial fractions
 code: |
   expr = (4*x**3 + 21*x**2 + 10*x + 12)/(x**4 + 5*x**3 + 5*x**2 + 4*x)
   expr = apart(expr)
 ---
-prefix: "xyz"
 title: |
   Join over common denominator
 code: |
   expr = 1/x + 1/y
   expr = ratsimp(expr)
 ---
-prefix: "xyz"
 title: |
   Remove square roots from denominator
 code: |
@@ -1425,39 +1300,33 @@ code: |
   expr = radsimp(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Powers']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Simplify powers for general arguments
 code: |
   powsimp(x**y * x**z)
 ---
-prefix: "xyz"
 title: |
   Simplify powers, forcing assumptions
 code: |
   powsimp(x**y * x**z, force=True)
 ---
-prefix: "xyz"
 title: |
   Expand powers by exponent for general arguments
 code: |
   expand_power_exp(x**(y + z))
 ---
-prefix: "xyz"
 title: |
   Expand powers of multiplied bases, forcing assumptions
 code: |
   expand_power_base((x*y)**z, force=True)
 ---
-prefix: "xyz"
 title: |
   Collect exponents on powers for general arguments
 code: |
   powdenest((x**y)**z)
 ---
-prefix: "xyz"
 title: |
   Collect exponents on powers, forcing assumptions
 code: |
@@ -1474,62 +1343,53 @@ code: |
   sqrtdenest(sqrt(5 + 2*sqrt(6)))
 ---
 category: ['Sympy', 'Manipulating expressions / Exponentials and Logarithms']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Combine exponentials
 code: |
   powsimp(exp(y) * exp(z))
 ---
-prefix: "xyz"
 title: |
   Expand logarithms for general arguments
 code: |
   expand_log(log(x*y))
 ---
-prefix: "xyz"
 title: |
   Expand logarithms, forcing assumptions
 code: |
   expand_log(log(z**2), force=True)
 ---
-prefix: "xyz"
 title: |
   Combine logarithms for general arguments
 code: |
   logcombine(log(x) + z*log(y))
 ---
-prefix: "xyz"
 title: |
   Combine logarithms, forcing assumptions
 code: |
   logcombine(log(x) + z*log(y))
 ---
-prefix: "xyz"
 title: |
   Simplification, possibly to trig functions
 code: |
   exptrigsimp(exp(z) + exp(-z))
 ---
 category: ['Sympy', 'Manipulating expressions / Trigonometric functions']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Expansion
 code: |
   expr = sin(x + y)
   expr = expand(expr, trig=True)
 ---
-prefix: "xyz"
 title: |
   Simplification
 code: |
   expr = sin(x)**4 - 2*cos(x)**2*sin(x)**2 + cos(x)**4
   expr = trigsimp(expr)
 ---
-prefix: "xyz"
 title: |
   Simplification, possibly to exponentials
 code: |
@@ -1537,16 +1397,14 @@ code: |
   expr = exptrigsimp(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Miscellaneous']
-prefixes: {"Q":"from sympy import ask, Q, pi\nfrom sympy.abc import x, y, z","xyz":"from sympy import *\na, s, t, u, v, w, x, y, z = symbols(\"a, s, t, u, v, w, x, y, z\")\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"}
+setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 ---
-prefix: "xyz"
 title: |
   Simplify factorials
 code: |
   expr = factorial(n)/factorial(n - 3)
   expr = combsimp(expr)
 ---
-prefix: "xyz"
 title: |
   Simplify binomials
 code: |
@@ -1558,14 +1416,12 @@ title: |
 code: |
   nsimplify(4.0/(1+sqrt(5.0)), constants=[GoldenRatio,])
 ---
-prefix: "xyz"
 title: |
   Expand gamma functions
 code: |
   expr = gamma(z+3)
   expr = expand_func(expr)
 ---
-prefix: "xyz"
 title: |
   Simplify Bessel functions
 code: |

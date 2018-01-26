@@ -10,1783 +10,1499 @@
 language: python
 ---
 category: ['Scipy', 'Special / Airy functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   airy: Airy functions and their derivatives
 code: |
   special.airy(z)
 ---
-prefix: "special"
 title: |
   airye: Exponentially scaled Airy functions and their derivatives
 code: |
   special.airye(z)
 ---
-prefix: "special"
 title: |
   ai_zeros: Compute $n$ zeros $a$ and $a'$ of $\mathrm{Ai}(x)$ and $\mathrm{Ai}'(x)$, and $\mathrm{Ai}(a')$ and $\mathrm{Ai}'(a)$
 code: |
   special.ai_zeros(n)
 ---
-prefix: "special"
 title: |
   bi_zeros: Compute $n$ zeros $b$ and $b'$ of $\mathrm{Bi}(x)$ and $\mathrm{Bi}'(x)$, and $\mathrm{Bi}(b')$ and $\mathrm{Bi}'(b)$
 code: |
   special.bi_zeros(n)
 ---
 category: ['Scipy', 'Special / Elliptic Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   ellipj: Jacobian elliptic functions
 code: |
   special.ellipj(u, m)
 ---
-prefix: "special"
 title: |
   ellipk: Computes the complete elliptic integral of the first kind
 code: |
   special.ellipk(m)
 ---
-prefix: "special"
 title: |
   ellipkm1: The complete elliptic integral of the first kind around m=1
 code: |
   special.ellipkm1(p)
 ---
-prefix: "special"
 title: |
   ellipkinc: Incomplete elliptic integral of the first kind
 code: |
   special.ellipkinc(phi, m)
 ---
-prefix: "special"
 title: |
   ellipe: Complete elliptic integral of the second kind
 code: |
   special.ellipe(m)
 ---
-prefix: "special"
 title: |
   ellipeinc: Incomplete elliptic integral of the second kind
 code: |
   special.ellipeinc(phi,m)
 ---
 category: ['Scipy', 'Special / Bessel Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
 category: ['Scipy', 'Bessel Functions / Bessel Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   jv: Bessel function of the first kind of real order $v$, $J_v(z)$
 code: |
   special.jv(v, z)
 ---
-prefix: "special"
 title: |
   jve: Exponentially scaled Bessel function of the first kind of order $v$, $J_v(z)\, e^{-|\Im{z}|}$
 code: |
   special.jve(v, z)
 ---
-prefix: "special"
 title: |
   yn: Bessel function of the second kind of integer order $n$, $Y_n(x)$
 code: |
   special.yn(n,x)
 ---
-prefix: "special"
 title: |
   yv: Bessel function of the second kind of real order $v$, $Y_v(z)$
 code: |
   special.yv(v,z)
 ---
-prefix: "special"
 title: |
   yve: Exponentially scaled Bessel function of the second kind of real order, $Y_v(z)\, e^{-|\Im{z}|}$
 code: |
   special.yve(v,z)
 ---
-prefix: "special"
 title: |
   kn: Modified Bessel function of the second kind of integer order $n$, $K_n(x)$
 code: |
   special.kn(n, x)
 ---
-prefix: "special"
 title: |
   kv: Modified Bessel function of the second kind of real order $v$, $K_v(z)$
 code: |
   special.kv(v,z)
 ---
-prefix: "special"
 title: |
   kve: Exponentially scaled modified Bessel function of the second kind, $K_v(z)\, e^{z}$
 code: |
   special.kve(v,z)
 ---
-prefix: "special"
 title: |
   iv: Modified Bessel function of the first kind of real order $v$, $I_v(z)$
 code: |
   special.iv(v,z)
 ---
-prefix: "special"
 title: |
   ive: Exponentially scaled modified Bessel function of the first kind of real order $v$, $I_v(z)\, e^{-|\Re{z}|}$
 code: |
   special.ive(v,z)
 ---
-prefix: "special"
 title: |
   hankel1: Hankel function of the first kind, $H^{(1)}_v(z)$
 code: |
   special.hankel1(v, z)
 ---
-prefix: "special"
 title: |
   hankel1e: Exponentially scaled Hankel function of the first kind, $H^{(1)}_v(z)\, e^{-i\, z}$
 code: |
   special.hankel1e(v, z)
 ---
-prefix: "special"
 title: |
   hankel2: Hankel function of the second kind, $H^{(2)}_v(z)$
 code: |
   special.hankel2(v, z)
 ---
-prefix: "special"
 title: |
   hankel2e: Exponentially scaled Hankel function of the second kind, $H^{(2)}_v(z)\, e^{i\, z}$
 code: |
   special.hankel2e(v, z)
 ---
-prefix: "special"
 title: |
   lmbda: Compute sequence of lambda functions with arbitrary order $v$ and their derivatives
 code: |
   special.lmbda(v, x)
 ---
 category: ['Scipy', 'Bessel Functions / Zeros of Bessel Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   jnjnp_zeros: Compute nt (<=1200) zeros of the Bessel functions $J_n$ and $J_n'$ and arange them in order of their magnitudes
 code: |
   special.jnjnp_zeros(nt)
 ---
-prefix: "special"
 title: |
   jnyn_zeros: Compute nt zeros of the Bessel functions $J_n(x)$, $J_n'(x)$, $Y_n(x)$, and $Y_n'(x)$, respectively
 code: |
   special.jnyn_zeros(n, nt)
 ---
-prefix: "special"
 title: |
   jn_zeros: Compute nt zeros of the Bessel function $J_n(x)$
 code: |
   special.jn_zeros(n, nt)
 ---
-prefix: "special"
 title: |
   jnp_zeros: Compute nt zeros of the Bessel function $J_n'(x)$
 code: |
   special.jnp_zeros(n, nt)
 ---
-prefix: "special"
 title: |
   yn_zeros: Compute nt zeros of the Bessel function $Y_n(x)$
 code: |
   special.yn_zeros(n, nt)
 ---
-prefix: "special"
 title: |
   ynp_zeros: Compute nt zeros of the Bessel function $Y_n'(x)$
 code: |
   special.ynp_zeros(n, nt)
 ---
-prefix: "special"
 title: |
   y0_zeros: Returns nt (complex or real) zeros of $Y_0(z)$, $z_0$, and the value of $Y_0'(z_0) = -Y_1(z_0)$ at each zero
 code: |
   special.y0_zeros(nt, complex=0)
 ---
-prefix: "special"
 title: |
   y1_zeros: Returns nt (complex or real) zeros of $Y_1(z)$, $z_1$, and the value of $Y_1'(z_1) = Y_0(z_1)$ at each zero
 code: |
   special.y1_zeros(nt, complex=0)
 ---
-prefix: "special"
 title: |
   y1p_zeros: Returns nt (complex or real) zeros of $Y_1'(z)$, $z_1'$, and the value of $Y_1(z_1')$ at each zero
 code: |
   special.y1p_zeros(nt, complex=0)
 ---
 category: ['Scipy', 'Bessel Functions / Faster versions of common Bessel Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   j0: Bessel function the first kind of order 0, $J_0(x)$
 code: |
   special.j0(x)
 ---
-prefix: "special"
 title: |
   j1: Bessel function of the first kind of order 1, $J_1(x)$
 code: |
   special.j1(x)
 ---
-prefix: "special"
 title: |
   y0: Bessel function of the second kind of order 0, $Y_0(x)$
 code: |
   special.y0(x)
 ---
-prefix: "special"
 title: |
   y1: Bessel function of the second kind of order 1, $Y_1(x)$
 code: |
   special.y1(x)
 ---
-prefix: "special"
 title: |
   i0: Modified Bessel function of order 0, $I_0(x)$
 code: |
   special.i0(x)
 ---
-prefix: "special"
 title: |
   i0e: Exponentially scaled modified Bessel function of order 0, $I_0(x)\, e^{-|x|}$
 code: |
   special.i0e(x)
 ---
-prefix: "special"
 title: |
   i1: Modified Bessel function of order 1, $I_1(x)$
 code: |
   special.i1(x)
 ---
-prefix: "special"
 title: |
   i1e: Exponentially scaled modified Bessel function of order 1, $I_1(x)\, e^{-|x|}$
 code: |
   special.i1e(x)
 ---
-prefix: "special"
 title: |
   k0: Modified Bessel function K of order 0, $K_0(x)$
 code: |
   special.k0(x)
 ---
-prefix: "special"
 title: |
   k0e: Exponentially scaled modified Bessel function K of order 0, $K_0(x)\, e^{x}$
 code: |
   special.k0e(x)
 ---
-prefix: "special"
 title: |
   k1: Modified Bessel function of the first kind of order 1, $K_1(x)$
 code: |
   special.k1(x)
 ---
-prefix: "special"
 title: |
   k1e: Exponentially scaled modified Bessel function K of order 1, $K_1(x)\, e^{x}$
 code: |
   special.k1e(x)
 ---
 category: ['Scipy', 'Bessel Functions / Integrals of Bessel Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   itj0y0: Integrals of Bessel functions of order 0: $\int_0^x J_0(t)\, dt$, $\int_0^x Y_0(t)\, dt$
 code: |
   special.itj0y0(x)
 ---
-prefix: "special"
 title: |
   it2j0y0: Integrals related to Bessel functions of order 0: $\int_0^x \frac{1-J_0(t)}{t}\, dt$, $\int_x^\infty \frac{Y_0(t)}{t}\, dt$
 code: |
   special.it2j0y0(x)
 ---
-prefix: "special"
 title: |
   iti0k0: Integrals of modified Bessel functions of order 0: $\int_0^x I_0(t)\, dt$, $\int_0^x K_0(t)\, dt$
 code: |
   special.iti0k0(x)
 ---
-prefix: "special"
 title: |
   it2i0k0: Integrals related to modified Bessel functions of order 0: $\int_0^x \frac{I_0(t)-1}{t}\, dt$, $\int_x^\infty \frac{K_0(t)}{t}\, dt$
 code: |
   special.it2i0k0(x)
 ---
-prefix: "special"
 title: |
   besselpoly: Weighted integral of a Bessel function, $\int_0^1 x^\lambda J_\nu(2 a x) \, dx$
 code: |
   special.besselpoly(a, lmb, nu)
 ---
 category: ['Scipy', 'Bessel Functions / Derivatives of Bessel Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   jvp: Return the $n$th derivative of $J_v(z)$ with respect to $z$
 code: |
   special.jvp(v, z, n=1)
 ---
-prefix: "special"
 title: |
   yvp: Return the $n$th derivative of $Y_v(z)$ with respect to $z$
 code: |
   special.yvp(v, z, n=1)
 ---
-prefix: "special"
 title: |
   kvp: Return the $n$th derivative of $K_v(z)$ with respect to $z$
 code: |
   special.kvp(v, z, n=1)
 ---
-prefix: "special"
 title: |
   ivp: Return the $n$th derivative of $I_v(z)$ with respect to $z$
 code: |
   special.ivp(v, z, n=1)
 ---
-prefix: "special"
 title: |
   h1vp: Return the $n$th derivative of $H^{(1)}_v(z)$ with respect to $z$
 code: |
   special.h1vp(v, z, n=1)
 ---
-prefix: "special"
 title: |
   h2vp: Return the $n$th derivative of $H^{(2)}_v(z)$ with respect to z
 code: |
   special.h2vp(v, z, n=1)
 ---
 category: ['Scipy', 'Bessel Functions / Spherical Bessel Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   sph_jn: Compute the spherical Bessel function $j_n(z)$ and its derivative for all orders up to and including $n$
 code: |
   special.sph_jn(n, z)
 ---
-prefix: "special"
 title: |
   sph_yn: Compute the spherical Bessel function $y_n(z)$ and its derivative for all orders up to and including $n$
 code: |
   special.sph_yn(n, z)
 ---
-prefix: "special"
 title: |
   sph_jnyn: Compute the spherical Bessel functions, $j_n(z)$ and $y_n(z)$ and their derivatives for all orders up to and including $n$
 code: |
   special.sph_jnyn(n, z)
 ---
-prefix: "special"
 title: |
   sph_in: Compute the spherical Bessel function $i_n(z)$ and its derivative for all orders up to and including $n$
 code: |
   special.sph_in(n, z)
 ---
-prefix: "special"
 title: |
   sph_kn: Compute the spherical Bessel function $k_n(z)$ and its derivative for all orders up to and including $n$
 code: |
   special.sph_kn(n, z)
 ---
-prefix: "special"
 title: |
   sph_inkn: Compute the spherical Bessel functions, $i_n(z)$ and $k_n(z)$ and their derivatives for all orders up to and including $n$
 code: |
   special.sph_inkn(n, z)
 ---
 category: ['Scipy', 'Bessel Functions / Riccati-Bessel Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   riccati_jn: Compute the Ricatti-Bessel function of the first kind and its derivative for all orders up to and including n
 code: |
   special.riccati_jn(n, x)
 ---
-prefix: "special"
 title: |
   riccati_yn: Compute the Ricatti-Bessel function of the second kind and its derivative for all orders up to and including n
 code: |
   special.riccati_yn(n, x)
 ---
 category: ['Scipy', 'Special / Struve Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   struve: Struve function
 code: |
   special.struve(v,x)
 ---
-prefix: "special"
 title: |
   modstruve: Modified Struve function
 code: |
   special.modstruve(v, x)
 ---
-prefix: "special"
 title: |
   itstruve0: Integral of the Struve function of order 0
 code: |
   special.itstruve0(x)
 ---
-prefix: "special"
 title: |
   it2struve0: Integral related to Struve function of order 0
 code: |
   special.it2struve0(x)
 ---
-prefix: "special"
 title: |
   itmodstruve0: Integral of the modified Struve function of order 0
 code: |
   special.itmodstruve0(x)
 ---
 category: ['Scipy', 'Special / Statistical Functions (see also scipy.stats)']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   bdtr: Binomial distribution cumulative distribution function
 code: |
   special.bdtr(k, n, p)
 ---
-prefix: "special"
 title: |
   bdtrc: Binomial distribution survival function
 code: |
   special.bdtrc(k, n, p)
 ---
-prefix: "special"
 title: |
   bdtri: Inverse function to bdtr vs
 code: |
   special.bdtri(k, n, y)
 ---
-prefix: "special"
 title: |
   btdtr: Cumulative beta distribution
 code: |
   special.btdtr(a,b,x)
 ---
-prefix: "special"
 title: |
   btdtri: p-th quantile of the beta distribution
 code: |
   special.btdtri(a,b,p)
 ---
-prefix: "special"
 title: |
   fdtr: F cumulative distribution function
 code: |
   special.fdtr(dfn, dfd, x)
 ---
-prefix: "special"
 title: |
   fdtrc: F survival function
 code: |
   special.fdtrc(dfn, dfd, x)
 ---
-prefix: "special"
 title: |
   fdtri: Inverse to fdtr vs x
 code: |
   special.fdtri(dfn, dfd, p)
 ---
-prefix: "special"
 title: |
   gdtr: Gamma distribution cumulative density function
 code: |
   special.gdtr(a,b,x)
 ---
-prefix: "special"
 title: |
   gdtrc: Gamma distribution survival function
 code: |
   special.gdtrc(a,b,x)
 ---
-prefix: "special"
 title: |
   gdtria: Inverse of gdtr vs a
 code: |
   special.gdtria(p, b, x)
 ---
-prefix: "special"
 title: |
   gdtrib: Inverse of gdtr vs b
 code: |
   special.gdtrib(a, p, x)
 ---
-prefix: "special"
 title: |
   gdtrix: Inverse of gdtr vs x
 code: |
   special.gdtrix(a, b, p)
 ---
-prefix: "special"
 title: |
   nbdtr: Negative binomial cumulative distribution function
 code: |
   special.nbdtr(k, n, p)
 ---
-prefix: "special"
 title: |
   nbdtrc: Negative binomial survival function
 code: |
   special.nbdtrc(k,n,p)
 ---
-prefix: "special"
 title: |
   nbdtri: Inverse of nbdtr vs p
 code: |
   special.nbdtri(k, n, y)
 ---
-prefix: "special"
 title: |
   ncfdtr: Cumulative distribution function of the non-central $F$ distribution.
 code: |
   special.ncfdtr(dfn, dfd, nc, f)
 ---
-prefix: "special"
 title: |
   ncfdtridfd: Calculate degrees of freedom (denominator) for the noncentral $F$ distribution.
 code: |
   special.ncfdtridfd(p, f, dfn, nc)
 ---
-prefix: "special"
 title: |
   ncfdtridfn: Calculate degrees of freedom (numerator) for the noncentral $F$ distribution.
 code: |
   special.ncfdtridfn(p, f, dfd, nc)
 ---
-prefix: "special"
 title: |
   ncfdtri: Inverse cumulative distribution function of the non-central $F$ distribution.
 code: |
   special.ncfdtri(p, dfn, dfd, nc)
 ---
-prefix: "special"
 title: |
   ncfdtrinc: Calculate non-centrality parameter for non-central $F$ distribution.
 code: |
   special.ncfdtrinc(p, f, dfn, dfd)
 ---
-prefix: "special"
 title: |
   nctdtr: Cumulative distribution function of the non-central $t$ distribution.
 code: |
   special.nctdtr(df, nc, t)
 ---
-prefix: "special"
 title: |
   nctdtridf: Calculate degrees of freedom for non-central $t$ distribution.
 code: |
   special.nctdtridf(p, nc, t)
 ---
-prefix: "special"
 title: |
   nctdtrit: Inverse cumulative distribution function of the non-central $t$ distribution.
 code: |
   special.nctdtrit(df, nc, p)
 ---
-prefix: "special"
 title: |
   nctdtrinc: Calculate non-centrality parameter for non-central $t$ distribution.
 code: |
   special.nctdtrinc(df, p, t)
 ---
-prefix: "special"
 title: |
   nrdtrimn: Calculate mean of normal distribution given other params.
 code: |
   special.nrdtrimn(p, x, std)
 ---
-prefix: "special"
 title: |
   nrdtrisd: Calculate standard deviation of normal distribution given other params.
 code: |
   special.nrdtrisd(p, x, mn)
 ---
-prefix: "special"
 title: |
   pdtr: Poisson cumulative distribution function
 code: |
   special.pdtr(k, m)
 ---
-prefix: "special"
 title: |
   pdtrc: Poisson survival function
 code: |
   special.pdtrc(k, m)
 ---
-prefix: "special"
 title: |
   pdtri: Inverse to pdtr vs m
 code: |
   special.pdtri(k,y)
 ---
-prefix: "special"
 title: |
   stdtr: Student $t$ distribution cumulative density function
 code: |
   special.stdtr(df,t)
 ---
-prefix: "special"
 title: |
   stdtridf: Inverse of stdtr vs df
 code: |
   special.stdtridf(p,t)
 ---
-prefix: "special"
 title: |
   stdtrit: Inverse of stdtr vs t
 code: |
   special.stdtrit(df,p)
 ---
-prefix: "special"
 title: |
   chdtr: Chi square cumulative distribution function
 code: |
   special.chdtr(v, x)
 ---
-prefix: "special"
 title: |
   chdtrc: Chi square survival function
 code: |
   special.chdtrc(v,x)
 ---
-prefix: "special"
 title: |
   chdtri: Inverse to chdtrc
 code: |
   special.chdtri(v,p)
 ---
-prefix: "special"
 title: |
   ndtr: Gaussian cumulative distribution function
 code: |
   special.ndtr(x)
 ---
-prefix: "special"
 title: |
   ndtri: Inverse of ndtr vs x
 code: |
   special.ndtri(y)
 ---
-prefix: "special"
 title: |
   smirnov: Kolmogorov-Smirnov complementary cumulative distribution function
 code: |
   special.smirnov(n,e)
 ---
-prefix: "special"
 title: |
   smirnovi: Inverse to smirnov
 code: |
   special.smirnovi(n,y)
 ---
-prefix: "special"
 title: |
   kolmogorov: Complementary cumulative distribution function of Kolmogorov distribution
 code: |
   special.kolmogorov(y)
 ---
-prefix: "special"
 title: |
   kolmogi: Inverse function to kolmogorov
 code: |
   special.kolmogi(p)
 ---
-prefix: "special"
 title: |
   tklmbda: Tukey-Lambda cumulative distribution function
 code: |
   special.tklmbda(x, lmbda)
 ---
-prefix: "special"
 title: |
   logit: Logit ufunc for ndarrays
 code: |
   special.logit(x)
 ---
-prefix: "special"
 title: |
   expit: Expit ufunc for ndarrays
 code: |
   special.expit(x)
 ---
-prefix: "special"
 title: |
   boxcox: Compute the Box-Cox transformation
 code: |
   special.boxcox(x, lmbda)
 ---
-prefix: "special"
 title: |
   boxcox1p: Compute the Box-Cox transformation of 1 + x
 code: |
   special.boxcox1p(x, lmbda)
 ---
 category: ['Scipy', 'Special / Information Theory Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   entr: Elementwise function for computing entropy.
 code: |
   special.entr(x)
 ---
-prefix: "special"
 title: |
   rel_entr: Elementwise function for computing relative entropy.
 code: |
   special.rel_entr(x, y)
 ---
-prefix: "special"
 title: |
   kl_div: Elementwise function for computing Kullback-Leibler divergence.
 code: |
   special.kl_div(x, y)
 ---
-prefix: "special"
 title: |
   huber: Huber loss function.
 code: |
   special.huber(delta, r)
 ---
-prefix: "special"
 title: |
   pseudo_huber: Pseudo-Huber loss function.
 code: |
   special.pseudo_huber(delta, r)
 ---
 category: ['Scipy', 'Special / Gamma and Related Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   gamma: Gamma function
 code: |
   special.gamma(z)
 ---
-prefix: "special"
 title: |
   gammaln: Logarithm of absolute value of gamma function
 code: |
   special.gammaln(z)
 ---
-prefix: "special"
 title: |
   gammasgn: Sign of the gamma function
 code: |
   special.gammasgn(x)
 ---
-prefix: "special"
 title: |
   gammainc: Incomplete gamma function
 code: |
   special.gammainc(a, x)
 ---
-prefix: "special"
 title: |
   gammaincinv: Inverse to gammainc
 code: |
   special.gammaincinv(a, y)
 ---
-prefix: "special"
 title: |
   gammaincc: Complemented incomplete gamma integral
 code: |
   special.gammaincc(a,x)
 ---
-prefix: "special"
 title: |
   gammainccinv: Inverse to gammaincc
 code: |
   special.gammainccinv(a,y)
 ---
-prefix: "special"
 title: |
   beta: Beta function
 code: |
   special.beta(a, b)
 ---
-prefix: "special"
 title: |
   betaln: Natural logarithm of absolute value of beta function
 code: |
   special.betaln(a, b)
 ---
-prefix: "special"
 title: |
   betainc: Incomplete beta integral
 code: |
   special.betainc(a, b, x)
 ---
-prefix: "special"
 title: |
   betaincinv: Inverse function to beta integral
 code: |
   special.betaincinv(a, b, y)
 ---
-prefix: "special"
 title: |
   psi: Digamma function
 code: |
   special.psi(z)
 ---
-prefix: "special"
 title: |
   rgamma: Gamma function inverted
 code: |
   special.rgamma(z)
 ---
-prefix: "special"
 title: |
   polygamma: Polygamma function which is the $n$th derivative of the digamma (psi) function
 code: |
   special.polygamma(n, x)
 ---
-prefix: "special"
 title: |
   multigammaln: Returns the log of multivariate gamma, also sometimes called the generalized gamma
 code: |
   special.multigammaln(a, d)
 ---
-prefix: "special"
 title: |
   digamma: Digamma function
 code: |
   special.digamma(z)
 ---
 category: ['Scipy', 'Special / Error Function and Fresnel Integrals']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   erf: Returns the error function of complex argument
 code: |
   special.erf(z)
 ---
-prefix: "special"
 title: |
   erfc: Complementary error function, $1 - \mathrm{erf}(x)$
 code: |
   special.erfc(x)
 ---
-prefix: "special"
 title: |
   erfcx: Scaled complementary error function, $\exp(x^2)\, \mathrm{erfc}(x)$
 code: |
   special.erfcx(x)
 ---
-prefix: "special"
 title: |
   erfi: Imaginary error function, $-i\, \mathrm{erf}(i\, z)$
 code: |
   special.erfi(z)
 ---
-prefix: "special"
 title: |
   erfinv: Inverse function for erf
 code: |
   special.erfinv(y)
 ---
-prefix: "special"
 title: |
   erfcinv: Inverse function for erfc
 code: |
   special.erfcinv(y)
 ---
-prefix: "special"
 title: |
   wofz: Faddeeva function
 code: |
   special.wofz(z)
 ---
-prefix: "special"
 title: |
   dawsn: Dawson’s integral
 code: |
   special.dawsn(x)
 ---
-prefix: "special"
 title: |
   fresnel: Fresnel sin and cos integrals
 code: |
   special.fresnel(z)
 ---
-prefix: "special"
 title: |
   fresnel_zeros: Compute nt complex zeros of the sine and cosine Fresnel integrals S(z) and C(z)
 code: |
   special.fresnel_zeros(nt)
 ---
-prefix: "special"
 title: |
   modfresnelp: Modified Fresnel positive integrals
 code: |
   special.modfresnelp(x)
 ---
-prefix: "special"
 title: |
   modfresnelm: Modified Fresnel negative integrals
 code: |
   special.modfresnelm(x)
 ---
-prefix: "special"
 title: |
   erf_zeros: Compute nt complex zeros of the error function erf(z)
 code: |
   special.erf_zeros(nt)
 ---
-prefix: "special"
 title: |
   fresnelc_zeros: Compute nt complex zeros of the cosine Fresnel integral C(z)
 code: |
   special.fresnelc_zeros(nt)
 ---
-prefix: "special"
 title: |
   fresnels_zeros: Compute nt complex zeros of the sine Fresnel integral S(z)
 code: |
   special.fresnels_zeros(nt)
 ---
 category: ['Scipy', 'Special / Legendre Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   lpmv: Associated legendre function of integer order
 code: |
   special.lpmv(m, v, x)
 ---
-prefix: "special"
 title: |
   sph_harm: Spherical harmonic of degree $n \geq 0$ and order $|m| \leq n$
 code: |
   # Note: n >= 0 and |m| <= n; azimuthal angle in [0, 2pi) and polar in [0, pi]
   special.sph_harm(order_m, degree_n, azimuthal_angle, polar_angle)
 ---
-prefix: "special"
 title: |
   clpmn: Associated Legendre function of the first kind, $P_{m,n}(z)$
 code: |
   special.clpmn(m, n, z[, type])
 ---
-prefix: "special"
 title: |
   lpn: Compute sequence of Legendre functions of the first kind (polynomials), $P_n(z)$ and derivatives for all degrees from 0 to $n$ (inclusive)
 code: |
   special.lpn(n, z)
 ---
-prefix: "special"
 title: |
   lqn: Compute sequence of Legendre functions of the second kind, $Q_n(z)$ and derivatives for all degrees from 0 to $n$ (inclusive)
 code: |
   special.lqn(n, z)
 ---
-prefix: "special"
 title: |
   lpmn: Associated Legendre function of the first kind, $P_{m,n}(z)$
 code: |
   special.lpmn(m, n, z)
 ---
-prefix: "special"
 title: |
   lqmn: Associated Legendre functions of the second kind, $Q_{m,n}(z)$ and its derivative, $Q_{m,n}'(z)$ of order $m$ and degree $n$
 code: |
   special.lqmn(m, n, z)
 ---
 category: ['Scipy', 'Special / Ellipsoidal Harmonics']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   ellip_harm: Ellipsoidal harmonic functions $E^p_n(l)$
 code: |
   special.ellip_harm(h2, k2, n, p, s[, signm, signn])
 ---
-prefix: "special"
 title: |
   ellip_harm_2: Ellipsoidal harmonic functions $F^p_n(l)$
 code: |
   special.ellip_harm_2(h2, k2, n, p, s)
 ---
-prefix: "special"
 title: |
   ellip_normal: Ellipsoidal harmonic normalization constants $\gamma^p_n$
 code: |
   special.ellip_normal(h2, k2, n, p)
 ---
 category: ['Scipy', 'Special / Orthogonal polynomials']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   assoc_laguerre: Returns the $n$th order generalized (associated) Laguerre polynomial.
 code: |
   special.assoc_laguerre(x, n)
 ---
-prefix: "special"
 title: |
   eval_legendre: Evaluate Legendre polynomial at a point
 code: |
   special.eval_legendre(n, x)
 ---
-prefix: "special"
 title: |
   eval_chebyt: Evaluate Chebyshev $T$ polynomial at a point
 code: |
   special.eval_chebyt(n, x)
 ---
-prefix: "special"
 title: |
   eval_chebyu: Evaluate Chebyshev $U$ polynomial at a point
 code: |
   special.eval_chebyu(n, x)
 ---
-prefix: "special"
 title: |
   eval_chebyc: Evaluate Chebyshev $C$ polynomial at a point
 code: |
   special.eval_chebyc(n, x)
 ---
-prefix: "special"
 title: |
   eval_chebys: Evaluate Chebyshev $S$ polynomial at a point
 code: |
   special.eval_chebys(n, x)
 ---
-prefix: "special"
 title: |
   eval_jacobi: Evaluate Jacobi polynomial at a point
 code: |
   special.eval_jacobi(n, alpha, beta, x)
 ---
-prefix: "special"
 title: |
   eval_laguerre: Evaluate Laguerre polynomial at a point
 code: |
   special.eval_laguerre(n, x)
 ---
-prefix: "special"
 title: |
   eval_genlaguerre: Evaluate generalized Laguerre polynomial at a point
 code: |
   special.eval_genlaguerre(n, alpha, x)
 ---
-prefix: "special"
 title: |
   eval_hermite: Evaluate Hermite polynomial at a point
 code: |
   special.eval_hermite(n, x)
 ---
-prefix: "special"
 title: |
   eval_hermitenorm: Evaluate normalized Hermite polynomial at a point
 code: |
   special.eval_hermitenorm(n, x)
 ---
-prefix: "special"
 title: |
   eval_gegenbauer: Evaluate Gegenbauer polynomial at a point
 code: |
   special.eval_gegenbauer(n, alpha, x)
 ---
-prefix: "special"
 title: |
   eval_sh_legendre: Evaluate shifted Legendre polynomial at a point
 code: |
   special.eval_sh_legendre(n, x)
 ---
-prefix: "special"
 title: |
   eval_sh_chebyt: Evaluate shifted Chebyshev $T$ polynomial at a point
 code: |
   special.eval_sh_chebyt(n, x)
 ---
-prefix: "special"
 title: |
   eval_sh_chebyu: Evaluate shifted Chebyshev $U$ polynomial at a point
 code: |
   special.eval_sh_chebyu(n, x)
 ---
-prefix: "special"
 title: |
   eval_sh_jacobi: Evaluate shifted Jacobi polynomial at a point
 code: |
   special.eval_sh_jacobi(n, p, q, x)
 ---
-prefix: "special"
 title: |
   legendre: Coefficients of the $n$th order Legendre polynomial, $P_n(x)$
 code: |
   special.legendre(n[, monic])
 ---
-prefix: "special"
 title: |
   chebyt: Coefficients of the $n$th order Chebyshev polynomial of first kind, $T_n(x)$
 code: |
   special.chebyt(n[, monic])
 ---
-prefix: "special"
 title: |
   chebyu: Coefficients of the $n$th order Chebyshev polynomial of second kind, $U_n(x)$
 code: |
   special.chebyu(n[, monic])
 ---
-prefix: "special"
 title: |
   chebyc: Coefficients of the $n$th order Chebyshev polynomial of first kind, $C_n(x)$
 code: |
   special.chebyc(n[, monic])
 ---
-prefix: "special"
 title: |
   chebys: Coefficients of the $n$th order Chebyshev polynomial of second kind, $S_n$(x)
 code: |
   special.chebys(n[, monic])
 ---
-prefix: "special"
 title: |
   jacobi: Coefficients of the $n$th order Jacobi polynomial, $P^(\alpha,\beta)_n(x)$ orthogonal over [-1,1] with weighting function $(1-x)^\alpha (1+x)^\beta$ with $\alpha,\beta > -1$
 code: |
   special.jacobi(n, alpha, beta[, monic])
 ---
-prefix: "special"
 title: |
   laguerre: Coefficients of the $n$th order Laguerre polynoimal, $L_n(x)$
 code: |
   special.laguerre(n[, monic])
 ---
-prefix: "special"
 title: |
   genlaguerre: Coefficients of the $n$th order generalized (associated) Laguerre polynomial,
 code: |
   special.genlaguerre(n, alpha[, monic])
 ---
-prefix: "special"
 title: |
   hermite: Coefficients of the $n$th order Hermite polynomial, $H_n(x)$, orthogonal over
 code: |
   special.hermite(n[, monic])
 ---
-prefix: "special"
 title: |
   hermitenorm: Coefficients of the $n$th order normalized Hermite polynomial, $He_n(x)$, orthogonal
 code: |
   special.hermitenorm(n[, monic])
 ---
-prefix: "special"
 title: |
   gegenbauer: Coefficients of the $n$th order Gegenbauer (ultraspherical) polynomial,
 code: |
   special.gegenbauer(n, alpha[, monic])
 ---
-prefix: "special"
 title: |
   sh_legendre: Coefficients of the $n$th order shifted Legendre polynomial, $P^\ast_n(x)$
 code: |
   special.sh_legendre(n[, monic])
 ---
-prefix: "special"
 title: |
   sh_chebyt: Coefficients of $n$th order shifted Chebyshev polynomial of first kind, $T_n(x)$
 code: |
   special.sh_chebyt(n[, monic])
 ---
-prefix: "special"
 title: |
   sh_chebyu: Coefficients of the $n$th order shifted Chebyshev polynomial of second kind, $U_n(x)$
 code: |
   special.sh_chebyu(n[, monic])
 ---
-prefix: "special"
 title: |
   sh_jacobi: Coefficients of the $n$th order Jacobi polynomial, $G_n(p,q,x)$ orthogonal over [0,1] with weighting function $(1-x)^{p-q} x^{q-1}$ with $p>q-1$ and $q > 0$
 code: |
   special.sh_jacobi(n, p, q[, monic])
 ---
 category: ['Scipy', 'Special / Hypergeometric Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   hyp2f1: Gauss hypergeometric function ${}_2F_1(a, b; c; z)$
 code: |
   special.hyp2f1(a, b, c, z)
 ---
-prefix: "special"
 title: |
   hyp1f1: Confluent hypergeometric function ${}_1F_1(a, b; x)$
 code: |
   special.hyp1f1(a, b, x)
 ---
-prefix: "special"
 title: |
   hyperu: Confluent hypergeometric function $U(a, b, x)$ of the second kind
 code: |
   special.hyperu(a, b, x)
 ---
-prefix: "special"
 title: |
   hyp0f1: Confluent hypergeometric limit function ${}_0F_1$
 code: |
   special.hyp0f1(v, z)
 ---
-prefix: "special"
 title: |
   hyp2f0: Hypergeometric function ${}_2F_0$ in $y$ and an error estimate
 code: |
   special.hyp2f0(a, b, x, type)
 ---
-prefix: "special"
 title: |
   hyp1f2: Hypergeometric function ${}_1F_2$ and error estimate
 code: |
   special.hyp1f2(a, b, c, x)
 ---
-prefix: "special"
 title: |
   hyp3f0: Hypergeometric function ${}_3F_0$ in $y$ and an error estimate
 code: |
   special.hyp3f0(a, b, c, x)
 ---
 category: ['Scipy', 'Special / Parabolic Cylinder Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   pbdv: Parabolic cylinder function $D$
 code: |
   special.pbdv(v, x)
 ---
-prefix: "special"
 title: |
   pbvv: Parabolic cylinder function $V$
 code: |
   special.pbvv(v,x)
 ---
-prefix: "special"
 title: |
   pbwa: Parabolic cylinder function $W$
 code: |
   special.pbwa(a,x)
 ---
-prefix: "special"
 title: |
   pbdv_seq: $D_{v_0}(x), ..., D_v(x)$ and $D_{v_0}'(x), ..., D_v'(x)$ with $v_0=v-\lfloor v \rfloor$
 code: |
   special.pbdv_seq(v, x)
 ---
-prefix: "special"
 title: |
   pbvv_seq: $V_{v_0}(x), ..., V_v(x)$ and $V_{v_0}'(x), ..., V_v'(x)$ with $v_0=v-\lfloor v \rfloor$
 code: |
   special.pbvv_seq(v, x)
 ---
-prefix: "special"
 title: |
   pbdn_seq: $D_0(x), ..., D_n(x)$ and $D_0'(x), ..., D_n'(x)$
 code: |
   special.pbdn_seq(n, z)
 ---
 category: ['Scipy', 'Special / Mathieu and Related Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   mathieu_a: Characteristic value of even Mathieu functions
 code: |
   special.mathieu_a(m,q)
 ---
-prefix: "special"
 title: |
   mathieu_b: Characteristic value of odd Mathieu functions
 code: |
   special.mathieu_b(m,q)
 ---
-prefix: "special"
 title: |
   mathieu_even_coef: Compute expansion coefficients for even Mathieu functions and modified Mathieu functions
 code: |
   special.mathieu_even_coef(m, q)
 ---
-prefix: "special"
 title: |
   mathieu_odd_coef: Compute expansion coefficients for even Mathieu functions and modified Mathieu functions
 code: |
   special.mathieu_odd_coef(m, q)
 ---
-prefix: "special"
 title: |
   mathieu_cem: Even Mathieu function and its derivative
 code: |
   special.mathieu_cem(m,q,x)
 ---
-prefix: "special"
 title: |
   mathieu_sem: Odd Mathieu function and its derivative
 code: |
   special.mathieu_sem(m, q, x)
 ---
-prefix: "special"
 title: |
   mathieu_modcem1: Even modified Mathieu function of the first kind and its derivative
 code: |
   special.mathieu_modcem1(m, q, x)
 ---
-prefix: "special"
 title: |
   mathieu_modcem2: Even modified Mathieu function of the second kind and its derivative
 code: |
   special.mathieu_modcem2(m, q, x)
 ---
-prefix: "special"
 title: |
   mathieu_modsem1: Odd modified Mathieu function of the first kind and its derivative
 code: |
   special.mathieu_modsem1(m,q,x)
 ---
-prefix: "special"
 title: |
   mathieu_modsem2: Odd modified Mathieu function of the second kind and its derivative
 code: |
   special.mathieu_modsem2(m, q, x)
 ---
 category: ['Scipy', 'Special / Spheroidal Wave Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   pro_ang1: Prolate spheroidal angular function of the first kind and its derivative
 code: |
   special.pro_ang1(m,n,c,x)
 ---
-prefix: "special"
 title: |
   pro_rad1: Prolate spheroidal radial function of the first kind and its derivative
 code: |
   special.pro_rad1(m,n,c,x)
 ---
-prefix: "special"
 title: |
   pro_rad2: Prolate spheroidal radial function of the secon kind and its derivative
 code: |
   special.pro_rad2(m,n,c,x)
 ---
-prefix: "special"
 title: |
   obl_ang1: Oblate spheroidal angular function of the first kind and its derivative
 code: |
   special.obl_ang1(m, n, c, x)
 ---
-prefix: "special"
 title: |
   obl_rad1: Oblate spheroidal radial function of the first kind and its derivative
 code: |
   special.obl_rad1(m,n,c,x)
 ---
-prefix: "special"
 title: |
   obl_rad2: Oblate spheroidal radial function of the second kind and its derivative
 code: |
   special.obl_rad2(m,n,c,x)
 ---
-prefix: "special"
 title: |
   pro_cv: Characteristic value of prolate spheroidal function
 code: |
   special.pro_cv(m,n,c)
 ---
-prefix: "special"
 title: |
   obl_cv: Characteristic value of oblate spheroidal function
 code: |
   special.obl_cv(m, n, c)
 ---
-prefix: "special"
 title: |
   pro_cv_seq: Compute a sequence of characteristic values for the prolate spheroidal wave functions for mode m and n’=m..n and spheroidal parameter c
 code: |
   special.pro_cv_seq(m, n, c)
 ---
-prefix: "special"
 title: |
   obl_cv_seq: Compute a sequence of characteristic values for the oblate spheroidal wave functions for mode m and n’=m..n and spheroidal parameter c
 code: |
   special.obl_cv_seq(m, n, c)
 ---
-prefix: "special"
 title: |
   pro_ang1_cv: Prolate spheroidal angular function pro_ang1 for precomputed characteristic value
 code: |
   special.pro_ang1_cv(m,n,c,cv,x)
 ---
-prefix: "special"
 title: |
   pro_rad1_cv: Prolate spheroidal radial function pro_rad1 for precomputed characteristic value
 code: |
   special.pro_rad1_cv(m,n,c,cv,x)
 ---
-prefix: "special"
 title: |
   pro_rad2_cv: Prolate spheroidal radial function pro_rad2 for precomputed characteristic value
 code: |
   special.pro_rad2_cv(m,n,c,cv,x)
 ---
-prefix: "special"
 title: |
   obl_ang1_cv: Oblate spheroidal angular function obl_ang1 for precomputed characteristic value
 code: |
   special.obl_ang1_cv(m, n, c, cv, x)
 ---
-prefix: "special"
 title: |
   obl_rad1_cv: Oblate spheroidal radial function obl_rad1 for precomputed characteristic value
 code: |
   special.obl_rad1_cv(m,n,c,cv,x)
 ---
-prefix: "special"
 title: |
   obl_rad2_cv: Oblate spheroidal radial function obl_rad2 for precomputed characteristic value
 code: |
   special.obl_rad2_cv(m,n,c,cv,x)
 ---
 category: ['Scipy', 'Special / Kelvin Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   kelvin: Kelvin functions as complex numbers
 code: |
   special.kelvin(x)
 ---
-prefix: "special"
 title: |
   kelvin_zeros: Compute nt zeros of all the Kelvin functions returned in a length 8 tuple of arrays of length nt
 code: |
   special.kelvin_zeros(nt)
 ---
-prefix: "special"
 title: |
   ber: Kelvin function ber
 code: |
   special.ber(x)
 ---
-prefix: "special"
 title: |
   bei: Kelvin function bei
 code: |
   special.bei(x)
 ---
-prefix: "special"
 title: |
   berp: Derivative of the Kelvin function ber
 code: |
   special.berp(x)
 ---
-prefix: "special"
 title: |
   beip: Derivative of the Kelvin function bei
 code: |
   special.beip(x)
 ---
-prefix: "special"
 title: |
   ker: Kelvin function ker
 code: |
   special.ker(x)
 ---
-prefix: "special"
 title: |
   kei: Kelvin function ker
 code: |
   special.kei(x)
 ---
-prefix: "special"
 title: |
   kerp: Derivative of the Kelvin function ker
 code: |
   special.kerp(x)
 ---
-prefix: "special"
 title: |
   keip: Derivative of the Kelvin function kei
 code: |
   special.keip(x)
 ---
-prefix: "special"
 title: |
   ber_zeros: Compute nt zeros of the Kelvin function ber x
 code: |
   special.ber_zeros(nt)
 ---
-prefix: "special"
 title: |
   bei_zeros: Compute nt zeros of the Kelvin function bei x
 code: |
   special.bei_zeros(nt)
 ---
-prefix: "special"
 title: |
   berp_zeros: Compute nt zeros of the Kelvin function ber’ x
 code: |
   special.berp_zeros(nt)
 ---
-prefix: "special"
 title: |
   beip_zeros: Compute nt zeros of the Kelvin function bei’ x
 code: |
   special.beip_zeros(nt)
 ---
-prefix: "special"
 title: |
   ker_zeros: Compute nt zeros of the Kelvin function ker x
 code: |
   special.ker_zeros(nt)
 ---
-prefix: "special"
 title: |
   kei_zeros: Compute nt zeros of the Kelvin function kei x
 code: |
   special.kei_zeros(nt)
 ---
-prefix: "special"
 title: |
   kerp_zeros: Compute nt zeros of the Kelvin function ker’ x
 code: |
   special.kerp_zeros(nt)
 ---
-prefix: "special"
 title: |
   keip_zeros: Compute nt zeros of the Kelvin function kei’ x
 code: |
   special.keip_zeros(nt)
 ---
 category: ['Scipy', 'Special / Combinatorics']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   comb: The number of combinations of N things taken k at a time
 code: |
   special.comb(N, k, exact=False, repetition=False)
 ---
-prefix: "special"
 title: |
   perm: Permutations of N things taken k at a time, i.e., k-permutations of N
 code: |
   special.perm(N, k, exact=False)
 ---
 category: ['Scipy', 'Special / Other Special Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   agm: Arithmetic, Geometric Mean
 code: |
   special.agm(a, b)
 ---
-prefix: "special"
 title: |
   bernoulli: Return an array of the Bernoulli numbers $B_0$, ..., $B_n$ (inclusive)
 code: |
   special.bernoulli(n)
 ---
-prefix: "special"
 title: |
   binom: Binomial coefficient
 code: |
   special.binom(n, k)
 ---
-prefix: "special"
 title: |
   diric: Returns the periodic sinc function, also called the Dirichlet function
 code: |
   special.diric(x, n)
 ---
-prefix: "special"
 title: |
   euler: Return an array of the Euler numbers $E_0$, ..., $E_n$ (inclusive)
 code: |
   special.euler(n)
 ---
-prefix: "special"
 title: |
   expn: Exponential integral $E_n$
 code: |
   special.expn(n, x)
 ---
-prefix: "special"
 title: |
   exp1: Exponential integral $E_1$ of complex argument $z$
 code: |
   special.exp1(z)
 ---
-prefix: "special"
 title: |
   expi: Exponential integral $\mathrm{Ei}$
 code: |
   special.expi(x)
 ---
-prefix: "special"
 title: |
   factorial: The factorial function, $n! = \Gamma(n+1)$
 code: |
   special.factorial(n, exact=False)
 ---
-prefix: "special"
 title: |
   factorial2: Double factorial $n!!$
 code: |
   special.factorial2(n, exact=False)
 ---
-prefix: "special"
 title: |
   factorialk: $n(!!...!)$ = multifactorial of order $k$
 code: |
   special.factorialk(n, k, exact=False)
 ---
-prefix: "special"
 title: |
   shichi: Hyperbolic sine and cosine integrals
 code: |
   special.shichi(x)
 ---
-prefix: "special"
 title: |
   sici: Sine and cosine integrals
 code: |
   special.sici(x)
 ---
-prefix: "special"
 title: |
   spence: Dilogarithm integral
 code: |
   special.spence(x)
 ---
-prefix: "special"
 title: |
   lambertw: Lambert $W$ function [R497]
 code: |
   special.lambertw(z[, k, tol])
 ---
-prefix: "special"
 title: |
   zeta: Hurwitz $\zeta$ function
 code: |
   special.zeta(x, q)
 ---
-prefix: "special"
 title: |
   zetac: Riemann $\zeta$ function minus 1
 code: |
   special.zetac(x)
 ---
 category: ['Scipy', 'Special / Convenience Functions']
-prefixes: {"special":"from scipy import special"}
+setup: {"special":"from scipy import special"}
 ---
-prefix: "special"
 title: |
   cbrt: $\sqrt[3]{x}$
 code: |
   special.cbrt(x)
 ---
-prefix: "special"
 title: |
   exp10: $10^x$
 code: |
   special.exp10(x)
 ---
-prefix: "special"
 title: |
   exp2: $2^x$
 code: |
   special.exp2(x)
 ---
-prefix: "special"
 title: |
   radian: Convert from degrees to radians
 code: |
   special.radian(d, m, s)
 ---
-prefix: "special"
 title: |
   cosdg: Cosine of the angle given in degrees
 code: |
   special.cosdg(x)
 ---
-prefix: "special"
 title: |
   sindg: Sine of angle given in degrees
 code: |
   special.sindg(x)
 ---
-prefix: "special"
 title: |
   tandg: Tangent of angle given in degrees
 code: |
   special.tandg(x)
 ---
-prefix: "special"
 title: |
   cotdg: Cotangent of the angle given in degrees
 code: |
   special.cotdg(x)
 ---
-prefix: "special"
 title: |
   log1p: Calculates $\log(1+x)$ for use when $x$ is near zero
 code: |
   special.log1p(x)
 ---
-prefix: "special"
 title: |
   expm1: $\exp(x) - 1$ for use when $x$ is near zero
 code: |
   special.expm1(x)
 ---
-prefix: "special"
 title: |
   cosm1: $\cos(x) - 1$ for use when $x$ is near zero
 code: |
   special.cosm1(x)
 ---
-prefix: "special"
 title: |
   round: Round to nearest integer
 code: |
   special.round(x)
 ---
-prefix: "special"
 title: |
   xlogy: Compute $x\, \log(y)$ so that the result is 0 if $x$ = 0
 code: |
   special.xlogy(x, y)
 ---
-prefix: "special"
 title: |
   xlog1py: Compute $x\, \log(1+y)$ so that the result is 0 if $x$ = 0
 code: |
