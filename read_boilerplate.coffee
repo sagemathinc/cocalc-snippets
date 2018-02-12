@@ -49,6 +49,7 @@ read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process) ->
             output = output.concat(read_submenu(entry, cat0, cat1, cat_prefix, cat_process))
         else
             continue if not entry.snippet?  # there are entries where it is only entry["external-link"]
+            continue if entry.snippet.join('').trim().length == 0 # ... or some are just empty
             output.push('---')
             #console.log(JSON.stringify(entry))
             output.push(extra) if extra?
@@ -92,7 +93,7 @@ read_matplotlib = ->
     content = header()
     content += output.join('\n')
 
-    fs.writeFileSync('src/python/boilerplate_matplotlib.yaml', content, 'utf8')
+    fs.writeFileSync('src/python/matplotlib_boilerplate.yaml', content, 'utf8')
 
 
 # This is specific to the constants file, prints out yaml to stdout
@@ -132,6 +133,38 @@ read_python_regex = ->
     fs.writeFileSync('src/python/python_regex.yaml', content, 'utf8')
 
 
+read_numpy = ->
+    numpy_ufuncs_js       = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/numpy_ufuncs.js', 'utf8')
+    numpy_ufuncs          = eval(numpy_ufuncs_js)
+    numpy_polynomial_js   = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/numpy_polynomial.js', 'utf8')
+    numpy_polynomial      = eval(numpy_polynomial_js)
+    # redefine define -- in particular, assumptions and functions is defined now
+    orig_define = define
+    try
+        define = (a, b) ->
+            return b(null, numpy_ufuncs, numpy_polynomial)
+        numpy_js              = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/numpy.js', 'utf8')
+        numpy                 = eval(numpy_js)
+    finally
+        define = orig_define
+    output                = []
+    cat_prefix            = '''
+                            import numpy as np
+                            '''
+
+    cat_process = (x) ->
+        if x == 'NumPy'
+            return null
+        return x
+
+    for entry in numpy['sub-menu']
+        if entry['sub-menu']?
+            output = output.concat(read_submenu(entry, 'NumPy', null, cat_prefix, cat_process))
+
+    content = header()
+    content += output.join('\n')
+
+    fs.writeFileSync('src/python/numpy_boilerplate.yaml', content, 'utf8')
 
 
 read_sympy = ->
@@ -140,10 +173,14 @@ read_sympy = ->
     functions_js       = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/sympy_functions.js', 'utf8')
     sympy_functions    = eval(functions_js)
     # redefine define -- in particular, assumptions and functions is defined now
-    define = (a, b) ->
-        return b(null, sympy_functions, sympy_assumptions)
-    sympy_js           = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/sympy.js', 'utf8')
-    sympy              = eval(sympy_js)
+    orig_define = define
+    try
+        define = (a, b) ->
+            return b(null, sympy_functions, sympy_assumptions)
+        sympy_js           = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/sympy.js', 'utf8')
+        sympy              = eval(sympy_js)
+    finally
+        define = orig_define
     output         = []
     cat_prefix     = '''
                      from sympy import *
@@ -173,6 +210,8 @@ main = ->
     read_scipy_special()
     read_matplotlib()
     read_python_regex()
+    # sympy and numpy redefined "define", hence they must come last!
+    read_numpy()
     read_sympy()
 
 main()
