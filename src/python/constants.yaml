@@ -9,7 +9,7 @@
 ---
 language: python
 ---
-category: ['Constants', 'Mathematical constants']
+category: ['Scipy / Constants', 'Mathematical constants']
 setup: "from scipy import constants"
 ---
 title: |
@@ -22,7 +22,7 @@ title: |
 code: |
   constants.golden
 ---
-category: ['Constants', 'Common']
+category: ['Scipy / Constants', 'Common']
 setup: "from scipy import constants"
 ---
 title: |
@@ -115,7 +115,7 @@ title: |
 code: |
   constants.m_n
 ---
-category: ['Constants', 'CODATA']
+category: ['Scipy / Constants', 'CODATA']
 setup: "from scipy import constants"
 ---
 title: |
@@ -123,7 +123,7 @@ title: |
 code: |
   value,units,uncertainty = constants.physical_constants["alpha particle mass"]
 ---
-category: ['Constants', 'CODATA / A']
+category: ['Scipy / Constants', 'CODATA / A']
 setup: "from scipy import constants"
 ---
 title: |
@@ -336,7 +336,7 @@ title: |
 code: |
   constants.physical_constants["Avogadro constant"]
 ---
-category: ['Constants', 'CODATA / B']
+category: ['Scipy / Constants', 'CODATA / B']
 setup: "from scipy import constants"
 ---
 title: |
@@ -389,7 +389,7 @@ title: |
 code: |
   constants.physical_constants["Boltzmann constant in inverse meters per kelvin"]
 ---
-category: ['Constants', 'CODATA / C']
+category: ['Scipy / Constants', 'CODATA / C']
 setup: "from scipy import constants"
 ---
 title: |
@@ -432,7 +432,7 @@ title: |
 code: |
   constants.physical_constants["Cu x unit"]
 ---
-category: ['Constants', 'CODATA / D']
+category: ['Scipy / Constants', 'CODATA / D']
 setup: "from scipy import constants"
 ---
 title: |
@@ -510,7 +510,7 @@ title: |
 code: |
   constants.physical_constants["deuteron-proton mass ratio"]
 ---
-category: ['Constants', 'CODATA / E']
+category: ['Scipy / Constants', 'CODATA / E']
 setup: "from scipy import constants"
 ---
 title: |
@@ -703,7 +703,7 @@ title: |
 code: |
   constants.physical_constants["elementary charge over h"]
 ---
-category: ['Constants', 'CODATA / F']
+category: ['Scipy / Constants', 'CODATA / F']
 setup: "from scipy import constants"
 ---
 title: |
@@ -736,7 +736,7 @@ title: |
 code: |
   constants.physical_constants["first radiation constant for spectral radiance"]
 ---
-category: ['Constants', 'CODATA / H']
+category: ['Scipy / Constants', 'CODATA / H']
 setup: "from scipy import constants"
 ---
 title: |
@@ -874,7 +874,7 @@ title: |
 code: |
   constants.physical_constants["hertz-kilogram relationship"]
 ---
-category: ['Constants', 'CODATA / I']
+category: ['Scipy / Constants', 'CODATA / I']
 setup: "from scipy import constants"
 ---
 title: |
@@ -922,7 +922,7 @@ title: |
 code: |
   constants.physical_constants["inverse of conductance quantum"]
 ---
-category: ['Constants', 'CODATA / J']
+category: ['Scipy / Constants', 'CODATA / J']
 setup: "from scipy import constants"
 ---
 title: |
@@ -965,7 +965,7 @@ title: |
 code: |
   constants.physical_constants["joule-kilogram relationship"]
 ---
-category: ['Constants', 'CODATA / K']
+category: ['Scipy / Constants', 'CODATA / K']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1038,7 +1038,7 @@ title: |
 code: |
   constants.physical_constants["kilogram-kelvin relationship"]
 ---
-category: ['Constants', 'CODATA / L']
+category: ['Scipy / Constants', 'CODATA / L']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1056,7 +1056,7 @@ title: |
 code: |
   constants.physical_constants["Loschmidt constant (273.15 K, 101.325 kPa)"]
 ---
-category: ['Constants', 'CODATA / M']
+category: ['Scipy / Constants', 'CODATA / M']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1199,7 +1199,7 @@ title: |
 code: |
   constants.physical_constants["muon-tau mass ratio"]
 ---
-category: ['Constants', 'CODATA / N']
+category: ['Scipy / Constants', 'CODATA / N']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1407,7 +1407,7 @@ title: |
 code: |
   constants.physical_constants["nuclear magneton in MHz/T"]
 ---
-category: ['Constants', 'CODATA / P']
+category: ['Scipy / Constants', 'CODATA / P']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1565,7 +1565,7 @@ title: |
 code: |
   constants.physical_constants["proton-tau mass ratio"]
 ---
-category: ['Constants', 'CODATA / Q']
+category: ['Scipy / Constants', 'CODATA / Q']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1578,7 +1578,7 @@ title: |
 code: |
   constants.physical_constants["quantum of circulation times 2"]
 ---
-category: ['Constants', 'CODATA / R']
+category: ['Scipy / Constants', 'CODATA / R']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1601,7 +1601,7 @@ title: |
 code: |
   constants.physical_constants["Rydberg constant times hc in J"]
 ---
-category: ['Constants', 'CODATA / S']
+category: ['Scipy / Constants', 'CODATA / S']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1704,7 +1704,7 @@ title: |
 code: |
   constants.physical_constants["Stefan-Boltzmann constant"]
 ---
-category: ['Constants', 'CODATA / T']
+category: ['Scipy / Constants', 'CODATA / T']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1822,7 +1822,7 @@ title: |
 code: |
   constants.physical_constants["triton-proton mass ratio"]
 ---
-category: ['Constants', 'CODATA / U']
+category: ['Scipy / Constants', 'CODATA / U']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1830,7 +1830,7 @@ title: |
 code: |
   constants.physical_constants["unified atomic mass unit"]
 ---
-category: ['Constants', 'CODATA / V']
+category: ['Scipy / Constants', 'CODATA / V']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1838,7 +1838,7 @@ title: |
 code: |
   constants.physical_constants["von Klitzing constant"]
 ---
-category: ['Constants', 'CODATA / W']
+category: ['Scipy / Constants', 'CODATA / W']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1856,7 +1856,7 @@ title: |
 code: |
   constants.physical_constants["Wien wavelength displacement law constant"]
 ---
-category: ['Constants', 'CODATA / Other']
+category: ['Scipy / Constants', 'CODATA / Other']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1864,10 +1864,10 @@ title: |
 code: |
   constants.physical_constants["{220} lattice spacing of silicon"]
 ---
-category: ['Constants', 'Units']
+category: ['Scipy / Constants', 'Units']
 setup: "from scipy import constants"
 ---
-category: ['Constants', 'Units / SI prefixes']
+category: ['Scipy / Constants', 'Units / SI prefixes']
 setup: "from scipy import constants"
 ---
 title: |
@@ -1965,7 +1965,7 @@ title: |
 code: |
   constants.zepto
 ---
-category: ['Constants', 'Units / Binary prefixes']
+category: ['Scipy / Constants', 'Units / Binary prefixes']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2008,7 +2008,7 @@ title: |
 code: |
   constants.yobi
 ---
-category: ['Constants', 'Units / Weight']
+category: ['Scipy / Constants', 'Units / Weight']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2076,7 +2076,7 @@ title: |
 code: |
   constants.m_u
 ---
-category: ['Constants', 'Units / Angle']
+category: ['Scipy / Constants', 'Units / Angle']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2094,7 +2094,7 @@ title: |
 code: |
   constants.arcsec
 ---
-category: ['Constants', 'Units / Time']
+category: ['Scipy / Constants', 'Units / Time']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2127,7 +2127,7 @@ title: |
 code: |
   constants.Julian_year
 ---
-category: ['Constants', 'Units / Length']
+category: ['Scipy / Constants', 'Units / Length']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2205,7 +2205,7 @@ title: |
 code: |
   constants.parsec
 ---
-category: ['Constants', 'Units / Pressure']
+category: ['Scipy / Constants', 'Units / Pressure']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2228,7 +2228,7 @@ title: |
 code: |
   constants.psi
 ---
-category: ['Constants', 'Units / Area']
+category: ['Scipy / Constants', 'Units / Area']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2241,7 +2241,7 @@ title: |
 code: |
   constants.acre
 ---
-category: ['Constants', 'Units / Volume']
+category: ['Scipy / Constants', 'Units / Volume']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2274,7 +2274,7 @@ title: |
 code: |
   constants.bbl
 ---
-category: ['Constants', 'Units / Speed']
+category: ['Scipy / Constants', 'Units / Speed']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2297,7 +2297,7 @@ title: |
 code: |
   constants.knot
 ---
-category: ['Constants', 'Units / Temperature']
+category: ['Scipy / Constants', 'Units / Temperature']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2340,7 +2340,7 @@ title: |
 code: |
   constants.K2F(K)
 ---
-category: ['Constants', 'Units / Energy']
+category: ['Scipy / Constants', 'Units / Energy']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2378,7 +2378,7 @@ title: |
 code: |
   constants.ton_TNT
 ---
-category: ['Constants', 'Units / Power']
+category: ['Scipy / Constants', 'Units / Power']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2386,7 +2386,7 @@ title: |
 code: |
   constants.hp
 ---
-category: ['Constants', 'Units / Force']
+category: ['Scipy / Constants', 'Units / Force']
 setup: "from scipy import constants"
 ---
 title: |
@@ -2404,7 +2404,7 @@ title: |
 code: |
   constants.kgf
 ---
-category: ['Constants', 'Units / Optics']
+category: ['Scipy / Constants', 'Units / Optics']
 setup: "from scipy import constants"
 ---
 title: |

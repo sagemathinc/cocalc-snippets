@@ -64,11 +64,11 @@ read_scipy_special = ->
     special_js   = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/scipy_special.js', 'utf8')
     constants    = eval(special_js)
     output       = []
-    cat_prefix   = {'special': 'from scipy import special'}
+    cat_prefix   = 'from scipy import special'
 
     for entry in constants['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'Scipy', 'Special', cat_prefix, null))
+            output = output.concat(read_submenu(entry, 'Scipy / Special Func', null, cat_prefix, null))
 
     content = header()
     content += output.join('\n')
@@ -108,7 +108,7 @@ read_constants = ->
 
     for entry in constants['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'Constants', null, cat_prefix, cat_process))
+            output = output.concat(read_submenu(entry, 'Scipy / Constants', null, cat_prefix, cat_process))
 
     content = header()
     content += output.join('\n')
@@ -155,7 +155,11 @@ read_numpy = ->
     cat_process = (x) ->
         if x == 'NumPy'
             return null
-        return x
+        if x.indexOf('Vectorized (universal) functions') >= 0
+            return x.replace('Vectorized (universal) functions', 'UFuncs').trim()
+        if x.indexOf('Indexing and testing arrays') >= 0
+            return x.replace('Indexing and testing arrays', 'Indexing').trim()
+        return x.trim()
 
     for entry in numpy['sub-menu']
         if entry['sub-menu']?
@@ -203,7 +207,33 @@ read_sympy = ->
 
     fs.writeFileSync('src/python/sympy_boilerplate.yaml', content, 'utf8')
 
+read_scipy = ->
+    orig_define = define
+    try
+        define = (a, b) ->
+            return b(null, {}, {})
+        scipy_js           = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/scipy.js', 'utf8')
+        scipy              = eval(scipy_js)
+    finally
+        define = orig_define
+    output         = []
+    cat_prefix     = '''
+                     import numpy as np
+                     import scipy
+                     '''
+    cat_process = (x) ->
+        if x == 'SciPy'
+            return null
+        return x
 
+    for entry in scipy['sub-menu']
+        if entry['sub-menu']?
+            output = output.concat(read_submenu(entry, 'Scipy', null, cat_prefix, cat_process))
+
+    content = header()
+    content += output.join('\n')
+
+    fs.writeFileSync('src/python/scipy_boilerplate.yaml', content, 'utf8')
 
 main = ->
     read_constants()
@@ -213,5 +243,6 @@ main = ->
     # sympy and numpy redefined "define", hence they must come last!
     read_numpy()
     read_sympy()
+    read_scipy()
 
 main()

@@ -9,8 +9,8 @@
 ---
 language: python
 ---
-category: ['Scipy', 'Special / Airy functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Airy functions']
+setup: "from scipy import special"
 ---
 title: |
   airy: Airy functions and their derivatives
@@ -32,8 +32,8 @@ title: |
 code: |
   special.bi_zeros(n)
 ---
-category: ['Scipy', 'Special / Elliptic Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Elliptic Functions']
+setup: "from scipy import special"
 ---
 title: |
   ellipj: Jacobian elliptic functions
@@ -65,11 +65,11 @@ title: |
 code: |
   special.ellipeinc(phi,m)
 ---
-category: ['Scipy', 'Special / Bessel Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Bessel Functions']
+setup: "from scipy import special"
 ---
-category: ['Scipy', 'Bessel Functions / Bessel Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Bessel Functions / Bessel Functions']
+setup: "from scipy import special"
 ---
 title: |
   jv: Bessel function of the first kind of real order $v$, $J_v(z)$
@@ -146,8 +146,8 @@ title: |
 code: |
   special.lmbda(v, x)
 ---
-category: ['Scipy', 'Bessel Functions / Zeros of Bessel Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Bessel Functions / Zeros of Bessel Functions']
+setup: "from scipy import special"
 ---
 title: |
   jnjnp_zeros: Compute nt (<=1200) zeros of the Bessel functions $J_n$ and $J_n'$ and arange them in order of their magnitudes
@@ -194,8 +194,8 @@ title: |
 code: |
   special.y1p_zeros(nt, complex=0)
 ---
-category: ['Scipy', 'Bessel Functions / Faster versions of common Bessel Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Bessel Functions / Faster versions of common Bessel Functions']
+setup: "from scipy import special"
 ---
 title: |
   j0: Bessel function the first kind of order 0, $J_0(x)$
@@ -257,8 +257,8 @@ title: |
 code: |
   special.k1e(x)
 ---
-category: ['Scipy', 'Bessel Functions / Integrals of Bessel Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Bessel Functions / Integrals of Bessel Functions']
+setup: "from scipy import special"
 ---
 title: |
   itj0y0: Integrals of Bessel functions of order 0: $\int_0^x J_0(t)\, dt$, $\int_0^x Y_0(t)\, dt$
@@ -285,8 +285,8 @@ title: |
 code: |
   special.besselpoly(a, lmb, nu)
 ---
-category: ['Scipy', 'Bessel Functions / Derivatives of Bessel Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Bessel Functions / Derivatives of Bessel Functions']
+setup: "from scipy import special"
 ---
 title: |
   jvp: Return the $n$th derivative of $J_v(z)$ with respect to $z$
@@ -318,8 +318,8 @@ title: |
 code: |
   special.h2vp(v, z, n=1)
 ---
-category: ['Scipy', 'Bessel Functions / Spherical Bessel Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Bessel Functions / Spherical Bessel Functions']
+setup: "from scipy import special"
 ---
 title: |
   sph_jn: Compute the spherical Bessel function $j_n(z)$ and its derivative for all orders up to and including $n$
@@ -351,8 +351,8 @@ title: |
 code: |
   special.sph_inkn(n, z)
 ---
-category: ['Scipy', 'Bessel Functions / Riccati-Bessel Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Bessel Functions / Riccati-Bessel Functions']
+setup: "from scipy import special"
 ---
 title: |
   riccati_jn: Compute the Ricatti-Bessel function of the first kind and its derivative for all orders up to and including n
@@ -364,8 +364,8 @@ title: |
 code: |
   special.riccati_yn(n, x)
 ---
-category: ['Scipy', 'Special / Struve Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Struve Functions']
+setup: "from scipy import special"
 ---
 title: |
   struve: Struve function
@@ -392,8 +392,8 @@ title: |
 code: |
   special.itmodstruve0(x)
 ---
-category: ['Scipy', 'Special / Statistical Functions (see also scipy.stats)']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Statistical Functions (see also scipy.stats)']
+setup: "from scipy import special"
 ---
 title: |
   bdtr: Binomial distribution cumulative distribution function
@@ -630,8 +630,8 @@ title: |
 code: |
   special.boxcox1p(x, lmbda)
 ---
-category: ['Scipy', 'Special / Information Theory Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Information Theory Functions']
+setup: "from scipy import special"
 ---
 title: |
   entr: Elementwise function for computing entropy.
@@ -658,8 +658,8 @@ title: |
 code: |
   special.pseudo_huber(delta, r)
 ---
-category: ['Scipy', 'Special / Gamma and Related Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Gamma and Related Functions']
+setup: "from scipy import special"
 ---
 title: |
   gamma: Gamma function
@@ -741,8 +741,8 @@ title: |
 code: |
   special.digamma(z)
 ---
-category: ['Scipy', 'Special / Error Function and Fresnel Integrals']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Error Function and Fresnel Integrals']
+setup: "from scipy import special"
 ---
 title: |
   erf: Returns the error function of complex argument
@@ -819,8 +819,8 @@ title: |
 code: |
   special.fresnels_zeros(nt)
 ---
-category: ['Scipy', 'Special / Legendre Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Legendre Functions']
+setup: "from scipy import special"
 ---
 title: |
   lpmv: Associated legendre function of integer order
@@ -858,8 +858,8 @@ title: |
 code: |
   special.lqmn(m, n, z)
 ---
-category: ['Scipy', 'Special / Ellipsoidal Harmonics']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Ellipsoidal Harmonics']
+setup: "from scipy import special"
 ---
 title: |
   ellip_harm: Ellipsoidal harmonic functions $E^p_n(l)$
@@ -876,8 +876,8 @@ title: |
 code: |
   special.ellip_normal(h2, k2, n, p)
 ---
-category: ['Scipy', 'Special / Orthogonal polynomials']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Orthogonal polynomials']
+setup: "from scipy import special"
 ---
 title: |
   assoc_laguerre: Returns the $n$th order generalized (associated) Laguerre polynomial.
@@ -1034,8 +1034,8 @@ title: |
 code: |
   special.sh_jacobi(n, p, q[, monic])
 ---
-category: ['Scipy', 'Special / Hypergeometric Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Hypergeometric Functions']
+setup: "from scipy import special"
 ---
 title: |
   hyp2f1: Gauss hypergeometric function ${}_2F_1(a, b; c; z)$
@@ -1072,8 +1072,8 @@ title: |
 code: |
   special.hyp3f0(a, b, c, x)
 ---
-category: ['Scipy', 'Special / Parabolic Cylinder Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Parabolic Cylinder Functions']
+setup: "from scipy import special"
 ---
 title: |
   pbdv: Parabolic cylinder function $D$
@@ -1105,8 +1105,8 @@ title: |
 code: |
   special.pbdn_seq(n, z)
 ---
-category: ['Scipy', 'Special / Mathieu and Related Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Mathieu and Related Functions']
+setup: "from scipy import special"
 ---
 title: |
   mathieu_a: Characteristic value of even Mathieu functions
@@ -1158,8 +1158,8 @@ title: |
 code: |
   special.mathieu_modsem2(m, q, x)
 ---
-category: ['Scipy', 'Special / Spheroidal Wave Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Spheroidal Wave Functions']
+setup: "from scipy import special"
 ---
 title: |
   pro_ang1: Prolate spheroidal angular function of the first kind and its derivative
@@ -1241,8 +1241,8 @@ title: |
 code: |
   special.obl_rad2_cv(m,n,c,cv,x)
 ---
-category: ['Scipy', 'Special / Kelvin Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Kelvin Functions']
+setup: "from scipy import special"
 ---
 title: |
   kelvin: Kelvin functions as complex numbers
@@ -1334,8 +1334,8 @@ title: |
 code: |
   special.keip_zeros(nt)
 ---
-category: ['Scipy', 'Special / Combinatorics']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Combinatorics']
+setup: "from scipy import special"
 ---
 title: |
   comb: The number of combinations of N things taken k at a time
@@ -1347,8 +1347,8 @@ title: |
 code: |
   special.perm(N, k, exact=False)
 ---
-category: ['Scipy', 'Special / Other Special Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Other Special Functions']
+setup: "from scipy import special"
 ---
 title: |
   agm: Arithmetic, Geometric Mean
@@ -1435,8 +1435,8 @@ title: |
 code: |
   special.zetac(x)
 ---
-category: ['Scipy', 'Special / Convenience Functions']
-setup: {"special":"from scipy import special"}
+category: ['Scipy / Special Func', 'Convenience Functions']
+setup: "from scipy import special"
 ---
 title: |
   cbrt: $\sqrt[3]{x}$

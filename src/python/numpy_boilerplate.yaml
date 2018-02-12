@@ -161,7 +161,7 @@ code: |
   b = np.arange(42).reshape((2,3,7))
   c = np.concatenate((a, b), axis=1)
 ---
-category: ['NumPy', 'Indexing and testing arrays']
+category: ['NumPy', 'Indexing']
 setup: "import numpy as np"
 ---
 title: |
@@ -180,7 +180,7 @@ title: |
 code: |
   a.shape
 ---
-category: ['NumPy', 'Indexing and testing arrays / Index a one-dimensional array']
+category: ['NumPy', 'Indexing / Index a one-dimensional array']
 setup: "import numpy as np"
 ---
 title: |
@@ -213,7 +213,7 @@ code: |
   a = np.arange(10)
   a[a>5]
 ---
-category: ['NumPy', 'Indexing and testing arrays / Index a multi-dimensional array']
+category: ['NumPy', 'Indexing / Index a multi-dimensional array']
 setup: "import numpy as np"
 ---
 title: |
@@ -246,7 +246,7 @@ code: |
   a = np.arange(30).reshape((2,3,5))
   a[a>5]
 ---
-category: ['NumPy', 'Indexing and testing arrays / Index an array of unknown dimension']
+category: ['NumPy', 'Indexing / Index an array of unknown dimension']
 setup: "import numpy as np"
 ---
 title: |
@@ -273,10 +273,10 @@ code: |
   a = np.arange(30).reshape((2,3,5))
   a[a>5]
 ---
-category: ['NumPy', 'Vectorized (universal) functions']
+category: ['NumPy', 'UFuncs']
 setup: "import numpy as np"
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Characterizing arrays']
+category: ['NumPy', 'UFuncs / Characterizing arrays']
 setup: "import numpy as np"
 ---
 title: |
@@ -334,7 +334,7 @@ title: |
 code: |
   np.any(a, axis=0)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Sums, products, differences within array']
+category: ['NumPy', 'UFuncs / Sums, products, differences within array']
 setup: "import numpy as np"
 ---
 title: |
@@ -392,7 +392,7 @@ title: |
 code: |
   np.interp(x, xp, fp)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Logarithms and exponentials']
+category: ['NumPy', 'UFuncs / Logarithms and exponentials']
 setup: "import numpy as np"
 ---
 title: |
@@ -496,7 +496,7 @@ title: |
 code: |
   np.reciprocal(x)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Trigonometric and hyperbolic functions']
+category: ['NumPy', 'UFuncs / Trigonometric and hyperbolic functions']
 setup: "import numpy as np"
 ---
 title: |
@@ -602,7 +602,7 @@ title: |
 code: |
   np.unwrap(x)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Complex numbers']
+category: ['NumPy', 'UFuncs / Complex numbers']
 setup: "import numpy as np"
 ---
 title: |
@@ -630,7 +630,7 @@ title: |
 code: |
   np.unwrap(x)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Rounding and clipping']
+category: ['NumPy', 'UFuncs / Rounding and clipping']
 setup: "import numpy as np"
 ---
 title: |
@@ -678,7 +678,7 @@ title: |
 code: |
   np.real_if_close(a, tol=100)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Float functions']
+category: ['NumPy', 'UFuncs / Float functions']
 setup: "import numpy as np"
 ---
 title: |
@@ -756,7 +756,7 @@ title: |
 code: |
   np.trunc(x)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Bit-twiddling functions']
+category: ['NumPy', 'UFuncs / Bit-twiddling functions']
 setup: "import numpy as np"
 ---
 title: |
@@ -789,7 +789,7 @@ title: |
 code: |
   np.right_shift(x1, x2)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Special functions (see scipy.special)']
+category: ['NumPy', 'UFuncs / Special functions (see scipy.special)']
 setup: "import numpy as np"
 ---
 title: |
@@ -802,7 +802,7 @@ title: |
 code: |
   np.sinc(x)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Arithmetic']
+category: ['NumPy', 'UFuncs / Arithmetic']
 setup: "import numpy as np"
 ---
 title: |
@@ -901,7 +901,7 @@ title: |
 code: |
   np.reciprocal(x)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Matrix and vector products']
+category: ['NumPy', 'UFuncs / Matrix and vector products']
 setup: "import numpy as np"
 ---
 title: |
@@ -952,7 +952,7 @@ title: |
 code: |
   np.cross(a, b)
 ---
-category: ['NumPy', 'Vectorized (universal) functions / Comparisons between two arrays']
+category: ['NumPy', 'UFuncs / Comparisons between two arrays']
 setup: "import numpy as np"
 ---
 title: |
