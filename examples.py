@@ -149,6 +149,11 @@ def examples_data(input_dir, output_fn):
             if not processed: # bad document
                 raise RuntimeError("This document is not well formatted (wrong keys, etc.)\n%s" % doc)
 
+        # ignore empty categories, i.e. those which are created but do not contain any entries
+        # (this might happen as a side effect of automatically generating source files)
+        if len(entries) == 0:
+            del examples[language][lvl1][lvl2]
+
     if not os.path.exists(output_dir):
         print("Creating output directory '%s'" % output_dir)
         os.makedirs(output_dir)
