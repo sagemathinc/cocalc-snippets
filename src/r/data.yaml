@@ -1,0 +1,51 @@
+# CoCalc Examples Documentation File
+# Copyright: CoCalc Authors, 2015
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+language: r
+---
+category: ["Data", "Introduction"]
+---
+title: Indexing a List
+descr: "Index into a list via [[idx]]. Indexing starts at 1!"
+code: |
+  l <- list(1,"fred", c(1,2,3))
+  print(l[[1]])
+  print(l[[2]])
+  print(l[[3]])
+---
+title: Associated List
+descr: "Associated list of names and objects"
+code: |
+  l <- list(a = 1, b = c(1,2,3))
+  print(l$a) # access a in l
+  print(l$b)
+---
+title: Select Elements
+descr: "Try to guess, what the second line returns of the list `x`!"
+code: |
+  x <- c(4,7,3,2,9)
+  x[x > 4]
+---
+title: Data Frame
+descr: |
+  A `data.frame` is a fundamental and very powerful object in R.
+  Two lists `a` and `b` and a sequence `c` (also vector, actually) of same length,
+  are combined into a common `data.frame` named `df`.
+
+  For more information: `help(data.frame)`
+code: |
+  a <- c(1,2,1)
+  b <- c("Fred", "Susan", "Joe")
+  c <- seq(1, by=.01, length=3)
+  df <- data.frame(sex = a, name = b, result = c)
+  df
+---
+title: Attach an existing dataset
+descr: |
+  attach loads internal datasets
+code: |
+  attach(faithful)
+  print(summary(faithful))
+  print(head(faithful))
+

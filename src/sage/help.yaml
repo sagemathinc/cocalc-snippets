@@ -27,10 +27,18 @@ descr: |
     * [Main Index](http://doc.sagemath.org/)
     * [Sage Tour](http://doc.sagemath.org/html/en/a_tour_of_sage/index.html)
     * [Tutorial in English](http://doc.sagemath.org/html/en/tutorial/index.html)
+    * [MAA PREP Tutorial](http://doc.sagemath.org/html/en/prep/index.html) - for teaching mathematics
     * [Thematic Tutorials](http://doc.sagemath.org/html/en/thematic_tutorials/index.html)
     * [Reference Guide](http://doc.sagemath.org/html/en/reference/index.html)
     * [Constructions](http://doc.sagemath.org/html/en/constructions/index.html)
+    * [Mathematical Syntax Errors](https://github.com/sagemathinc/cocalc/wiki/MathematicalSyntaxErrors)
 code: ""
+---
+title: CoCalc Specific Help
+descr: |
+  * [CoCalc WIKI](https://github.com/sagemathinc/cocalc/wiki)
+  * [Sage Worksheets](https://github.com/sagemathinc/cocalc/wiki/sagews)
+code: ''
 ---
 title: Community Help
 descr: |

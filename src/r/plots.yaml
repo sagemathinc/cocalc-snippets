@@ -16,3 +16,43 @@ code: |
   x <- seq(from=0, to=10, length.out=100)
   y <- x * sin(x)
   plot(x, y)
+---
+title: Stem Plot
+descr: |
+  A condensed overview of all numbers in a given list as text.
+code: |
+  stem(rnorm(1000, mean = 5, sd = 10))
+---
+title: Adjust default size of plots
+descr: |
+  This **only** works for Sage Worksheets in CoCalc (because of the `%sage`)!
+code: |
+  %sage r.set_plot_options(height=4, width=10)"
+---
+title: Histogram Density
+code: |
+  attach(faithful)
+  hist(eruptions, seq(1.6, 5.2, 0.2), prob=TRUE)
+  lines(density(eruptions, bw=0.1))
+  rug(eruptions)
+---
+title: QQPlot
+code: |
+  attach(faithful)
+  long <- eruptions[eruptions > 3]
+  par(pty="s")   # square figure
+  qqnorm(long)
+  qqline(long)
+---
+title: Boxplot
+code: |
+  a <- rnorm(10)
+  b <- rnorm(10, mean=2)
+  boxplot(a, b)
+---
+title: Contour Plot
+code: |
+  x <- seq(-pi, pi, len=50)
+  y <- x
+  f <- outer(x, y, function(x, y) cos(y)/(1 + x^2))
+  contour(x, y, f, nlevels=15)

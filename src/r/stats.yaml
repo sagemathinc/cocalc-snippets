@@ -39,7 +39,7 @@ code: |
     glm(y ~ x)
 ---
 title: ANOVA
-descr: >
+descr: |
     ANOVA of a linear model
 code: |
     x <- seq(10)
