@@ -20,7 +20,7 @@ header = ->
     language: python
     ''' + '\n'
 
-read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process) ->
+read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process, sortweight) ->
     cat_process ?= (x) -> x
     if name_prefix?
         prefix = "#{name_prefix}"
@@ -36,6 +36,9 @@ read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process) ->
     output.push('---')
     subcat = (x for x in [prefix, cat1] when x?.length > 0).join(' / ')
     output.push("category: ['#{cat0}', '#{subcat}']")
+    sw = sortweight?(entry['name'])
+    if sw
+        output.push("sortweight: #{sw}")
     if cat_prefix?
         # JSON.stringify to sanitize linebreaks
         output.push("setup: #{JSON.stringify(cat_prefix)}")
@@ -66,9 +69,16 @@ read_scipy_special = ->
     output       = []
     cat_prefix   = 'from scipy import special'
 
+    cat_process = (x) ->
+        if x.indexOf('Bessel Functions') >= 0
+            return x.replace('Bessel Functions', 'Bessel').trim()
+        if x.indexOf('Statistical Functions (see also scipy.stats)') >= 0
+            return x.replace('Statistical Functions (see also scipy.stats)', 'Statistics').trim()
+        return x
+
     for entry in constants['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'Scipy / Special Func', null, cat_prefix, null))
+            output = output.concat(read_submenu(entry, 'SciPy / Special Func', null, cat_prefix, cat_process))
 
     content = header()
     content += output.join('\n')
@@ -104,11 +114,19 @@ read_constants = ->
     cat_prefix   = 'from scipy import constants'
 
     cat_process = (cat) ->
-        return cat.replace('physical constants', '').trim()
+        return cat
+            .replace('Common physical constants', 'Physical')
+            .replace('CODATA physical constants', 'CODATA')
+            .trim()
+
+    sortweight = (cat) ->
+        if cat in ['Mathematical constants', 'Common physical constants']
+            return -1
+        return null
 
     for entry in constants['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'Scipy / Constants', null, cat_prefix, cat_process))
+            output = output.concat(read_submenu(entry, 'SciPy / Constants', null, cat_prefix, cat_process, sortweight))
 
     content = header()
     content += output.join('\n')
@@ -151,7 +169,6 @@ read_numpy = ->
     cat_prefix            = '''
                             import numpy as np
                             '''
-
     cat_process = (x) ->
         if x == 'NumPy'
             return null
@@ -224,11 +241,15 @@ read_scipy = ->
     cat_process = (x) ->
         if x == 'SciPy'
             return null
+        if x.indexOf('Interpolation and smoothing splines') >= 0
+            return x.replace('Interpolation and smoothing splines', 'Interpolation').trim()
+        if x.indexOf('Optimization and root-finding routines') >= 0
+            return x.replace('Optimization and root-finding routines', 'Optimization').trim()
         return x
 
     for entry in scipy['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'Scipy', null, cat_prefix, cat_process))
+            output = output.concat(read_submenu(entry, 'SciPy', null, cat_prefix, cat_process))
 
     content = header()
     content += output.join('\n')
