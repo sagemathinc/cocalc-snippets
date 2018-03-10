@@ -2,6 +2,8 @@
 
 A collection of code snippet examples to assist working on CoCalc → [read more](src/README.md).
 
+![](cocalc-assistant.png)
+
 ## Development
 
 When used as a submodule, one suitable magic git commands to update all submodules is
