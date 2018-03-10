@@ -9,7 +9,7 @@
 ---
 language: python
 ---
-category: ['Scipy / Special Func', 'Airy functions']
+category: ['SciPy / Special Func', 'Airy functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -32,7 +32,7 @@ title: |
 code: |
   special.bi_zeros(n)
 ---
-category: ['Scipy / Special Func', 'Elliptic Functions']
+category: ['SciPy / Special Func', 'Elliptic Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -65,10 +65,10 @@ title: |
 code: |
   special.ellipeinc(phi,m)
 ---
-category: ['Scipy / Special Func', 'Bessel Functions']
+category: ['SciPy / Special Func', 'Bessel']
 setup: "from scipy import special"
 ---
-category: ['Scipy / Special Func', 'Bessel Functions / Bessel Functions']
+category: ['SciPy / Special Func', 'Bessel / Bessel']
 setup: "from scipy import special"
 ---
 title: |
@@ -146,7 +146,7 @@ title: |
 code: |
   special.lmbda(v, x)
 ---
-category: ['Scipy / Special Func', 'Bessel Functions / Zeros of Bessel Functions']
+category: ['SciPy / Special Func', 'Bessel / Zeros of Bessel']
 setup: "from scipy import special"
 ---
 title: |
@@ -194,7 +194,7 @@ title: |
 code: |
   special.y1p_zeros(nt, complex=0)
 ---
-category: ['Scipy / Special Func', 'Bessel Functions / Faster versions of common Bessel Functions']
+category: ['SciPy / Special Func', 'Bessel / Faster versions of common Bessel']
 setup: "from scipy import special"
 ---
 title: |
@@ -257,7 +257,7 @@ title: |
 code: |
   special.k1e(x)
 ---
-category: ['Scipy / Special Func', 'Bessel Functions / Integrals of Bessel Functions']
+category: ['SciPy / Special Func', 'Bessel / Integrals of Bessel']
 setup: "from scipy import special"
 ---
 title: |
@@ -285,7 +285,7 @@ title: |
 code: |
   special.besselpoly(a, lmb, nu)
 ---
-category: ['Scipy / Special Func', 'Bessel Functions / Derivatives of Bessel Functions']
+category: ['SciPy / Special Func', 'Bessel / Derivatives of Bessel']
 setup: "from scipy import special"
 ---
 title: |
@@ -318,7 +318,7 @@ title: |
 code: |
   special.h2vp(v, z, n=1)
 ---
-category: ['Scipy / Special Func', 'Bessel Functions / Spherical Bessel Functions']
+category: ['SciPy / Special Func', 'Bessel / Spherical Bessel']
 setup: "from scipy import special"
 ---
 title: |
@@ -351,7 +351,7 @@ title: |
 code: |
   special.sph_inkn(n, z)
 ---
-category: ['Scipy / Special Func', 'Bessel Functions / Riccati-Bessel Functions']
+category: ['SciPy / Special Func', 'Bessel / Riccati-Bessel']
 setup: "from scipy import special"
 ---
 title: |
@@ -364,7 +364,7 @@ title: |
 code: |
   special.riccati_yn(n, x)
 ---
-category: ['Scipy / Special Func', 'Struve Functions']
+category: ['SciPy / Special Func', 'Struve Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -392,7 +392,7 @@ title: |
 code: |
   special.itmodstruve0(x)
 ---
-category: ['Scipy / Special Func', 'Statistical Functions (see also scipy.stats)']
+category: ['SciPy / Special Func', 'Statistics']
 setup: "from scipy import special"
 ---
 title: |
@@ -630,7 +630,7 @@ title: |
 code: |
   special.boxcox1p(x, lmbda)
 ---
-category: ['Scipy / Special Func', 'Information Theory Functions']
+category: ['SciPy / Special Func', 'Information Theory Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -658,7 +658,7 @@ title: |
 code: |
   special.pseudo_huber(delta, r)
 ---
-category: ['Scipy / Special Func', 'Gamma and Related Functions']
+category: ['SciPy / Special Func', 'Gamma and Related Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -741,7 +741,7 @@ title: |
 code: |
   special.digamma(z)
 ---
-category: ['Scipy / Special Func', 'Error Function and Fresnel Integrals']
+category: ['SciPy / Special Func', 'Error Function and Fresnel Integrals']
 setup: "from scipy import special"
 ---
 title: |
@@ -819,7 +819,7 @@ title: |
 code: |
   special.fresnels_zeros(nt)
 ---
-category: ['Scipy / Special Func', 'Legendre Functions']
+category: ['SciPy / Special Func', 'Legendre Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -858,7 +858,7 @@ title: |
 code: |
   special.lqmn(m, n, z)
 ---
-category: ['Scipy / Special Func', 'Ellipsoidal Harmonics']
+category: ['SciPy / Special Func', 'Ellipsoidal Harmonics']
 setup: "from scipy import special"
 ---
 title: |
@@ -876,7 +876,7 @@ title: |
 code: |
   special.ellip_normal(h2, k2, n, p)
 ---
-category: ['Scipy / Special Func', 'Orthogonal polynomials']
+category: ['SciPy / Special Func', 'Orthogonal polynomials']
 setup: "from scipy import special"
 ---
 title: |
@@ -1034,7 +1034,7 @@ title: |
 code: |
   special.sh_jacobi(n, p, q[, monic])
 ---
-category: ['Scipy / Special Func', 'Hypergeometric Functions']
+category: ['SciPy / Special Func', 'Hypergeometric Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -1072,7 +1072,7 @@ title: |
 code: |
   special.hyp3f0(a, b, c, x)
 ---
-category: ['Scipy / Special Func', 'Parabolic Cylinder Functions']
+category: ['SciPy / Special Func', 'Parabolic Cylinder Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -1105,7 +1105,7 @@ title: |
 code: |
   special.pbdn_seq(n, z)
 ---
-category: ['Scipy / Special Func', 'Mathieu and Related Functions']
+category: ['SciPy / Special Func', 'Mathieu and Related Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -1158,7 +1158,7 @@ title: |
 code: |
   special.mathieu_modsem2(m, q, x)
 ---
-category: ['Scipy / Special Func', 'Spheroidal Wave Functions']
+category: ['SciPy / Special Func', 'Spheroidal Wave Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -1241,7 +1241,7 @@ title: |
 code: |
   special.obl_rad2_cv(m,n,c,cv,x)
 ---
-category: ['Scipy / Special Func', 'Kelvin Functions']
+category: ['SciPy / Special Func', 'Kelvin Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -1334,7 +1334,7 @@ title: |
 code: |
   special.keip_zeros(nt)
 ---
-category: ['Scipy / Special Func', 'Combinatorics']
+category: ['SciPy / Special Func', 'Combinatorics']
 setup: "from scipy import special"
 ---
 title: |
@@ -1347,7 +1347,7 @@ title: |
 code: |
   special.perm(N, k, exact=False)
 ---
-category: ['Scipy / Special Func', 'Other Special Functions']
+category: ['SciPy / Special Func', 'Other Special Functions']
 setup: "from scipy import special"
 ---
 title: |
@@ -1435,7 +1435,7 @@ title: |
 code: |
   special.zetac(x)
 ---
-category: ['Scipy / Special Func', 'Convenience Functions']
+category: ['SciPy / Special Func', 'Convenience Functions']
 setup: "from scipy import special"
 ---
 title: |

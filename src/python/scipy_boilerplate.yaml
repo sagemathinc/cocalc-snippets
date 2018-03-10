@@ -9,7 +9,7 @@
 ---
 language: python
 ---
-category: ['Scipy', 'Fast Fourier Transform routines']
+category: ['SciPy', 'Fast Fourier Transform routines']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -17,7 +17,7 @@ title: |
 code: |
   from scipy import fftpack
 ---
-category: ['Scipy', 'Integration and ODE solvers']
+category: ['SciPy', 'Integration and ODE solvers']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -25,7 +25,7 @@ title: |
 code: |
   from scipy import integrate
 ---
-category: ['Scipy', 'Integration and ODE solvers / Integrate given function object']
+category: ['SciPy', 'Integration and ODE solvers / Integrate given function object']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -101,7 +101,7 @@ code: |
   a,b = 0,1  # limits of integration
   result = integrate.romberg(gaussian, a, b, tol=1e-8, rtol=1e-8)
 ---
-category: ['Scipy', 'Integration and ODE solvers / Integrate given fixed samples']
+category: ['SciPy', 'Integration and ODE solvers / Integrate given fixed samples']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -132,7 +132,7 @@ code: |
   y = 3*x**2 + 1
   integrate.romb(y, x) # Exact value is 128
 ---
-category: ['Scipy', 'Integration and ODE solvers / Numerically integrate ODE systems']
+category: ['SciPy', 'Integration and ODE solvers / Numerically integrate ODE systems']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -176,7 +176,7 @@ code: |
       r.integrate(r.t+dt)
       print('{0}: {1}'.format(r.t, r.y))
 ---
-category: ['Scipy', 'Interpolation and smoothing splines']
+category: ['SciPy', 'Interpolation']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -212,16 +212,16 @@ code: |
   xnew = np.arange(0, 2*np.pi, np.pi/50)
   ynew = s(xnew)
 ---
-category: ['Scipy', 'Interpolation and smoothing splines / Multivariate interpolation']
+category: ['SciPy', 'Interpolation / Multivariate interpolation']
 setup: "import numpy as np\nimport scipy"
 ---
-category: ['Scipy', 'Interpolation and smoothing splines / 2-D Splines']
+category: ['SciPy', 'Interpolation / 2-D Splines']
 setup: "import numpy as np\nimport scipy"
 ---
-category: ['Scipy', 'Interpolation and smoothing splines / Radial basis functions']
+category: ['SciPy', 'Interpolation / Radial basis functions']
 setup: "import numpy as np\nimport scipy"
 ---
-category: ['Scipy', 'Linear algebra']
+category: ['SciPy', 'Linear algebra']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -229,7 +229,7 @@ title: |
 code: |
   from scipy import linalg
 ---
-category: ['Scipy', 'Optimization and root-finding routines']
+category: ['SciPy', 'Optimization']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -237,7 +237,7 @@ title: |
 code: |
   from scipy import optimize
 ---
-category: ['Scipy', 'Optimization and root-finding routines / Scalar function minimization']
+category: ['SciPy', 'Optimization / Scalar function minimization']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -254,7 +254,7 @@ code: |
   res = optimize.minimize_scalar(j1, bounds=(4, 7), method='bounded')
   print(res.x)
 ---
-category: ['Scipy', 'Optimization and root-finding routines / General-purpose optimization']
+category: ['SciPy', 'Optimization / General-purpose optimization']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -357,7 +357,7 @@ code: |
                           options={'xtol': 1e-8, 'disp': True})
   print(res.x)
 ---
-category: ['Scipy', 'Optimization and root-finding routines / Constrained multivariate minimization']
+category: ['SciPy', 'Optimization / Constrained multivariate minimization']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -397,7 +397,7 @@ code: |
                           constraints=cons, method='SLSQP', options={'disp': True})
   print(res.x)
 ---
-category: ['Scipy', 'Optimization and root-finding routines / Fitting (see also numpy.polynomial)']
+category: ['SciPy', 'Optimization / Fitting (see also numpy.polynomial)']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
@@ -410,7 +410,7 @@ code: |
   optimal_parameters, estimated_covariance = optimize.curve_fit(fitting_function, xdata, ydata)
   estimated_std_dev = np.sqrt(np.diag(estimated_covariance))
 ---
-category: ['Scipy', 'Statistical distributions and functions']
+category: ['SciPy', 'Statistical distributions and functions']
 setup: "import numpy as np\nimport scipy"
 ---
 title: |
