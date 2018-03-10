@@ -1,11 +1,22 @@
 # CoCalc Examples Documentation File
-# Copyright: CoCalc Authors, 2017
+# Copyright: SageMath Inc., 2017 -- 2018
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
 language: bash
 ---
 category: ["Language", "Basics"]
 sortweigth: -1
+---
+title: Variables
+descr: |
+  Bash uses variables to store data in a handler, which can be inserted into a statement later.
+
+  For storing data, it is important to **not** have any spaces around the equal sign.
+
+  Retrieving (inserting) the data works via the `$`-sign and if in quotes, use double quotes!
+code: |
+  foo='value one'
+  echo "this is $foo"
 ---
 title: Function
 descr: |

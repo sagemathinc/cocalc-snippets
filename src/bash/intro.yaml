@@ -1,5 +1,5 @@
 # CoCalc Examples Documentation File
-# Copyright: CoCalc Authors, 2017
+# Copyright: SageMath, Inc., 2017 -- 2018
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
 language: bash
@@ -14,3 +14,9 @@ code: ls
 title: Current Directory
 descr: "**p**rints the current **w**orking **d**irectory."
 code: pwd
+---
+title: Memory Usage (RAM)
+descr: >
+  Lists running processes and their memory consumption.
+  In particular, the sum of `RSS` memory is relevant, for how much it is currently being used!
+code: 'smem -t'
