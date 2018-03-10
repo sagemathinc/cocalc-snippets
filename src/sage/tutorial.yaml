@@ -146,7 +146,7 @@ code: |
 title: LaTeX Formulas
 descr: "To see a LaTeX rendering of such a symbolic expression, use Sage's `show(...)` function."
 code: |
-    var('x y')
+    x, y = var('x y')
     ex1 = (x + y)^2 == 1
     show(ex1)
 ---
@@ -155,7 +155,7 @@ descr: >
     Sage's `solve(...)` function allows you to solve symbolic equations exactly.
     Expressons are automatically assumed to be equal to zero.
 code: |
-    var('x y')
+    x, y = var('x y')
     solve(2*x^2 + 1, x)
     # second example, two equations:
     ex1 = (x + y)^2 - 1
@@ -167,8 +167,8 @@ descr: >
     Sage's `find_root(...)` solves equations numerically.
     The optional second and third argument constrain the variable to an interval.
 code: |
-    var('phi')
-    find_root(cos(phi)==sin(phi), 0, pi/2)
+    phi = var('phi')
+    find_root(cos(phi) == sin(phi), 0, pi/2)
 ---
 title: Symbolic Differentiation
 descr: >
@@ -176,7 +176,7 @@ descr: >
     This works either with Sage's `diff(...)` function or the expression's `.diff(...)` method.
     You can also compute the n-th derivative directly.
 code: |
-    var('x y')
+    x, y = var('x y')
     f = sin(x^2) + 17*y^2
     diff(f, x)
     f.diff(y, 3)
@@ -185,5 +185,5 @@ title: Symbolic Integration
 descr: >
     If the algorithm is able to find it, the `integral(...)` function computes a symbolic integral.
 code: |
-    var('x')
+    x = var('x')
     integral(x*sin(x^2), x)
