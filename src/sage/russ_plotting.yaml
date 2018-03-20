@@ -53,6 +53,22 @@ descr:  >
     Multiple plots can be plotted on the same graph, optionally using different
     line styles.
 ---
+title: Customize legend
+descr: |
+  This example uses graphics_object.[set_legend_options](http://doc.sagemath.org/html/en/reference/plotting/sage/plot/graphics.html#sage.plot.graphics.Graphics.set_legend_options)
+  to customize the title, shape and position of a legend.
+
+  The plot itself draws the function $x \ {\mapsto}\ \frac{\sin\left(x\right)}{\pi + \cos\left(2 \, x\right)}$
+  and its derivative $x \ {\mapsto}\ \frac{\cos\left(x\right)}{\pi + \cos\left(2 \, x\right)} + \frac{2 \, \sin\left(2 \, x\right) \sin\left(x\right)}{{\left(\pi + \cos\left(2 \, x\right)\right)}^{2}}$.
+code: |
+  x = var('x')
+  f(x) = sin(x) / (pi + cos(2*x))
+  g = f.diff(x)
+  p = plot(f, (0, 6*pi), legend_label='$%s$' % latex(f))
+  p += plot(g, (0, 6*pi), legend_label='$%s$' % latex(g), color='green')
+  p.set_legend_options(title='My plot', loc='lower right', fancybox=True, shadow=True)
+  show(p)
+---
 title: Custom tickmarks on the axes
 code:  |
     print "Plot with ticks, LaTeX formatting at specific locations"
@@ -60,7 +76,7 @@ code:  |
     fx     = 1 * (x^2)+1
     pt     = plot( fx ,x, 0,5, ticks=[[0,1,e,pi,sqrt(20)], 5 ], tick_formatter="latex")
 
-    show( pt, figsize=[3,3] )
+    show(pt, figsize=[3,3])
 descr:  >
     Tickmarks on the axes can be controlled both in position, spacing,
     special values, and using LaTeX for values such as pi.
@@ -74,11 +90,11 @@ code:  |
         return z^2
 
     print "Define plot and show it in one line of code"
-    show( plot(f, 0, 2), figsize=[6,2] )
+    show(plot(f, 0, 2), figsize=[6,2])
 
     print "Alternate syntax "
-    var( "z" )
-    show( plot(f(z), z, 0, 2), figsize=[6,2], )
+    z = var("z")
+    show(plot(f(z), z, 0, 2), figsize=[6,2])
 descr:  >
     Plot using Python functions.
     Python functions are defined using the keyword def.
@@ -102,7 +118,7 @@ code:  |
     # for graphing parametric equations ( 2 functions with a common variable implying a relation between the 2 functions )
     # 3 plots all controlled by the parameter t
 
-    var( "t" )  # our parameter
+    t   = var("t")  # our parameter
 
     ll  = -1. * pi    # lower limit of graph
     ul  =  1. * pi    # upper limit of graph
@@ -113,7 +129,7 @@ code:  |
     p2 = parametric_plot((cos(t),sin(t)^4), (t, ll, ul),    rgbcolor=hue(0.4))
     p3 = parametric_plot((cos(t),sin(t)^8), (t, ll, ul),    rgbcolor=hue(0.6))
 
-    show( p1+p2+p3, axes=false)
+    show(p1 + p2 + p3, axes=false)
 descr:  >
     Parametric plots are used where the relationship between variables is implied by
     their relationship to a third variable, the parameter.
@@ -138,13 +154,15 @@ title: Slope Field
 code:  |
     print "Plot Slope Field"
 
-    var( "x" )
-    var( "y" )
+    x, y = var( "x, y" )
 
     slope  =  y ^ 2    # define the slope to be the value of the function y^2
 
-    pt  = plot_slope_field( slope, ( x, -1, 1 ), ( y, .001, 10 ), plot_points = 10 )    # plot_points: higher numbers plot more "slopes"
-    show( pt, aspect_ratio='automatic' )     # aspect_ratio: try .1, 1, 10 'automatic' or leave out and let it default
+    # plot_points: higher numbers plot more "slopes"
+    pt  = plot_slope_field(slope, (x, -1, 1), (y, .001, 10), plot_points = 10)
+
+    # aspect_ratio: try .1, 1, 10 'automatic' or leave out and let it default
+    show(pt, aspect_ratio='automatic')
 descr:  >
     Slope fields show the slope of 2 variables defined over a "field", that is
     a relationship between x, an y that extends over an area of the plane ( 2 D).
@@ -199,9 +217,9 @@ code:  |
     dictionary_list =  {22: 3365, 27: 3295, 37: 3135, 42: 3020, 47: 2880, 52: 2735, 57: 2550}
     tuple_list      =  [ ( 22, 3365) , ( 27, 3295 ), ( 37, 3135 ), ( 42, 3020 ), ( 47, 2880 ), ( 52, 2735 ), (57, 2550 ) ]
 
-    listPlot  = list_plot( dictionary_list )
+    listPlot  = list_plot(dictionary_list)
 
-    show( listPlot, xmin=0, xmax =50, ymin=2000, ymax=4000, figsize=[4,4] )
+    show(listPlot, xmin=0, xmax =50, ymin=2000, ymax=4000, figsize=[4,4])
 descr:  >
     Points, contained int Python lists, are all plotted.
     The lists may be dictionary lists, or lists of 2D tuples.
@@ -256,15 +274,15 @@ title: Points as points (plain and fancy)
 code:  |
     print "Plotting points as points ( plain and fancy )"
 
-    plainPoints    = point( [1, 1] ) + point( [2, 1] )
+    plainPoints    = point([1, 1]) + point([2, 1])
     plot1  = plot( plainPoints )
 
-    show( plot1, figsize=4  )
+    show(plot1, figsize=4)
 
     fancyPoints = point((0.5, 0.5), rgbcolor=(1, 0, 0), size=30)
     fancyPoints = fancyPoints + point((0.7, 0.7), rgbcolor=(0, 1, 0), size=50)
 
-    show( fancyPoints , figsize=4   )
+    show(fancyPoints, figsize=4)
 descr:  >
     The graphic object point may be plotted using plot()
     Plotting this way may combine various elements, both those
@@ -275,16 +293,16 @@ code:  |
     print "Plot a line with point ( dot ) at end"
     # computed in polar form, not required
 
-    r        =  5
+    r        = 5
     t        = pi/4.
     x        = r*cos( t )
     y        = r*sin( t )
 
-    aPoint   = point( ( x, y ), rgbcolor="red", size=30 )
-    aLine    = line([(0.,0.), ( x, y ) ]  , rgbcolor="blue" , linestyle = "dashed"  )
+    aPoint   = point(( x, y), rgbcolor="red", size=30)
+    aLine    = line([(0.,0.), ( x, y )], rgbcolor="blue", linestyle = "dashed")
 
     plot  = aPoint + aLine
-    show( plot,  xmin=-1.2, xmax=5.2,  ymin=-1.2, ymax=5.2 , figsize=[3,3] )
+    show(plot, xmin=-1.2, xmax=5.2,  ymin=-1.2, ymax=5.2 , figsize=[3,3])
 descr:  >
     A line is plotted with a point at the end.
 ---
@@ -292,11 +310,11 @@ title: Lines and points with Python function
 code:  |
     Print "Plot lines and points with Python function"
 
-    def  unitRotator( theta ):
-        x          = cos( theta  )
-        y          = sin( theta  )
-        aPoint     = point2d( ( x, y ), rgbcolor="red", size=30 )  #point2d?
-        aLine      = line([(0.,0.), ( x, y ) ] )
+    def  unitRotator(theta):
+        x          = cos(theta)
+        y          = sin(theta)
+        aPoint     = point2d(( x, y ), rgbcolor="red", size=30)  #point2d?
+        aLine      = line([(0.,0.), ( x, y )])
         myRotator  = aPoint +aLine
 
         return myRotator
@@ -305,7 +323,7 @@ code:  |
     for theta  in srange( .0, 2*pi, 2*pi/10):
          graphic = graphic + unitRotator( theta )
 
-    show( graphic , xmin=-1.2, xmax=1.2,  ymin=-1.2, ymax=1.2 , figsize=[3,3] )
+    show( graphic , xmin=-1.2, xmax=1.2,  ymin=-1.2, ymax=1.2 , figsize=[3,3])
 descr:  >
     A Python function defines many lines and points all of which are plotted.
 ---
@@ -313,9 +331,9 @@ title: Arc
 code:  |
     print "Plot an Arc"
 
-    graphic   = ( arc((.1,.2), 1, sector=(0,  1*pi /4) ) )
+    graphic   = (arc((.1,.2), 1, sector=(0,  1*pi /4)))
 
-    show( graphic , xmin=-1.2, xmax=1.2,  ymin=-1.2, ymax=1.2, figsize=[3,3] )
+    show(graphic, xmin=-1.2, xmax=1.2,  ymin=-1.2, ymax=1.2, figsize=[3,3])
 descr:  >
     Plot an a arc, a segment of a circle.  Center, radius and section of
     arc are all parameters.
@@ -342,7 +360,7 @@ title: Text
 code:  |
     print "Plot Text"
     # text is followed by tuple for position
-    aGraphic     = text("Sample Text", (5,4), rgbcolor=(1,0,0))  
-    show( aGraphic, aspect_ratio=1, figsize = 3 )
+    aGraphic     = text("Sample Text", (5,4), rgbcolor=(1,0,0))
+    show(aGraphic, aspect_ratio=1, figsize = 3)
 descr:  >
     Plot Text, arguments for text, position, and color.
