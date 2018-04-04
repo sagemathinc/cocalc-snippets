@@ -9,11 +9,11 @@ sortweight: -1
 title: Introduction
 descr: |
     SageMath is an advanced Python-based environment for mathematics.
-    With that fundament, it is also suited for scientific computing,
+    With that foundation, it is also suited for scientific computing,
     statistics, and data analysis.
 
     This introduction gives a quick overview,
-    while the individual sub-topics to into more detail.
+    while the individual subtopics go into more detail.
 code: ""
 ---
 title: Pitfalls
@@ -110,18 +110,19 @@ code: |
 ---
 title: Limits
 descr: |
-    Compute $lim$ with SageMath and Maxima. Note, that `oo` stands for $\infty$.
+    Compute $lim$ with SageMath and Maxima. Note, that `oo` stands for $\infty$. Use `dir='+'` or `dir='-'` for one-sided limits.
 
     See [Reference/Limit](http://doc.sagemath.org/html/en/reference/calculus/sage/calculus/calculus.html#sage.calculus.calculus.limit) for more information.
 code: |
     var('x')
     lim((x+1)^(1/x), x = 0)
     lim(sqrt(x^2+1) - x, x = oo)
+    lim(diff(abs(x),x), x = 0, dir='-') # left-sided limit
 ---
 title: Symbolic Sums
 descr: |
     The `sum` function is not Python's, but a special one by SageMath.
-    It allows you to compute [symbolic sums](http://doc.sagemath.org/html/en/reference/calculus/sage/calculus/calculus.html#sage.calculus.calculus.symbolic_sum)!
+    It allows you to compute [symbolic sums](http://doc.sagemath.org/html/en/reference/calculus/sage/calculus/calculus.html#sage.calculus.calculus.symbolic_sum).
 code: |
     var('k u x')
     # known limits
@@ -133,7 +134,7 @@ code: |
 ---
 title: Taylor Series
 descr: >
-    Use `expr.taylor(...)` to obtain a taylor polynomial.
+    Use `expr.taylor(...)` to obtain a Taylor polynomial.
 code: |
     var('f0 k x')
     g = f0 / sinh(k*x)^4
@@ -183,7 +184,7 @@ code: |
 ---
 title: Laplace Transformations
 descr: |
-    Compute laplace transformations
+    Compute Laplace transformations
 code: |
     var('k s t')
     f = 1/exp(k*t)
@@ -191,7 +192,7 @@ code: |
 ---
 title: Inverse Laplace Transformations
 descr: |
-    ... and the inverse laplace transformations.
+    ... and the inverse Laplace transformations.
 code: |
     var('k s t')
     g = 1/(k + s)
