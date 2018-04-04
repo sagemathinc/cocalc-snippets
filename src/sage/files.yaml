@@ -1,0 +1,28 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath Inc., 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+language: sage
+category: Extras / Files
+setup: 'import csv'
+---
+title: "Read CSV data"
+descr: |
+  We use [Python's `csv` module](https://docs.python.org/2/library/csv.html) to read in a CSV file.
+
+  Note that each row is an array, but each entry is still a string.
+  Use `RealNumber(...)` or `Integer(...)` to convert to native Sage numbers.
+
+  (The first line just creates the file we will read in.)
+code: |
+  open('example-data.csv', 'w').write('age,size\n1,1.1\n3,6.33\n7,10\n2,3\n8,9\n5,4')
+
+  with open('example-data.csv') as csvfile:
+      for line_num, row in enumerate(csv.reader(csvfile)):
+          if line_num == 0:
+              print(row)
+          else:
+              age = Integer(row[0])
+              size = RealNumber(row[1])
+              print(age, size)
+---
