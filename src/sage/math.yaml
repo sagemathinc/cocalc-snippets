@@ -117,7 +117,7 @@ code: |
     var('x')
     lim((x+1)^(1/x), x = 0)
     lim(sqrt(x^2+1) - x, x = oo)
-    lim(diff(abs(x),x), x = 0, dir='-') # left-sided limit
+    lim(diff(abs(x),x), x = 0, dir='-')
 ---
 title: Symbolic Sums
 descr: |
@@ -182,17 +182,17 @@ code: |
     # or as a function
     print(integrate(1/x^2, x, 1, infinity))
 ---
-title: Laplace Transformations
+title: Laplace Transforms
 descr: |
-    Compute Laplace transformations
+    Compute Laplace transforms
 code: |
     var('k s t')
     f = 1/exp(k*t)
     f.laplace(t, s)
 ---
-title: Inverse Laplace Transformations
+title: Inverse Laplace Transforms
 descr: |
-    ... and the inverse Laplace transformations.
+    ... and the inverse Laplace transforms.
 code: |
     var('k s t')
     g = 1/(k + s)
