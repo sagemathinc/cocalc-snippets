@@ -17,6 +17,7 @@ descr: |
 code: |
   open('example-data.csv', 'w').write('age,size\n1,1.1\n3,6.33\n7,10\n2,3\n8,9\n5,4')
 
+  import csv
   with open('example-data.csv') as csvfile:
       for line_num, row in enumerate(csv.reader(csvfile)):
           if line_num == 0:
