@@ -38,12 +38,14 @@ title: CoCalc Specific Help
 descr: |
   * [CoCalc WIKI](https://github.com/sagemathinc/cocalc/wiki)
   * [Sage Worksheets](https://github.com/sagemathinc/cocalc/wiki/sagews)
+  * [CoCalc Discussion Group](https://groups.google.com/group/cocalc)
 code: ''
 ---
 title: Community Help
 descr: |
     Here are places on the internet where you can get help:
 
+    * [CoCalc Discussion Group](https://groups.google.com/group/cocalc)
     * [SageMath Support Group](https://groups.google.com/group/sage-support)
     * [Ask SageMath](http://ask.sagemath.org/)
 code: ""
