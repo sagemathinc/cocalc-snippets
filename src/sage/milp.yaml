@@ -1,5 +1,5 @@
 # CoCalc Examples Documentation File
-# Copyright: SageMath Inc., 2015--2016
+# Copyright: Jeff Denny, 2018
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 ---
 language: sage
@@ -10,7 +10,7 @@ descr: |
   This is an example of solving a linear program.
   Begin by defining the linear program and indicating whether you aim for maximization.
   Then, define a variable and add constraints and an objective function.
-  The Sage Reference guide to linear programming is here: http://doc.sagemath.org/html/en/thematic_tutorials/linear_programming.html
+  Read more in the [Sage reference guide to linear programming](http://doc.sagemath.org/html/en/thematic_tutorials/linear_programming.html)
 code:  |
     p=MixedIntegerLinearProgram(maximization=True)
     x=p.new_variable()
