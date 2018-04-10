@@ -48,6 +48,7 @@ def process_category(doc):
     else:
         raise AssertionError("Supposed category '{}' cannot be processed".format(cats))
     sortweight = float(doc.get("sortweight", 0.0))
+    assert len(cats) == 2, 'Number of categories is {}, but needs to be 2 -- doc["category"]: "{}"'.format(len(cats), doc["category"])
     lvl1, lvl2 = [c.strip() for c in cats]
     setup = doc.get('setup', None)
     return lvl1, lvl2, sortweight, setup
