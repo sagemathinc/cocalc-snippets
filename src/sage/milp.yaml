@@ -3,20 +3,21 @@
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 ---
 language: sage
-category: Extras / Mixed Integer and Linear Programming
+category: Extras / Mixed Integer Linear Programming
 ---
 title: Simple Linear Program
 descr: |
   This is an example of solving a linear program.
   Begin by defining the linear program and indicating whether you aim for maximization.
   Then, define a variable and add constraints and an objective function.
+
   Read more in the [Sage reference guide to linear programming](http://doc.sagemath.org/html/en/thematic_tutorials/linear_programming.html)
 code:  |
     p=MixedIntegerLinearProgram(maximization=True)
     x=p.new_variable()
-    p.add_constraint(3*x[1]+x[2]<=10)
-    p.add_constraint(x[1]+2*x[2]<=5)
-    p.set_objective(x[1]+x[2])
+    p.add_constraint(3 * x[1] + x[2] <= 10)
+    p.add_constraint(x[1] + 2 * x[2] <= 5)
+    p.set_objective(x[1] + x[2])
     p.solve()
     p.get_values(x)
 ---
@@ -26,8 +27,8 @@ code:  |
     x=p.new_variable()
     A=matrix(2,2,[3,1,1,2])
     b=vector([10,5])
-    p.set_objective(x[0]+x[1])
-    p.add_constraint(A*x<=b)
+    p.set_objective(x[0] + x[1])
+    p.add_constraint(A*x <= b)
     p.solve()
     p.get_values(x)
 descr: You can easily define the linear program using a matrix.
@@ -36,27 +37,29 @@ title: Index Variables with Dictionary
 code:  |
     p=MixedIntegerLinearProgram(maximization=False)
     x=p.new_variable(nonnegative=True)
-    p.set_objective(0.75*x['a']+0.32*x['b'])
-    p.add_constraint(376*x['a'] + 190*x['b']>=2000)
+    p.set_objective(0.75 * x['a'] + 0.32 * x['b'])
+    p.add_constraint(376 * x['a'] + 190 * x['b'] >= 2000)
 
-    p.add_constraint(18*x['a'] + 7*x['b']>=44)
-    p.add_constraint(10.5*x['a'] + 3*x['b']>=50)
+    p.add_constraint(18 * x['a'] + 7 * x['b'] >= 44)
+    p.add_constraint(10.5 * x['a'] + 3 * x['b'] >= 50)
     p.solve()
     p.get_values(x)
-descr: Sage allows variables to in linear programs to be indexed conveniently with a dictionary.
+descr: |
+  Sage allows variables to in linear programs to be indexed conveniently with a dictionary.
 ---
 title: Integer program
 code:  |
     p=MixedIntegerLinearProgram(maximization=False)
     x=p.new_variable(integer=True)
-    p.set_objective(0.75*x['a']+0.32*x['b'])
-    p.add_constraint(376*x['a'] + 190*x['b']>=2000)
+    p.set_objective(0.75*x['a'] + 0.32 * x['b'])
+    p.add_constraint(376*x['a'] + 190 * x['b'] >= 2000)
 
-    p.add_constraint(18*x['a'] + 7*x['b']>=44)
-    p.add_constraint(10.5*x['a'] + 3*x['b']>=50)
+    p.add_constraint(18*x['a'] + 7 * x['b'] >= 44)
+    p.add_constraint(10.5*x['a'] + 3 * x['b'] >= 50)
     p.solve()
     p.get_values(x)
-descr: This example solves an integer program.
+descr: |
+  This example solves an integer program.
 ---
 title: Magic Square
 code:  |
@@ -75,18 +78,19 @@ code:  |
     p.add_constraint(add([k*x[n-1-i,i,k] for i in range(0,n) for k in range(1,n^2+1)]) == M)
     # each integer must be used just once
     for k in range(1,n^2+1):
-        p.add_constraint(add([x[i,j,k] for i in range(0,n) for j in range(0,n)])==1)
+        p.add_constraint(add([x[i,j,k] for i in range(0,n) for j in range(0,n)]) == 1)
     # each position contains only one integer
     for i in range(0,n):
         for j in range(0,n):
-            p.add_constraint(add([x[i,j,k] for k in range(1,n^2+1)]) ==1 )
+            p.add_constraint(add([x[i,j,k] for k in range(1,n^2+1)]) == 1)
     p.solve()
     ans=p.get_values(x)
     m=matrix(n,n)
     for i in range(0,n):
         for j in range(0,n):
             for k in range(1,n^2+1):
-                if ans[(i,j,k)]>0:
+                if ans[(i,j,k)] > 0:
                     m[i,j]=k
     show(m)
-descr: This example creates an $n\times n$ magic square.
+descr: |
+  This example creates an $n\times n$ magic square.
