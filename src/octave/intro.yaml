@@ -82,8 +82,16 @@ code: |
   x
 ---
 title: Producing Graphical Output
-descr: Plot function
-code: plot (t, x)
+descr: |
+  Octave is capable of creating various types of plots. Here we show the plot of
+
+  $$x(t) := 2 - (t - 4)^2 (t + 3)^3$$
+
+  for $t \in \left[-5, 5\right]$. Look into the section named "Visualization" to see find more examples...
+code: |
+  t = -5:0.1:5;
+  x = 2 - (t - 4).^2 .* (t + 3).^3;
+  plot (t, x)
 ---
 title: Help and Documentation
 descr: |
