@@ -1,0 +1,27 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath, Inc. -- 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+# Some of the content of in this particular file is derived from https://www.gnu.org/software/octave/doc/v4.0.3/Simple-Examples.html
+
+language: octave
+---
+category: ["Functions", "Utilities"]
+---
+title: "Linspace"
+descr: |
+  `linspace` creates a one dimensional (*linear*) array of equally spaced values.
+
+  The `'` tickmark transposes it to a vector, which is the usual form when further using it in a calculation.
+code: |
+  linspace(-2, 5, 20)'
+---
+title: "Meshgrid"
+descr: |
+  Imagine you want to evaluate a binary function $f(x,\,y) := x + 2 y$.
+
+  For evaluating it in vectorized notation, you need a grid for the cartesian product of all $x$ and $y$.
+code: |
+  x = 0:3;
+  y = 0:4;
+  [xx, yy] = meshgrid(x, y);
+  xx + 2*yy

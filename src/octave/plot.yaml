@@ -1,0 +1,79 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath, Inc. -- 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+# Some of the content of in this particular file is derived from https://www.gnu.org/software/octave/doc/v4.0.3/Simple-Examples.html
+
+language: octave
+---
+category: ["Visualization", "2D Plots"]
+---
+title: "Simple 2-D Plot"
+descr: |
+  This is a simple 2 dimensional plot in Octave.
+  A vector `x` is mapped via $(1 + \sqrt{x}) * \sin(x)$ to another vector of equal length.
+  Then, `plot(x, y)` visualizes that dependenc.
+
+  Reference: [2D Plotting in the Octave documentation](https://octave.org/doc/v4.2.2/Two_002dDimensional-Plots.html)
+code: |
+  x = 0:0.01:20;
+  y = (1 + sqrt(x)) .* sin (x);
+  plot (x, y);
+  xlabel ("x");
+  ylabel ("(1 + sqrt(x)) * sin (x)");
+  title ("Simple 2-D Plot");
+---
+title: "Histogram"
+descr: |
+  This is a classical way to visualize a statistical distribution.
+  We take a look at the sum of two samples ...
+
+  Reference: [Histogram in 2D plotting manual](https://octave.org/doc/v4.2.2/Two_002dDimensional-Plots.html)
+code: |
+  a = randn(30000, 1) - 5;
+  b = randn(35000, 1) + 3;
+  hist ([x; y], 10);
+  xlabel ("Value");
+  ylabel ("Count");
+  title (sprintf("Histogram of %d normally distributed random numbers", length(a) + length(b)));
+---
+title: "Function plotting"
+descr: |
+  $$f(x) := \cos(x) \sin(2 x)\;\text{for}\;x \in \left[0,\,2 \pi\right]$$
+
+  > Octave can plot a function from a function handle, inline function, or string defining the function without the user needing to explicitly create the data to be plotted.
+
+  -- [Reference about function plotting](https://octave.org/doc/v4.2.2/Two_002ddimensional-Function-Plotting.html#Two_002ddimensional-Function-Plotting)
+code: |
+  fplot (@(x) cos(x) .* sin(2*x), [0, 2*pi])
+---
+title: "Implicit relationships"
+descr: |
+  This draws the set of points, where the given equation is satisfied.
+  Here, it shows a tilted ellipse.
+
+  $$x^2 + 3 (y-1)^2 + \frac{x y}{2} = 6$$
+
+  Reference: [https://octave.org/doc/v4.2.2/Two_002ddimensional-Function-Plotting.html#Two_002ddimensional-Function-Plotting]
+code: |
+  ezplot (@(x, y) x.^2 + 3 * (y - 1).^2 + .5 * x .* y - 6)
+---
+category: ["Visualization", "3D Plots"]
+---
+title: "Mesh Plot"
+descr: |
+  This plot shows the famous 3D sombrero.
+
+  A quadratic meshgrid of $x$ and $y$ coordinates is evaluated via $\sqrt(x^2 + y^2) + \epsilon$ and the value $r$ is then the value plotted along the third dimension.
+
+  Reference: [3d plots](https://octave.org/doc/v4.2.2/Three_002dDimensional-Plots.html#Three_002dDimensional-Plots)
+code: |
+  tx = ty = linspace (-8, 8, 41)';
+  [xx, yy] = meshgrid (tx, ty);
+  r = sqrt (xx .^ 2 + yy .^ 2) + eps;
+  tz = sin (r) ./ r;
+  mesh (tx, ty, tz);
+  xlabel ("tx");
+  ylabel ("ty");
+  zlabel ("tz");
+  title ("3-D Sombrero plot");
+---
