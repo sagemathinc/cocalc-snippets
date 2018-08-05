@@ -66,8 +66,6 @@ code: |
     # press the tab key after placing the cursor right next to the "."
     var('x')
     ex = 2*x/sin(x)
-    ex.
-    # for implemented graphs
-    graphs.
+    # Now try typing "ex." and pressing tab
     # or place the cursor after "Group" and press tab
     Group

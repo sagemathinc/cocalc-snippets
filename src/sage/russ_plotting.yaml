@@ -308,7 +308,7 @@ descr:  >
 ---
 title: Lines and points with Python function
 code:  |
-    Print "Plot lines and points with Python function"
+    print "Plot lines and points with Python function"
 
     def  unitRotator(theta):
         x          = cos(theta)
