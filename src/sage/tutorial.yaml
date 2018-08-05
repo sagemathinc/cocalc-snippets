@@ -140,8 +140,8 @@ descr: >
 code: |
     exp(2)
     n(exp(2))
-    sin(31.41592).n(digits=50)     # number of digits
-    numerical_approx(pi, prec=200) # number of bits
+    sin(pi * 0.000000001).n(digits=100)   # number of digits
+    numerical_approx(pi, prec=200)        # number of bits
 ---
 title: LaTeX Formulas
 descr: "To see a LaTeX rendering of such a symbolic expression, use Sage's `show(...)` function."
