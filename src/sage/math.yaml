@@ -28,9 +28,8 @@ descr: |
 
     Function calls are always `function_name(...)` with round brackets, too.
 code: |
-    # TODO: fix this expression
     var('x')
-    sqrt [ (4 + x) (2 - x) ]
+    sqrt( (4 + x) * (2 - x) ) # = sqrt [ (4 + x) (2 - x) ]
 ---
 category: Mathematics / Calculus
 ---
