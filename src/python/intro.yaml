@@ -290,7 +290,27 @@ code: |
   [x**2 if (x%3)==0 else x**3 for x in range(-10, 11)]
 ---
 title: 'Reversed list'
-code: 'reversed(l)'
+descr: |
+  Use `reversed` to return a new reversed array, and use `.reverse()` to sort in place.
+code: |
+  a = [1,2,3]
+  # use reversed to keep the original array the same
+  b = list(reversed(a))
+  print("a = ", a)
+  print("b = ", b)
+  # reverse an array in place
+  a.reverse()
+  print("a = ", a)
 ---
 title : 'Sorted list'
-code: 'sorted(l)'
+descr: |
+  Use `sorted` to return a new sorted array, and use `.sort()` to sort in place.
+code: |
+  a = [2,1,3]
+  # use sorted to keep the original array the same
+  b = list(sorted(a))
+  print("a = ", a)
+  print("b = ", b)
+  # use sort to sort an array in place
+  a.sort()
+  print("a = ", a)
