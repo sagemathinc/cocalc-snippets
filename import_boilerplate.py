@@ -13,8 +13,6 @@ from pprint import pprint
 REPO = 'https://github.com/moble/jupyter_boilerplate.git'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TMP = os.path.join(BASE_DIR, 'tmp')
-INPUT_FILES = os.path.join(TMP, 'jupyter_boilerplate', 'snippets_submenus_python', '*.js')
-OUT_YAML = os.path.join(BASE_DIR, 'src', 'python', 'boilerplate.yaml')
 
 os.chdir(BASE_DIR)
 
