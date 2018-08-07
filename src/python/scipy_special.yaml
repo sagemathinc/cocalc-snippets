@@ -10,7 +10,8 @@
 language: python
 ---
 category: ['SciPy / Special Func', 'Airy functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   airy: Airy functions and their derivatives
@@ -33,7 +34,8 @@ code: |
   special.bi_zeros(n)
 ---
 category: ['SciPy / Special Func', 'Elliptic Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   ellipj: Jacobian elliptic functions
@@ -66,10 +68,12 @@ code: |
   special.ellipeinc(phi,m)
 ---
 category: ['SciPy / Special Func', 'Bessel']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 category: ['SciPy / Special Func', 'Bessel / Bessel']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   jv: Bessel function of the first kind of real order $v$, $J_v(z)$
@@ -147,7 +151,8 @@ code: |
   special.lmbda(v, x)
 ---
 category: ['SciPy / Special Func', 'Bessel / Zeros of Bessel']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   jnjnp_zeros: Compute nt (<=1200) zeros of the Bessel functions $J_n$ and $J_n'$ and arange them in order of their magnitudes
@@ -195,7 +200,8 @@ code: |
   special.y1p_zeros(nt, complex=0)
 ---
 category: ['SciPy / Special Func', 'Bessel / Faster versions of common Bessel']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   j0: Bessel function the first kind of order 0, $J_0(x)$
@@ -258,7 +264,8 @@ code: |
   special.k1e(x)
 ---
 category: ['SciPy / Special Func', 'Bessel / Integrals of Bessel']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   itj0y0: Integrals of Bessel functions of order 0: $\int_0^x J_0(t)\, dt$, $\int_0^x Y_0(t)\, dt$
@@ -286,7 +293,8 @@ code: |
   special.besselpoly(a, lmb, nu)
 ---
 category: ['SciPy / Special Func', 'Bessel / Derivatives of Bessel']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   jvp: Return the $n$th derivative of $J_v(z)$ with respect to $z$
@@ -319,7 +327,8 @@ code: |
   special.h2vp(v, z, n=1)
 ---
 category: ['SciPy / Special Func', 'Bessel / Spherical Bessel']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   sph_jn: Compute the spherical Bessel function $j_n(z)$ and its derivative for all orders up to and including $n$
@@ -352,7 +361,8 @@ code: |
   special.sph_inkn(n, z)
 ---
 category: ['SciPy / Special Func', 'Bessel / Riccati-Bessel']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   riccati_jn: Compute the Ricatti-Bessel function of the first kind and its derivative for all orders up to and including n
@@ -365,7 +375,8 @@ code: |
   special.riccati_yn(n, x)
 ---
 category: ['SciPy / Special Func', 'Struve Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   struve: Struve function
@@ -393,7 +404,8 @@ code: |
   special.itmodstruve0(x)
 ---
 category: ['SciPy / Special Func', 'Statistics']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   bdtr: Binomial distribution cumulative distribution function
@@ -631,7 +643,8 @@ code: |
   special.boxcox1p(x, lmbda)
 ---
 category: ['SciPy / Special Func', 'Information Theory Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   entr: Elementwise function for computing entropy.
@@ -659,7 +672,8 @@ code: |
   special.pseudo_huber(delta, r)
 ---
 category: ['SciPy / Special Func', 'Gamma and Related Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   gamma: Gamma function
@@ -742,7 +756,8 @@ code: |
   special.digamma(z)
 ---
 category: ['SciPy / Special Func', 'Error Function and Fresnel Integrals']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   erf: Returns the error function of complex argument
@@ -820,7 +835,8 @@ code: |
   special.fresnels_zeros(nt)
 ---
 category: ['SciPy / Special Func', 'Legendre Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   lpmv: Associated legendre function of integer order
@@ -859,7 +875,8 @@ code: |
   special.lqmn(m, n, z)
 ---
 category: ['SciPy / Special Func', 'Ellipsoidal Harmonics']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   ellip_harm: Ellipsoidal harmonic functions $E^p_n(l)$
@@ -877,7 +894,8 @@ code: |
   special.ellip_normal(h2, k2, n, p)
 ---
 category: ['SciPy / Special Func', 'Orthogonal polynomials']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   assoc_laguerre: Returns the $n$th order generalized (associated) Laguerre polynomial.
@@ -1035,7 +1053,8 @@ code: |
   special.sh_jacobi(n, p, q[, monic])
 ---
 category: ['SciPy / Special Func', 'Hypergeometric Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   hyp2f1: Gauss hypergeometric function ${}_2F_1(a, b; c; z)$
@@ -1073,7 +1092,8 @@ code: |
   special.hyp3f0(a, b, c, x)
 ---
 category: ['SciPy / Special Func', 'Parabolic Cylinder Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   pbdv: Parabolic cylinder function $D$
@@ -1106,7 +1126,8 @@ code: |
   special.pbdn_seq(n, z)
 ---
 category: ['SciPy / Special Func', 'Mathieu and Related Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   mathieu_a: Characteristic value of even Mathieu functions
@@ -1159,7 +1180,8 @@ code: |
   special.mathieu_modsem2(m, q, x)
 ---
 category: ['SciPy / Special Func', 'Spheroidal Wave Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   pro_ang1: Prolate spheroidal angular function of the first kind and its derivative
@@ -1242,7 +1264,8 @@ code: |
   special.obl_rad2_cv(m,n,c,cv,x)
 ---
 category: ['SciPy / Special Func', 'Kelvin Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   kelvin: Kelvin functions as complex numbers
@@ -1335,7 +1358,8 @@ code: |
   special.keip_zeros(nt)
 ---
 category: ['SciPy / Special Func', 'Combinatorics']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   comb: The number of combinations of N things taken k at a time
@@ -1348,7 +1372,8 @@ code: |
   special.perm(N, k, exact=False)
 ---
 category: ['SciPy / Special Func', 'Other Special Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   agm: Arithmetic, Geometric Mean
@@ -1436,7 +1461,8 @@ code: |
   special.zetac(x)
 ---
 category: ['SciPy / Special Func', 'Convenience Functions']
-setup: "from scipy import special"
+setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
+variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   cbrt: $\sqrt[3]{x}$

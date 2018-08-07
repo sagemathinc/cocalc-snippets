@@ -20,7 +20,19 @@ header = ->
     language: python
     ''' + '\n'
 
-read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process, sortweight) ->
+###
+this is the main function doing the conversion. it assumes the .js datastructures are read in
+by evaluating the string. it might be necessary to redefine "define" (from the one above)
+
+* entry: the root of a tree of entries. read_submenu might be call recursively (only once), too!
+* cat0: the main category name (kept upon recursive calls)
+* name_prefix: that's the second level, and cat1 upon recursion. see the computation of "subcat"
+* cat_prefix: that's named a bit wrong, because this is the additional setup code for a subcategory
+* cat_process: function (by default idempotent) for processing the category name (mainly used to make the words shorter)
+* sortweight: some categories should be at the top, e.g. related to introduction, etc. just use (-1 to push them at the top, default 0)
+* variables: dictionary of variable defaults, which are added like "setup". they're dynamically inserted by the UI component. for testing, just add them to the setup. Care needs to be taken to use language specific syntax (usually, "key = value", though)
+###
+read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process, sortweight, variables) ->
     cat_process ?= (x) -> x
     if name_prefix?
         prefix = "#{name_prefix}"
@@ -42,6 +54,8 @@ read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process, sortweight) -
     if cat_prefix?
         # JSON.stringify to sanitize linebreaks
         output.push("setup: #{JSON.stringify(cat_prefix)}")
+    if variables?
+        output.push("variables: #{JSON.stringify(variables)}")
 
     for entry in entry['sub-menu']
         # there are weird "---"
@@ -49,7 +63,7 @@ read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process, sortweight) -
             continue
         # oh yes, sub entries can have subentries ... just skipping them via recursion.
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, cat0, cat1, cat_prefix, cat_process))
+            output = output.concat(read_submenu(entry, cat0, cat1, cat_prefix, cat_process, sortweight, variables))
         else
             continue if not entry.snippet?  # there are entries where it is only entry["external-link"]
             continue if entry.snippet.join('').trim().length == 0 # ... or some are just empty
@@ -70,6 +84,11 @@ read_scipy_special = ->
                    from scipy import special, integrate, optimize, interpolate
                    from scipy.integrate import odeint
                    '''
+    variables    =
+        n     : 2
+        x     : 1.5
+        alpha : 0.5
+        beta  : 0.5
 
     cat_process = (x) ->
         if x.indexOf('Bessel Functions') >= 0
@@ -80,7 +99,7 @@ read_scipy_special = ->
 
     for entry in constants['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'SciPy / Special Func', null, cat_prefix, cat_process))
+            output = output.concat(read_submenu(entry, 'SciPy / Special Func', null, cat_prefix, cat_process, undefined, variables))
 
     content = header()
     content += output.join('\n')

@@ -919,7 +919,7 @@ code: |
   axes_a = (2, 0)
   b = np.arange(30).reshape((2,3,5))
   axes_b = (0, 1)
-  np.tensordot(a, b, (axes_a, axes_b)
+  np.tensordot(a, b, (axes_a, axes_b))
 ---
 title: |
   einsum: Evaluate Einstein summation convention on operands
@@ -1119,7 +1119,7 @@ code: |
 title: |
   Integrate with given lower bound and integration constant $k$
 code: |
-  poly.integ(lbnd=0.1, k=-2.34
+  poly.integ(lbnd=0.1, k=-2.34)
 ---
 title: |
   Fit to data with series of degree $n$
