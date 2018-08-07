@@ -86,7 +86,9 @@ read_scipy_special = ->
                    '''
     variables    =
         n     : 2
+        v     : 1.5
         x     : 1.5
+        z     : 0.5
         alpha : 0.5
         beta  : 0.5
 
