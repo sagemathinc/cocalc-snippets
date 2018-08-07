@@ -48,10 +48,11 @@ def process_category(doc):
     else:
         raise AssertionError("Supposed category '{}' cannot be processed".format(cats))
     sortweight = float(doc.get("sortweight", 0.0))
+    variables = doc.get("variables", None)
     assert len(cats) == 2, 'Number of categories is {}, but needs to be 2 -- doc["category"]: "{}"'.format(len(cats), doc["category"])
     lvl1, lvl2 = [c.strip() for c in cats]
     setup = doc.get('setup', None)
-    return lvl1, lvl2, sortweight, setup
+    return lvl1, lvl2, sortweight, setup, variables
 
 def process_doc(doc, input_fn):
     """
@@ -104,7 +105,8 @@ def examples_data(input_dir, output_fn):
     # This processes all yaml input files and fails when any assertion is violated.
     for input_fn, data in input_files_iter(input_dir):
 
-        language = entries = lvl1 = lvl2 = titles = sortweight = None # will be set in the "category" case, which comes first!
+        # values will be set in the "category" case, which happens prior to processing the examples!
+        language = entries = lvl1 = lvl2 = titles = sortweight = variables = None
 
         for doc in data:
             if doc is None:
@@ -119,11 +121,14 @@ def examples_data(input_dir, output_fn):
                 processed = True
 
             if "category" in doc: # setting both levels of the category and re-setting entries and titles
-                lvl1, lvl2, sortweight, setup = process_category(doc)
+                lvl1, lvl2, sortweight, setup, variables = process_category(doc)
                 if lvl2 in examples[language][lvl1]:
                     raise AssertionError("Duplicate category level2: '%s' already exists (error in %s)" % (lvl2, input_fn))
                 entries = []
                 entry_data = {'entries': entries, 'sortweight': sortweight}
+                if variables:
+                    assert isinstance(variables, dict), "variables isn't a dictionary: %s".format(variables)
+                    entry_data['variables'] = variables
                 if setup:
                     entry_data['setup'] = setup
                 examples[language][lvl1][lvl2] = entry_data
