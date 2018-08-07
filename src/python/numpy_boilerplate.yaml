@@ -1026,7 +1026,7 @@ code: |
   np.fmin(x1, x2)
 ---
 category: ['NumPy', 'Polynomials']
-setup: "import numpy as np"
+setup: "import numpy as np\nfrom numpy.polynomial import Polynomial as P\npoly = P([1, 2, 3])"
 ---
 title: |
   Setup

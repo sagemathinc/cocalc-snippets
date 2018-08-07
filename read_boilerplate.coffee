@@ -55,7 +55,6 @@ read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process, sortweight) -
             continue if entry.snippet.join('').trim().length == 0 # ... or some are just empty
             output.push('---')
             #console.log(JSON.stringify(entry))
-            output.push(extra) if extra?
             output.push("title: |\n  #{entry.name}")
             #console.log(JSON.stringify(entry))
             code = ("  #{x}" for x in entry.snippet).join('\n')
@@ -166,9 +165,19 @@ read_numpy = ->
     finally
         define = orig_define
     output                = []
-    cat_prefix            = '''
-                            import numpy as np
-                            '''
+
+    make_prefix = (group) ->
+        switch group
+            when 'Polynomials'
+                 '''
+                 import numpy as np
+                 from numpy.polynomial import Polynomial as P
+                 poly = P([1, 2, 3])
+                 '''
+            else '''
+                 import numpy as np
+                 '''
+
     cat_process = (x) ->
         if x == 'NumPy'
             return null
@@ -180,6 +189,8 @@ read_numpy = ->
 
     for entry in numpy['sub-menu']
         if entry['sub-menu']?
+            #console.log("read_numpy: '#{entry['name']}"', entry)
+            cat_prefix = make_prefix(entry['name'])
             output = output.concat(read_submenu(entry, 'NumPy', null, cat_prefix, cat_process))
 
     content = header()
