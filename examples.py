@@ -190,7 +190,7 @@ def test_examples(input_dir):
     exe = None
 
     def test(code, test):
-        if test is None:
+        if test is False:
             return
 
         config = {'stdout':PIPE, 'shell':True, 'universal_newlines':True}
@@ -199,6 +199,7 @@ def test_examples(input_dir):
         else:
             res = check_output("echo '{}' | {}".format(code, exe), **config)
         print(res.stdout)
+        # TODO if test is a string, compare stdout, otherwise just check for errors
 
     for input_fn, data in input_files_iter(input_dir):
         print(' {} '.format(input_fn).center(100, '-'))
@@ -211,6 +212,7 @@ def test_examples(input_dir):
             elif 'language' in doc:
                 exe = execs[doc['language']]
             elif 'category' in doc:
+                # TODO setup and variable code missing
                 cat = doc['category']
                 if isinstance(cat, (list, tuple)):
                     cat = ' / '.join(cat)
