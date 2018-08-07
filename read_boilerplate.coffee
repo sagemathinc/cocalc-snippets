@@ -66,7 +66,13 @@ read_scipy_special = ->
     special_js   = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/scipy_special.js', 'utf8')
     constants    = eval(special_js)
     output       = []
-    cat_prefix   = 'from scipy import special'
+    cat_prefix   = '''
+                   from scipy import special
+                   from scipy import integrate
+                   from scipy import optimize
+                   from scipy import interpolate
+                   from scipy.integrate import odeint
+                   '''
 
     cat_process = (x) ->
         if x.indexOf('Bessel Functions') >= 0
