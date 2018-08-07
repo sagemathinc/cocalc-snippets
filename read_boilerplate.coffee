@@ -67,10 +67,7 @@ read_scipy_special = ->
     constants    = eval(special_js)
     output       = []
     cat_prefix   = '''
-                   from scipy import special
-                   from scipy import integrate
-                   from scipy import optimize
-                   from scipy import interpolate
+                   from scipy import special, integrate, optimize, interpolate
                    from scipy.integrate import odeint
                    '''
 
