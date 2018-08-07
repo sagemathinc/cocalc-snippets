@@ -20,12 +20,12 @@ descr: >
     SageMath offers various way to construct and work with [Permutations](http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html).
 code: |
     p = Permutation([2,3,7,4,5,6,1])
-    p.left_tableau()
-    p.longest_increasing_subsequences()
-    p.complement()
-    p.peaks()
-    p.retract_okounkov_vershik(6)
-    p.saliances()
+    print p.left_tableau()
+    print p.longest_increasing_subsequences()
+    print p.complement()
+    print p.peaks()
+    print p.retract_okounkov_vershik(6)
+    print p.saliances()
     # and many more: http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html
 ---
 title: Cartesian Product
@@ -35,9 +35,9 @@ code: |
     S1 = Permutations(3)
     S2 = ['A', 'B']
     cp = cartesian_product([S1, S2])
-    cp
-    cp.cardinality()
-    cp.list()
+    print cp
+    print cp.cardinality()
+    print cp.list()
 ---
 title: Finite State Machine
 descr: |
@@ -48,3 +48,9 @@ code: |
         print transition
     fsm.plot()
 ---
+title: Integer Vectors
+descr: |
+    List all [integer vectors](http://doc.sagemath.org/html/en/reference/combinat/sage/combinat/integer_vector.html) of length 3 that sum up to 5 with a max component of 2.
+code: |
+    IV = IntegerVectors(5,3,max_part=2)
+    print list(IV)

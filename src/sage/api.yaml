@@ -5,13 +5,40 @@
 language: sage
 category: Extras / Queries
 ---
-title: Introduction
-descr: |
-    SageMath offers some built-in functions for querying online resources and databases.
-code: ""
----
 title: Online Encyclopedia of Integer Sequences
 descr: |
     SageMath allows you to directly query the [OEIS](https://oeis.org/).
 code: |
     oeis([1,1,2,3,5,8,13])
+---
+title: Cremona's Database of Elliptic Curves
+descr: |
+    Sage includes John Cremona’s tables of elliptic curves in an easy-to-use format.
+    An instance of the class CremonaDatabase() gives access to the database.
+    For more details, see the [documentation](http://doc.sagemath.org/html/en/reference/databases/sage/databases/cremona.html).
+code: |
+    CremonaDatabase('cremona').allcurves(11)
+---
+title: Stein-Watkins Table of Elliptic Curves
+descr: |
+    Sage gives access to the Stein-Watkins table of elliptic curves.
+    This is a huge database of elliptic curves ordered by conductor.
+    For more, see the [documentation](http://doc.sagemath.org/html/en/reference/databases/sage/databases/stein_watkins.html).
+code: |
+    gen = SteinWatkinsAllData(0)
+    print gen
+    C = next(gen)
+    print C.data
+    print C.leading_coefficient
+    print C.modular_degree
+    print C.rank
+    print C.isogeny_number
+---
+title: Tables of Zeros of the Riemann Zeta Function
+descr: |
+    Sage allows easy access to the Odlyzko table of zeros of the Riemann zeta function.
+    For more, see the [documentation](http://doc.sagemath.org/html/en/reference/databases/sage/databases/odlyzko.html).
+code: |
+    zz = zeta_zeros()
+    print len(zz)
+    print zz[12]

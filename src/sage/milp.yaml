@@ -13,8 +13,8 @@ descr: |
 
   Read more in the [Sage reference guide to linear programming](http://doc.sagemath.org/html/en/thematic_tutorials/linear_programming.html)
 code:  |
-    p=MixedIntegerLinearProgram(maximization=True)
-    x=p.new_variable()
+    p = MixedIntegerLinearProgram(maximization=True)
+    x = p.new_variable()
     p.add_constraint(3 * x[1] + x[2] <= 10)
     p.add_constraint(x[1] + 2 * x[2] <= 5)
     p.set_objective(x[1] + x[2])
@@ -23,10 +23,10 @@ code:  |
 ---
 title: Matrix Linear Program
 code:  |
-    p=MixedIntegerLinearProgram(maximization=True)
-    x=p.new_variable()
-    A=matrix(2,2,[3,1,1,2])
-    b=vector([10,5])
+    p = MixedIntegerLinearProgram(maximization=True)
+    x = p.new_variable()
+    A = matrix(2,2,[3,1,1,2])
+    b = vector([10,5])
     p.set_objective(x[0] + x[1])
     p.add_constraint(A*x <= b)
     p.solve()
@@ -35,8 +35,8 @@ descr: You can easily define the linear program using a matrix.
 ---
 title: Index Variables with Dictionary
 code:  |
-    p=MixedIntegerLinearProgram(maximization=False)
-    x=p.new_variable(nonnegative=True)
+    p = MixedIntegerLinearProgram(maximization=False)
+    x = p.new_variable(nonnegative=True)
     p.set_objective(0.75 * x['a'] + 0.32 * x['b'])
     p.add_constraint(376 * x['a'] + 190 * x['b'] >= 2000)
 
@@ -49,8 +49,8 @@ descr: |
 ---
 title: Integer program
 code:  |
-    p=MixedIntegerLinearProgram(maximization=False)
-    x=p.new_variable(integer=True)
+    p = MixedIntegerLinearProgram(maximization=False)
+    x = p.new_variable(integer=True)
     p.set_objective(0.75*x['a'] + 0.32 * x['b'])
     p.add_constraint(376*x['a'] + 190 * x['b'] >= 2000)
 
@@ -63,10 +63,10 @@ descr: |
 ---
 title: Magic Square
 code:  |
-    p=MixedIntegerLinearProgram()
-    x=p.new_variable(binary=True)
-    n=3 # dimension of magic square
-    M=n*(n^2+1)/2
+    p = MixedIntegerLinearProgram()
+    x = p.new_variable(binary=True)
+    n = 3 # dimension of magic square
+    M = n*(n^2+1)/2
     # each row must add up to M
     for i in range(0,n):
         p.add_constraint(add([k*x[i,j,k] for j in range(0,n) for k in range(1,n^2+1)]) == M)
@@ -84,13 +84,13 @@ code:  |
         for j in range(0,n):
             p.add_constraint(add([x[i,j,k] for k in range(1,n^2+1)]) == 1)
     p.solve()
-    ans=p.get_values(x)
-    m=matrix(n,n)
+    ans = p.get_values(x)
+    m = matrix(n,n)
     for i in range(0,n):
         for j in range(0,n):
             for k in range(1,n^2+1):
                 if ans[(i,j,k)] > 0:
-                    m[i,j]=k
+                    m[i,j] = k
     show(m)
 descr: |
   This example creates an $n\times n$ magic square.
