@@ -50,7 +50,7 @@ code: |
 ---
 title: Standard character-class abbreviations
 code: ''
-descr:
+descr: |
   ```
   Any decimal digit:              `\d`
   Any non-digit character:        `\D`
