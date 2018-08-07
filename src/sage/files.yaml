@@ -9,7 +9,7 @@ setup: 'import csv'
 title: Saving/Loading Sage Objects
 descr: |
     Save objects in Sage to the filesystem.
-code:
+code: |
     E = EllipticCurve([0,1])
     save(E,"/tmp/file") # A copy of "E" is now saved at /tmp/file.sobj
     E = load("/tmp/file")
