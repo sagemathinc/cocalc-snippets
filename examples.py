@@ -277,8 +277,12 @@ def exec_jupyter(language, code, restart=False):
                     result = content['data']
                     if 'text/plain' in result:
                         outputs.append(result['text/plain'])
+                    elif 'image/svg+xml' in result:
+                        svg = '\n'.join(result['image/svg+xml'])
+                        outputs.append("SVG PLOT ({} characters)".format(len(svg)))
                     else:
-                        outputs.append(result)
+                        pprint(result)
+                        raise RuntimeError("Result above; undealt content data: {}".format(list(result.keys())))
 
         except Empty:
             pass
