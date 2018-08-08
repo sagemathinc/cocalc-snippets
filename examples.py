@@ -203,6 +203,8 @@ def make_kernel(language):
     name = language_to_kernel(language)
     manager, client = start_new_kernel(kernel_name = name)
     kernels[language] = manager, client
+    import atexit
+    atexit.register(lambda : manager.shutdown_kernel(now=True))
     return manager, client
 
 def get_jupyter(language):
