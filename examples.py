@@ -29,6 +29,7 @@ from codecs import open
 from collections import defaultdict
 from pprint import pprint
 from queue import Empty # py3 specific
+from time import time
 
 """ # TODO enable hashtags later
 hashtag_re = re.compile(r'#([a-zA-Z].+?\b)')
@@ -199,6 +200,9 @@ def language_to_kernel(lang):
 kernels = {}
 
 def make_kernel(language):
+    if language in kernels:
+        return kernels[language]
+    #print("starting new kernel for {language}".format(**locals()))
     from jupyter_client.manager import start_new_kernel
     name = language_to_kernel(language)
     manager, client = start_new_kernel(kernel_name = name)
@@ -208,8 +212,8 @@ def make_kernel(language):
     return manager, client
 
 def get_jupyter(language):
-    manager, client = kernels.get(language, make_kernel(language))
-    # we restart to have a fresh session
+    manager, client = make_kernel(language)
+    # restart to have a fresh session
     manager.restart_kernel()
     return client
 
@@ -217,6 +221,7 @@ def exec_jupyter(language, code):
     client = get_jupyter(language)
     msg_id = client.execute(code)
     outputs = []
+    errors = []
     while client.is_alive():
         try:
             msg=client.get_iopub_msg(timeout=1)
@@ -236,6 +241,7 @@ def exec_jupyter(language, code):
                     break
                 else:
                     continue
+            # ignoring these
             elif msg_type == 'execute_input':
                 continue
             elif msg_type == 'clear_output':
@@ -244,17 +250,22 @@ def exec_jupyter(language, code):
                 continue
 
             #pprint(["content:", content])
-            if 'text' in content:
-                outputs.append(content['text'])
-            if 'data' in content:
-                result = content['data']
-                if 'text/plain' in result:
-                    outputs.append(result['text/plain'])
-                else:
-                    outputs.append(result)
+            if any(k in ['ename', 'traceback', 'evalue'] for k in content.keys()):
+                errors.append((content['ename'], content['evalue']))
+            else:
+                if 'text' in content:
+                    outputs.append(content['text'])
+                if 'data' in content:
+                    result = content['data']
+                    if 'text/plain' in result:
+                        outputs.append(result['text/plain'])
+                    else:
+                        outputs.append(result)
+
         except Empty:
             pass
-    return '\n'.join(outputs)
+
+    return '\n'.join(outputs), errors
 
 def test_examples(input_dir, runner = 'jupyter'):
     assert runner in ['jupyter', 'cmdline']
@@ -272,11 +283,19 @@ def test_examples(input_dir, runner = 'jupyter'):
         # TODO if test is a string, compare stdout, otherwise just check for errors
 
     def test_jupyter(code, test=None):
-        output = exec_jupyter(language, code)
-        pprint(output)
+        t0 = time()
+        output, errors = exec_jupyter(language, code)
+        print('({:4.1f}s) '.format(time() - t0), end='')
+        if errors:
+            err = ' | '.join(' '.join(e) for e in errors)
+            print("PROBLEM: {}".format(err))
+        else:
+            #print(output)
+            print("OK")
 
     def test(code, test=None, **doc):
         if test is False:
+            print("SKIP")
             return
         if runner == 'cmdline':
             test_cmdline(code, test)
@@ -284,12 +303,12 @@ def test_examples(input_dir, runner = 'jupyter'):
             test_jupyter(code, test)
 
     for input_fn, data in input_files_iter(input_dir):
-        print(' {} '.format(input_fn).center(100, '-'))
+        print(' {} '.format(input_fn).center(130, '-'))
         for doc in data:
             if doc is None:
                 continue
             if 'title' in doc:
-                print('   {}'.format(doc['title']))
+                print('   {:<25s} → '.format(doc['title']), end='')
                 test(**doc)
             elif 'language' in doc:
                 language = doc['language']
@@ -298,7 +317,7 @@ def test_examples(input_dir, runner = 'jupyter'):
                 cat = doc['category']
                 if isinstance(cat, (list, tuple)):
                     cat = ' / '.join(cat)
-                print(' {}'.format(cat))
+                print('+ {}'.format(cat))
             else:
                 print("UNKNOWN DOCUMENT")
                 pprint(doc)

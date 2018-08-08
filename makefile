@@ -15,5 +15,8 @@ ${OUTPUT}: ${INPUT} ${SCRIPT}
 test:
 	${PYTHON} ${SCRIPT} test ${INDIR}
 
+testtest:
+	${PYTHON} ${SCRIPT} test test
+
 clean:
 	-${RM} ${OUTPUT}
