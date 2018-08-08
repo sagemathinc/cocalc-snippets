@@ -2,6 +2,8 @@ language: python
 category: Tests / broken
 sortweight: -1
 ---
+category: Tests / broken
+---
 title: Test Syntax
 descr: "not ok"
 code: |

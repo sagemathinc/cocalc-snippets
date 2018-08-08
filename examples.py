@@ -19,7 +19,8 @@ if (sys.version_info > (3, 0)):
 else:
     mystr = basestring
 
-from os.path import abspath, dirname, normpath, exists, join
+from os.path import abspath, dirname, normpath, exists, join, dirname
+CURDIR = dirname(abspath(__file__))
 from os import makedirs, walk
 from shutil import rmtree
 import yaml
@@ -276,7 +277,7 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
     setup = ''
     failures = []
     total = 0
-    cat = None # current category
+    cat = '' # current category
 
     def test_cmdline(code, test=None):
         exe = execs[language]
@@ -312,9 +313,7 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
             err = test_cmdline(code, test)
         elif runner == 'jupyter':
             err = test_jupyter(code, test)
-        if err:
-            nonlocal failures
-            failures.append('{} → {} → {}'.format(cat, title, err))
+        return err
 
     for input_fn, data in input_files_iter(input_dir):
         print(' {} '.format(input_fn).center(WIDTH, '-'))
@@ -324,7 +323,10 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
             if 'title' in doc:
                 title = ' '.join(doc['title'].splitlines()).strip()
                 print('   {:<30s} → '.format(title), end='')
-                test(**doc)
+                err = test(**doc)
+                if err:
+                    fn = input_fn[len(CURDIR)+1:]
+                    failures.append(' → '.join([fn, cat, title, err]))
             elif 'language' in doc:
                 language = doc['language']
             elif 'category' in doc:

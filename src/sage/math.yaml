@@ -240,7 +240,7 @@ title: Slope Field
 descr: |
     The following plots a slope field for the differential equation
     $$\frac{dy}{dt} = y - t.$$
-    
+
 code: |
     var('t y')
     plot_slope_field(y - t, (t,0,10), (y,0,6), plot_points=25)
@@ -256,11 +256,11 @@ descr: |
     \frac{dx}{dt} &= 0.1 x - 0.2 x y \\
     \frac{dy}{dt} &= -0.2 y + 0.1 x y
     \end{cases}$$
-    
+
 code: |
     var('t x y')
     # streamline plot for a single differential equation
     streamline_plot(y - t, (t,0,10), (y,0,6))
     # streamline plot in the phase plane for a system of two differential equations
     streamline_plot([0.1*x - 0.2*x*y,-0.2*y+0.1*x*y],(x,0,4),(y,0,2))
-    
+
