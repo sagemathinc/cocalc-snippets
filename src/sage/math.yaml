@@ -6,18 +6,6 @@ language: sage
 category: Mathematics / Introduction
 sortweight: -1
 ---
-title: Test Syntax
-descr: "not ok"
-code: |
-  a = 12
-  print(a)
-  f(a
----
-title: Test Variable
-descr: "not ok"
-code: |
-  sum([a])
----
 title: Introduction
 descr: |
     SageMath is an advanced Python-based environment for mathematics.
