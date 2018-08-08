@@ -28,6 +28,7 @@ import re
 from codecs import open
 from collections import defaultdict
 from pprint import pprint
+from queue import Empty # py3 specific
 
 """ # TODO enable hashtags later
 hashtag_re = re.compile(r'#([a-zA-Z].+?\b)')
@@ -175,7 +176,7 @@ def examples_data(input_dir, output_fn):
 
 from subprocess import PIPE, check_output  #, run <- isn't 3.5 compatible, needs to be 3.4 :(
 
-# for each language, prepare a stub to run the example
+# for each language, prepare a stub to run the example, this is for runner = "cmdline"-mode
 execs = {
     'sage': "{} -c 'CODE'".format(shutil.which('sage')),
     'python': shutil.which('python3'),
@@ -186,13 +187,80 @@ execs = {
     'julia': shutil.which('julia'),
 }
 
-def test_examples(input_dir):
-    exe = None
+def language_to_kernel(lang):
+    data = {
+        "sage": "sagemath",
+        "python": "python3",
+        "r": "ir",
+    }
+    return data.get(lang.lower(), lang)
 
-    def test(code, test):
-        if test is False:
-            return
+# actually a cache
+kernels = {}
 
+def make_kernel(language):
+    from jupyter_client.manager import start_new_kernel
+    name = language_to_kernel(language)
+    manager, client = start_new_kernel(kernel_name = name)
+    kernels[language] = manager, client
+    return manager, client
+
+def get_jupyter(language):
+    manager, client = kernels.get(language, make_kernel(language))
+    # we restart to have a fresh session
+    manager.restart_kernel()
+    return client
+
+def exec_jupyter(language, code):
+    client = get_jupyter(language)
+    msg_id = client.execute(code)
+    outputs = []
+    while client.is_alive():
+        try:
+            msg=client.get_iopub_msg(timeout=1)
+            if not 'content' in msg:
+                continue
+
+            if msg['parent_header'].get('msg_id') != msg_id:
+                continue
+
+            msg_type = msg['msg_type']
+            #print("msg_type: %s", msg_type)
+
+            content = msg['content']
+
+            if msg_type == 'status':
+                if content['execution_state'] == 'idle':
+                    break
+                else:
+                    continue
+            elif msg_type == 'execute_input':
+                continue
+            elif msg_type == 'clear_output':
+                continue
+            elif msg_type.startswith('comm'):
+                continue
+
+            #pprint(["content:", content])
+            if 'text' in content:
+                outputs.append(content['text'])
+            if 'data' in content:
+                result = content['data']
+                if 'text/plain' in result:
+                    outputs.append(result['text/plain'])
+                else:
+                    outputs.append(result)
+        except Empty:
+            pass
+    return '\n'.join(outputs)
+
+def test_examples(input_dir, runner = 'jupyter'):
+    assert runner in ['jupyter', 'cmdline']
+    language = None
+    setup = ''
+
+    def test_cmdline(code, test=None):
+        exe = execs[language]
         config = {'stdout':PIPE, 'shell':True, 'universal_newlines':True}
         if 'CODE' in exe:
             res = check_output(exe.replace('CODE', code), **config)
@@ -201,6 +269,18 @@ def test_examples(input_dir):
         print(res.stdout)
         # TODO if test is a string, compare stdout, otherwise just check for errors
 
+    def test_jupyter(code, test=None):
+        output = exec_jupyter(language, code)
+        pprint(output)
+
+    def test(code, test=None, **doc):
+        if test is False:
+            return
+        if runner == 'cmdline':
+            test_cmdline(code, test)
+        elif runner == 'jupyter':
+            test_jupyter(code, test)
+
     for input_fn, data in input_files_iter(input_dir):
         print(' {} '.format(input_fn).center(100, '-'))
         for doc in data:
@@ -208,9 +288,9 @@ def test_examples(input_dir):
                 continue
             if 'title' in doc:
                 print('   {}'.format(doc['title']))
-                test(doc['code'], doc.get('test', None))
+                test(**doc)
             elif 'language' in doc:
-                exe = execs[doc['language']]
+                language = doc['language']
             elif 'category' in doc:
                 # TODO setup and variable code missing
                 cat = doc['category']
