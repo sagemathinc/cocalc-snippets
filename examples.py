@@ -309,7 +309,8 @@ def test_examples(input_dir, runner = 'jupyter'):
             if doc is None:
                 continue
             if 'title' in doc:
-                print('   {:<25s} → '.format(doc['title']), end='')
+                title = ' '.join(doc['title'].splitlines()).strip()
+                print('   {:<30s} → '.format(title), end='')
                 test(**doc)
             elif 'language' in doc:
                 language = doc['language']

@@ -11,7 +11,7 @@ language: python
 ---
 category: ['SciPy / Special Func', 'Airy functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   airy: Airy functions and their derivatives
@@ -35,7 +35,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Elliptic Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   ellipj: Jacobian elliptic functions
@@ -69,11 +69,11 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 category: ['SciPy / Special Func', 'Bessel / Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   jv: Bessel function of the first kind of real order $v$, $J_v(z)$
@@ -152,7 +152,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Bessel / Zeros of Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   jnjnp_zeros: Compute nt (<=1200) zeros of the Bessel functions $J_n$ and $J_n'$ and arange them in order of their magnitudes
@@ -201,7 +201,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Bessel / Faster versions of common Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   j0: Bessel function the first kind of order 0, $J_0(x)$
@@ -265,7 +265,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Bessel / Integrals of Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   itj0y0: Integrals of Bessel functions of order 0: $\int_0^x J_0(t)\, dt$, $\int_0^x Y_0(t)\, dt$
@@ -294,7 +294,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Bessel / Derivatives of Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   jvp: Return the $n$th derivative of $J_v(z)$ with respect to $z$
@@ -328,7 +328,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Bessel / Spherical Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   sph_jn: Compute the spherical Bessel function $j_n(z)$ and its derivative for all orders up to and including $n$
@@ -362,7 +362,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Bessel / Riccati-Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   riccati_jn: Compute the Ricatti-Bessel function of the first kind and its derivative for all orders up to and including n
@@ -376,7 +376,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Struve Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   struve: Struve function
@@ -405,7 +405,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Statistics']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   bdtr: Binomial distribution cumulative distribution function
@@ -644,7 +644,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Information Theory Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   entr: Elementwise function for computing entropy.
@@ -673,7 +673,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Gamma and Related Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   gamma: Gamma function
@@ -757,7 +757,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Error Function and Fresnel Integrals']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   erf: Returns the error function of complex argument
@@ -836,7 +836,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Legendre Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   lpmv: Associated legendre function of integer order
@@ -876,7 +876,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Ellipsoidal Harmonics']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   ellip_harm: Ellipsoidal harmonic functions $E^p_n(l)$
@@ -895,7 +895,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Orthogonal polynomials']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   assoc_laguerre: Returns the $n$th order generalized (associated) Laguerre polynomial.
@@ -1054,7 +1054,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Hypergeometric Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   hyp2f1: Gauss hypergeometric function ${}_2F_1(a, b; c; z)$
@@ -1093,7 +1093,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Parabolic Cylinder Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   pbdv: Parabolic cylinder function $D$
@@ -1127,7 +1127,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Mathieu and Related Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   mathieu_a: Characteristic value of even Mathieu functions
@@ -1181,7 +1181,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Spheroidal Wave Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   pro_ang1: Prolate spheroidal angular function of the first kind and its derivative
@@ -1265,7 +1265,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Kelvin Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   kelvin: Kelvin functions as complex numbers
@@ -1359,7 +1359,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Combinatorics']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   comb: The number of combinations of N things taken k at a time
@@ -1373,7 +1373,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Other Special Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   agm: Arithmetic, Geometric Mean
@@ -1462,7 +1462,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Convenience Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"x":1.5,"alpha":0.5,"beta":0.5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5}
 ---
 title: |
   cbrt: $\sqrt[3]{x}$

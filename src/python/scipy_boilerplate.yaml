@@ -10,7 +10,7 @@
 language: python
 ---
 category: ['SciPy', 'Fast Fourier Transform routines']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Setup
@@ -18,7 +18,7 @@ code: |
   from scipy import fftpack
 ---
 category: ['SciPy', 'Integration and ODE solvers']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Setup
@@ -26,7 +26,7 @@ code: |
   from scipy import integrate
 ---
 category: ['SciPy', 'Integration and ODE solvers / Integrate given function object']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   General-purpose integration
@@ -102,7 +102,7 @@ code: |
   result = integrate.romberg(gaussian, a, b, tol=1e-8, rtol=1e-8)
 ---
 category: ['SciPy', 'Integration and ODE solvers / Integrate given fixed samples']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Trapezoidal rule to compute integral from samples
@@ -133,7 +133,7 @@ code: |
   integrate.romb(y, x) # Exact value is 128
 ---
 category: ['SciPy', 'Integration and ODE solvers / Numerically integrate ODE systems']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   General integration of ordinary differential equations
@@ -177,7 +177,7 @@ code: |
       print('{0}: {1}'.format(r.t, r.y))
 ---
 category: ['SciPy', 'Interpolation']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Setup
@@ -213,16 +213,16 @@ code: |
   ynew = s(xnew)
 ---
 category: ['SciPy', 'Interpolation / Multivariate interpolation']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 category: ['SciPy', 'Interpolation / 2-D Splines']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 category: ['SciPy', 'Interpolation / Radial basis functions']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 category: ['SciPy', 'Linear algebra']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Setup
@@ -230,7 +230,7 @@ code: |
   from scipy import linalg
 ---
 category: ['SciPy', 'Optimization']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Setup
@@ -238,7 +238,7 @@ code: |
   from scipy import optimize
 ---
 category: ['SciPy', 'Optimization / Scalar function minimization']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Unconstrained minimization
@@ -255,7 +255,7 @@ code: |
   print(res.x)
 ---
 category: ['SciPy', 'Optimization / General-purpose optimization']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Nelder-Mead Simplex algorithm
@@ -358,7 +358,7 @@ code: |
   print(res.x)
 ---
 category: ['SciPy', 'Optimization / Constrained multivariate minimization']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Unconstrained Sequential Least SQuares Programming (SLSQP)
@@ -398,7 +398,7 @@ code: |
   print(res.x)
 ---
 category: ['SciPy', 'Optimization / Fitting (see also numpy.polynomial)']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Basic function fitting
@@ -411,7 +411,7 @@ code: |
   estimated_std_dev = np.sqrt(np.diag(estimated_covariance))
 ---
 category: ['SciPy', 'Statistical distributions and functions']
-setup: "import numpy as np\nimport scipy"
+setup: "import numpy as np\nimport scipy\nfrom scipy import integrate"
 ---
 title: |
   Setup
