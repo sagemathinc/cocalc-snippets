@@ -6,6 +6,15 @@ language: sage
 category: Extras / Files
 setup: 'import csv'
 ---
+title: Saving/Loading Sage Objects
+descr: |
+    Save objects in Sage to the filesystem.
+code: |
+    E = EllipticCurve([0,1])
+    save(E,"/tmp/file") # A copy of "E" is now saved at /tmp/file.sobj
+    E = load("/tmp/file")
+    print E
+---
 title: "Read CSV data"
 descr: |
   We use [Python's `csv` module](https://docs.python.org/2/library/csv.html) to read in a CSV file.

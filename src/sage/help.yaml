@@ -34,6 +34,7 @@ descr: |
     * [Constructions](http://doc.sagemath.org/html/en/constructions/index.html)
     * [Mathematical Syntax Errors](https://github.com/sagemathinc/cocalc/wiki/MathematicalSyntaxErrors)
 code: ""
+test: false
 ---
 title: CoCalc Specific Help
 descr: |
@@ -41,6 +42,7 @@ descr: |
   * [Sage Worksheets](https://github.com/sagemathinc/cocalc/wiki/sagews)
   * [CoCalc Discussion Group](https://groups.google.com/group/cocalc)
 code: ''
+test: false
 ---
 title: Community Help
 descr: |
@@ -50,6 +52,7 @@ descr: |
     * [SageMath Support Group](https://groups.google.com/group/sage-support)
     * [Ask SageMath](http://ask.sagemath.org/)
 code: ""
+test: false
 ---
 title: Tab-Completion
 descr: |

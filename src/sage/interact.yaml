@@ -14,6 +14,10 @@ descr: |
     Ref.: [@interact](http://doc.sagemath.org/html/en/reference/notebook/sagenb/notebook/interact.html#sagenb.notebook.interact.interact) --
     but be aware, that this is **not** the same implementation as in Sage Worksheets.
     The API is only similar, so expect some differences or missing details!
+
+    See also:
+        * http://doc.sagemath.org/html/en/prep/Quickstarts/Interact.html
+        * https://wiki.sagemath.org/interact/
 code: |
     @interact
     def func(k = slider(0, 10, .1)):

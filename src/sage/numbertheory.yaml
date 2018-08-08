@@ -19,42 +19,42 @@ title: |
 code: |
   R = IntegerModRing(97)
   a = R(2) / R(3)
-  print(a)
-  print(a.rational_reconstruction())
+  print a
+  print a.rational_reconstruction()
   b = R(47)
-  print(b^20052005)
-  print(b.modulus())
-  print("is b square? {}".format(b.is_square()))
+  print b^20052005
+  print b.modulus()
+  print "is b square? {}".format(b.is_square())
 ---
 title: Standard number theoretic functions
 code: |
-  print(gcd(2011946, 1450942))
-  print(factor(2018))
+  print gcd(2011946, 1450942)
+  print factor(2018)
   c = factorial(25)
-  print(c)
-  print([valuation(c,p) for p in prime_range(2,23)])
-  print(next_prime(2005))
-  print(previous_prime(2005))
-  print('%s %s %s' % (divisors(28), sum(divisors(28)), 2*28))
+  print c
+  print [valuation(c,p) for p in prime_range(2,23)]
+  print next_prime(2005)
+  print previous_prime(2005)
+  print '%s %s %s' % (divisors(28), sum(divisors(28)), 2*28)
 ---
 title: |
   `sigma(n,k)` adds up the k-th powers of the divisors of n
 code: |
-  print(sigma(28,0))
-  print(sigma(28,1))
-  print(sigma(28,2))
+  print sigma(28,0)
+  print sigma(28,1)
+  print sigma(28,2)
 ---
 title: Extended Euclidean algorithm
 code: |
   d,u,v = xgcd(12,15)
-  print("d: {d}, u: {u}, v: {v}".format(**locals()))
-  print(d == u*12 + v*15)
+  print "d: {d}, u: {u}, v: {v}".format(**locals())
+  print d == u*12 + v*15
 ---
 title: Inverse of an element mod m
 descr: This iterates from $1$ to $9$ and for each of them computes the `inverse_mod(m, 997)`.
 code: |
   for m in srange(1, 10):
-    print("m {}: {:>6d}".format(m, inverse_mod(m, 997)))
+    print "m {}: {:>6d}".format(m, inverse_mod(m, 997))
 ---
 title: "Prime divisors of an Integer"
 code: "prime_divisors(20172018)"
@@ -73,21 +73,21 @@ code: |
 title: Chinese remainder theorem
 code: |
   x = crt(2, 1, 3, 5); x
-  print(x % 3)    # x mod 3 = 2
-  print(x % 5)    # x mod 5 = 1
-  print([binomial(13,m) for m in range(14)])
-  print([binomial(13,m)%2 for m in range(14)])
-  print([kronecker(m,13) for m in range(1,13)])
+  print x % 3 # x mod 3 = 2
+  print x % 5 # x mod 5 = 1
+  print [binomial(13,m) for m in range(14)]
+  print [binomial(13,m)%2 for m in range(14)]
+  print [kronecker(m,13) for m in range(1,13)]
   n = 10000
-  print(sum([moebius(m) for m in range(1,n)]))
-  print(Partitions(4).list())
+  print sum([moebius(m) for m in range(1,n)])
+  print Partitions(4).list()
 ---
 title: "Hint: Strings to Integers"
-descr: "You can define an integer in base 36. That way you can use the alphabet for encoding a message."
+descr: "You can define an integer in [base 36](https://en.wikipedia.org/wiki/Base36). That way you can use the alphabet for encoding a message."
 code: |
   x = Integer('secret', base=36)
-  print(x)                # gives 1717162949
-  print(x.str(base=36))   # gives 'secret'
+  print x                # gives 1717162949
+  print x.str(base=36)   # gives 'secret'
 ---
 category: ['Mathematics', '$p$-adic Numbers']
 sortweight: 10
@@ -103,19 +103,26 @@ title: "11-adic field"
 descr: "11-adic field with capped relative precision 20"
 code: |
    K = Qp(11)
-   print(K)
+   print K
    a = K(211/17)
-   print(a)
+   print a
    b = K(3211/11^2)
-   print(b)
-   print(a *  b)
+   print b
+   print a *  b
 ---
 title: "Integral Basis"
 code: |
   R.<x> = PolynomialRing(QQ)
   K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
-  print(K)
-  print(K.integral_basis())
+  print K
+  print K.integral_basis()
+---
+title: "Ring of Integers"
+code: |
+  R.<x> = PolynomialRing(QQ)
+  K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
+  print K
+  print K.ring_of_integers()
 ---
 title: "Galois Group"
 code: |
@@ -146,4 +153,3 @@ code: |
   R.<x> = PolynomialRing(QQ)
   K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
   K.class_group()
-

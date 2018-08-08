@@ -93,8 +93,8 @@ code: |
             self.nominator = nom
             self.denominator = denom
     f1 = Fraction(1, 2)
-    f1.nominator
-    f1.denominator
+    print f1.nominator
+    print f1.denominator
 ---
 title: Functions
 descr: |
@@ -105,17 +105,24 @@ descr: |
     Symbolic-functions are defined via `f(x) = ...`.
     They are special purpose in the context of symbolic computations.
 
-    Hint: always make sure to define `x` prior to constructing such a function or symbolic expression,
-    as a symbolic variable and not accidentally as a number!
+    *Warning*: when defining a symbolic function like `f(x) = x^2`, the variable `x`
+    will not be a symbolic variable. So the code
+    ```
+    x = 7
+    print x
+    f(x) = x^2
+    print x
+    ```
+    will print `7` and then `x`. 
 code: |
-    def f1(x):
+    def f(x):
         return 2*x
-    f1(11)
+    print f(11)
 
     # this defines x to be a symbolic variable
     var('x')
-    f2(x) = 2 * x + 1
-    f2(21)
+    g(x) = 2 * x + 1
+    print g(21)
 ---
 title: Symbolic Expressions
 descr: |
@@ -130,9 +137,9 @@ code: |
     var('x y')
     type(y)
     ex1 = (x + y)^2 == 1
-    ex1
+    print ex1
     ex2 = x - y == 1
-    ex2
+    print ex2
 ---
 title: Approximate Symbolic Expressions
 descr: >

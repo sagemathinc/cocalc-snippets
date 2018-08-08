@@ -8,8 +8,8 @@ category: Mathematics / Rings
 title: Introduction
 descr: |
   Read more about this topic here: http://doc.sagemath.org/html/en/reference/rings/index.html
-code: |
-  # http://doc.sagemath.org/html/en/reference/rings/index.html
+code: ""
+test: false
 ---
 title: |
   Integers $\ZZ$
@@ -20,6 +20,11 @@ title: |
   Real numbers $\RR$
 descr: Ring of real numbers
 code: RR
+---
+title: |
+  Real numbers $\RR$ with 64 bits of precision;
+code: |
+  RealField(prec=64)
 ---
 title: |
   Rational numbers $\QQ$
@@ -35,7 +40,7 @@ title: |
   Univariate Polynomial Ring in x over Real Double Field
 code: |
   R.<x> = RDF[]
-  2.2*x^2+1
+  2.2*x^2 + 1
 ---
 title: |
   Multivariate Polynomial Ring in x, y over $GF(13)$.
@@ -45,8 +50,8 @@ decr: |
   Note, how $5 * x + 10 * x + y$ evaluates to $2*x + y$.
 code: |
   GF_13.<x,y> = GF(13)[]
-  GF_13
-  5 * x + 10 * x + y
+  print GF_13
+  print 5 * x + 10 * x + y
 ---
 title: |
   Polynomial Ring $\QQ[x,\,y,\,z]$
