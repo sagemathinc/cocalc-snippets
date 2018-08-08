@@ -1,3 +1,11 @@
 examples.json
 tmp/
 example-data.csv
+figure_file_name.eps
+figure_file_name.pdf
+figure_file_name.png
+figure_file_name.ps
+figure_file_name.svg
+my-python-file.txt
+utf8-encoding.txt
+utf8-encoding2.txt

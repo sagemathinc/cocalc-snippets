@@ -211,14 +211,15 @@ def make_kernel(language):
     atexit.register(lambda : manager.shutdown_kernel(now=True))
     return manager, client
 
-def get_jupyter(language):
+def get_jupyter(language, restart=True):
     manager, client = make_kernel(language)
     # restart to have a fresh session
-    manager.restart_kernel()
+    if restart:
+        manager.restart_kernel()
     return client
 
-def exec_jupyter(language, code):
-    client = get_jupyter(language)
+def exec_jupyter(language, code, restart=False):
+    client = get_jupyter(language, restart=restart)
     msg_id = client.execute(code)
     outputs = []
     errors = []
@@ -267,10 +268,12 @@ def exec_jupyter(language, code):
 
     return '\n'.join(outputs), errors
 
-def test_examples(input_dir, runner = 'jupyter'):
+def test_examples(input_dir, runner = 'jupyter', restart=False):
     assert runner in ['jupyter', 'cmdline']
     language = None
     setup = ''
+    failcnt = 0
+    total = 0
 
     def test_cmdline(code, test=None):
         exe = execs[language]
@@ -284,11 +287,13 @@ def test_examples(input_dir, runner = 'jupyter'):
 
     def test_jupyter(code, test=None):
         t0 = time()
-        output, errors = exec_jupyter(language, code)
+        output, errors = exec_jupyter(language, code, restart=restart)
         print('({:4.1f}s) '.format(time() - t0), end='')
         if errors:
             err = ' | '.join(' '.join(e) for e in errors)
             print("PROBLEM: {}".format(err))
+            nonlocal failcnt
+            failcnt += 1
         else:
             #print(output)
             print("OK")
@@ -297,6 +302,8 @@ def test_examples(input_dir, runner = 'jupyter'):
         if test is False:
             print("SKIP")
             return
+        nonlocal total
+        total += 1
         code = "\n".join([setup, code])
         if runner == 'cmdline':
             test_cmdline(code, test)
@@ -330,12 +337,15 @@ def test_examples(input_dir, runner = 'jupyter'):
                 pprint(doc)
                 sys.exit(1)
 
+    print("\nSUMMARY: {} run in total and {} failures ({:.1f}%)".format(total, failcnt, 100 * failcnt/total))
+
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: %s <input-directory of *.yaml files> <ouput-file (usually 'examples.json')>" % sys.argv[0])
         sys.exit(1)
     if sys.argv[1] == 'test':
-        test_examples(sys.argv[2])
+        # restart: if set, the kernel is stopped and started for each test
+        test_examples(sys.argv[2], restart=False)
     else:
         examples_data(sys.argv[1], sys.argv[2])
 
