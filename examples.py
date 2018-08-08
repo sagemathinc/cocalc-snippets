@@ -358,7 +358,9 @@ if __name__ == "__main__":
         sys.exit(1)
     if sys.argv[1] == 'test':
         # restart: if set, the kernel is stopped and started for each test
-        test_examples(sys.argv[2], restart=False)
+        # use like: $ make MODE=fast LANG=sage test
+        fast_mode = os.environ.get('MODE', None) == 'fast'
+        test_examples(sys.argv[2], restart=not fast_mode)
     else:
         examples_data(sys.argv[1], sys.argv[2])
 

@@ -4,6 +4,7 @@ SCRIPT = examples.py
 INDIR  ?= src
 OUTDIR ?= .
 LANG   = ''
+MODE   ?= 'normal'   # could be 'fast'
 
 INPUT  := $(shell find . ${INDIR}/ -type f -name '*.yaml')
 OUTPUT := ${OUTDIR}/examples.json
