@@ -107,13 +107,15 @@ descr: |
 
     *Warning*: when defining a symbolic function like `f(x) = x^2`, the variable `x`
     will not be a symbolic variable. So the code
+
     ```
     x = 7
     print x
     f(x) = x^2
     print x
     ```
-    will print `7` and then `x`. 
+
+    will print `7` and then `x`.
 code: |
     def f(x):
         return 2*x

@@ -24,6 +24,7 @@ code: |
         print("k: %s" % k)
         s = (1 - sqrt(k))^2
         print("s: %s" % s)
+test: false
 ---
 title: Symbolic Function
 descr: |
@@ -38,6 +39,7 @@ code: |
     @interact
     def f_interact(x=(0, 100)):
         print 'f({}) = {}'.format(x, f(x))
+test: false
 ---
 title: Multiple Sliders
 descr: |
@@ -50,3 +52,4 @@ code: |
         print("k: %s" % k)
         print("j: %s" % j)
         print("l: [%s, %s]" % l)
+test: false

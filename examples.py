@@ -191,6 +191,17 @@ execs = {
     'julia': shutil.which('julia'),
 }
 
+def reset_code(lang):
+    '''
+    some code to reset local identifyers, in order to speed up execution (to avoid restarts)
+    while avoid side effects of previous examples (mostly, I guess)
+    '''
+    reset = {
+        'sage': 'reset()',
+        'python': '%reset -f'
+    }
+    return reset.get(lang.lower(), '')
+
 def language_to_kernel(lang):
     data = {
         "sage": "sagemath",
@@ -223,6 +234,9 @@ def get_jupyter(language, restart=True):
 
 def exec_jupyter(language, code, restart=False):
     client = get_jupyter(language, restart=restart)
+    if not restart:
+        # if we don't restart, prepend a reset instruction
+        code = '\n'.join([reset_code(language), code])
     msg_id = client.execute(code)
     outputs = []
     errors = []
