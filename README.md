@@ -61,6 +61,11 @@ code: |
 test: false
 ```
 
+## Development
+
+The target `make testtest` runs the `test/` subdirectory.
+It's purpose is to confirm that breaking tests show up properly and the examples are read correctly.
+
 ## Submodule
 
 When used as a **submodule**, one suitable magic git commands to update all submodules is

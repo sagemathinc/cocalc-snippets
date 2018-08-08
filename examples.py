@@ -297,6 +297,7 @@ def test_examples(input_dir, runner = 'jupyter'):
         if test is False:
             print("SKIP")
             return
+        code = "\n".join([setup, code])
         if runner == 'cmdline':
             test_cmdline(code, test)
         elif runner == 'jupyter':
@@ -317,6 +318,11 @@ def test_examples(input_dir, runner = 'jupyter'):
                 cat = doc['category']
                 if isinstance(cat, (list, tuple)):
                     cat = ' / '.join(cat)
+                setup = doc.get('setup', '')
+                # just set all known variables ...
+                # the UI is smarter and tries to only insert the actually necessary ones
+                for k, v in doc.get('variables', {}).items():
+                    setup += '\n{} = {}'.format(k, v)
                 print('+ {}'.format(cat))
             else:
                 print("UNKNOWN DOCUMENT")
