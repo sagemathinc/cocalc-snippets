@@ -31,6 +31,8 @@ from pprint import pprint
 from queue import Empty # py3 specific
 from time import time
 
+WIDTH = 130
+
 """ # TODO enable hashtags later
 hashtag_re = re.compile(r'#([a-zA-Z].+?\b)')
 def process_hashtags(match):
@@ -272,8 +274,9 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
     assert runner in ['jupyter', 'cmdline']
     language = None
     setup = ''
-    failcnt = 0
+    failures = []
     total = 0
+    cat = None # current category
 
     def test_cmdline(code, test=None):
         exe = execs[language]
@@ -292,13 +295,13 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
         if errors:
             err = ' | '.join(' '.join(e) for e in errors)
             print("PROBLEM: {}".format(err))
-            nonlocal failcnt
-            failcnt += 1
+            return err
         else:
             #print(output)
             print("OK")
+            return None
 
-    def test(code, test=None, **doc):
+    def test(title, code, test=None, **doc):
         if test is False:
             print("SKIP")
             return
@@ -306,12 +309,15 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
         total += 1
         code = "\n".join([setup, code])
         if runner == 'cmdline':
-            test_cmdline(code, test)
+            err = test_cmdline(code, test)
         elif runner == 'jupyter':
-            test_jupyter(code, test)
+            err = test_jupyter(code, test)
+        if err:
+            nonlocal failures
+            failures.append('{} → {} → {}'.format(cat, title, err))
 
     for input_fn, data in input_files_iter(input_dir):
-        print(' {} '.format(input_fn).center(130, '-'))
+        print(' {} '.format(input_fn).center(WIDTH, '-'))
         for doc in data:
             if doc is None:
                 continue
@@ -337,7 +343,12 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
                 pprint(doc)
                 sys.exit(1)
 
-    print("\nSUMMARY: {} run in total and {} failures ({:.1f}%)".format(total, failcnt, 100 * failcnt/total))
+    print()
+    failcnt = len(failures)
+    summary = "SUMMARY: {} run in total and {} failures ({:.1f}%)".format(total, failcnt, 100 * failcnt/total)
+    print(summary.center(WIDTH, '-'))
+    for failure in failures:
+        print(failure)
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
