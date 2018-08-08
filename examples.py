@@ -198,7 +198,8 @@ def reset_code(lang):
     '''
     reset = {
         'sage': 'reset()',
-        'python': '%reset -f'
+        'python': '%reset -f',
+        'r': 'rm(list=ls())'
     }
     return reset.get(lang.lower(), '')
 
@@ -280,6 +281,9 @@ def exec_jupyter(language, code, restart=False):
                     elif 'image/svg+xml' in result:
                         svg = '\n'.join(result['image/svg+xml'])
                         outputs.append("SVG PLOT ({} characters)".format(len(svg)))
+                    elif 'image/png' in result:
+                        svg = '\n'.join(result['image/png'])
+                        outputs.append("PNG PLOT ({} characters)".format(len(svg)))
                     else:
                         pprint(result)
                         raise RuntimeError("Result above; undealt content data: {}".format(list(result.keys())))

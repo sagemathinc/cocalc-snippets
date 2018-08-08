@@ -6,37 +6,31 @@ language: r
 ---
 category: ["Visualization", "Introduction"]
 ---
-title: Plotting in R
+title: "Plotting in R"
 descr: |
   R offers a range of very powerful functions and extension packages for visualizing data.
 
-  Here, we start with one of the simplest plots available: a relationship between two vectors $x$ and $y$ of equal length.
+  Here, we start with one of the simplest plots available: a relationship between two vectors $ and $ of equal length.
 code: |
   # x is a vector from 0 to 10 with 100 elements
   x <- seq(from=0, to=10, length.out=100)
   y <- x * sin(x)
   plot(x, y)
 ---
-title: Stem Plot
+title: "Stem Plot"
 descr: |
   A condensed overview of all numbers in a given list as text.
 code: |
   stem(rnorm(1000, mean = 5, sd = 10))
 ---
-title: Adjust default size of plots
-descr: |
-  This **only** works for Sage Worksheets in CoCalc (because of the `%sage`)!
-code: |
-  %sage r.set_plot_options(height=4, width=10)"
----
-title: Histogram Density
+title: "Histogram Density"
 code: |
   attach(faithful)
   hist(eruptions, seq(1.6, 5.2, 0.2), prob=TRUE)
   lines(density(eruptions, bw=0.1))
   rug(eruptions)
 ---
-title: QQPlot
+title: "QQPlot"
 code: |
   attach(faithful)
   long <- eruptions[eruptions > 3]
@@ -44,15 +38,48 @@ code: |
   qqnorm(long)
   qqline(long)
 ---
-title: Boxplot
+title: "Boxplot"
 code: |
   a <- rnorm(10)
   b <- rnorm(10, mean=2)
   boxplot(a, b)
 ---
-title: Contour Plot
+title: "Contour Plot"
 code: |
   x <- seq(-pi, pi, len=50)
   y <- x
   f <- outer(x, y, function(x, y) cos(y)/(1 + x^2))
   contour(x, y, f, nlevels=15)
+---
+category: ["Visualization", "Configuration"]
+---
+title: "SageWS: Adjust default size of plots"
+descr: |
+  This **only** works for Sage Worksheets in CoCalc (because of the )!
+code: |
+  %sage r.set_plot_options(height=4, width=10)"
+test: false
+---
+title: "Jupyter: Adjust default size of plots"
+descr: |
+  This **only** works Jupyter Notebooks.
+code: |
+  options(repr.plot.width=8, repr.plot.height=3)
+  curve(sin(x), from = 0, to=4*pi, n = 200)
+---
+title: "Jupyter: plot to PNG"
+descr: |
+  This is a raster image format, which produces a small,
+  but still lossless compressed rendering of the grpahics object.
+code: |
+  options(jupyter.plot_mimetypes = c('image/png'))
+  plot(rnorm(20))
+---
+title: "Jupyter: plot to SVG"
+descr: |
+  SVG is a vectorized image format, which is an exact represenation of all graphics objects.
+  This gives higher quality plots, which can be scaled up without blurring.
+  The filesize is proportional to the number of drawn graphics objects, not the "size" in terms of image dimensions.
+code: |
+  options(jupyter.plot_mimetypes = c('image/svg+xml'))
+  plot(rnorm(20))
