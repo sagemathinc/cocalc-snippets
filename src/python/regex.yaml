@@ -24,7 +24,7 @@ descr: |
   Ref:
   * [Python 3 Regular Expression HOWTO](https://docs.python.org/3/howto/regex.html)
   * [Regex101 online tool](https://regex101.com/r/0Trcar/1)
-code:
+code: |
   text = "foo bar"
   pattern = re.compile(r'\w+')
   match = pattern.match(text)
@@ -42,7 +42,7 @@ code: |
   match = pattern.search(text)
   match.group(0)  # returns foo
 ---
-title: "Groups"
+title: "Search all occurrences"
 descr: |
   It is also possible to search a string for all instances of a specific pattern.
   For example, that's quite useful if you want to look for something of a specific pattern when processing a larger text document.
@@ -63,7 +63,7 @@ code: |
   match = pattern.findall(text)
   match  # shows the two email look-alikes
 ---
-title: Groups
+title: "Groups"
 descr: |
   You can structure the matches the regex engine finds via groups.
   These are round brackets around regex sub-expressions.
