@@ -242,10 +242,12 @@ read_sympy = ->
     output         = []
     cat_prefix     = '''
                      from sympy import *
-                     from sympy.abc import a, s, t, u, v, w, x, y, z
+                     from sympy.abc import a, b, s, t, u, v, w, x, y, z
                      k, m, n = symbols("k, m, n", integer=True)
                      f, g, h = symbols("f, g, h", cls=Function)
                      '''
+    variables =
+        d: 3
 
     cat_process = (x) ->
         if x == 'Sympy'
@@ -254,7 +256,7 @@ read_sympy = ->
 
     for entry in sympy['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'Sympy', null, cat_prefix, cat_process))
+            output = output.concat(read_submenu(entry, 'Sympy', null, cat_prefix, cat_process, undefined, variables))
 
     content = header()
     content += output.join('\n')
@@ -274,7 +276,7 @@ read_scipy = ->
     cat_prefix     = '''
                      import numpy as np
                      import scipy
-                     from scipy import integrate, optimize
+                     from scipy import integrate, optimize, interpolate
                      '''
     cat_process = (x) ->
         if x == 'SciPy'
