@@ -157,21 +157,23 @@ read_constants = ->
     fs.writeFileSync('src/python/constants.yaml', content, 'utf8')
 
 
-# This is specific to the constants file, prints out yaml to stdout
-read_python_regex = ->
-    pyregex_js   = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/python_regex.js', 'utf8')
-    pyregex      = eval(pyregex_js)
-    output       = []
-    cat_prefix   = 'import re'
-
-    for entry in pyregex['sub-menu']
-        if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'Regular Expressions', null, cat_prefix))
-
-    content = header()
-    content += output.join('\n')
-
-    fs.writeFileSync('src/python/python_regex.yaml', content, 'utf8')
+# Importing regex is disabled. The examples aren't really helpful.
+# There is still the "python/python_regex.yaml" file with some examples, though...
+## This is specific to the constants file, prints out yaml to stdout
+#read_python_regex = ->
+#    pyregex_js   = fs.readFileSync('tmp/jupyter_boilerplate/snippets_submenus_python/python_regex.js', 'utf8')
+#    pyregex      = eval(pyregex_js)
+#    output       = []
+#    cat_prefix   = 'import re'
+#
+#    for entry in pyregex['sub-menu']
+#        if entry['sub-menu']?
+#            output = output.concat(read_submenu(entry, 'Regular Expressions', null, cat_prefix))
+#
+#    content = header()
+#    content += output.join('\n')
+#
+#    fs.writeFileSync('src/python/python_regex.yaml', content, 'utf8')
 
 
 read_numpy = ->

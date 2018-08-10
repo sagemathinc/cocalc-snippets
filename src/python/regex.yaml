@@ -1,0 +1,219 @@
+# CoCalc Examples Documentation File
+# Copyright: CoCalc Authors, 2018
+# This is derived content from the BSD licensed https://github.com/moble/jupyter_boilerplate/
+
+---
+language: python
+---
+category: ['Regular Expressions', 'Introduction']
+setup: "import re"
+sortweight: -1
+---
+title: "What's a regular expression?"
+descr: |
+  Defined in a simple way, a "regex" is a string of characters, which defines a set of strings.
+
+  For example, `\w+` stands for all strings, which consist of a *w*ord character (letters and numbers),
+  and appear one or more times. e.g. `"foo"`, `"abcdef"` but not `"foo bar"` or `""`.
+  There is no limitation in length, and hence in that case, the set is infinite!
+
+  When a string is matched, the regex engine starts to see how far it can get
+  and stops when the rules of the regex pattern are no longer fulfilled.
+  In the example here, it stops at the first space character, because that's not a word character.
+
+  Ref:
+  * [Python 3 Regular Expression HOWTO](https://docs.python.org/3/howto/regex.html)
+  * [Regex101 online tool](https://regex101.com/r/0Trcar/1)
+code:
+  text = "foo bar"
+  pattern = re.compile(r'\w+')
+  match = pattern.match(text)
+  match.group(0)  # gives only "foo"
+---
+title: "Searching a string"
+descr: |
+  Despite just "matching" a string, a regex can also be used to search through the whole string.
+
+  In the example here, we look for upper and lower text-characters,
+  while we ignore the leading number `123` and the space character.
+code: |
+  text = "123 foo bar"
+  pattern = re.compile(r'[a-zA-Z]+')
+  match = pattern.search(text)
+  match.group(0)  # returns foo
+---
+title: "Groups"
+descr: |
+  It is also possible to search a string for all instances of a specific pattern.
+  For example, that's quite useful if you want to look for something of a specific pattern when processing a larger text document.
+
+  In the example here, there are two strings which could be email addresses.
+  The regular expression is quite lengthy, but let's break it down:
+
+  1. look for upper and lowercase characters and a dot `"."`,
+  2. Somewhere in the middle must be a single `"@"` character.
+  3. Then again, characters and a dot.
+
+  As you can see, all email look-alikes are found!
+
+  How does one have to expand the regex to also match email addresses with numbers in them?
+code: |
+  text = "123 foo bar test@xyz baz abc@foo.bar 345"
+  pattern = re.compile(r'[a-zA-Z.]+@[a-zA-Z.]+')
+  match = pattern.findall(text)
+  match  # shows the two email look-alikes
+---
+title: Groups
+descr: |
+  You can structure the matches the regex engine finds via groups.
+  These are round brackets around regex sub-expressions.
+  The idea is to be able to extract parts of a larger match.
+
+  In the made-up example here we look for pairs of characters and numbers.
+  What the regex pattern encodes is exactly that, while it ignores other occurrences of characters or numbers.
+
+  Also note, that in the resulting list there is no space sign! Only the explicit groups are returned.
+code: |
+  text = "test 1231 bar 9  foo test july 99 sept 81 100"
+  pattern = re.compile(r'([a-zA-Z]+)\s+(\d+)')
+  match = pattern.findall(text)
+  match  # [('test', '1231'), ('bar', '9'), ('july', '99'), ('sept', '81')]
+---
+title: "Escaped special characters"
+descr: |
+  As we have seen above,
+  there are a couple of characters, which have a special meaning inside of a regular expression.
+  If you want to refer to these characters as they are, they must be escaped with the `"\"` backslash character.
+
+  This is the list: `.`, `^`, `$`, `*`, `+`, `?`, `{`, `}`, `[`, `]`, `\`, `|`, `(`, and `)`.
+
+  Note, that the backslash itself needs to be escaped, too.
+  This can be suppressed in Python strings by prepending the character `r`.
+
+  The code of this example contains a substitution dictionary.
+code: |
+  special_chars = {
+    '.' : r'\.',
+    '^' : r'\^',
+    '$' : r'\$',
+    '*' : r'\*',
+    '+' : r'\+',
+    '?' : r'\?',
+    '{' : r'\{',
+    '}' : r'\}',
+    '[' : r'\[',
+    ']' : r'\]',
+    '\' : r'\\',
+    '|' : r'\|',
+    '(' : r'\(',
+    ')' : r'\)',
+  }
+---
+title: Standard character-class abbreviations
+code: ''
+descr: |
+  We have already seen `\d` and `\w` for digits or word characters.
+
+  * `\d`:  Any decimal digit
+  * `\D`:  Any non-digit character
+  * `\s`:  Any whitespace character
+  * `\S`:  Any non-whitespace character
+  * `\w`:  Any alphanumeric character
+  * `\W`:  Any non-alphanumeric character
+  * `[a-zA-Z0-9 \t\n\r\f\v]`:  Inclusive character classes
+  * `[^a-zA-Z0-9]`:  Exclusive character classes
+  * `(?:abc|def)`:  Alternatives
+---
+title: Repetition
+code: ''
+descr: |
+  We have already seen `+` after a group to signal we want to match one or more occurrences.
+
+  List of modifiers for the number of repetitions of a character or class:
+
+  * `*`: Match 0 or more repetitions of the preceding, greedily
+  * `+`: Match 1 or more repetitions of the preceding, greedily
+  * `?`: Match 0 or 1 repetitions of the preceding, greedily
+  * `*?`: Match 0 or more repetitions of the preceding, non-greedily
+  * `+?`: Match 1 or more repetitions of the preceding, non-greedily
+  * `??`: Match 0 or 1 repetitions of the preceding, non-greedily
+  * `{3}`: Match exactly n repetitions of the preceding
+  * `{3,5}`: Match between m and n repetitions of the preceding, greedily
+  * `{3,5}?`: Match between m and n repetitions of the preceding, non-greedily
+---
+category: ['Regular Expressions', 'Lookahead/behind']
+setup: "import re"
+---
+title: |
+  Positive lookahead
+code: |
+  string = "Isaac Asimov"
+  pattern = re.compile(r"Isaac(?= Asimov)")  # Only match "Isaac Asimov", but drop the " Asimov"
+  result = re.match(pattern, string)
+  if result is not None:
+      print("Substring '{0}' was found in the range {1}".format(result.group(), result.span()))
+---
+title: |
+  Negative lookahead
+code: |
+  string = "Isaac Newton"
+  pattern = re.compile(r"Isaac(?! Asimov)")  # Match any Isaac except Asimov, and only keep the "Isaac"
+  result = re.match(pattern, string)
+  if result is not None:
+      print("Substring '{0}' was found in the range {1}".format(result.group(), result.span()))
+---
+title: |
+  Positive lookbehind
+code: |
+  string = "Janet Asimov"
+  pattern = re.compile(r"(?<=Janet )Asimov")  # Only match "Janet Asimov", but drop the "Janet "
+  result = re.search(pattern, string)
+  if result is not None:
+      print("Substring '{0}' was found in the range {1}".format(result.group(), result.span()))
+---
+title: |
+  Negative lookbehind
+code: |
+  string = "Janet Asimov"
+  pattern = re.compile(r"(?<!Isaac )Asimov")  # Will match any Asimov except Isaac, and only keep "Asimov"
+  result = re.search(pattern, string)
+  if result is not None:
+      print("Substring '{0}' was found in the range {1}".format(result.group(), result.span()))
+---
+category: ['Regular Expressions', 'Compilation flags']
+setup: "import re"
+---
+title: |
+  Enable verbose REs, for cleaner and more organized code
+code: |
+  pattern = re.compile(r"(?<!Isaac )Asimov", re.VERBOSE)
+---
+title: |
+  Do case-insensitive matches
+code: |
+  pattern = re.compile(r"(?<!Isaac )Asimov", re.IGNORECASE)
+---
+title: |
+  Make "." match any character, including newlines
+code: |
+  pattern = re.compile(r"(?<!Isaac )Asimov", re.DOTALL)
+---
+title: |
+  Multi-line matching, affecting "^" and "$"
+code: |
+  pattern = re.compile(r"(?<!Isaac )Asimov", re.MULTILINE)
+---
+title: |
+  Make \w, \W, \b, \B, \s, and \S Unicode aware
+code: |
+  pattern = re.compile(r"(?<!Isaac )Asimov", re.UNICODE)
+---
+title: |
+  Make \w, \W, \b, \B, \s, and \S dependent on the current locale
+code: |
+  pattern = re.compile(r"(?<!Isaac )Asimov", re.LOCALE)
+---
+title: |
+  Display debug info about compiled regex
+code: |
+  pattern = re.compile(r"(?<!Isaac )Asimov", re.DEBUG)
