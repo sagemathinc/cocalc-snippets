@@ -373,7 +373,7 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
     print(summary.center(WIDTH, '-'))
     for failure in failures:
         print(failure)
-    # signal a problem to the callee
+    # signal a problem to the caller
     if len(failures) > 0:
         sys.exit(1)
 

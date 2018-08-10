@@ -274,7 +274,7 @@ read_scipy = ->
     cat_prefix     = '''
                      import numpy as np
                      import scipy
-                     from scipy import integrate
+                     from scipy import integrate, optimize
                      '''
     cat_process = (x) ->
         if x == 'SciPy'
@@ -298,7 +298,7 @@ main = ->
     read_constants()
     read_scipy_special()
     read_matplotlib()
-    read_python_regex()
+    #read_python_regex()
     # sympy and numpy redefined "define", hence they must come last!
     read_numpy()
     read_sympy()
