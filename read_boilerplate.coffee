@@ -31,8 +31,9 @@ by evaluating the string. it might be necessary to redefine "define" (from the o
 * cat_process: function (by default idempotent) for processing the category name (mainly used to make the words shorter)
 * sortweight: some categories should be at the top, e.g. related to introduction, etc. just use (-1 to push them at the top, default 0)
 * variables: dictionary of variable defaults, which are added like "setup". they're dynamically inserted by the UI component. for testing, just add them to the setup. Care needs to be taken to use language specific syntax (usually, "key = value", though)
+* testing: false if it shouldn't be tested
 ###
-read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process, sortweight, variables) ->
+read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process, sortweight, variables, testing) ->
     cat_process ?= (x) -> x
     if name_prefix?
         prefix = "#{name_prefix}"
@@ -73,6 +74,8 @@ read_submenu = (entry, cat0, name_prefix, cat_prefix, cat_process, sortweight, v
             #console.log(JSON.stringify(entry))
             code = ("  #{x}" for x in entry.snippet).join('\n')
             output.push("code: |\n#{code}")
+            if testing == false
+                output.push("test: false")
     return output
 
 # This is specific to scipy special functions file
@@ -200,9 +203,32 @@ read_numpy = ->
                  from numpy.polynomial import Polynomial as P
                  poly = P([1, 2, 3])
                  '''
+            when 'Pretty printing'
+                 '''
+                 import numpy as np
+                 import contextlib
+                 @contextlib.contextmanager
+                 def printoptions(*args, **kwargs):
+                     original = np.get_printoptions()
+                     np.set_printoptions(*args, **kwargs)
+                     yield
+                     np.set_printoptions(**original)
+                 '''
             else '''
                  import numpy as np
                  '''
+    variables =
+        n            : 2
+        a            : 'np.array([3, 4, -1, 9.81])'
+        b            : 'np.array([0, -1, 2, -3])'
+        a_min        : 'np.array([-1, -1, 0, 0])'
+        a_max        : 'np.array([1, 1, 5, 10])'
+        old_array    : 'np.array([3, 4, -1, 9.81])'
+        axis1        : 0
+        axis2        : 1
+        x            : 'np.array([  0, 1, 4.4,  -9])'
+        x1           : 'np.array([0.1, 1, 2.2, 3.5])'
+        x2           : 'np.array([ -4, 3, 0.2, 1.5])'
 
     cat_process = (x) ->
         if x == 'NumPy'
@@ -217,7 +243,12 @@ read_numpy = ->
         if entry['sub-menu']?
             #console.log("read_numpy: '#{entry['name']}"', entry)
             cat_prefix = make_prefix(entry['name'])
-            output = output.concat(read_submenu(entry, 'NumPy', null, cat_prefix, cat_process))
+
+            testing = undefined
+            if entry['name'] == 'File I/O'
+                testing = false
+
+            output = output.concat(read_submenu(entry, 'NumPy', null, cat_prefix, cat_process, undefined, variables, testing))
 
     content = header()
     content += output.join('\n')
