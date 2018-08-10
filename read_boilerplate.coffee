@@ -87,7 +87,7 @@ read_scipy_special = ->
                    from scipy import special, integrate, optimize, interpolate
                    from scipy.integrate import odeint
                    '''
-    variables    =
+    variables =
         n     : 2
         v     : 1.5
         x     : 1.5
@@ -105,7 +105,45 @@ read_scipy_special = ->
 
     for entry in constants['sub-menu']
         if entry['sub-menu']?
-            output = output.concat(read_submenu(entry, 'SciPy / Special Func', null, cat_prefix, cat_process, undefined, variables))
+            name = cat_process(entry['name'])
+            if name == 'Statistics'
+                vars = Object.assign({}, variables,
+                    a    : 0
+                    b    : 1
+                    k    : 1
+                    p    : .75
+                    df   : 0
+                    dfn  : 1
+                    dfd  : 0.5
+                    x    : .66
+                    std  : 3
+                    t    : 1
+                    nc   : 2
+                    f    : 0.7
+                )
+            else if name in ['Mathieu and Related Functions', 'Spheroidal Wave Functions']
+                vars = Object.assign({}, variables,
+                    m : 1
+                    q : 2
+                    x : 3
+                    c : 1.1
+                    n : 1
+                 )
+            else if name in ['Other Special Functions']
+                vars = Object.assign({}, variables,
+                    n : 4
+                    k : 2
+                    z : 1.1
+                 )
+            else if name in ['Information Theory Functions']
+                vars = Object.assign({}, variables,
+                    x : [-1, 2, 3]
+                    y : [1, 0, 1.1]
+                    delta : 0.4
+                 )
+            else
+                vars = variables
+            output = output.concat(read_submenu(entry, 'SciPy / Special Func', null, cat_prefix, cat_process, undefined, vars))
 
     content = header()
     content += output.join('\n')
