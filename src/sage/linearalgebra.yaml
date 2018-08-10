@@ -13,11 +13,11 @@ descr: |
   Look at the different parents of $v_1$ and $v_2$.
 code: |
   v1 = vector([1,2,3])
-  print(v1)
-  print(v1.parent())
+  print v1
+  print v1.parent()
   v2 = vector([-1.1, 2.2, 3])
-  print(v2)
-  print(v2.parent())
+  print v2
+  print v2.parent()
 ---
 title: Matrix
 descr: |
@@ -27,11 +27,11 @@ descr: |
   In this case here, we explicitly tell Sage that the ring is `RDF`, though.
 code: |
   m1 = matrix([[1, 2], [4, -1]])
-  print(m1)
-  print(m1.parent())
+  print m1
+  print m1.parent()
   m2 = matrix(RDF, [[1, 2], [4, -1]])
-  print(m2)
-  print(m2.parent())
+  print m2
+  print m2.parent()
 ---
 title: Accessing Elements
 descr: |
@@ -44,8 +44,8 @@ code: |
   A = matrix([[ 1, 2, 3, 4],
              [ 5, 6, 7, 8],
              [ 9,10,11,12]])
-  print(A[1, 3])  # 2nd row, 4th element: 8
-  print(A[:, 1])  # 2nd column: [2, 6, 10] transposed
+  print A[1, 3] # 2nd row, 4th element: 8
+  print A[:, 1] # 2nd column: [2, 6, 10] transposed
 ---
 title: Basic Arithmetic
 descr: |
@@ -55,9 +55,9 @@ code: |
              [ 5, 6, 7, 8],
              [ 9,10,11,12]])
   # sum of second and third column
-  print(A[:, 1] + A[:, 2])
+  print A[:, 1] + A[:, 2]
   # dot-product of first and second row (note, we have to transpose it!)
-  print(A[0, :] * A[1, :].transpose())
+  print A[0, :] * A[1, :].transpose()
 ---
 title: Elementwise Product
 descr: If you actually mean to multiply elements and not the dot-product, use the method `elementwise_product`.
@@ -76,7 +76,7 @@ code: |
               [ 5, 6, 7, 8],
               [ 9,10,11,12]])
   # Look carefully at the output of the following to understand what part of the matrix got extracted.
-  # Don't be why to play with the indices!
+  # Feel free to play with the indices to see how they work.
   A[0:2, 1:3]
 ---
 title: Inverse of a Matrix
@@ -86,9 +86,9 @@ descr: |
   Note, that the inverse depends on the ring!
 code: |
   m1 = matrix([[1, 2], [4, -1]])
-  print(m1.inverse())
+  print m1.inverse()
   m2 = matrix(RDF, [[1, 2], [4, -1]])
-  print(~m2)
+  print ~m2
 ---
 title: Kernel
 code: |
@@ -105,9 +105,9 @@ code: |
                    [1, -2, 1]])
   b = vector(RDF, [9, 5, -1])
   x = A.solve_right(b)
-  print("x:         {}".format(x))
-  print("check A*x: {}".format(A * x))
-  print("bashslash: {}".format(A \ b))
+  print "x:         {}".format(x)
+  print "check A*x: {}".format(A * x)
+  print "bashslash: {}".format(A \ b)
 ---
 title: Eigenvalues and Eigenvectors
 descr: |
@@ -140,10 +140,10 @@ code: |
   C = matrix([[3, 4, 5],
               [2, 3, 4],
               [1, 2, 3]])
-  print(C.echelon_form())
+  print C.echelon_form()
 
   C2 = C.change_ring(GF(2))
-  print(C2)
-  print(C2.echelon_form())
+  print C2
+  print C2.echelon_form()
 ---
 

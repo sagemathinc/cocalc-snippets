@@ -9,19 +9,24 @@ category: ["Git", "Basics"]
 title: Status
 descr: List the modified files in the working set.
 code: git status
+test: false
 ---
 title: Diff
 descr: Show the current changes you have done with the working set.
 code: git diff
+test: false
 ---
 title: Add
 descr: Add all changes, including new files, to the working set. Otherwise, just pick the file for which you want to add the changes.
 code: git add -A
+test: false
 ---
 title: Commit
 descr: After you have added changes, this creates a new changeset in the Git repository.
 code: git commit
+test: false
 ---
 title: Push
 descr: When you have a configured remote repository with a tracking branch, this command uploads your changes to the remote repository.
 code: git push
+test: false

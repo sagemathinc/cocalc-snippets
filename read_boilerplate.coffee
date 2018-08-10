@@ -274,6 +274,7 @@ read_scipy = ->
     cat_prefix     = '''
                      import numpy as np
                      import scipy
+                     from scipy import integrate
                      '''
     cat_process = (x) ->
         if x == 'SciPy'

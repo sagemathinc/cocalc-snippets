@@ -19,7 +19,8 @@ if (sys.version_info > (3, 0)):
 else:
     mystr = basestring
 
-from os.path import abspath, dirname, normpath, exists, join
+from os.path import abspath, dirname, normpath, exists, join, dirname
+CURDIR = dirname(abspath(__file__))
 from os import makedirs, walk
 from shutil import rmtree
 import yaml
@@ -28,6 +29,10 @@ import re
 from codecs import open
 from collections import defaultdict
 from pprint import pprint
+from queue import Empty # py3 specific
+from time import time
+
+WIDTH = 130
 
 """ # TODO enable hashtags later
 hashtag_re = re.compile(r'#([a-zA-Z].+?\b)')
@@ -175,7 +180,7 @@ def examples_data(input_dir, output_fn):
 
 from subprocess import PIPE, check_output  #, run <- isn't 3.5 compatible, needs to be 3.4 :(
 
-# for each language, prepare a stub to run the example
+# for each language, prepare a stub to run the example, this is for runner = "cmdline"-mode
 execs = {
     'sage': "{} -c 'CODE'".format(shutil.which('sage')),
     'python': shutil.which('python3'),
@@ -186,13 +191,118 @@ execs = {
     'julia': shutil.which('julia'),
 }
 
-def test_examples(input_dir):
-    exe = None
+def reset_code(lang):
+    '''
+    some code to reset local identifyers, in order to speed up execution (to avoid restarts)
+    while avoid side effects of previous examples (mostly, I guess)
+    '''
+    reset = {
+        'sage': 'reset()',
+        'python': '%reset -f',
+        'r': 'rm(list=ls())'
+    }
+    return reset.get(lang.lower(), '')
 
-    def test(code, test):
-        if test is False:
-            return
+def language_to_kernel(lang):
+    data = {
+        "sage": "sagemath",
+        "python": "python3",
+        "r": "ir",
+    }
+    return data.get(lang.lower(), lang)
 
+# actually a cache
+kernels = {}
+
+def make_kernel(language):
+    if language in kernels:
+        return kernels[language]
+    #print("starting new kernel for {language}".format(**locals()))
+    from jupyter_client.manager import start_new_kernel
+    name = language_to_kernel(language)
+    manager, client = start_new_kernel(kernel_name = name)
+    kernels[language] = manager, client
+    import atexit
+    atexit.register(lambda : manager.shutdown_kernel(now=True))
+    return manager, client
+
+def get_jupyter(language, restart=True):
+    manager, client = make_kernel(language)
+    # restart to have a fresh session
+    if restart:
+        manager.restart_kernel()
+    return client
+
+def exec_jupyter(language, code, restart=False):
+    client = get_jupyter(language, restart=restart)
+    if not restart:
+        # if we don't restart, prepend a reset instruction
+        code = '\n'.join([reset_code(language), code])
+    msg_id = client.execute(code)
+    outputs = []
+    errors = []
+    while client.is_alive():
+        try:
+            msg=client.get_iopub_msg(timeout=1)
+            if not 'content' in msg:
+                continue
+
+            if msg['parent_header'].get('msg_id') != msg_id:
+                continue
+
+            msg_type = msg['msg_type']
+            #print("msg_type: %s", msg_type)
+
+            content = msg['content']
+
+            if msg_type == 'status':
+                if content['execution_state'] == 'idle':
+                    break
+                else:
+                    continue
+            # ignoring these
+            elif msg_type == 'execute_input':
+                continue
+            elif msg_type == 'clear_output':
+                continue
+            elif msg_type.startswith('comm'):
+                continue
+
+            #pprint(["content:", content])
+            if any(k in ['ename', 'traceback', 'evalue'] for k in content.keys()):
+                errors.append((content['ename'], content['evalue']))
+            else:
+                if 'text' in content:
+                    outputs.append(content['text'])
+                if 'data' in content:
+                    result = content['data']
+                    if 'text/plain' in result:
+                        outputs.append(result['text/plain'])
+                    elif 'image/svg+xml' in result:
+                        svg = '\n'.join(result['image/svg+xml'])
+                        outputs.append("SVG PLOT ({} characters)".format(len(svg)))
+                    elif 'image/png' in result:
+                        svg = '\n'.join(result['image/png'])
+                        outputs.append("PNG PLOT ({} characters)".format(len(svg)))
+                    else:
+                        pprint(result)
+                        raise RuntimeError("Result above; undealt content data: {}".format(list(result.keys())))
+
+        except Empty:
+            pass
+
+    return '\n'.join(outputs), errors
+
+def test_examples(input_dir, runner = 'jupyter', restart=False):
+    assert runner in ['jupyter', 'cmdline']
+    language = None
+    setup = ''
+    failures = []
+    total = 0
+    cat = '' # current category
+
+    def test_cmdline(code, test=None):
+        exe = execs[language]
         config = {'stdout':PIPE, 'shell':True, 'universal_newlines':True}
         if 'CODE' in exe:
             res = check_output(exe.replace('CODE', code), **config)
@@ -201,33 +311,78 @@ def test_examples(input_dir):
         print(res.stdout)
         # TODO if test is a string, compare stdout, otherwise just check for errors
 
+    def test_jupyter(code, test=None):
+        t0 = time()
+        output, errors = exec_jupyter(language, code, restart=restart)
+        print('({:4.1f}s) '.format(time() - t0), end='')
+        if errors:
+            err = ' | '.join(' '.join(e) for e in errors)
+            print("PROBLEM: {}".format(err))
+            return err
+        else:
+            #print(output)
+            print("OK")
+            return None
+
+    def test(title, code, test=None, **doc):
+        if test is False:
+            print("SKIP")
+            return
+        nonlocal total
+        total += 1
+        code = "\n".join([setup, code])
+        if runner == 'cmdline':
+            err = test_cmdline(code, test)
+        elif runner == 'jupyter':
+            err = test_jupyter(code, test)
+        return err
+
     for input_fn, data in input_files_iter(input_dir):
-        print(' {} '.format(input_fn).center(100, '-'))
+        print(' {} '.format(input_fn).center(WIDTH, '-'))
         for doc in data:
             if doc is None:
                 continue
             if 'title' in doc:
-                print('   {}'.format(doc['title']))
-                test(doc['code'], doc.get('test', None))
+                title = ' '.join(doc['title'].splitlines()).strip()
+                print('   {:<30s} → '.format(title), end='')
+                err = test(**doc)
+                if err:
+                    fn = input_fn[len(CURDIR)+1:]
+                    failures.append(' → '.join([fn, cat, title, err]))
             elif 'language' in doc:
-                exe = execs[doc['language']]
+                language = doc['language']
             elif 'category' in doc:
                 # TODO setup and variable code missing
                 cat = doc['category']
                 if isinstance(cat, (list, tuple)):
                     cat = ' / '.join(cat)
-                print(' {}'.format(cat))
+                setup = doc.get('setup', '')
+                # just set all known variables ...
+                # the UI is smarter and tries to only insert the actually necessary ones
+                for k, v in doc.get('variables', {}).items():
+                    setup += '\n{} = {}'.format(k, v)
+                print('+ {}'.format(cat))
             else:
                 print("UNKNOWN DOCUMENT")
                 pprint(doc)
                 sys.exit(1)
+
+    print()
+    failcnt = len(failures)
+    summary = "SUMMARY: {} run in total and {} failures ({:.1f}%)".format(total, failcnt, 100 * failcnt/total)
+    print(summary.center(WIDTH, '-'))
+    for failure in failures:
+        print(failure)
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: %s <input-directory of *.yaml files> <ouput-file (usually 'examples.json')>" % sys.argv[0])
         sys.exit(1)
     if sys.argv[1] == 'test':
-        test_examples(sys.argv[2])
+        # restart: if set, the kernel is stopped and started for each test
+        # use like: $ make MODE=fast LANG=sage test
+        fast_mode = os.environ.get('MODE', None) == 'fast'
+        test_examples(sys.argv[2], restart=not fast_mode)
     else:
         examples_data(sys.argv[1], sys.argv[2])
 

@@ -13,7 +13,7 @@ descr: |
     It is usually imported via `import numpy as np`.
 code: |
     import numpy as np
-    print np, np.__version__
+    print(np.__version__)
 ---
 title: Vectors and Matrices
 descr: |

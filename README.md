@@ -61,6 +61,27 @@ code: |
 test: false
 ```
 
+## Development
+
+### Tests
+
+to test the `src/sage` subdirectory:
+
+```
+make LANG=sage test
+```
+
+To speed things up and skip restarting the kernel (could give false positives, but syntax is always wrong)
+
+```
+make LANG=sage MODE=fast test
+```
+
+### Testing testing
+
+The target `make testtest` runs the `test/` subdirectory.
+It's purpose is to confirm that breaking tests show up properly and the examples are read correctly.
+
 ## Submodule
 
 When used as a **submodule**, one suitable magic git commands to update all submodules is

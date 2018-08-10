@@ -15,6 +15,7 @@ descr: |
     This introduction gives a quick overview,
     while the individual subtopics go into more detail.
 code: ""
+test: false
 ---
 title: Pitfalls
 descr: |
@@ -49,7 +50,7 @@ code: |
     var('x k w')
     f = x^3 * e^(k*x) * sin(w*x)
     show(f)
-    print("Differentiate f w.r.t. x")
+    print "Differentiate f w.r.t. x"
     show(f.diff(x))
 ---
 title: Functions
@@ -58,15 +59,15 @@ descr: |
 code: |
     var('x')
     f(x) = 3 * x -1
-    f
+    print f
     g(x) = (1 - x)^2
-    g
+    print g
     # h is a composition of f and g
     h = f(g)
-    h
+    print h
     # evaluate h
-    h(x = 3)
-    h.subs(x = pi)
+    print h(x = 3)
+    print h.subs(x = pi)
 ---
 title: Substitutions
 descr: |
@@ -74,11 +75,11 @@ descr: |
 code: |
     var('x y')
     ex1 = 2*x+1
-    ex1
-    ex1.subs(x = 3)
-    ex1.subs(x = pi)
+    print ex1
+    print ex1.subs(x = 3)
+    print ex1.subs(x = pi)
     ex2 = ex1.subs(x = (x + y - 1) / 2)
-    ex2
+    print ex2
 ---
 title: Expressions
 descr: |
@@ -91,12 +92,12 @@ descr: |
 code: |
     var('x')
     ex = 2 * x^2 == (1 + x) / (1 - x)
-    print("full expression:             %s " % ex)
+    print "full expression:             %s " % ex
     ex2 = ex.right_hand_side()
-    print("right hand side:             %s" % ex2)
-    print("operands of right hand side: %s" % ex2.operands())
+    print "right hand side:             %s" % ex2
+    print "operands of right hand side: %s" % ex2.operands()
     ex3 = ex2.op[0] # nominator
-    print("the x inside the nominator:  %s" % ex3.op[0])
+    print "the x inside the nominator:  %s" % ex3.op[0]
 ---
 title: Polynomials
 descr: |
@@ -104,10 +105,10 @@ descr: |
 code: |
     R.<x> = PolynomialRing(QQ, "x")
     p = x^2 + 1
-    p
-    p.derivative()
-    p.integral()
-    type(p)
+    print p
+    print p.derivative()
+    print p.integral()
+    print type(p)
 ---
 title: Limits
 descr: |
@@ -116,9 +117,9 @@ descr: |
     See [Reference/Limit](http://doc.sagemath.org/html/en/reference/calculus/sage/calculus/calculus.html#sage.calculus.calculus.limit) for more information.
 code: |
     var('x')
-    lim((x+1)^(1/x), x = 0)
-    lim(sqrt(x^2+1) - x, x = oo)
-    lim(diff(abs(x),x), x = 0, dir='-')
+    print lim((x+1)^(1/x), x = 0)
+    print lim(sqrt(x^2+1) - x, x = oo)
+    print lim(diff(abs(x),x), x = 0, dir='-')
 ---
 title: Symbolic Sums
 descr: |
@@ -127,11 +128,11 @@ descr: |
 code: |
     var('k u x')
     # known limits
-    sum(x^k, k, 1, 10)
+    print sum(x^k, k, 1, 10)
     # up to infinity
-    sum(1/k^4, k, 1, oo)
+    print sum(1/k^4, k, 1, oo)
     # unknown limits
-    sum(x^(2*k+1), k, -u, u)
+    print sum(x^(2*k+1), k, -u, u)
 ---
 title: Taylor Series
 descr: >
@@ -139,9 +140,9 @@ descr: >
 code: |
     var('f0 k x')
     g = f0 / sinh(k*x)^4
-    print(g)
+    print g
     t = g.taylor(x, 0, 3)
-    print(t)
+    print t
 ---
 title: Formal Power Series
 descr: |
@@ -149,8 +150,8 @@ descr: |
 code: |
     var('x')
     ex = 1/ (2 - cos(x))
-    print(ex)
-    print(ex.series(x,7))
+    print ex
+    print ex.series(x,7)
 ---
 title: Fast Computations in Formal Power Series Ring
 descr: |
@@ -158,10 +159,10 @@ descr: |
 code: |
     R.<w> = QQ[[]]
     ps = w + 17/2*w^2 + 15/4*w^4 + O(w^6)
-    print(ps)
+    print ps
     (1+ps).log()
-    print(r"Coefficients of $ps^1000$")
-    print((ps^1000).coefficients())
+    print r"Coefficients of $ps^1000$"
+    print (ps^1000).coefficients()
 ---
 title: Symbolic Integrals
 descr: |
@@ -169,9 +170,9 @@ descr: |
 code: |
     var('x')
     f = x^3
-    print(f.integral(x))
+    print f.integral(x)
     # or as a function
-    print(integral(x^3,x))
+    print integral(x^3,x)
 ---
 title: Definite Integrals
 descr: |
@@ -179,9 +180,9 @@ descr: |
 code: |
     var('x k w')
     f = k * sin(w*x)
-    print(f.integrate(x, 0, 1))
+    print f.integrate(x, 0, 1)
     # or as a function
-    print(integrate(1/x^2, x, 1, infinity))
+    print integrate(1/x^2, x, 1, infinity)
 ---
 title: Laplace Transforms
 descr: |
@@ -209,6 +210,7 @@ descr: |
     (Numerically solving ODEs is also possible via GSL or Octave.)
 code: |
     desolvers?
+test: false
 ---
 title: Function Objects
 descr: |
@@ -231,17 +233,34 @@ descr: |
 code: |
     var('x')
     y = function('y')(x)
-    print(desolve(diff(y,x,2) + 3*x == y, dvar = y, ics = [1,1,1]))
-    print(desolve(diff(y,x,2) + 3*x == y, dvar = y))
+    print desolve(diff(y,x,2) + 3*x == y, dvar = y, ics = [1,1,1])
+    print desolve(diff(y,x,2) + 3*x == y, dvar = y)
 ---
 title: Slope Field
 descr: |
-    The following solves the differential equation
-    $$\frac{dy}{dx} + \frac{y}{x} + x = 2$$
-    with the initial conditions $y(2) = 4$.
+    The following plots a slope field for the differential equation
+    $$\frac{dy}{dt} = y - t.$$
+
 code: |
-    x = var('x')
-    y = function('y')(x)
-    myequation = diff(y,x) + y/x + x == 2
-    h = desolve(myequation, y, [2, 4])
-    h.expand()
+    var('t y')
+    plot_slope_field(y - t, (t,0,10), (y,0,6), plot_points=25)
+---
+title: Streamline Plot
+descr: |
+    Stream plots show several solutions to a differential equation
+    within the defined plot region.  These often give a better sense
+    of the flow than a slope field or vector field plot.  The following shows
+    a streamline plot for the differential equation
+    $$\frac{dy}{dt} = y - t$$ and one for the system
+    $$\begin{cases}
+    \frac{dx}{dt} &= 0.1 x - 0.2 x y \\
+    \frac{dy}{dt} &= -0.2 y + 0.1 x y
+    \end{cases}$$
+
+code: |
+    var('t x y')
+    # streamline plot for a single differential equation
+    streamline_plot(y - t, (t,0,10), (y,0,6))
+    # streamline plot in the phase plane for a system of two differential equations
+    streamline_plot([0.1*x - 0.2*x*y,-0.2*y+0.1*x*y],(x,0,4),(y,0,2))
+
