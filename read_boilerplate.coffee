@@ -154,6 +154,15 @@ read_scipy_special = ->
                     p : .5
                     phi : .45
                  )
+            else if name in ['Combinatorics']
+                vars = Object.assign({}, variables,
+                    N : 5
+                 )
+            else if name in ['Hypergeometric Functions']
+                vars = Object.assign({}, variables,
+                    a : 1
+                    b : 2
+                 )
             else
                 vars = variables
             output = output.concat(read_submenu(entry, 'SciPy / Special Func', null, cat_prefix, cat_process, undefined, vars))
