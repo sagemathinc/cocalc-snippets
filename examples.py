@@ -77,10 +77,20 @@ def process_doc(doc, input_fn):
         body.append(doc["attr"])
     return title, body
 
-def input_files_iter(input_dir):
+def input_files_iter(input_dir_or_file):
+    from os.path import isfile, basename
+
+    if isfile(input_dir_or_file):
+        input_dir = dirname(input_dir_or_file)
+        input_dir_or_file = basename(input_dir_or_file)
+    else:
+        input_dir_or_file = None
+
     input_dir = abspath(normpath(input_dir))
     for root, _, files in walk(input_dir):
         for fn in filter(lambda _ : _.lower().endswith("yaml"), files):
+            if input_dir_or_file and input_dir_or_file != fn:
+                continue
             input_fn = join(root, fn)
             data = yaml.load_all(open(input_fn, "r", "utf8").read())
             yield input_fn, data
