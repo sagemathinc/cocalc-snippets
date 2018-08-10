@@ -120,6 +120,7 @@ read_scipy_special = ->
                     t    : 1
                     nc   : 2
                     f    : 0.7
+                    y    : 0.45
                 )
             else if name in ['Mathieu and Related Functions', 'Spheroidal Wave Functions']
                 vars = Object.assign({}, variables,
@@ -128,6 +129,7 @@ read_scipy_special = ->
                     x : 3
                     c : 1.1
                     n : 1
+                    cv : 2
                  )
             else if name in ['Other Special Functions']
                 vars = Object.assign({}, variables,
@@ -135,11 +137,22 @@ read_scipy_special = ->
                     k : 2
                     z : 1.1
                  )
+            else if name in ['Gamma and Related Functions']
+                vars = Object.assign({}, variables,
+                    a : 2.5
+                    y : 0.45
+                 )
             else if name in ['Information Theory Functions']
                 vars = Object.assign({}, variables,
                     x : [-1, 2, 3]
                     y : [1, 0, 1.1]
                     delta : 0.4
+                 )
+            else if name in ['Elliptic Functions']
+                vars = Object.assign({}, variables,
+                    m : 1
+                    p : .5
+                    phi : .45
                  )
             else
                 vars = variables
