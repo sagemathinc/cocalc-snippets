@@ -15,7 +15,7 @@ descr: |
 
   For example, `\w+` stands for all strings, which consist of a *w*ord character (letters and numbers),
   and appear one or more times. e.g. `"foo"`, `"abcdef"` but not `"foo bar"` or `""`.
-  There is no limitation in lenght, and hence in that case, the set is infinite!
+  There is no limitation in length, and hence in that case, the set is infinite!
 
   When a string is matched, the regex engine starts to see how far it can get
   and stops when the rules of the regex pattern are no longer fulfilled.
@@ -70,7 +70,7 @@ descr: |
   The idea is to be able to extract parts of a larger match.
 
   In the made-up example here we look for pairs of characters and numbers.
-  What the regex pattern encodes is exactly that, while it ignores other occurrencies of characters or numbers.
+  What the regex pattern encodes is exactly that, while it ignores other occurrences of characters or numbers.
 
   Also note, that in the resulting list there is no space sign! Only the explicit groups are returned.
 code: |
@@ -119,7 +119,7 @@ descr: |
   * `\s`:  Any whitespace character
   * `\S`:  Any non-whitespace character
   * `\w`:  Any alphanumeric character
-  * `\W`:  Any non-alphanumeric characte
+  * `\W`:  Any non-alphanumeric character
   * `[a-zA-Z0-9 \t\n\r\f\v]`:  Inclusive character classes
   * `[^a-zA-Z0-9]`:  Exclusive character classes
   * `(?:abc|def)`:  Alternatives
