@@ -129,16 +129,17 @@ code: ''
 descr: |
   We have already seen `+` after a group to signal we want to match one or more occurrences.
 
-  List of modifyers for the number of repetitions of a character or class:
+  List of modifiers for the number of repetitions of a character or class:
+
   * `*`: Match 0 or more repetitions of the preceding, greedily
   * `+`: Match 1 or more repetitions of the preceding, greedily
   * `?`: Match 0 or 1 repetitions of the preceding, greedily
   * `*?`: Match 0 or more repetitions of the preceding, non-greedily
   * `+?`: Match 1 or more repetitions of the preceding, non-greedily
   * `??`: Match 0 or 1 repetitions of the preceding, non-greedily
-  * `{3}`: Match exactly n repeititions of the preceding
-  * `{3,5}`: Match between m and n repetions of the preceding, greedily
-  * `{3,5}?`: Match between m and n repetions of the preceding, non-greedily
+  * `{3}`: Match exactly n repetitions of the preceding
+  * `{3,5}`: Match between m and n repetitions of the preceding, greedily
+  * `{3,5}?`: Match between m and n repetitions of the preceding, non-greedily
 ---
 category: ['Regular Expressions', 'Lookahead/behind']
 setup: "import re"
