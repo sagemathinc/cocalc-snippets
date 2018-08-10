@@ -94,6 +94,7 @@ read_scipy_special = ->
         z     : 0.5
         alpha : 0.5
         beta  : 0.5
+        nt    : 5
 
     cat_process = (x) ->
         if x.indexOf('Bessel Functions') >= 0
