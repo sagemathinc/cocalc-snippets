@@ -210,7 +210,8 @@ def reset_code(lang):
     reset = {
         'sage': 'reset()',
         'python': '%reset -f',
-        'r': 'rm(list=ls())'
+        'r': 'rm(list=ls())',
+        'octave':'clear',
     }
     return reset.get(lang.lower(), '')
 
