@@ -54,3 +54,15 @@ descr: |
 code: |
     IV = IntegerVectors(5,3,max_part=2)
     print list(IV)
+---
+title: Conjugate Subgroups
+descr: |
+    [Conjugate](http://doc.sagemath.org/html/en/reference/groups/sage/groups/perm_gps/permgroup.html#sage.groups.perm_gps.permgroup.PermutationGroup_generic.conjugate) a subgroup of the [symmetric group](http://doc.sagemath.org/html/en/reference/groups/sage/groups/perm_gps/permgroup.html).
+code: |
+    S4 = SymmetricGroup(4)
+    G = S4.subgroup([[2,1]])
+    print G
+    h = S4([1,3,2,4])
+    print h
+    H = G.conjugate(h)
+    print H
