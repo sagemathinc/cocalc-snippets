@@ -11,6 +11,7 @@ language: python
 ---
 category: ['NumPy', 'Creating arrays']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   New array of given shape
@@ -53,28 +54,32 @@ code: |
   x = np.linspace(0, 1, 7)
   y = np.linspace(0, 1, 11)
   xx, yy = np.meshgrid(x, y)
+  xx, yy
 ---
 title: |
   Return views of the data, split into $N$ groups
 code: |
   x = np.arange(12)
   a,b,c = np.split(x, 3)
+  a, b, c
 ---
 title: |
   Return views of the data, split at given indices along given axis
 code: |
   x = np.arange(27).reshape((3,9))
   a,b,c = np.split(x, [2,6], axis=1)
+  a, b, c
 ---
 title: |
   Return copy of arrays, combined into one
 code: |
   a = np.arange(30).reshape((2,3,5))
   b = np.arange(42).reshape((2,3,7))
-  c = np.concatenate((a, b), axis=1)
+  np.concatenate((a, b), axis=2)
 ---
 category: ['NumPy', 'Reshaping and viewing arrays']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   Return a view of the data, with a different shape
@@ -98,19 +103,20 @@ code: |
 ---
 category: ['NumPy', 'Reshaping and viewing arrays / Return a view of the data, with a different dtype']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   View real array as complex
 code: |
   r = np.linspace(0, 10, num=100).reshape((25,4))
-  c = r.view(complex)
+  r.view(complex)
 ---
 title: |
   View complex array as real with extra dimension
 code: |
   c = (np.linspace(0, 10, num=50) + 1j*np.linspace(0, 10, num=50))
   cv = c.view(float)
-  r = cv.reshape(c.shape + (2,))
+  cv.reshape(c.shape + (2,))
 ---
 title: |
   Return a copy of the data, cast to a different dtype
@@ -147,22 +153,18 @@ title: |
 code: |
   x = np.arange(12)
   a,b,c = np.split(x, 3)
+  a, b, c
 ---
 title: |
   Return views of the data, split at given indices along given axis
 code: |
   x = np.arange(27).reshape((3,9))
   a,b,c = np.split(x, [2,6], axis=1)
----
-title: |
-  Return copy of arrays, combined into one
-code: |
-  a = np.arange(30).reshape((2,3,5))
-  b = np.arange(42).reshape((2,3,7))
-  c = np.concatenate((a, b), axis=1)
+  a, b, c
 ---
 category: ['NumPy', 'Indexing']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   Test if array is empty
@@ -182,6 +184,7 @@ code: |
 ---
 category: ['NumPy', 'Indexing / Index a one-dimensional array']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   Get one element
@@ -215,6 +218,7 @@ code: |
 ---
 category: ['NumPy', 'Indexing / Index a multi-dimensional array']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   Get one element
@@ -248,6 +252,7 @@ code: |
 ---
 category: ['NumPy', 'Indexing / Index an array of unknown dimension']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   Get first $N$ elements along each final axis
@@ -275,9 +280,11 @@ code: |
 ---
 category: ['NumPy', 'UFuncs']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 category: ['NumPy', 'UFuncs / Characterizing arrays']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   max: Return the maximum along a given axis.
@@ -307,7 +314,8 @@ code: |
 title: |
   trace: Return the sum along diagonals of the array.
 code: |
-  np.trace(a, axis1, axis2)
+  data = np.array([[3, 0, 0], [7, -1, 0], [-1, 0, 1]])
+  np.trace(data, axis1 = 0, axis2 = 1)
 ---
 title: |
   mean: Returns the average of the array elements along given axis.
@@ -336,6 +344,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Sums, products, differences within array']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   prod: Product of array elements over a given axis
@@ -375,25 +384,32 @@ code: |
 title: |
   gradient: Gradient of an N-dimensional array
 code: |
-  np.gradient(f, *varargs, **kwargs)
+  xx = np.arange(0, 1, 0.1)
+  yy = xx**2 + 1
+  np.gradient(yy, 0.1)
 ---
 title: |
-  trapz: Integrate along the given axis using the composite trapezoidal rule
+  trapz: Integrate using the composite trapezoidal rule
 code: |
-  np.trapz(y, x, dx, axis)
+  xx = np.linspace(0, np.pi, num=100)
+  yy = np.sin(xx)
+  np.trapz(yy, x=xx)
 ---
 title: |
   convolve: Discrete, linear convolution of two one-dimensional sequences
 code: |
-  np.convolve(a, v)
+  np.convolve([1, 2, 3], [0, 1, 0.5])
 ---
 title: |
   interp: One-dimensional linear interpolation
 code: |
-  np.interp(x, xp, fp)
+  xp = [-1, 2.5, 3, 8]
+  fp = [0, 4, 4.1, 5]
+  np.interp([0, 1, 2, 3, 4], xp, fp)
 ---
 category: ['NumPy', 'UFuncs / Logarithms and exponentials']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   logaddexp: Logarithm of the sum of exponentiations of the inputs
@@ -498,6 +514,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Trigonometric and hyperbolic functions']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   sin: Trigonometric sine, element-wise
@@ -604,6 +621,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Complex numbers']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   real: Real part of the elements of the array
@@ -632,6 +650,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Rounding and clipping']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   around: Evenly round to the given number of decimals
@@ -680,6 +699,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Float functions']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   isreal: Returns a bool array, where True if input element is real
@@ -758,6 +778,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Bit-twiddling functions']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   bitwise_and: Compute the bit-wise AND of two arrays element-wise
@@ -791,6 +812,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Special functions (see scipy.special)']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   i0: Modified Bessel function of the first kind, order 0
@@ -804,6 +826,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Arithmetic']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   add: Add arguments element-wise
@@ -903,6 +926,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Matrix and vector products']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   tensordot: Tensor dot product over last $n$ axes of a and first $n$ of b
@@ -950,10 +974,11 @@ code: |
 title: |
   cross: Cross product of two (arrays of) vectors
 code: |
-  np.cross(a, b)
+  np.cross([1, -1, 1], [2, 3, -6])
 ---
 category: ['NumPy', 'UFuncs / Comparisons between two arrays']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   greater: Return the truth value of $(x_1 > x_2)$ element-wise
@@ -1027,6 +1052,7 @@ code: |
 ---
 category: ['NumPy', 'Polynomials']
 setup: "import numpy as np\nfrom numpy.polynomial import Polynomial as P\npoly = P([1, 2, 3])"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   Setup
@@ -1063,7 +1089,7 @@ code: |
 title: |
   Get coefficients (constant at index 0, higher indices for higher orders)
 code: |
-  poly.coeff
+  poly.coef
 ---
 title: |
   Get domain (scaled and offset domain of function for fitting)
@@ -1127,11 +1153,12 @@ code: |
   np.random.seed(11)
   x = np.linspace(0, 2*np.pi, 20)
   y = np.sin(x) + np.random.normal(scale=.1, size=x.shape)
-  n = 5
-  p = T.fit(x, y, n)
+  n = 5 # degree
+  np.polyfit(x, y, n)
 ---
 category: ['NumPy', 'Pretty printing']
-setup: "import numpy as np"
+setup: "import numpy as np\nimport contextlib\n@contextlib.contextmanager\ndef printoptions(*args, **kwargs):\n    original = np.get_printoptions()\n    np.set_printoptions(*args, **kwargs)\n    yield\n    np.set_printoptions(**original)"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   Context manager
@@ -1187,7 +1214,8 @@ code: |
       print(np.array([1, np.inf, 3]))
 ---
 category: ['NumPy', 'Pretty printing / Formatting functions for specific dtypes']
-setup: "import numpy as np"
+setup: "import numpy as np\nimport contextlib\n@contextlib.contextmanager\ndef printoptions(*args, **kwargs):\n    original = np.get_printoptions()\n    np.set_printoptions(*args, **kwargs)\n    yield\n    np.set_printoptions(**original)"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   Set formatter for `bool` type
@@ -1310,48 +1338,58 @@ code: |
 ---
 category: ['NumPy', 'File I/O']
 setup: "import numpy as np"
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
 ---
 title: |
   Read data from simple text file
 code: |
   data = np.loadtxt(filename)
+test: false
 ---
 title: |
   Read data from text file with missing values
 code: |
   data = np.genfromtxt(filename)
+test: false
 ---
 title: |
   Read data from .npy or .npz file
 code: |
   data = np.load(filename)
+test: false
 ---
 title: |
   Write single array to text file
 code: |
   np.savetxt(filename, x)
+test: false
 ---
 title: |
   Write multiple arrays to text file
 code: |
   np.savetxt(filename, np.transpose((x, y, z)))
+test: false
 ---
 title: |
   Write single array to single .npy file
 code: |
   np.save(filename, x)
+test: false
 ---
 title: |
   Write multiple arrays to single .npy file
 code: |
   np.save(filename, np.transpose((x, y, z)))
+test: false
 ---
 title: |
   Write multiple arrays to single .npz file
 code: |
   np.savez(filename, x, y, z)
+test: false
 ---
 title: |
   Write multiple arrays to single compressed .npz file
 code: |
   np.savez_compressed(filename, x, y, z)
+test: false

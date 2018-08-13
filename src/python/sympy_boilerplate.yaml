@@ -10,7 +10,8 @@
 language: python
 ---
 category: ['Sympy', 'Constants']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   1
@@ -73,10 +74,12 @@ code: |
   nan
 ---
 category: ['Sympy', 'Functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 category: ['Sympy', 'Functions / Elementary functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Abs
@@ -258,7 +261,8 @@ code: |
   tanh(pi*I/4)
 ---
 category: ['Sympy', 'Functions / Combinatorial functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Bell number
@@ -351,35 +355,42 @@ code: |
 title: |
   Stirling number of the second kind
 code: |
+  from sympy.functions.combinatorial.numbers import stirling
   stirling(n, k)
 ---
 title: |
   Stirling number of the first kind
 code: |
+  from sympy.functions.combinatorial.numbers import stirling
   stirling(n, k, kind=1, signed=False)
 ---
 title: |
   Reduced Stirling number of the second kind
 code: |
+  from sympy.functions.combinatorial.numbers import stirling
   stirling(n, k, d)
 ---
 title: |
   Number of combinations of length k among n items
 code: |
+  from sympy.functions.combinatorial.numbers import nC
   nC(n, k)
 ---
 title: |
   Number of permutations of length k among n items
 code: |
+  from sympy.functions.combinatorial.numbers import nP
   nP(n, k)
 ---
 title: |
   Number of partitions of length k among n items
 code: |
+  from sympy.functions.combinatorial.numbers import nT
   nT(n, k)
 ---
 category: ['Sympy', 'Functions / Special functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Dirac delta function
@@ -394,10 +405,11 @@ code: |
 title: |
   Heaviside function
 code: |
-  Heaviside(X)
+  Heaviside(x)
 ---
 category: ['Sympy', 'Special functions / Gamma, Beta and related Functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Gamma function
@@ -440,7 +452,8 @@ code: |
   beta(x, y)
 ---
 category: ['Sympy', 'Special functions / Error Functions and Fresnel Integrals']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Gauss error function
@@ -488,7 +501,8 @@ code: |
   fresnelc(z)
 ---
 category: ['Sympy', 'Special functions / Exponential, Logarithmic and Trigonometric Integrals']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Exponential integral
@@ -536,7 +550,8 @@ code: |
   Chi(z)
 ---
 category: ['Sympy', 'Special functions / Bessel Type Functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Bessel function of the first kind
@@ -584,7 +599,8 @@ code: |
   jn_zeros(n, k)
 ---
 category: ['Sympy', 'Special functions / Airy Functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Airy function of the first kind
@@ -607,7 +623,8 @@ code: |
   airybiprime(z)
 ---
 category: ['Sympy', 'Special functions / B-Splines']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   The n-th B-spline at x of degree d with given knots
@@ -623,7 +640,8 @@ code: |
   bspline_basis_set(d, knots, x)
 ---
 category: ['Sympy', 'Special functions / Riemann Zeta and Related Functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Riemann zeta function
@@ -638,7 +656,7 @@ code: |
 title: |
   Dirichlet eta function
 code: |
-  eta(s)
+  dirichlet_eta(s)
 ---
 title: |
   Polylogarithm function
@@ -651,7 +669,8 @@ code: |
   lerchphi(z, s, a)
 ---
 category: ['Sympy', 'Special functions / Hypergeometric Functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Generalized hypergeometric function
@@ -672,7 +691,8 @@ code: |
   meijerg(a_j[:n], a_j[n:p], b_k[:m], b_k[m:q], x)
 ---
 category: ['Sympy', 'Special functions / Elliptic integrals']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Complete elliptic integral of the first kind
@@ -695,7 +715,8 @@ code: |
   elliptic_pi(n, z, m)
 ---
 category: ['Sympy', 'Special functions / Orthogonal Polynomials']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Jacobi polynomial
@@ -758,7 +779,8 @@ code: |
   assoc_laguerre(n, a, x)
 ---
 category: ['Sympy', 'Special functions / Spherical Harmonics']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Spherical harmonics
@@ -779,7 +801,8 @@ code: |
   Znm(n, m, vartheta, varphi)
 ---
 category: ['Sympy', 'Special functions / Tensor Functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Levi-Civita symbol
@@ -792,7 +815,8 @@ code: |
   KroneckerDelta(1,2)
 ---
 category: ['Sympy', 'Calculus']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Differentiate once
@@ -857,7 +881,8 @@ code: |
   summ = summation((2*ell + 1), (ell, ell_min, ell_max))
 ---
 category: ['Sympy', 'Solvers']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Solve for one variable
@@ -880,7 +905,8 @@ code: |
   soln = dsolve(eqn, f(x))
 ---
 category: ['Sympy', 'Manipulating expressions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Simplify
@@ -889,7 +915,8 @@ code: |
   expr = simplify(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Refine, using assumptions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Refine
@@ -906,7 +933,8 @@ code: |
       expr = refine(expr)
 ---
 category: ['Sympy', 'Refine, using assumptions / List of assumptions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Bounded
@@ -1039,7 +1067,8 @@ code: |
   Q.antihermitian(x)
 ---
 category: ['Sympy', 'Manipulating expressions / Expansion']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Expand basic expressions
@@ -1121,7 +1150,8 @@ code: |
   expr = expand_trig(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Collect terms']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Collect as coefficients of one factor
@@ -1161,7 +1191,8 @@ code: |
   expr = collect_const(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Substitutions and replacements']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Substitute one subexpression for another
@@ -1227,7 +1258,8 @@ code: |
   expr = expr.xreplace(replacements)
 ---
 category: ['Sympy', 'Manipulating expressions / Evaluation']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Evaluate numerically to arbitrary precision
@@ -1252,7 +1284,8 @@ code: |
   vals = f(a)
 ---
 category: ['Sympy', 'Manipulating expressions / Polynomials']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Factor polynomial over rationals
@@ -1273,7 +1306,8 @@ code: |
   expr = expr.coeff(x**2)
 ---
 category: ['Sympy', 'Manipulating expressions / Rational functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Cancel
@@ -1300,7 +1334,8 @@ code: |
   expr = radsimp(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Powers']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Simplify powers for general arguments
@@ -1343,7 +1378,8 @@ code: |
   sqrtdenest(sqrt(5 + 2*sqrt(6)))
 ---
 category: ['Sympy', 'Manipulating expressions / Exponentials and Logarithms']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Combine exponentials
@@ -1376,7 +1412,8 @@ code: |
   exptrigsimp(exp(z) + exp(-z))
 ---
 category: ['Sympy', 'Manipulating expressions / Trigonometric functions']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Expansion
@@ -1397,7 +1434,8 @@ code: |
   expr = exptrigsimp(expr)
 ---
 category: ['Sympy', 'Manipulating expressions / Miscellaneous']
-setup: "from sympy import *\nfrom sympy.abc import a, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
+variables: {"d":3}
 ---
 title: |
   Simplify factorials
