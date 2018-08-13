@@ -174,7 +174,7 @@ code: |
 title: Numerical Solutions
 descr: >
     Sage's `find_root(...)` solves equations numerically.
-    The second and third argument constrain the variable to a search interval $\[a,\,b\]$.
+    The second and third argument constrain the variable to a search interval $\left[a,\,b\right]$.
 code: |
     phi = var('phi')
     find_root(cos(phi) == sin(phi), 0, pi/2)
