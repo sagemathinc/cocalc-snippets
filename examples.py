@@ -66,7 +66,11 @@ def process_doc(doc, input_fn):
     #if not all(_ in doc.keys() for _ in ["title", "code", "descr"]):
     #    raise AssertionError("keyword missing in %s in %s" % (doc, input_fn))
     title       = doc["title"].strip()
-    code        = doc["code"].strip()
+    code        = doc["code"]
+    if isinstance(code,str):
+        code = code.strip()
+    elif isinstance(code,(list,tuple)):
+        code = [s.strip() for s in code]
     if 'descr' in doc:
         description = doc["descr"].strip() # hashtag_re.sub(process_hashtags, doc["descr"])
     else:

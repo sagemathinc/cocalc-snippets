@@ -1,0 +1,110 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath, Inc., 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+---
+language: gap
+---
+category: Files / Reading and Writing Files
+---
+title: File Operations
+descr: |
+  For documenting system interactions, transferring results, as well as for
+  preparing programs in a file, it is convenient to have the system read from
+  or write to files. Such files typically will be plain text files, though
+  GAP itself does not insist on using a specific suffix to indicate the
+  format.
+code: ""
+---
+title: Files and Directories
+descr: |
+  A filename in {\GAP} is simply a string indicating the location of the file,
+  such as `"/Users/xyrxmir/Documents/gapstuff/myprogram"` or `"/cygdrive/c/Documents and Settings/Administrator/Desktop/myprogram"`.
+
+  We note that -- regardless of the operating system convention -- directories
+  in a path are always separated by a forward slash /, also under Windows --
+  an inheritance of the cygwin environment used to run `GAP` -- a drive
+  letter `X:` is replaced by `/cygdrive/x/`, i.e.
+  `/cygdrive/c/` is the root directory of the system drive.
+
+  Directories are simply shortcuts to particular paths. A directory is created
+  by `Directory(path)`. Then
+  `Filename(directory,filename)` simply produces a string
+  eading with the path of `directory`. (`filename` does not need to
+  be a simple file, but actually could include further subdirectories.)
+  Neither `Directory`, nor `Filename` check whether the file
+  exists.
+code:
+  - |
+    dir:=Directory("/Users/xyrxmir/gapstuff");
+  - |
+    Filename(dir,"stuff");
+  - |
+    Filename(dir,"stuffdir/one");
+---
+title: Input and Output
+descr: |
+  The command `PrintTo(filename,...)` works like `Print`,
+  but prints the  output in the file specified by `filename`. The file is
+  created if it did not exist before and any existing file is overwritten. 
+
+  `AppendTo(filename,...)` does the same, but appends the output to an existing file.
+
+  GAP can read input using the `Read(filename)` command. The
+  contents of the file are read in **as if the contents were typed into
+  the system** (just not printing out the results of commands). In particular,
+  to read in objects to GAP it is necessary to have lines start with a
+  variable assignment and end with a semicolon. As with typing, line breaks
+  are typically not relevant.
+
+  The most frequent use of `Read` is to prepare GAP programs in a
+  text editor and then read them into the system -- this provides far better
+  editing facilities than trying to write the program directly in the system,
+  see `File Input` below.
+
+  A special form of output is provided by the commands
+  
+  * `LogTo(\gvar{filename})`
+  * `LogInputTo(\gvar{filename})`
+  * `LogOutputTo(\gvar{filename})`
+  
+  which produce a transcript of a system session (respectively only input or
+  output) to the specified file.
+code:
+  - |
+    logfile:=Filename(DirectoryDesktop(),"mylog");
+  - |
+    LogTo(logfile); # Logging can be stopped by giving no argument to the function.
+---
+title: File Input
+descr: |
+  Often one wants to write more complicated pieces of code and save them for
+  use later.  In this situation it is useful to use your favorite text editor
+  to create a file that GAP can then read. (Caveat: The file must be a
+  plain text file, often denoted by a suffix `.txt`.
+
+  Files can be saved elsewhere, but then
+  either the relative path from the root directory or the absolute path must
+  be typed into the `Read` command.
+
+  For example, suppose the following code is in a file named `PerfectNumbers.g`
+  in ones home directory:
+
+  ```
+      PerfectNumber:=function(n)
+          local sigma;
+          sigma:=Sum(DivisorsInt(n));
+          if sigma>2*n then 
+            Print(n," is abundant");
+          elif sigma = 2*n then
+            Print(n," is perfect");
+          else
+            Print(n," is deficient");
+          fi;
+      end;
+  ```
+  Now we can type the command:
+code:
+  - |
+    Read(Filename(DirectoryHome(),"PerfectNumbers.g"));
+  - |
+    PerfectNumber(6);

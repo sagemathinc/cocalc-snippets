@@ -1,0 +1,285 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath, Inc., 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+---
+language: gap
+---
+category: Introduction / Basics
+---
+title: Welcome to GAP
+descr: |
+  GAP is a system for computational discrete algebra, with particular emphasis on
+  Computational Group Theory. GAP provides a programming language, a library of thousands
+  of functions implementing algebraic algorithms written in the GAP language as well as large
+  data libraries of algebraic objects.
+code: |
+  for i in [1..13] do
+    \# Comment
+    Print("The number of divisors of 2^",i,"-1 is ",Length(DivisorsInt(2^i-1)),"\n");
+  od;
+---
+title: Functions
+descr: |
+  Functions in GAP are declared with the `function` keyword and end with the `end` keyword.
+code:
+  - |
+    AddOne := function(x) return x+1; end;
+  - |
+    AddOne(5);
+title: Lists
+descr: |
+  One can group several pieces of data together into one package containing all the data by creating
+  a list. A list is started with a left square bracket, `[`, ended with a right square bracket, `]`,
+  and entries are separated by commas.
+
+  In GAP, lists are 1-indexed (as opposed to Python/Sage which are 0-indexed).
+code:
+  - |
+    L := [11,13,17];
+  - |
+    L[1];
+  - |
+    Length(L);
+  - |
+    Position(L,13);
+  - |
+    4 in L;
+  - |
+    Add(L, 4);
+  - |
+    4 in L;
+  - |
+    Append(L,[1,2,3]);
+---
+title: Sublists of Lists
+descr: |
+  Given a list `L`, we can create a sublist by using the `{}` syntax and giving a set of indices
+  of `L`.
+code:
+  - |
+    L := [7,11,3];
+  - |
+    L{[1,2]};
+---
+title: List Ranges
+descr: |
+  A special case of lists are ranges that can be used to store arithmetic progressions in a compact
+  form. The syntax is [start..end] for increments of 1, respectively [start,second..end] for
+  increments of size second-start.
+code:
+  - |
+    L := [10..20];
+  - |
+    L{[2,4..8]}
+---
+title: List Gotchas
+descr: |
+  Lists themselves are pointers to lists, assigning a list to two variables does not make a copy
+  and changing one of the lists will change the other. You can make a new list with the same entries
+  using `ShallowCopy`.
+code:
+  - |
+    L1 := [2,4,..10];
+  - |
+    L2 := L1;
+  - |
+    L1[2] := 3;
+  - |
+    Print(L2);
+---
+title: Vectors and Matrices
+descr: |
+  Vectors in GAP are simply lists of field elements and matrices are simply
+  lists of their row vectors, i.e. lists of lists. (Thus matrix entries can be
+  accessed as M[row][column].)
+
+  While vectors in GAP are usually considered as row vectors,
+  scalar products or matrix/vector products
+  automatically consider the second factor as column vector.
+code:
+  - |
+    vec:=[-1,2,1];
+  - |
+    M:=[[1,2,3],[4,5,6],[7,8,9]];
+  - |
+    vec*M;
+  - |
+    M*vec;
+  - |
+    M[3][2];
+  - |
+    vec*vec; \# inner product
+  - |
+    Display(M);
+---
+title: Sets and sorted lists
+descr: |
+  Sorted lists (in general GAP implements a total ordering via `<`
+  on all its objects, though this ordering is sometimes nonobvious for more
+  complicated objects) are used to represent sets in GAP. For a list
+  `L`, the command `Set(L)` will return a sorted copy.
+  Element test in sets also used the `in` operator, but internally then
+  can use binary search for a notable speedup. The same holds for
+  `Position`.
+
+  Maintaining the set property, `AddSet(L,x)` will insert `x`
+  into `L` at the appropriate position to maintain sortedness.
+  `Union(L,L2)` and `Intersection(L,L2)` perform the set
+  operations indicated by their name, `Difference(L,L2)` is the set
+  theoretic difference.
+code:
+  - |
+    L := Set([5,2,8,9,-3]);
+  - |
+    AddSet(L,4);L;
+  - |
+    Union(L,[3..6]);
+  - |
+    Intersection(L,[3..6]);
+  - |
+    Difference(L,[3..6]);
+---
+title: List Operations
+descr: |
+  GAP contains powerful list operations that often can be used to implement
+  simple programming tasks in a single line. The typical format for these
+  operations is to give as arguments a list `L` and a function
+  `func` that is to be applied to the entries. These functions often
+  are given in the shorthand form `x->expr(x)`, where
+  `expr(x)` is an arbitrary GAP expression, involving `x`.
+
+  * `List(L,func)` applies `func` to all entries of `L` and returns the list of results.
+  * `Filtered(L,func)` returns the list of those elements of `L`, for which `func` returns true.
+  * `Number(L,func)` returns the number of elements of `L`, for which `func` returns true.
+  * `First(L,func)` returns the first element of `L` for which `func` returns true.
+  * `ForAll(L,func)` returns true if `func` returns true for all entries of `L`.
+  * `ForAny(L,func)` similarly returns true if `func` returns true for at least one entry of `L`.
+  * `Collected(L)` returns a statistics of the elements of `L` in form of a list with entries `[object,count]`.
+  * `Sum(L)` takes the sum of the entries of `L`. The variant `Sum(L,func)` sums over the results of `func`,
+  applied to the entries of `L`.
+  * `Product(L)` takes the product of the entries of `L`. Again `Product(L,func)` applies func to the
+  entries of `L` first.
+code:
+  - |
+    List([1..10],x->x^2);
+  - |
+    Filtered([1..10],IsPrime);
+  - |
+    Number([1..10],IsPrime);  
+---
+title: For Loops
+descr: |
+  The basic loop is a for loop. Typically it will repeat some instructions as a variable iterates
+  through all members of a list. The instructions begin with the word `do` and end with `od`.
+code: |
+  for i in [1..13] do
+    Print("The number of divisors of 2^",i,"-1 is ",Length(DivisorsInt(2^i-1)),"\n");
+  od;
+---
+title: If Statments
+descr: |
+  A conditional statement begins with `if`, followed by a boolean, the word then, and a set of
+  instructions, and is finished with `fi`. The instructions are executed if and only if the boolean
+  evaluates to true. Additional conditions and instructions may be given with the `elif` (with further
+  conditions) and `else` (with no further conditions) commands.
+code: |
+  PerfectNumber:=function(n)
+    local sigma;
+    sigma:=Sum(DivisorsInt(n));
+    if sigma>2*n then
+      Print(n," is abundant\n");
+    elif sigma = 2*n then
+      Print(n," is perfect\n");
+    else
+      Print(n," is deficient\n");
+    fi;
+  end;
+---
+title: Renaming Objects
+descr: |
+  When introducing new concepts it can be useful to hide any complexity of an
+  object behind a name (assuming that the object is set up in a file read in
+  by the student which hides all technicalities from her).
+
+  A typical example
+  would be the introduction of the first example of a group, in which the
+  elements have particular names.
+  The easiest way to deal with this situation is to define the objects (and
+  thus their multiplication) via one of GAP's standard representation, but
+  then simply give a printing name to the object.
+
+  Such display names can be defined by the function `SetNameObject`. If `a`
+  is any GAP object, `SetNameObject(a,"namestring");` will cause any
+  occurrence of this object to be displayed as `namestring`.
+code:
+  - |
+    SetNameObject(4,"four");
+  - |
+    "[1..5];"
+title: Checksum Digits
+descr: |
+  Initial examples for modulo arithmetic often involve checksum digits, and
+  special functions are provided that perform such calculations for common
+  checksums.
+
+  The following functions all accept as input a number, either as integer
+  (though this will not work properly for numbers with a leading zero!), a
+  string representing an number, a list of digits (as list), or simply the
+  digits separated by commas. (For own code, the function `ListOfDigits`
+  accepts any such input and always returns a list of the digits.)
+
+  If a full number, including check digit is given, the check digit is verified
+  and `true` or `false` returned accordingly. If a number without
+  check digit is given, the check digit is computed and returned.
+
+  `CheckDigitISBN` works for "classical" 10-digit ISBN numbers. As the
+  arithmetic is modulo 11, an upper case "X" is accepted for check digit 10.
+code:
+  - |
+    CheckDigitISBN("052166103");
+  - |
+    CheckDigitISBN("052166103X");
+  - |
+    CheckDigitISBN("0521661031");
+  - |
+    CheckDigitISBN(0,5,2,1,6,6,1,0,3,1);
+  - |
+    "CheckDigitISBN(0,5,2,1,6,6,1,0,3,'X'); # note single quotes!"
+  - |
+    CheckDigitISBN(0,5,2,1,6,6,1,0,3);    
+  - |
+    CheckDigitISBN([0,5,2,1,6,6,1,0,3]);
+title: More Checksum Digits
+descr: |
+  `CheckDigitISBN13` computes the newer ISBN-13. (The relation to old
+  ISBN is to omit the original check digit, prefix 978 and compute a new check
+  digit with multiplcation factors 1 and 3 only for consistency with UPC
+  bar codes.)
+
+  `CheckDigitUPC` computes checksums for 12-digit UPC codes as used in
+  most stores.
+
+  `CheckDigitPostalMoneyOrder` finally works on 11-digit numbers for
+  (US mail) postal money orders.
+
+  Similar checksum schemes that check $\sum_{i=1}^n c_i a_i\cong 0\pmod{m}$ for a
+  number $a_1,a_2,\ldots,a_n$ ($a_n$ being the check digit) and coefficients
+  $c_i$ (i.e. for the 10 digit ISBN, the coefficients are $[ 1, 2, 3, 4, 5, 6,
+  7, 8, 9, -1 ]$) can be created using the function
+  `CheckDigitTestFunction(n,modulus,clist)`, where `clist`
+  is a list of the $c_i$. i.e. `CheckDigitISBN` is defined as
+  ```
+  CheckDigitISBN:=CheckDigitTestFunction(10,11,[1,2,3,4,5,6,7,8,9,-1]);
+  ```
+code:
+  - |
+    CheckDigitISBN13("978052166103");   
+  - |
+    CheckDigitISBN13("9781420094527");
+  - |
+    CheckDigitUPC("071641830011");    
+  - |
+    CheckDigitUPC("07164183001"); 
+  - |
+    CheckDigitPostalMoneyOrder(1678645715);
+
