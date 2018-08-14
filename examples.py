@@ -346,6 +346,8 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
             return
         nonlocal total
         total += 1
+        if isinstance(code,(tuple,list)):
+            code = "\n".join(code)
         code = "\n".join([setup, code])
         if runner == 'cmdline':
             err = test_cmdline(code, test)
