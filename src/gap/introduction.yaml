@@ -50,6 +50,7 @@ code:
     4 in L;
   - |
     Append(L,[1,2,3]);
+    Print(L);
 ---
 title: Sublists of Lists
 descr: |
