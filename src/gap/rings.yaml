@@ -1,0 +1,131 @@
+# CoCalc Examples Documentation File
+# Copyright: SageMath, Inc., 2018
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+---
+language: gap
+---
+category: Arithmetic / Rings
+---
+title: Integers and Rationals
+descr: |
+  The most natural rings are
+  the integers and the rationals. Arithmetic for these rings in GAP is a
+  rather obvious, rational numbers are represented as quotients of integers in
+  canceled form. GAP implements integers of arbitrary length, there is no
+  need to worry about data types as different internal representations are
+  invisible (and unimportant) to the user.
+code:
+  - |
+    25+17/29;
+  - |
+    (25+17)/29;
+  - |
+    2^257-1;
+  - |
+    QuotientRemainder(230,17);
+---
+title: Primes
+descr: |
+  GAP can test primality of integers using `IsPrime` (the primality
+  test built-in is likely good enough for any teaching application, though it
+  cannot compete with systems specific to number theory for extremely huge
+  numbers.) As with all primality tests, the system initially does
+  probabilistic primality test, which has been verified to be correct only up
+  to some bound ($10^{13}$ as of the time of writing), even though no larger
+  counterexample is known. GAP will print a warning, if a number is
+  considered prime because of this test, but not verified.
+
+  Functions `NextPrimeInt` and `PrevPrimeInt` return the first
+  prime larger, respectively smaller than a given number.
+
+  The command `Factors` returns a list of prime factors of an integer.
+  (The package `factint`, installed by default, improves the
+  factorization functionality.) Again factorization performance is likely good
+  enough for teaching applications but not competitive with research problems.
+code:
+  - |
+    IsPrime(7);
+  - |
+    IsPrime(8);
+  - |
+    NextPrimeInt(2^20);
+  - |
+    Factors(2^51-1);
+---
+title: Complex Numbers and Cyclotomics
+descr: |
+  GAP does not have real or complex numbers. The reason is that exact
+  computation (which GAP guarantees) with irrationals is in general
+  extremely hard.
+
+  GAP however supports cyclotomic fields, and in fact most examples of
+  field extensions encountered in an introductory course (for example any
+  quadratic extension of the rationals) embed into an
+  appropriate cyclotomic field. Here `E(n)` represents a primitive
+  $n$-th root of unity. If embedding in the complex numbers is desired, one
+  may assume that $\displaystyle \texttt{E(n)}=e^{\frac{2\pi i}{n}}=\zeta_n$.
+  Thus for
+  example $E(4)$ is the complex root of $-1$. The field $\Q(\zeta_n)$ is
+  denoted by `CF(n)`.
+
+  The command `ComplexConjugate(x)` can be used to determine the complex conjugate of a
+  cyclotomic number.
+code:
+  - |
+    (2+E(4))^2; 
+  - |
+    E(3)+E(3)^2;
+  - |
+    ComplexConjugate(E(7)^2);
+  - |
+    1/((1+ER(5))/2);
+---
+title: Quadratic Extensions of the Rationals
+descr: |
+  Because any quadratic irrationality is cyclotomic, the function
+  `ER(n)` represents $\sqrt{n}$ as cyclotomic number.
+code:
+  - |
+    ER(3);
+  - |
+    1+ER(3);
+  - |
+    (1+ER(2))^2-2*ER(2);
+---
+title: Greatest common divisors and Factorization
+descr: |
+  The gcd of two numbers can be computed with `Gcd`. The teaching function
+  `ShowGcd performs the extended euclidean algorithm, displaying also
+  how to express the gcd as integer linear combination of the original
+  arguments.
+
+  `GcdRepresentation` returns a list $[s,t]$ of the 
+  the coefficients from the extended euclidean algorithm.
+code:
+  - |
+    Gcd(192,42);
+  - |
+    ShowGcd(192,42);
+  - |
+    a:=GcdRepresentation(192,42)
+  - |
+    a[1]*192+a[2]*42
+---
+title: Modulo Arithmetic
+descr: |
+  The `mod`-operator can be used in general for arithmetic in the
+  quotient ring.
+  When applied to a quotient of elements, it automatically tries to invert the
+  denominator, using the euclidean algorithm.
+
+  Contrary to systems such as Maple, `mod` is an ordinary
+  binary operator in GAP and does not change the calculation done before, i.e.
+  calculating `(5+3*19) mod 2` first calculates `5+3*19` over the
+  integers, and then reduces the result. If intermediate coefficient growth is
+  an issue, arguments (and intermediate results) have to be reduced always
+  with `mod`, e.g. (in the most extreme case) `(5 mod 2)+((3 mod
+  2)*(19 mod 2)) mod 2`.
+  The function `PowerMod(base,exponent,modulus)`
+  can be used to calculate $a^b\bmod{m}$ with intermediate reduction.
+code: |
+  3/2 mod 5;
