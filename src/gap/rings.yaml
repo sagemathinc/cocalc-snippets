@@ -72,7 +72,7 @@ descr: |
   cyclotomic number.
 code:
   - |
-    (2+E(4))^2; 
+    (2+E(4))^2;
   - |
     E(3)+E(3)^2;
   - |
