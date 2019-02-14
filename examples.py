@@ -29,17 +29,17 @@ import re
 from codecs import open
 from collections import defaultdict
 from pprint import pprint
-from queue import Empty # py3 specific
+from queue import Empty  # py3 specific
 from time import time
 
 WIDTH = 130
-
 """ # TODO enable hashtags later
 hashtag_re = re.compile(r'#([a-zA-Z].+?\b)')
 def process_hashtags(match):
     ht = match.group(1)
     return "<a class='webapp-examples-hashtag' href='{0}'>#{0}</a>".format(ht)
 """
+
 
 def process_category(doc):
     '''
@@ -51,13 +51,18 @@ def process_category(doc):
     elif isinstance(cats, mystr):
         cats = cats.split("/", 1)
     else:
-        raise AssertionError("Supposed category '{}' cannot be processed".format(cats))
+        raise AssertionError(
+            "Supposed category '{}' cannot be processed".format(cats))
     sortweight = float(doc.get("sortweight", 0.0))
     variables = doc.get("variables", None)
-    assert len(cats) == 2, 'Number of categories is {}, but needs to be 2 -- doc["category"]: "{}"'.format(len(cats), doc["category"])
+    assert len(
+        cats
+    ) == 2, 'Number of categories is {}, but needs to be 2 -- doc["category"]: "{}"'.format(
+        len(cats), doc["category"])
     lvl1, lvl2 = [c.strip() for c in cats]
     setup = doc.get('setup', None)
     return lvl1, lvl2, sortweight, setup, variables
+
 
 def process_doc(doc, input_fn):
     """
@@ -65,21 +70,23 @@ def process_doc(doc, input_fn):
     """
     #if not all(_ in doc.keys() for _ in ["title", "code", "descr"]):
     #    raise AssertionError("keyword missing in %s in %s" % (doc, input_fn))
-    title       = doc["title"].strip()
-    code        = doc["code"]
-    if isinstance(code,str):
+    title = doc["title"].strip()
+    code = doc["code"]
+    if isinstance(code, str):
         code = code.strip()
-    elif isinstance(code,(list,tuple)):
+    elif isinstance(code, (list, tuple)):
         code = [s.strip() for s in code]
     if 'descr' in doc:
-        description = doc["descr"].strip() # hashtag_re.sub(process_hashtags, doc["descr"])
+        description = doc["descr"].strip(
+        )  # hashtag_re.sub(process_hashtags, doc["descr"])
     else:
         description = title
-    body        = [code, description]
+    body = [code, description]
     # attribution
     if "attr" in doc:
         body.append(doc["attr"])
     return title, body
+
 
 def input_files_iter(input_dir_or_file):
     from os.path import isfile, basename
@@ -93,33 +100,34 @@ def input_files_iter(input_dir_or_file):
 
     input_dir = abspath(normpath(input_dir))
     for root, _, files in walk(input_dir):
-        for fn in filter(lambda _ : _.lower().endswith("yaml"), files):
+        for fn in filter(lambda _: _.lower().endswith("yaml"), files):
             if input_dir_or_file and input_dir_or_file != fn:
                 continue
             input_fn = join(root, fn)
             data = yaml.load_all(open(input_fn, "r", "utf8").read())
             yield input_fn, data
 
+
 def examples_data(input_dir, output_fn):
-    input_dir     = abspath(normpath(input_dir))
+    input_dir = abspath(normpath(input_dir))
     examples_json = abspath(normpath(output_fn))
-    output_dir    = dirname(examples_json)
+    output_dir = dirname(examples_json)
     print("Target output directory: '{}'".format(output_dir))
 
     from collections import Counter
     num_examples = Counter()
 
     # this implicitly defines all known languages
-    recursive_dict = lambda : defaultdict(recursive_dict)
+    recursive_dict = lambda: defaultdict(recursive_dict)
     examples = {
-        "sage":   recursive_dict(),
+        "sage": recursive_dict(),
         "python": recursive_dict(),
-        "r":      recursive_dict(),
+        "r": recursive_dict(),
         "cython": recursive_dict(),
-        "gap":    recursive_dict(),
-        "bash":   recursive_dict(),
+        "gap": recursive_dict(),
+        "bash": recursive_dict(),
         "octave": recursive_dict(),
-        "julia":  recursive_dict(),
+        "julia": recursive_dict(),
     }
 
     # This processes all yaml input files and fails when any assertion is violated.
@@ -137,17 +145,25 @@ def examples_data(input_dir, output_fn):
             if "language" in doc:
                 language = doc["language"]
                 if language not in examples.keys():
-                    raise AssertionError("Language %s not known. Fix first document in %s" % (language, input_fn))
+                    raise AssertionError(
+                        "Language %s not known. Fix first document in %s" %
+                        (language, input_fn))
                 processed = True
 
-            if "category" in doc: # setting both levels of the category and re-setting entries and titles
-                lvl1, lvl2, sortweight, setup, variables = process_category(doc)
+            if "category" in doc:  # setting both levels of the category and re-setting entries and titles
+                lvl1, lvl2, sortweight, setup, variables = process_category(
+                    doc)
                 if lvl2 in examples[language][lvl1]:
-                    raise AssertionError("Duplicate category level2: '%s' already exists (error in %s)" % (lvl2, input_fn))
+                    raise AssertionError(
+                        "Duplicate category level2: '%s' already exists (error in %s)"
+                        % (lvl2, input_fn))
                 entries = []
                 entry_data = {'entries': entries, 'sortweight': sortweight}
                 if variables:
-                    assert isinstance(variables, dict), "variables isn't a dictionary: %s".format(variables)
+                    assert isinstance(
+                        variables,
+                        dict), "variables isn't a dictionary: %s".format(
+                            variables)
                     entry_data['variables'] = variables
                 if setup:
                     entry_data['setup'] = setup
@@ -160,10 +176,14 @@ def examples_data(input_dir, output_fn):
                 try:
                     title, body = process_doc(doc, input_fn)
                 except Exception as ex:
-                    print("Problem processing {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
+                    print(
+                        "Problem processing {language}::{lvl1}/{lvl2} of {input_fn}"
+                        .format(**locals()))
                     raise ex
                 if title in titles:
-                    print("WARNING: ignoring entry due to duplicate title '{title}' in {language}::{lvl1}/{lvl2} of {input_fn}".format(**locals()))
+                    print(
+                        "WARNING: ignoring entry due to duplicate title '{title}' in {language}::{lvl1}/{lvl2} of {input_fn}"
+                        .format(**locals()))
                     continue
                 entry = [title, body]
                 entries.append(entry)
@@ -172,8 +192,10 @@ def examples_data(input_dir, output_fn):
                 processed = True
 
             # if False, malformatted document
-            if not processed: # bad document
-                raise RuntimeError("This document is not well formatted (wrong keys, etc.)\n%s" % doc)
+            if not processed:  # bad document
+                raise RuntimeError(
+                    "This document is not well formatted (wrong keys, etc.)\n%s"
+                    % doc)
 
         # ignore empty categories, i.e. those which are created but do not contain any entries
         # (this might happen as a side effect of automatically generating source files)
@@ -206,6 +228,7 @@ execs = {
     'julia': shutil.which('julia'),
 }
 
+
 def reset_code(lang):
     '''
     some code to reset local identifyers, in order to speed up execution (to avoid restarts)
@@ -215,20 +238,24 @@ def reset_code(lang):
         'sage': 'reset()',
         'python': '%reset -f',
         'r': 'rm(list=ls())',
-        'octave':'clear',
+        'octave': 'clear',
     }
     return reset.get(lang.lower(), '')
+
 
 def language_to_kernel(lang):
     data = {
         "sage": "sagemath",
         "python": "python3",
         "r": "ir",
+        "julia": "julia-1.1",
     }
     return data.get(lang.lower(), lang)
 
+
 # actually a cache
 kernels = {}
+
 
 def make_kernel(language):
     if language in kernels:
@@ -236,11 +263,12 @@ def make_kernel(language):
     #print("starting new kernel for {language}".format(**locals()))
     from jupyter_client.manager import start_new_kernel
     name = language_to_kernel(language)
-    manager, client = start_new_kernel(kernel_name = name)
+    manager, client = start_new_kernel(kernel_name=name)
     kernels[language] = manager, client
     import atexit
-    atexit.register(lambda : manager.shutdown_kernel(now=True))
+    atexit.register(lambda: manager.shutdown_kernel(now=True))
     return manager, client
+
 
 def get_jupyter(language, restart=True):
     manager, client = make_kernel(language)
@@ -248,6 +276,7 @@ def get_jupyter(language, restart=True):
     if restart:
         manager.restart_kernel()
     return client
+
 
 def exec_jupyter(language, code, restart=False):
     client = get_jupyter(language, restart=restart)
@@ -259,7 +288,7 @@ def exec_jupyter(language, code, restart=False):
     errors = []
     while client.is_alive():
         try:
-            msg=client.get_iopub_msg(timeout=1)
+            msg = client.get_iopub_msg(timeout=1)
             if not 'content' in msg:
                 continue
 
@@ -285,7 +314,8 @@ def exec_jupyter(language, code, restart=False):
                 continue
 
             #pprint(["content:", content])
-            if any(k in ['ename', 'traceback', 'evalue'] for k in content.keys()):
+            if any(k in ['ename', 'traceback', 'evalue']
+                   for k in content.keys()):
                 errors.append((content['ename'], content['evalue']))
             else:
                 if 'text' in content:
@@ -296,30 +326,35 @@ def exec_jupyter(language, code, restart=False):
                         outputs.append(result['text/plain'])
                     elif 'image/svg+xml' in result:
                         svg = '\n'.join(result['image/svg+xml'])
-                        outputs.append("SVG PLOT ({} characters)".format(len(svg)))
+                        outputs.append("SVG PLOT ({} characters)".format(
+                            len(svg)))
                     elif 'image/png' in result:
                         svg = '\n'.join(result['image/png'])
-                        outputs.append("PNG PLOT ({} characters)".format(len(svg)))
+                        outputs.append("PNG PLOT ({} characters)".format(
+                            len(svg)))
                     else:
                         pprint(result)
-                        raise RuntimeError("Result above; undealt content data: {}".format(list(result.keys())))
+                        raise RuntimeError(
+                            "Result above; undealt content data: {}".format(
+                                list(result.keys())))
 
         except Empty:
             pass
 
     return '\n'.join(outputs), errors
 
-def test_examples(input_dir, runner = 'jupyter', restart=False):
+
+def test_examples(input_dir, runner='jupyter', restart=False):
     assert runner in ['jupyter', 'cmdline']
     language = None
     setup = ''
     failures = []
     total = 0
-    cat = '' # current category
+    cat = ''  # current category
 
     def test_cmdline(code, test=None):
         exe = execs[language]
-        config = {'stdout':PIPE, 'shell':True, 'universal_newlines':True}
+        config = {'stdout': PIPE, 'shell': True, 'universal_newlines': True}
         if 'CODE' in exe:
             res = check_output(exe.replace('CODE', code), **config)
         else:
@@ -346,7 +381,7 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
             return
         nonlocal total
         total += 1
-        if isinstance(code,(tuple,list)):
+        if isinstance(code, (tuple, list)):
             code = "\n".join(code)
         code = "\n".join([setup, code])
         if runner == 'cmdline':
@@ -365,7 +400,7 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
                 print('   {:<30s} → '.format(title), end='')
                 err = test(**doc)
                 if err:
-                    fn = input_fn[len(CURDIR)+1:]
+                    fn = input_fn[len(CURDIR) + 1:]
                     failures.append(' → '.join([fn, cat, title, err]))
             elif 'language' in doc:
                 language = doc['language']
@@ -387,7 +422,8 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
 
     print()
     failcnt = len(failures)
-    summary = "SUMMARY: {} run in total and {} failures ({:.1f}%)".format(total, failcnt, 100 * failcnt/total)
+    summary = "SUMMARY: {} run in total and {} failures ({:.1f}%)".format(
+        total, failcnt, 100 * failcnt / total)
     print(summary.center(WIDTH, '-'))
     for failure in failures:
         print(failure)
@@ -395,9 +431,12 @@ def test_examples(input_dir, runner = 'jupyter', restart=False):
     if len(failures) > 0:
         sys.exit(1)
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: %s <input-directory of *.yaml files> <ouput-file (usually 'examples.json')>" % sys.argv[0])
+        print(
+            "Usage: %s <input-directory of *.yaml files> <ouput-file (usually 'examples.json')>"
+            % sys.argv[0])
         sys.exit(1)
     if sys.argv[1] == 'test':
         # restart: if set, the kernel is stopped and started for each test
@@ -406,4 +445,3 @@ if __name__ == "__main__":
         test_examples(sys.argv[2], restart=not fast_mode)
     else:
         examples_data(sys.argv[1], sys.argv[2])
-
