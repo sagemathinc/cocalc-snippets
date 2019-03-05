@@ -11,7 +11,7 @@
 #                        http://www.gnu.org/licenses/                               #
 #####################################################################################
 
-import os, sys, shutil
+import sys
 
 # make it python 2 and 3 compatible (although, to be clear, it is supposed to be py3 only)
 if (sys.version_info > (3, 0)):
@@ -19,13 +19,12 @@ if (sys.version_info > (3, 0)):
 else:
     mystr = basestring
 
-from os.path import abspath, dirname, normpath, exists, join, dirname
+from os import makedirs, walk, environ
+from os.path import abspath, dirname, normpath, exists, join, dirname, isfile, basename
 CURDIR = dirname(abspath(__file__))
-from os import makedirs, walk
-from shutil import rmtree
+from shutil import which
 import yaml
 import json
-import re
 from codecs import open
 from collections import defaultdict
 from pprint import pprint
@@ -89,8 +88,6 @@ def process_doc(doc, input_fn):
 
 
 def input_files_iter(input_dir_or_file):
-    from os.path import isfile, basename
-
     if isfile(input_dir_or_file):
         input_dir = dirname(input_dir_or_file)
         input_dir_or_file = basename(input_dir_or_file)
@@ -202,9 +199,9 @@ def examples_data(input_dir, output_fn):
         if len(entries) == 0:
             del examples[language][lvl1][lvl2]
 
-    if not os.path.exists(output_dir):
+    if not exists(output_dir):
         print("Creating output directory '%s'" % output_dir)
-        os.makedirs(output_dir)
+        makedirs(output_dir)
 
     with open(examples_json, "w", "utf8") as f_out:
         # sorted keys to de-randomize output (leads to a stable representation when kept it in Git)
@@ -219,13 +216,13 @@ from subprocess import PIPE, check_output  #, run <- isn't 3.5 compatible, needs
 
 # for each language, prepare a stub to run the example, this is for runner = "cmdline"-mode
 execs = {
-    'sage': "{} -c 'CODE'".format(shutil.which('sage')),
-    'python': shutil.which('python3'),
-    'r': shutil.which('R'),
-    'bash': shutil.which('bash'),
-    'gap': shutil.which('gap'),
-    'octave': shutil.which('octave'),
-    'julia': shutil.which('julia'),
+    'sage': "{} -c 'CODE'".format(which('sage')),
+    'python': which('python3'),
+    'r': which('R'),
+    'bash': which('bash'),
+    'gap': which('gap'),
+    'octave': which('octave'),
+    'julia': which('julia'),
 }
 
 
@@ -441,7 +438,7 @@ if __name__ == "__main__":
     if sys.argv[1] == 'test':
         # restart: if set, the kernel is stopped and started for each test
         # use like: $ make MODE=fast LANG=sage test
-        fast_mode = os.environ.get('MODE', None) == 'fast'
+        fast_mode = environ.get('MODE', None) == 'fast'
         test_examples(sys.argv[2], restart=not fast_mode)
     else:
         examples_data(sys.argv[1], sys.argv[2])
