@@ -4,11 +4,6 @@
 # The idea is to extract the data, but it is often incomplete, only parts are useful, different layout (too many subcategories) etc.
 
 import os
-import sys
-import json
-import yaml
-from glob import iglob
-from pprint import pprint
 
 REPO = 'https://github.com/moble/jupyter_boilerplate.git'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
