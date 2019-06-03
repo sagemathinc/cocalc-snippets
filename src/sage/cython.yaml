@@ -1,0 +1,21 @@
+# CoCalc Snippets Documentation File
+# Copyright: SageMath Inc., 2019
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+---
+language: sage
+category: Miscellaneous / Cython
+---
+title: "Cython Class"
+descr: "Defines a [Cython](https://cython.org/) class"
+code: |
+  %cython
+  cdef class MyClass:
+      """
+      This is a Cython class.
+      """
+      cdef int a
+      def __init__(self, int a):
+          self.a = a
+      def __repr__(self):
+          return "Instance of MyClass with a = %s"%self.a
+  print(MyClass(5))
