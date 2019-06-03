@@ -1,4 +1,4 @@
-# CoCalc Assistant
+# CoCalc Snippets
 
 A collection of code snippet examples to assist working on CoCalc → [read more](src/README.md).
 
@@ -71,7 +71,7 @@ to test the `src/sage` subdirectory:
 make LANG=sage test
 ```
 
-To speed things up and skip restarting the kernel (could give false positives, but syntax is always wrong)
+To speed things up and skip restarting the kernel (could give false positives, but syntax errors are always triggered)
 
 ```
 make LANG=sage MODE=fast test
