@@ -17,20 +17,96 @@ descr: |
   In this case here, it says to evaluate $x \in [-10, \, 10]$.
 
   The Sage Reference guide to plotting is here: http://doc.sagemath.org/html/en/reference/plotting/index.html
-code:  |
+code: |
   x = var('x')
   plot(x * sin(x), (x, -10, 10))
 ---
 title: Simple 2D Plot
-code:  plot(2*x^2 - 3*x + 1, (x, -10, 10))
+code: plot(2*x^2 - 3*x + 1, (x, -10, 10))
 descr: Plot of $f(x) = 2x^2 - 3x + 1$.
 ---
 title: Cool 2D Plot
-code:  plot(x * sin(x), (x, -10, 10))
+code: plot(x * sin(x), (x, -10, 10))
 descr: Plot of $f(x) = x \sin(x)$.
 ---
 title: Simple 3D Plot
-code:  |
-    var('x y')
-    plot3d(sin(x) * cos(y), (x, -10, 10), (y, -10, 10))
+code: |
+  var('x y')
+  plot3d(sin(x) * cos(y), (x, -10, 10), (y, -10, 10))
 descr: 3D plot of $f(x,y) = \sin(x)\cos(y)$.
+---
+category: Plotting/3D
+---
+title: "Cube"
+descr: "Show a colored cube"
+code: |
+  thecube = cube(
+    color=['red', 'blue', 'green'],
+    frame_thickness=2,
+    frame_color='brown',
+    opacity=0.8
+  )
+  show(thecube, frame=False)
+---
+title: "Function"
+descr: "Plot f(x, y)"
+code: |
+  %var x y
+  plot3d(x * sin(y), (x, -5, 5), (y, -5, 5))
+---
+title: "Icosahedron"
+code: |
+  show(icosahedron(color='green', opacity=.5, mesh=3), spin=1)
+---
+title: "Implicit plot"
+descr: "Create an implicit 3D plot"
+code: |
+  %var x y z
+  g = golden_ratio; r = 4.77
+  p = 2 - (cos(x + g*y) + cos(x - g*y) + cos(y + g*z) +
+           cos(y - g*z) + cos(z - g*x) + cos(z + g*x))
+  show(implicit_plot3d(p, (x, -r, r), (y, -r, r), (z, -r, r),
+                  plot_points=30, color='orange', mesh=1, opacity=.7), spin=1)
+---
+title: "Parametric curve"
+code: |
+  %var u
+  parametric_plot3d( (sin(u), cos(u), u/10), (u, 0, 20), thickness=5, color='green', plot_points=100)
+---
+title: "Parametric surface"
+code: |
+  %var u, v
+  fx = (3*(1+sin(v)) + 2*(1-cos(v)/2)*cos(u))*cos(v)
+  fy = (4+2*(1-cos(v)/2)*cos(u))*sin(v)
+  fz = -2*(1-cos(v)/2) * sin(u)
+  parametric_plot3d([fx, fy, fz], (u, 0, 2*pi), (v, 0, 2*pi), color="green", opacity=.7, mesh=1, spin=5)
+---
+title: "Polytope"
+code: |
+  points = [(2,0,0), (0,2,0), (0,0,2), (-1,0,0), (0,-1,0), (0,0,-1)]
+  show(LatticePolytope(points).plot3d(), spin=5)
+---
+title: "Random walk"
+descr: "A 3D Random Walk"
+code: |
+  v = [(0,0,0)]
+  for i in range(1000):
+      v.append([a+random()-.5 for a in v[-1]])
+  line3d(v, color='red', thickness=3, spin=3)
+---
+title: "Tetrahedron"
+code: |
+  show(tetrahedron(color='lime', opacity=.5, mesh=3), spin=1)
+---
+title: "Text"
+descr: "Draw 3D text"
+code: |
+  text3d("Text in 3D", (1,1, 1), color="darkred", fontsize=20)
+---
+title: "Torus"
+code: |
+  from sage.plot.plot3d.shapes import Torus
+  inner_radius = .3; outer_radius = 1
+  show(Torus(outer_radius, inner_radius, color='orange'), aspect_ratio=1, spin=3)
+---
+
