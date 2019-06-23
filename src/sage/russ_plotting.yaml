@@ -8,7 +8,7 @@ category: Plotting / 2D
 ---
 title: Basic Plot
 code: |
-  print "Basic plot: you need a variable, and a function of the variable here x*sin( x^2 )"
+  print("Basic plot: you need a variable, and a function of the variable here x*sin( x^2 )")
 
   # this defaults many many things you can control
   # here in 2 steps using plot() and show() (which can be combined into one line):
@@ -18,7 +18,7 @@ descr: Basic plot of a function, letting most options default.
 ---
 title: Upper and lower limit
 code: |
-  print "Basic plot extended with upper lower, limit on x"
+  print("Basic plot extended with upper lower, limit on x")
 
   pt    = plot( x*sin(x^2), x,  0, 6*pi )      # args in order:  function, variable, lower limit, upper limit,
   show( pt )
@@ -28,7 +28,7 @@ descr: >
 ---
 title: Many more options/arguments
 code: |
-  print "Plot with many more options/arguments, used by name that are somewhat self explanatory -- tweak values to see what they do, or google them"
+  print("Plot with many more options/arguments, used by name that are somewhat self explanatory -- tweak values to see what they do, or google them")
   # show also offers named arguments for control.
 
   pt    = plot( x*sin(x^2), x,  0, 6*pi, rgbcolor="red",  linestyle = "-",  fill=False, thickness=1, legend_label ="a legend label" )
@@ -39,7 +39,7 @@ descr: >
 ---
 title: Multiple lines/function
 code: |
-  print "Plot Multiple lines/function on plots"
+  print("Plot Multiple lines/function on plots")
   # also note that functions may be computed and put into variables outside of plot() or show()
 
   function1    = x*sin(x^2)
@@ -71,7 +71,7 @@ code: |
 ---
 title: Custom tickmarks on the axes
 code: |
-  print "Plot with ticks, LaTeX formatting at specific locations"
+  print("Plot with ticks, LaTeX formatting at specific locations")
 
   fx     = 1 * (x^2)+1
   pt     = plot( fx ,x, 0,5, ticks=[[0,1,e,pi,sqrt(20)], 5 ], tick_formatter="latex")
@@ -83,16 +83,16 @@ descr: >
 ---
 title: Using Python functions
 code: |
-  print "Plot using Python functions defined using 'def:'"
+  print("Plot using Python functions defined using 'def:'")
   # see  http://www.sagemath.org/doc/tutorial/tour_functions.html
 
   def f(z):       # this and next line define a Python function
       return z^2
 
-  print "Define plot and show it in one line of code"
+  print("Define plot and show it in one line of code")
   show(plot(f, 0, 2), figsize=[6,2])
 
-  print "Alternate syntax "
+  print("Alternate syntax ")
   z = var("z")
   show(plot(f(z), z, 0, 2), figsize=[6,2])
 descr: >
@@ -103,7 +103,7 @@ category: Plotting / 2D Advanced
 ---
 title: Implicit Plot
 code: |
-  print "Implicit plot ( here function of x, y not solved for y )"
+  print("Implicit plot ( here function of x, y not solved for y )")
 
   var ('x y')
   imp  = exp(x)==y^2
@@ -114,7 +114,7 @@ descr: >
 ---
 title: Parametric Plot
 code: |
-  print "Parametric Plot (here 3 functions)"
+  print("Parametric Plot (here 3 functions)")
   # for graphing parametric equations ( 2 functions with a common variable implying a relation between the 2 functions )
   # 3 plots all controlled by the parameter t
 
@@ -144,7 +144,7 @@ code: |
 ---
 title: Polar Plot
 code: |
-  print "Polar Plot"
+  print("Polar Plot")
 
   # Plot using polar coordinates: note that many of the options for plot() work here.
 
@@ -160,7 +160,7 @@ descr: >
 ---
 title: Slope Field
 code: |
-  print "Plot Slope Field"
+  print("Plot Slope Field")
 
   x, y = var( "x, y" )
 
@@ -188,7 +188,7 @@ code: |
   eq = diff(y, x) == - y/x - x + 2
   h = desolve(eq, y, [2, 4])
   sol(x) = h.expand()
-  print "solution:", sol
+  print("solution:", sol)
 
   # substituting the solution for y(x) in the right hand side
   substituted = eq.rhs().substitute_function(yy, sol)
@@ -200,7 +200,7 @@ code: |
 ---
 title: Vector Field
 code: |
-  print "Plot vector field"
+  print("Plot vector field")
 
   var( "x" )
   var( "y" )
@@ -219,7 +219,7 @@ descr: >
 ---
 title: List of points
 code: |
-  print "Plot of a list of points"
+  print("Plot of a list of points")
 
   # either type of list works
   dictionary_list =  {22: 3365, 27: 3295, 37: 3135, 42: 3020, 47: 2880, 52: 2735, 57: 2550}
@@ -234,7 +234,7 @@ descr: >
 ---
 title: Scatter Plot with Line
 code: |
-  print "Scatter plot and line"   # http://www.packtpub.com/article/plotting-data-sage
+  print("Scatter plot and line"   # http://www.packtpub.com/article/plotting-data-sage)
 
   # python function
   def noisy_line(m, b, x):
@@ -257,7 +257,7 @@ descr: >
 ---
 title: Contour Plot
 code: |
-  print "Contour plot"
+  print("Contour plot")
 
   # this might be improved, some explanation
 
@@ -280,7 +280,7 @@ category: Plotting / Basic Elements
 ---
 title: Points as points (plain and fancy)
 code: |
-  print "Plotting points as points ( plain and fancy )"
+  print("Plotting points as points ( plain and fancy )")
 
   plainPoints    = point([1, 1]) + point([2, 1])
   plot1  = plot( plainPoints )
@@ -302,7 +302,7 @@ code: |
 ---
 title: Line with point at the end
 code: |
-  print "Plot a line with point ( dot ) at end"
+  print("Plot a line with point ( dot ) at end")
   # computed in polar form, not required
 
   r        = 5
@@ -339,7 +339,7 @@ descr: >
 ---
 title: Arc
 code: |
-  print "Plot an Arc"
+  print("Plot an Arc")
 
   graphic   = (arc((.1,.2), 1, sector=(0,  1*pi /4)))
 
@@ -350,7 +350,7 @@ descr: >
 ---
 title: Circle
 code: |
-  print "Plot a Circle"
+  print("Plot a Circle")
 
   anGraphic = circle((0,0), .5, rgbcolor=(1,0,0),  fill=False )    # fill controls filling of circle with color
 
@@ -359,7 +359,7 @@ descr: Plot a circle.  Center, radius, color are parameters.
 ---
 title: Arrow
 code: |
-  print "Plot an Arrow"
+  print("Plot an Arrow")
 
   anGraphic = arrow((0,1), (2,3) ) # start cord, end cord as tuples
 
@@ -368,7 +368,7 @@ descr: Plot an Arrow, describe by starting and ending coordinates.
 ---
 title: Text
 code: |
-  print "Plot Text"
+  print("Plot Text")
   # text is followed by tuple for position
   aGraphic     = text("Sample Text", (5,4), rgbcolor=(1,0,0))
   show(aGraphic, aspect_ratio=1, figsize = 3)

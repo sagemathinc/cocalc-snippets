@@ -16,7 +16,7 @@ descr: >
     but that's not Python!
 code: |
     f(x) = 2*x + 1
-    print f(3)
+    print(f(3))
 ---
 title: Assignments
 descr: >
@@ -93,8 +93,8 @@ code: |
             self.nominator = nom
             self.denominator = denom
     f1 = Fraction(1, 2)
-    print f1.nominator
-    print f1.denominator
+    print(f1.nominator)
+    print(f1.denominator)
 ---
 title: Functions
 descr: |
@@ -110,21 +110,21 @@ descr: |
 
     ```
     x = 7
-    print x
+    print(x)
     f(x) = x^2
-    print x
+    print(x)
     ```
 
     will print `7` and then `x`.
 code: |
     def f(x):
         return 2*x
-    print f(11)
+    print(f(11))
 
     # this defines x to be a symbolic variable
     var('x')
     g(x) = 2 * x + 1
-    print g(21)
+    print(g(21))
 ---
 title: Symbolic Expressions
 descr: |
@@ -139,9 +139,9 @@ code: |
     var('x y')
     type(y)
     ex1 = (x + y)^2 == 1
-    print ex1
+    print(ex1)
     ex2 = x - y == 1
-    print ex2
+    print(ex2)
 ---
 title: Approximate Symbolic Expressions
 descr: >
