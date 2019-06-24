@@ -73,8 +73,8 @@ code: |
 title: Chinese remainder theorem
 code: |
   x = crt(2, 1, 3, 5); x
-  print(x % 3 # x mod 3 = 2)
-  print(x % 5 # x mod 5 = 1)
+  print(x % 3) # x mod 3 = 2
+  print(x % 5) # x mod 5 = 1
   print([binomial(13,m) for m in range(14)])
   print([binomial(13,m)%2 for m in range(14)])
   print([kronecker(m,13) for m in range(1,13)])
@@ -86,8 +86,8 @@ title: "Hint: Strings to Integers"
 descr: "You can define an integer in [base 36](https://en.wikipedia.org/wiki/Base36). That way you can use the alphabet for encoding a message."
 code: |
   x = Integer('secret', base=36)
-  print(x                # gives 1717162949)
-  print(x.str(base=36)   # gives 'secret')
+  print(x)                # gives 1717162949
+  print(x.str(base=36))   # gives 'secret'
 ---
 category: ['Mathematics', '$p$-adic Numbers']
 sortweight: 10

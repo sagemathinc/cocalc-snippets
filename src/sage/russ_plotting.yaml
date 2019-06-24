@@ -234,7 +234,7 @@ descr: >
 ---
 title: Scatter Plot with Line
 code: |
-  print("Scatter plot and line"   # http://www.packtpub.com/article/plotting-data-sage)
+  print("Scatter plot and line")   # http://www.packtpub.com/article/plotting-data-sage
 
   # python function
   def noisy_line(m, b, x):
