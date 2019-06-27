@@ -38,7 +38,7 @@ code: |
     f(x) = 2*x + 1
     @interact
     def f_interact(x=(0, 100)):
-        print 'f({}) = {}'.format(x, f(x))
+        print('f({}) = {}'.format(x, f(x)))
 test: false
 ---
 title: Multiple Sliders

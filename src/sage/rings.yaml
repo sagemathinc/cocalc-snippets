@@ -50,8 +50,8 @@ decr: |
   Note, how $5 * x + 10 * x + y$ evaluates to $2*x + y$.
 code: |
   GF_13.<x,y> = GF(13)[]
-  print GF_13
-  print 5 * x + 10 * x + y
+  print(GF_13)
+  print(5 * x + 10 * x + y)
 ---
 title: |
   Polynomial Ring $\QQ[x,\,y,\,z]$

@@ -26,13 +26,13 @@ descr: |
     For more, see the [documentation](http://doc.sagemath.org/html/en/reference/databases/sage/databases/stein_watkins.html).
 code: |
     gen = SteinWatkinsAllData(0)
-    print gen
+    print(gen)
     C = next(gen)
-    print C.data
-    print C.leading_coefficient
-    print C.modular_degree
-    print C.rank
-    print C.isogeny_number
+    print(C.data)
+    print(C.leading_coefficient)
+    print(C.modular_degree)
+    print(C.rank)
+    print(C.isogeny_number)
 ---
 title: Tables of Zeros of the Riemann Zeta Function
 descr: |
@@ -40,5 +40,5 @@ descr: |
     For more, see the [documentation](http://doc.sagemath.org/html/en/reference/databases/sage/databases/odlyzko.html).
 code: |
     zz = zeta_zeros()
-    print len(zz)
-    print zz[12]
+    print(len(zz))
+    print(zz[12])
