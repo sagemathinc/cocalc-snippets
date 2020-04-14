@@ -1,0 +1,24 @@
+# CoCalc Snippets for Javascript
+# Copyright: SageMath Inc., 2020
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+---
+language: javascript
+category: ["Advanced", "Async/Await"]
+---
+title: "Async/Await in ijavascript"
+desc: >
+  This is how you can run async code in `ijavascript`.
+  Notice, how there is a 1 second delay between the outputs and only then the execution halts (calling `$$.done()`)
+
+  See [ijavascript async output](http://n-riesco.github.io/ijavascript/doc/async.ipynb.html) for more information.
+code: |
+  $$.async();
+
+  console.log("Hello, World!");
+
+  function run() {
+      console.log("I'm done waiting a second.");
+      $$.done();
+  }
+
+  setTimeout(run, 1000);

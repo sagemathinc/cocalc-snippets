@@ -1,0 +1,74 @@
+# CoCalc Snippets for Javascript
+# Copyright: SageMath Inc., 2020
+# License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+---
+language: javascript
+category: Tutorial / First Steps
+sortweight: -1
+---
+title: Introduction
+desc: >
+  This jupyter kernel runs JavaScript remotely in Node.js.
+
+  - [kernel ijavascript](https://github.com/n-riesco/ijavascript)
+  - [node.js](https://nodejs.org/en/)
+code:
+  - |
+    # a simple calculation
+    1+1
+  - |
+    # the version of Node.js
+    process.version
+---
+title: Variables
+desc: >
+  Use the equal sign to name an object to refer to it later.
+code:
+  - |
+    # define x
+    x = 20
+    x
+  - |
+    # now refer to x in a calculation
+    2 * x + 1
+---
+title: Print output
+desc: >
+  Use `console.log(...)` to show output – otherwise, only the last value in a cell will be displayed.
+code: |
+  console.log("Hello, World!");
+  console.log(9 * 9);
+  console.log("finished");
+---
+category: Tutorial / Arrays
+---
+title: Arrays
+desc: >
+  An array is an ordered collection of objects.
+code: |
+  [1, 2, 5, 10]
+---
+title: Array manipulations
+desc: >
+  This is how you can change an element in an array and extract an element at a specific location.
+
+  The first element is at *index position 0*!
+code:
+  - |
+    arr = ['foo', 'bar', 'baz']
+    arr[1] = 'apple'
+    arr
+  - |
+    arr[0]
+---
+category: Tutorial / Functions
+---
+title: Introduction
+desc: >
+  A JavaScript function is ...
+code:
+  - |
+    function foo(x) {
+      return 2*x+1;
+    }
+  - foo(20)

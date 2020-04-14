@@ -4,7 +4,7 @@
 #####################################################################################
 #              CoCalc Examples - Documentation Files Compiler                       #
 #                                                                                   #
-#                Copyright (C) 2015 -- 2018, SageMath, Inc.                         #
+#                Copyright (C) 2015 -- 2020, SageMath, Inc.                         #
 #                                                                                   #
 #  Distributed under the terms of the GNU General Public License (GPL), version 2+  #
 #                                                                                   #
@@ -125,6 +125,7 @@ def examples_data(input_dir, output_fn):
         "bash": recursive_dict(),
         "octave": recursive_dict(),
         "julia": recursive_dict(),
+        "javascript": recursive_dict(),
     }
 
     # This processes all yaml input files and fails when any assertion is violated.
@@ -246,6 +247,7 @@ def language_to_kernel(lang):
         "python": "python3",
         "r": "ir",
         "julia": "julia-1.1",
+        "javascript": "javascript",
     }
     return data.get(lang.lower(), lang)
 
