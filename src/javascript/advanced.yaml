@@ -6,7 +6,7 @@ language: javascript
 category: ["Advanced", "Async/Await"]
 ---
 title: "Async/Await in ijavascript"
-desc: >
+descr: >
   This is how you can run async code in `ijavascript`.
   Notice, how there is a 1 second delay between the outputs and only then the execution halts (calling `$$.done()`)
 
