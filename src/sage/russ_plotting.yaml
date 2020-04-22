@@ -388,5 +388,3 @@ code: |
   a = polygon2d([(0,0), (1,2), (1/2,pi), (1/2,pi/2)], color='orange')
   b = polygon2d([(0,0), (1,2), (1/2,pi), (1/2,pi/2)], color='black', fill=False, thickness=3)
   show(a + b)
-
-
