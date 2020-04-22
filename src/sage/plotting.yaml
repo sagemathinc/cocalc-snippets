@@ -35,7 +35,8 @@ title: Simple 3D Plot
 code: |
   var('x y')
   plot3d(sin(x) * cos(y), (x, -10, 10), (y, -10, 10))
-descr: 3D plot of $f(x,y) = \sin(x)\cos(y)$.
+descr: >
+  3D plot of $f(x,y) = \sin(x)\cos(y)$.
 ---
 title: "Cube"
 descr: "Show a colored cube"
@@ -54,6 +55,62 @@ code: |
   %var x y
   plot3d(x * sin(y), (x, -5, 5), (y, -5, 5))
 ---
+title: 3D Surfaces
+descr: |
+  The function `plot3d` shows a function $f(x,\,y) \rightarrow \mathrm{R}$ in 3D.
+
+  Ref: https://doc.sagemath.org/html/en/reference/plot3d/sage/plot/plot3d/plot3d.html
+code: |
+  var('x y')
+  k = 2
+  plot3d(4 * sin(x) * cos(y) * exp(-0.1 * x^2), (x, -k*pi, k*pi), (y, -k*pi, k*pi))
+---
+title: 3D Parametric Plots
+descr: |
+  `parametric_plot3d` shows a function taking two parameters mapping to points in 3 dimensions –
+  i.e. $\begin{pmatrix}u \\ v\end{pmatrix} \rightarrow \begin{pmatrix}f(u,\,v) \\ g(u,\,v) \\ h(u,\,v)\end{pmatrix}$.
+
+  Ref: https://doc.sagemath.org/html/en/reference/plot3d/sage/plot/plot3d/parametric_plot3d.html
+code: |
+  var('u,v')
+  parametric_plot3d((cos(u), 2*sin(u)+cos(v), sin(v)), (u,0,2*pi), (v,-pi,pi), mesh=True)
+---
+title: 3D Implicit Plots
+descr: |
+  In general, an implicit plot shows the surface or volume of an area, where the given equation is true.
+  The left hand side of such an equation is given, while the right hand side is called "contour" and usually 0.
+
+  Ref: https://doc.sagemath.org/html/en/reference/plot3d/sage/plot/plot3d/implicit_plot3d.html
+code: |
+  var('x, y, z')
+  T = RDF(golden_ratio)
+  F = 2 - (cos(x+T*y) + cos(x-T*y) + cos(y+T*z) + cos(y-T*z) + cos(z-T*x) + cos(z+T*x))
+  r = 4.77
+  implicit_plot3d(F, (x,-r,r), (y,-r,r), (z,-r,r), plot_points=40, color='darkkhaki')
+---
+title: 3D Surfaces of Revolution
+descr: |
+  Another method is to rotate a line, curve or function around an axis.
+  Sage's `revolution_plot3d` allows to create another set of 3D objects.
+
+  Ref: https://doc.sagemath.org/html/en/reference/plot3d/sage/plot/plot3d/revolution_plot3d.html
+code: |
+  var('u')
+  line = u
+  parabola = u^2
+  sur1 = revolution_plot3d(line, (u,0,1), opacity=0.5, rgbcolor=(1,0.5,0), show_curve=True, parallel_axis='x')
+  sur2 = revolution_plot3d(parabola, (u,0,1), opacity=0.5, rgbcolor=(0,1,0), show_curve=True, parallel_axis='x')
+  (sur1+sur2).show()
+---
+title: 3D Vector Field
+descr: |
+  A vector field shows the direction of a "force" as arrows.
+
+  Ref: https://doc.sagemath.org/html/en/reference/plot3d/sage/plot/plot3d/plot_field3d.html
+code: |
+  x,y,z=var('x y z')
+  plot_vector_field3d((x*cos(z),-y*cos(z),sin(z)), (x,0,pi), (y,0,pi), (z,0,pi))
+---
 title: "Icosahedron"
 code: |
   show(icosahedron(color='green', opacity=.5, mesh=3), spin=1)
@@ -67,11 +124,6 @@ code: |
            cos(y - g*z) + cos(z - g*x) + cos(z + g*x))
   show(implicit_plot3d(p, (x, -r, r), (y, -r, r), (z, -r, r),
                   plot_points=30, color='orange', mesh=1, opacity=.7), spin=1)
----
-title: "Parametric curve"
-code: |
-  %var u
-  parametric_plot3d( (sin(u), cos(u), u/10), (u, 0, 20), thickness=5, color='green', plot_points=100)
 ---
 title: "Parametric surface"
 code: |
