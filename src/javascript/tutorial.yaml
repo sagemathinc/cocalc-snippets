@@ -23,10 +23,11 @@ code:
 title: Variables
 descr: >
   Use the equal sign to name an object to refer to it later.
+  `let` tells JavaScript, that this is a new variable.
 code:
   - |
     # define x
-    x = 20
+    let x = 20
     x
   - |
     # now refer to x in a calculation
@@ -55,7 +56,7 @@ descr: >
   The first element is at *index position 0*!
 code:
   - |
-    arr = ['foo', 'bar', 'baz']
+    let arr = ['foo', 'bar', 'baz']
     arr[1] = 'apple'
     arr
   - |
@@ -72,3 +73,20 @@ code:
       return 2*x+1;
     }
   - foo(20)
+---
+title: Function passing
+descr: >
+  A function is passed to another one as an argument.
+  Try playing around with this example to really understand what's going on!
+code:
+  - |
+    function f1(x) {
+      return 2*x+1;
+    }
+  - |
+    function bar(func, arg) {
+      let y = 2 * func(arg) * 1
+      return y;
+    }
+  - |
+    bar(f1, 3)
