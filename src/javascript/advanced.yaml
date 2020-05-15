@@ -3,11 +3,11 @@
 # License:   Creative Commons: Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 ---
 language: javascript
-category: ["Advanced", "Async/Await"]
+category: ["Advanced", "Asynchronous code"]
 ---
-title: "Async/Await in ijavascript"
+title: "Asynchronous code in ijavascript"
 descr: >
-  This is how you can run async code in `ijavascript`.
+  This is how you can run asynchronous code in `ijavascript`.
   Notice, how there is a 1 second delay between the outputs and only then the execution halts (calling `$$.done()`)
 
   See [ijavascript async output](http://n-riesco.github.io/ijavascript/doc/async.ipynb.html) for more information.
