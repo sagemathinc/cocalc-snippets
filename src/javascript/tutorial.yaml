@@ -14,10 +14,10 @@ descr: >
   - [node.js](https://nodejs.org/en/)
 code:
   - |
-    # a simple calculation
+    // a simple calculation
     1+1
   - |
-    # the version of Node.js
+    // the version of Node.js
     process.version
 ---
 title: Variables
@@ -26,11 +26,11 @@ descr: >
   `let` tells JavaScript, that this is a new variable.
 code:
   - |
-    # define x
+    // define x
     let x = 20
     x
   - |
-    # now refer to x in a calculation
+    // now refer to x in a calculation
     2 * x + 1
 ---
 title: Print output
@@ -81,12 +81,25 @@ descr: >
 code:
   - |
     function f1(x) {
-      return 2*x+1;
+      return 2 * x + 1;
     }
   - |
     function bar(func, arg) {
-      let y = 2 * func(arg) * 1
+      let y = 1 + func(arg) + func(arg + 1)
       return y;
     }
   - |
     bar(f1, 3)
+---
+category: Tutorial / Iterations
+---
+title: for-loop
+descr: >
+  A for-loop iterates a value over a block of code.
+code:
+  - |
+    let sum = 0;
+    for (let i = 0; i < 10; i++) {
+      sum += i;
+    }
+    sum;
