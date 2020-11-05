@@ -52,7 +52,7 @@ code: |
 title: "Function"
 descr: "Plot f(x, y)"
 code: |
-  %var x y
+  x, y = var('x, y')
   plot3d(x * sin(y), (x, -5, 5), (y, -5, 5))
 ---
 title: 3D Surfaces
@@ -118,7 +118,7 @@ code: |
 title: "Implicit plot"
 descr: "Create an implicit 3D plot"
 code: |
-  %var x y z
+  x, y, z = var('x y z')
   g = golden_ratio; r = 4.77
   p = 2 - (cos(x + g*y) + cos(x - g*y) + cos(y + g*z) +
            cos(y - g*z) + cos(z - g*x) + cos(z + g*x))
@@ -127,7 +127,7 @@ code: |
 ---
 title: "Parametric surface"
 code: |
-  %var u, v
+  u, v = var('u, v')
   fx = (3*(1+sin(v)) + 2*(1-cos(v)/2)*cos(u))*cos(v)
   fy = (4+2*(1-cos(v)/2)*cos(u))*sin(v)
   fz = -2*(1-cos(v)/2) * sin(u)
