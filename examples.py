@@ -101,7 +101,8 @@ def input_files_iter(input_dir_or_file):
             if input_dir_or_file and input_dir_or_file != fn:
                 continue
             input_fn = join(root, fn)
-            data = yaml.load_all(open(input_fn, "r", "utf8").read())
+            raw = open(input_fn, "r", "utf8").read()
+            data = yaml.load_all(raw, Loader=yaml.loader.SafeLoader)
             yield input_fn, data
 
 
@@ -243,7 +244,7 @@ def reset_code(lang):
 
 def language_to_kernel(lang):
     data = {
-        "sage": "sagemath",
+        "sage": "sage-9.2",
         "python": "python3",
         "r": "ir",
         "julia": "julia-1.1",

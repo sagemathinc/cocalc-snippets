@@ -247,7 +247,7 @@ code: |
   x_coords = [random() for t in range(50)]
   y_coords = [noisy_line(slope, intercept, x) for x in x_coords]
 
-  sp = scatter_plot(zip(x_coords, y_coords))
+  sp = scatter_plot(list(zip(x_coords, y_coords)))
 
   sp += line([(0.0, intercept), (1.0, slope+intercept)], color='red')
 
