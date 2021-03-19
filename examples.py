@@ -21,6 +21,7 @@ else:
 
 from os import makedirs, walk, environ
 from os.path import abspath, dirname, normpath, exists, join, dirname, isfile, basename
+
 CURDIR = dirname(abspath(__file__))
 from shutil import which
 import yaml
@@ -101,8 +102,7 @@ def input_files_iter(input_dir_or_file):
             if input_dir_or_file and input_dir_or_file != fn:
                 continue
             input_fn = join(root, fn)
-            raw = open(input_fn, "r", "utf8").read()
-            data = yaml.load_all(raw, Loader=yaml.loader.SafeLoader)
+            data = yaml.safe_load_all(open(input_fn, "r", "utf8").read())
             yield input_fn, data
 
 
