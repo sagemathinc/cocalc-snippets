@@ -778,7 +778,7 @@ code: |
 ---
 category: ['NumPy', 'UFuncs / Bit-twiddling functions']
 setup: "import numpy as np"
-variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0.1, 1, 2.2, 3.5])","x2":"np.array([ -4, 3, 0.2, 1.5])"}
+variables: {"n":2,"a":"np.array([3, 4, -1, 9.81])","b":"np.array([0, -1, 2, -3])","a_min":"np.array([-1, -1, 0, 0])","a_max":"np.array([1, 1, 5, 10])","old_array":"np.array([3, 4, -1, 9.81])","axis1":0,"axis2":1,"x":"np.array([  0, 1, 4.4,  -9])","x1":"np.array([0, 1, 0, 1])","x2":"np.array([0, 0, 1, 1])"}
 ---
 title: |
   bitwise_and: Compute the bit-wise AND of two arrays element-wise
