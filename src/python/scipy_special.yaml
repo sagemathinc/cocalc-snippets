@@ -35,7 +35,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Elliptic Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"m":1,"p":0.5,"phi":0.45}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"m":1,"p":0.5,"phi":0.45,"u":1,"y":0.5}
 ---
 title: |
   ellipj: Jacobian elliptic functions
@@ -265,7 +265,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Bessel / Integrals of Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"a":2,"lmb":1,"nu":3}
 ---
 title: |
   itj0y0: Integrals of Bessel functions of order 0: $\int_0^x J_0(t)\, dt$, $\int_0^x Y_0(t)\, dt$
@@ -331,34 +331,24 @@ setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.
 variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5}
 ---
 title: |
-  sph_jn: Compute the spherical Bessel function $j_n(z)$ and its derivative for all orders up to and including $n$
+  spherical_jn: Compute the spherical Bessel function $j_n(z)$ and its derivative for all orders up to and including $n$
 code: |
-  special.sph_jn(n, z)
+  special.spherical_jn(n, z)
 ---
 title: |
-  sph_yn: Compute the spherical Bessel function $y_n(z)$ and its derivative for all orders up to and including $n$
+  spherical_yn: Compute the spherical Bessel function $y_n(z)$ and its derivative for all orders up to and including $n$
 code: |
-  special.sph_yn(n, z)
+  special.spherical_yn(n, z)
 ---
 title: |
-  sph_jnyn: Compute the spherical Bessel functions, $j_n(z)$ and $y_n(z)$ and their derivatives for all orders up to and including $n$
+  spherical_in: Compute the spherical Bessel function $i_n(z)$ and its derivative for all orders up to and including $n$
 code: |
-  special.sph_jnyn(n, z)
+  special.spherical_in(n, z)
 ---
 title: |
-  sph_in: Compute the spherical Bessel function $i_n(z)$ and its derivative for all orders up to and including $n$
+  spherical_kn: Compute the spherical Bessel function $k_n(z)$ and its derivative for all orders up to and including $n$
 code: |
-  special.sph_in(n, z)
----
-title: |
-  sph_kn: Compute the spherical Bessel function $k_n(z)$ and its derivative for all orders up to and including $n$
-code: |
-  special.sph_kn(n, z)
----
-title: |
-  sph_inkn: Compute the spherical Bessel functions, $i_n(z)$ and $k_n(z)$ and their derivatives for all orders up to and including $n$
-code: |
-  special.sph_inkn(n, z)
+  special.spherical_kn(n, z)
 ---
 category: ['SciPy / Special Func', 'Bessel / Riccati-Bessel']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
@@ -405,7 +395,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Statistics']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"v":1.5,"x":0.66,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"a":0,"b":1,"k":1,"p":0.75,"df":0,"dfn":1,"dfd":0.5,"std":3,"t":1,"nc":2,"f":0.7,"y":0.45}
+variables: {"n":2,"v":1.5,"x":0.66,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"a":0,"b":1,"k":1,"p":0.75,"df":0,"dfn":1,"dfd":0.5,"std":3,"t":1,"nc":2,"f":0.7,"y":0.45,"mn":0.5,"e":1,"lmbda":0.66}
 ---
 title: |
   bdtr: Binomial distribution cumulative distribution function
@@ -644,7 +634,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Information Theory Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"v":1.5,"x":[-1,2,3],"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"y":[1,0,1.1],"delta":0.4}
+variables: {"n":2,"v":1.5,"x":[-1,2,3],"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"y":[1,0,1.1],"delta":0.4,"r":2}
 ---
 title: |
   entr: Elementwise function for computing entropy.
@@ -673,7 +663,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Gamma and Related Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"a":2.5,"y":0.45}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"a":1,"y":0.45,"b":4,"d":1,"c":-2,"m":1,"azimuthal_angle":5,"polar_angle":3}
 ---
 title: |
   gamma: Gamma function
@@ -881,7 +871,7 @@ variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5}
 title: |
   ellip_harm: Ellipsoidal harmonic functions $E^p_n(l)$
 code: |
-  special.ellip_harm(h2, k2, n, p, s[, signm, signn])
+  special.ellip_harm(h2, k2, n, p, s)
 ---
 title: |
   ellip_harm_2: Ellipsoidal harmonic functions $F^p_n(l)$
@@ -980,81 +970,81 @@ code: |
 title: |
   legendre: Coefficients of the $n$th order Legendre polynomial, $P_n(x)$
 code: |
-  special.legendre(n[, monic])
+  special.legendre(n)
 ---
 title: |
   chebyt: Coefficients of the $n$th order Chebyshev polynomial of first kind, $T_n(x)$
 code: |
-  special.chebyt(n[, monic])
+  special.chebyt(n)
 ---
 title: |
   chebyu: Coefficients of the $n$th order Chebyshev polynomial of second kind, $U_n(x)$
 code: |
-  special.chebyu(n[, monic])
+  special.chebyu(n)
 ---
 title: |
   chebyc: Coefficients of the $n$th order Chebyshev polynomial of first kind, $C_n(x)$
 code: |
-  special.chebyc(n[, monic])
+  special.chebyc(n)
 ---
 title: |
   chebys: Coefficients of the $n$th order Chebyshev polynomial of second kind, $S_n$(x)
 code: |
-  special.chebys(n[, monic])
+  special.chebys(n)
 ---
 title: |
   jacobi: Coefficients of the $n$th order Jacobi polynomial, $P^(\alpha,\beta)_n(x)$ orthogonal over [-1,1] with weighting function $(1-x)^\alpha (1+x)^\beta$ with $\alpha,\beta > -1$
 code: |
-  special.jacobi(n, alpha, beta[, monic])
+  special.jacobi(n, alpha, beta)
 ---
 title: |
   laguerre: Coefficients of the $n$th order Laguerre polynoimal, $L_n(x)$
 code: |
-  special.laguerre(n[, monic])
+  special.laguerre(n)
 ---
 title: |
   genlaguerre: Coefficients of the $n$th order generalized (associated) Laguerre polynomial,
 code: |
-  special.genlaguerre(n, alpha[, monic])
+  special.genlaguerre(n, alpha)
 ---
 title: |
   hermite: Coefficients of the $n$th order Hermite polynomial, $H_n(x)$, orthogonal over
 code: |
-  special.hermite(n[, monic])
+  special.hermite(n)
 ---
 title: |
   hermitenorm: Coefficients of the $n$th order normalized Hermite polynomial, $He_n(x)$, orthogonal
 code: |
-  special.hermitenorm(n[, monic])
+  special.hermitenorm(n])
 ---
 title: |
   gegenbauer: Coefficients of the $n$th order Gegenbauer (ultraspherical) polynomial,
 code: |
-  special.gegenbauer(n, alpha[, monic])
+  special.gegenbauer(n, alpha)
 ---
 title: |
   sh_legendre: Coefficients of the $n$th order shifted Legendre polynomial, $P^\ast_n(x)$
 code: |
-  special.sh_legendre(n[, monic])
+  special.sh_legendre(n)
 ---
 title: |
   sh_chebyt: Coefficients of $n$th order shifted Chebyshev polynomial of first kind, $T_n(x)$
 code: |
-  special.sh_chebyt(n[, monic])
+  special.sh_chebyt(n)
 ---
 title: |
   sh_chebyu: Coefficients of the $n$th order shifted Chebyshev polynomial of second kind, $U_n(x)$
 code: |
-  special.sh_chebyu(n[, monic])
+  special.sh_chebyu(n)
 ---
 title: |
   sh_jacobi: Coefficients of the $n$th order Jacobi polynomial, $G_n(p,q,x)$ orthogonal over [0,1] with weighting function $(1-x)^{p-q} x^{q-1}$ with $p>q-1$ and $q > 0$
 code: |
-  special.sh_jacobi(n, p, q[, monic])
+  special.sh_jacobi(n, p, q)
 ---
 category: ['SciPy / Special Func', 'Hypergeometric Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"a":1,"b":2}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"a":1,"b":2,"c":1.5}
 ---
 title: |
   hyp2f1: Gauss hypergeometric function ${}_2F_1(a, b; c; z)$
@@ -1075,21 +1065,6 @@ title: |
   hyp0f1: Confluent hypergeometric limit function ${}_0F_1$
 code: |
   special.hyp0f1(v, z)
----
-title: |
-  hyp2f0: Hypergeometric function ${}_2F_0$ in $y$ and an error estimate
-code: |
-  special.hyp2f0(a, b, x, type)
----
-title: |
-  hyp1f2: Hypergeometric function ${}_1F_2$ and error estimate
-code: |
-  special.hyp1f2(a, b, c, x)
----
-title: |
-  hyp3f0: Hypergeometric function ${}_3F_0$ in $y$ and an error estimate
-code: |
-  special.hyp3f0(a, b, c, x)
 ---
 category: ['SciPy / Special Func', 'Parabolic Cylinder Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
@@ -1359,7 +1334,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Combinatorics']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"N":5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"N":5,"k":3}
 ---
 title: |
   comb: The number of combinations of N things taken k at a time
@@ -1428,7 +1403,7 @@ code: |
 title: |
   factorialk: $n(!!...!)$ = multifactorial of order $k$
 code: |
-  special.factorialk(n, k, exact=False)
+  special.factorialk(n, k, exact=True)
 ---
 title: |
   shichi: Hyperbolic sine and cosine integrals
@@ -1448,7 +1423,7 @@ code: |
 title: |
   lambertw: Lambert $W$ function [R497]
 code: |
-  special.lambertw(z[, k, tol])
+  special.lambertw(z)
 ---
 title: |
   zeta: Hurwitz $\zeta$ function
@@ -1462,7 +1437,7 @@ code: |
 ---
 category: ['SciPy / Special Func', 'Convenience Functions']
 setup: "from scipy import special, integrate, optimize, interpolate\nfrom scipy.integrate import odeint"
-variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5}
+variables: {"n":2,"v":1.5,"x":1.5,"z":0.5,"alpha":0.5,"beta":0.5,"nt":5,"d":88,"m":60,"s":3600,"y":2.7182818284}
 ---
 title: |
   cbrt: $\sqrt[3]{x}$
