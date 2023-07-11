@@ -356,36 +356,49 @@ title: |
   Stirling number of the second kind
 code: |
   from sympy.functions.combinatorial.numbers import stirling
+  n = 6
+  k = 2
   stirling(n, k)
 ---
 title: |
   Stirling number of the first kind
 code: |
   from sympy.functions.combinatorial.numbers import stirling
+  n = 6
+  k = 2
   stirling(n, k, kind=1, signed=False)
 ---
 title: |
   Reduced Stirling number of the second kind
 code: |
   from sympy.functions.combinatorial.numbers import stirling
+  n = 6
+  k = 2
+  d = 3
   stirling(n, k, d)
 ---
 title: |
   Number of combinations of length k among n items
 code: |
   from sympy.functions.combinatorial.numbers import nC
+  n = 6
+  k = 2
   nC(n, k)
 ---
 title: |
   Number of permutations of length k among n items
 code: |
   from sympy.functions.combinatorial.numbers import nP
+  n = 6
+  k = 2
   nP(n, k)
 ---
 title: |
   Number of partitions of length k among n items
 code: |
   from sympy.functions.combinatorial.numbers import nT
+  n = 6
+  k = 2
   nT(n, k)
 ---
 category: ['Sympy', 'Functions / Special functions']
@@ -596,6 +609,8 @@ code: |
 title: |
   Zeros of the spherical Bessel function of the first kind
 code: |
+  n = 2
+  k = 4
   jn_zeros(n, k)
 ---
 category: ['Sympy', 'Special functions / Airy Functions']
@@ -632,7 +647,7 @@ code: |
   d = 3
   knots = range(5)
   n = 0
-  bspline_basis(d, knots, n, x, close=True)
+  bspline_basis(d, knots, n, x)
 ---
 title: |
   The B-splines at x of degree d with given knots
@@ -679,7 +694,7 @@ code: |
   q = 2
   a_j = symbols("a:{0}".format(p)) # numerator parameters
   b_k = symbols("b:{0}".format(q)) # denominator parameters
-  hyper(a_j, b_k)
+  hyper(a_j, b_k, x)
 ---
 title: |
   Meijer G-function
@@ -746,11 +761,13 @@ code: |
 title: |
   Root k of the nth Chebyshev polynomial of the first kind
 code: |
+  k = 2
   chebyshevt_root(n, k)
 ---
 title: |
   Root k of the nth Chebyshev polynomial of the second kind
 code: |
+  k = 2
   chebyshevu_root(n, k)
 ---
 title: |
@@ -890,6 +907,7 @@ code: |
   expr = x**4 - 4*x**3 + 2*x**2 - x
   eqn = Eq(expr, 0)
   soln = solve(eqn, x)
+  soln
 ---
 title: |
   Solve for two variables
@@ -913,6 +931,7 @@ title: |
 code: |
   expr = (x**3 + x**2 - x - 1)/(x**2 + 2*x + 1)
   expr = simplify(expr)
+  expr
 ---
 category: ['Sympy', 'Manipulating expressions / Refine, using assumptions']
 setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
@@ -924,6 +943,7 @@ code: |
   expr = exp(pi*I*2*(x+y))
   assumption = Q.integer(x) & Q.integer(y)
   expr = refine(expr, assumption)
+  expr
 ---
 title: |
   Refine in context manager
@@ -931,15 +951,11 @@ code: |
   expr = exp(pi*I*2*(x+y))
   with assuming(Q.integer(x) & Q.integer(y)):
       expr = refine(expr)
+  expr
 ---
 category: ['Sympy', 'Refine, using assumptions / List of assumptions']
 setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
 variables: {"d":3}
----
-title: |
-  Bounded
-code: |
-  Q.bounded(x)
 ---
 title: |
   Commutative
@@ -1032,9 +1048,9 @@ code: |
   Q.infinite(x)
 ---
 title: |
-  Infinitesimal
+  Zero
 code: |
-  Q.infinitesimal(x)
+  Q.zero(x)
 ---
 title: |
   Negative
@@ -1075,24 +1091,28 @@ title: |
 code: |
   expr = (x + 2)*(x - 3)
   expr = expand(expr)
+  expr
 ---
 title: |
   Expand, including complex parts
 code: |
   expr = cos(x)
   expr = expand(expr, complex=True)
+  expr
 ---
 title: |
   Expand, including functions
 code: |
   expr = gamma(x+3)
   expr = expand(expr, func=True)
+  expr
 ---
 title: |
   Expand, including trig
 code: |
   expr = sin(x+y)*(x+y)
   expr = expand(expr, trig=True)
+  expr
 ---
 title: |
   Expand only real and imaginary parts
@@ -1104,12 +1124,14 @@ title: |
 code: |
   expr = gamma(x + 2)
   expr = expand_func(expr)
+  expr
 ---
 title: |
   Expand only hypergeometric functions
 code: |
   expr = hyper([1,1], [1,], z) + gamma(z)
   expr = hyperexpand(expr)
+  expr
 ---
 title: |
   Expand only logarithms
@@ -1117,18 +1139,21 @@ code: |
   a, b = symbols("a, b", positive=True)
   expr = log(a**2*b)
   expr = expand_log(expr)
+  expr
 ---
 title: |
   Expand only multiplication over addition
 code: |
   expr = y*(x + z)
   expr = expand_mul(expr)
+  expr
 ---
 title: |
   Expand only multinomials
 code: |
   expr = (x + y + z)**3
   expr = expand_multinomial(expr)
+  expr
 ---
 title: |
   Expand only powers of multiplied bases
@@ -1136,18 +1161,21 @@ code: |
   a, b = symbols("a, b", positive=True)
   expr = (a*b)**z
   expr = expand_power_base(expr)
+  expr
 ---
 title: |
   Expand only addition in exponents
 code: |
   expr = x**(y + 2)
   expr = expand_power_exp(expr)
+  expr
 ---
 title: |
   Expand only trig
 code: |
   expr = sin(x+y)*(x+y)
   expr = expand_trig(expr)
+  expr
 ---
 category: ['Sympy', 'Manipulating expressions / Collect terms']
 setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
@@ -1158,12 +1186,14 @@ title: |
 code: |
   expr = y*x**2 + z*x**2 + t*x - 2*x + 3
   expr = collect(expr, x)
+  expr
 ---
 title: |
   Collect as coefficients of multiple factors
 code: |
   expr = x**2 + y*x**2 + x*y + y + z*y
   expr = collect(expr, [x, y])
+  expr
 ---
 title: |
   Collect with respect to wild card
@@ -1171,24 +1201,28 @@ code: |
   w = Wild("w")
   expr = z*x**y - t*z**y
   expr = collect(expr, w**y)
+  expr
 ---
 title: |
   Collect and apply function to each coefficient
 code: |
   expr = expand((x + y + 1)**3)
   expr = collect(expr, x, factor)
+  expr
 ---
 title: |
   Recursively collect
 code: |
   expr = (x**2*y + x*y + x + y)/(x*y + z*y)
   expr = rcollect(expr, y)
+  expr
 ---
 title: |
   Collect constants
 code: |
   expr = sqrt(3)*x + sqrt(7)*x + sqrt(3) + sqrt(7)
   expr = collect_const(expr)
+  expr
 ---
 category: ['Sympy', 'Manipulating expressions / Substitutions and replacements']
 setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
@@ -1199,6 +1233,7 @@ title: |
 code: |
   expr = 1 + x*y
   expr = expr.subs(x, pi)
+  expr
 ---
 title: |
   Substitute multiple subexpressions successively
@@ -1206,6 +1241,7 @@ code: |
   expr = (x+y)/y
   substitutions = [(x+y, y), (y, x+y)]
   expr = expr.subs(substitutions)
+  expr
 ---
 title: |
   Substitute multiple subexpressions simultaneously
@@ -1213,18 +1249,21 @@ code: |
   expr = (x+y)/y
   substitutions = [(x+y, y), (y, x+y)]
   expr = expr.subs(substitutions, simultaneous=True)
+  expr
 ---
 title: |
   Replace one object with another
 code: |
   expr = 1 + x*y
   expr = expr.replace(x, pi)
+  expr
 ---
 title: |
   Replace one object with some function of its arguments
 code: |
   expr = log(sin(x)) + tan(sin(x**2))
   expr = expr.replace(sin, lambda arg: sin(2*arg))
+  expr
 ---
 title: |
   Replace a pattern with an object
@@ -1236,6 +1275,7 @@ code: |
   replacement = b - a
   # Note: `exact=True` demands that all Wilds have nonzero matches
   expr = expr.replace(wild, replacement, exact=True)
+  expr
 ---
 title: |
   Replace a pattern with some function of that object
@@ -1243,12 +1283,14 @@ code: |
   a = symbols("a", cls=Wild, exclude=[])
   expr = log(sin(x)) + tan(sin(x**2))
   expr.replace(sin(a), lambda a: sin(2*a))
+  expr
 ---
 title: |
   Replace anything with some function of that thing
 code: |
   g = 2*sin(x**3)
   g.replace(lambda expr: expr.is_Function, lambda expr: expr**2)
+  g
 ---
 title: |
   Replace exact subexpressions
@@ -1256,6 +1298,7 @@ code: |
   expr = x**2 + x**4
   replacements = {x**2: y}
   expr = expr.xreplace(replacements)
+  expr
 ---
 category: ['Sympy', 'Manipulating expressions / Evaluation']
 setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
@@ -1267,12 +1310,14 @@ code: |
   expr = x * sqrt(8)
   precision = 50
   val = N(expr, precision, subs={x:2.4})
+  val
 ---
 title: |
   Evaluate numerically to python float
 code: |
   expr = x * sqrt(8)
   val = float(expr.subs([(x, 2.4)]))
+  val
 ---
 title: |
   Create numpy function for efficient evaluation
@@ -1282,6 +1327,7 @@ code: |
   expr = sin(x)
   f = lambdify(x, expr, "numpy")
   vals = f(a)
+  vals
 ---
 category: ['Sympy', 'Manipulating expressions / Polynomials']
 setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
@@ -1292,18 +1338,21 @@ title: |
 code: |
   expr = x**3 - x**2 + x - 1
   expr = factor(expr)
+  expr
 ---
 title: |
   Collect common powers of a term
 code: |
   expr = x*y + x - 3 + 2*x**2 - z*x**2 + x**3
   expr = collect(expr, x)
+  expr
 ---
 title: |
   Extract coefficient of a term
 code: |
   expr = 3+2*x+4*x**2
   expr = expr.coeff(x**2)
+  expr
 ---
 category: ['Sympy', 'Manipulating expressions / Rational functions']
 setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
@@ -1314,24 +1363,28 @@ title: |
 code: |
   expr = (x**2 + 2*x + 1)/(x**2 + x)
   expr = cancel(expr)
+  expr
 ---
 title: |
   Decompose into partial fractions
 code: |
   expr = (4*x**3 + 21*x**2 + 10*x + 12)/(x**4 + 5*x**3 + 5*x**2 + 4*x)
   expr = apart(expr)
+  expr
 ---
 title: |
   Join over common denominator
 code: |
   expr = 1/x + 1/y
   expr = ratsimp(expr)
+  expr
 ---
 title: |
   Remove square roots from denominator
 code: |
   expr = 1/(1+I)
   expr = radsimp(expr)
+  expr
 ---
 category: ['Sympy', 'Manipulating expressions / Powers']
 setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
@@ -1420,18 +1473,21 @@ title: |
 code: |
   expr = sin(x + y)
   expr = expand(expr, trig=True)
+  expr
 ---
 title: |
   Simplification
 code: |
   expr = sin(x)**4 - 2*cos(x)**2*sin(x)**2 + cos(x)**4
   expr = trigsimp(expr)
+  expr
 ---
 title: |
   Simplification, possibly to exponentials
 code: |
   expr = cosh(z) - sinh(z)
   expr = exptrigsimp(expr)
+  expr
 ---
 category: ['Sympy', 'Manipulating expressions / Miscellaneous']
 setup: "from sympy import *\nfrom sympy.abc import a, b, s, t, u, v, w, x, y, z\nk, m, n = symbols(\"k, m, n\", integer=True)\nf, g, h = symbols(\"f, g, h\", cls=Function)"
@@ -1442,12 +1498,14 @@ title: |
 code: |
   expr = factorial(n)/factorial(n - 3)
   expr = combsimp(expr)
+  expr
 ---
 title: |
   Simplify binomials
 code: |
   expr = binomial(n+1, k+1)/binomial(n, k)
   expr = combsimp(expr)
+  expr
 ---
 title: |
   Simplify numerical expressions to exact values
@@ -1459,9 +1517,11 @@ title: |
 code: |
   expr = gamma(z+3)
   expr = expand_func(expr)
+  expr
 ---
 title: |
   Simplify Bessel functions
 code: |
   expr = besselj(x, z*polar_lift(-1))
   expr = besselsimp(expr)
+  expr
