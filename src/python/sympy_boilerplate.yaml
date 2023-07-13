@@ -352,53 +352,44 @@ title: |
 code: |
   rf(x, k)
 ---
+category: ['Sympy', 'Functions / Combinatorial functions on numbers']
+setup: "from sympy import *\n"
+variables: {"n":6, "k":2, "d":3}
+---
 title: |
   Stirling number of the second kind
 code: |
   from sympy.functions.combinatorial.numbers import stirling
-  n = 6
-  k = 2
   stirling(n, k)
 ---
 title: |
   Stirling number of the first kind
 code: |
   from sympy.functions.combinatorial.numbers import stirling
-  n = 6
-  k = 2
   stirling(n, k, kind=1, signed=False)
 ---
 title: |
   Reduced Stirling number of the second kind
 code: |
   from sympy.functions.combinatorial.numbers import stirling
-  n = 6
-  k = 2
-  d = 3
   stirling(n, k, d)
 ---
 title: |
   Number of combinations of length k among n items
 code: |
   from sympy.functions.combinatorial.numbers import nC
-  n = 6
-  k = 2
   nC(n, k)
 ---
 title: |
   Number of permutations of length k among n items
 code: |
   from sympy.functions.combinatorial.numbers import nP
-  n = 6
-  k = 2
   nP(n, k)
 ---
 title: |
   Number of partitions of length k among n items
 code: |
   from sympy.functions.combinatorial.numbers import nT
-  n = 6
-  k = 2
   nT(n, k)
 ---
 category: ['Sympy', 'Functions / Special functions']
