@@ -8,7 +8,7 @@ category: Miscellaneous / Cython
 title: "Cython Class"
 descr: "Defines a [Cython](https://cython.org/) class"
 code: |
-  %cython
+  %%cython
   cdef class MyClass:
       """
       This is a Cython class.

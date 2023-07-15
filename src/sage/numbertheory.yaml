@@ -128,7 +128,7 @@ title: "Galois Group"
 code: |
   R.<x> = PolynomialRing(QQ)
   K = NumberField(x^3 + x^2 - 2*x + 8, 'a')
-  K.galois_group(type="pari")
+  K.galois_group()
 ---
 title: "Quotient Polynomial Ring"
 code: |
