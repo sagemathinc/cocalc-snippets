@@ -183,7 +183,7 @@ descr: |
   with the initial conditions $y(2) = 4$
   looks like.
 code: |
-  x = var('x')
+  x = var('x') 
   y = function('yy')(x)
   eq = diff(y, x) == - y/x - x + 2
   h = desolve(eq, y, [2, 4])
@@ -192,7 +192,7 @@ code: |
 
   # substituting the solution for y(x) in the right hand side
   substituted = eq.rhs().substitute_function(yy, sol)
-
+  y = var('y')
   P1 = plot_slope_field( substituted, (x, 0, 6), (y, -5, 15), headlength = 4, headaxislength=3 )
   P2 = plot( sol, (x, 0, 6), ymax=15, ymin=-5 )
   P = P1 + P2
@@ -298,7 +298,7 @@ descr: >
 ---
 title: 4 Points
 code: |
-  show(points([(1,0), (sqrt(2)/2,sqrt(2)/2), (0,1), (1/2,1/2)], color='darkgreen', pointsize=50), aspect_ratio=1)
+  show(point([(1,0), (sqrt(2)/2,sqrt(2)/2), (0,1), (1/2,1/2)], color='darkgreen', pointsize=50), aspect_ratio=1)
 ---
 title: Line with point at the end
 code: |
@@ -377,7 +377,7 @@ descr: >
 ---
 title: Text with formula
 code: |
-  text(r"Text and LaTeX: $\\alpha^3 + 1$", (1,1), color="black", fontsize=15, rotation=30)
+  text(r"Text and LaTeX: $\alpha^3 + 1$", (1,1), color="black", fontsize=15, rotation=30)
 ---
 title: Lines
 code: |
